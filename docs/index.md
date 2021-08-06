@@ -17,10 +17,8 @@ This class meets Monday, Wednesday, and Friday from 2.40-4 in Rm TBA. The typica
 | Day| Activity|
 | --- | --- |
 | Monday | Lab; Homework assigned |
-| Wednesday | Lecture/Application exercise|
-| Friday | Lecture/Application exercise; Homework due. |
-
-Labs and application exercise will typically be done in class. However, there are some take home (TH) application exercises later on in the course.
+| Wednesday | Lecture or application exercise|
+| Friday | Lecture or application exercise; Homework due |
 
 ## DCS Values, Goals, and Practices
 
@@ -47,16 +45,27 @@ All books for this course are freely available online as e-books. We will be usi
 
 ## Grade: 
 - 40% 9 Weekly homework assignments (1 homework assignment may be dropped).
-- 20% Labs and Class Participation
+- 20% Labs and Class Discussions
 - 20% Final Project 
 - 10% Final Project Presentation
 - 10% Final Exam
+
+### Course Activities
+-	**Homework:** Homework exercises will be assigned on a Monday and will be due the following Friday at 2.40pm. There are 9 weekly homework assignments each worth 5%. One homework assignment may be dropped. 
+- **Labs and Application Exercises:** Attendance to class is important as we will be completing labs and application exercises together in class. Most in-class assignments will be graded on completion, and if you need extra time to complete an in-class project, have it checked off next class, at the next professor office hours, or at the next TA session. 
+- **Final Project:** You will also have a final group project that asks you to explore a dataset of your own and use the tools you’ve learned during the semester. You will work together collaboratively and present your work in a final presentation.
+- **Final Exam:** There will be a final exam on the 
+
+
 
 *Tutoring in the local school and completing a reflect can count for 5% credit on the course. This credit can be counted in place of a homework assignment. 
 
 Lower bound percent earned for letter grade:
 A  93     A-  90    B+  87    B  83     B-  80    C+  77    C  73    C-  70   D+  67   D  63   D-  60   F below 60 
 A+    reserved for exceptional work
+
+
+
 
 ## Universal Learning and Learning in Community
 
