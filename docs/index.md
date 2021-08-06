@@ -10,20 +10,17 @@ The course content is organized in five units:
 - **Unit 4 - Making rigorous conclusions:** In this unit we introduce modelling and statistical inference for making data-based conclusions. We discuss building, interpreting, and selecting models, visualizing interaction effects, and prediction and model validation. Statistical inference is introduced from a simulation based perspective, and the Central Limit Theorem is discussed very briefly to lay the foundation for future coursework in statistics.
 - **Unit 5 - Looking forward:** In the last unit we will explore a series of short modules. These will be chosen by you and could include modules such as interactive reporting and visualization with Shiny, text analysis, creating maps, and machine learning. 
 
-## Class Schedule
+## Weekly Class Schedule
 
-This class meets Monday, Wednesday, and Friday from 2.40-4 in Rm X.
+This class meets Monday, Wednesday, and Friday from 2.40-4 in Rm TBA. The typical weekly class schedule will be:
 
-**Mondays:**
-- Lab, or occasional lecture.
-- Weekly homework assigned due on Friday
+| Day| Activity|
+| --- | --- |
+| Monday | Lab; Homework assigned |
+| Wednesday | Lecture/Application exercise|
+| Friday | Lecture/Application exercise; Homework due. |
 
-**Wednesdays:**
-- Lecture or Application Exercises
-
-**Fridays:**
-- Homework due.
-- Lecture.
+Labs and application exercise will typically be done in class. However, there are some take home (TH) application exercises later on in the course.
 
 ## DCS Values, Goals, and Practices
 
@@ -97,8 +94,8 @@ The college prohibits discrimination on the basis of race, color, national or et
 |2|Wk 4|W|Sept 22|Data classes|Lecture| |
 |2|Wk 4|F|Sept 24|Importing data|Lecture| |
 |2|Wk 4|F|Sept 24|Recoding data|Lecture| |
-|2|Wk 4|F|Sept 24|Hotels + Data types|Application exercise (Take Home)| |
-|2|Wk 4|F|Sept 24|Nobels + Sales + Data import|Application exercise (Take Home)| |
+|2|Wk 4|F|Sept 24|Hotels + Data types|Application exercise (TH)| |
+|2|Wk 4|F|Sept 24|Nobels + Sales + Data import|Application exercise (TH)| |
 |2|Wk 5|M|Sept 27|La Quinta is Spanish for next to Denny’s, Pt. 1|Lab| |
 |2|Wk 5|M|Sept 27|College majors|**Homework**|F: Oct 1|
 |2|Wk 5|W|Sept 29|Tips for effective data visualization|Lecture| |
@@ -149,10 +146,10 @@ The college prohibits discrimination on the basis of race, color, national or et
 |5|Wk 13|W|Dec 1|Machine learning|Lecture| |
 |5|Wk 13|F|Dec 3|Project presentations|Lab| |
 |5|Wk 13|TBD|TBD|Final Exam|Exam| |
-| | | | | | | |
 
-*M: Monday, W: Wednesday, F: Friday
+
+*M: Monday, W: Wednesday, F: Friday, TH: Take Home
 
 ## Acknowledgements
 
-This course comes from the [datasciencebox.org](https://datasciencebox.org/) project which is released under a [Creative Commons Attribution Share Alike 4.0 International](LICENSE.md) license. 
+This course comes from the [datasciencebox.org](https://datasciencebox.org/) project by Mine Çetinkaya-Rundel which is released under a [Creative Commons Attribution Share Alike 4.0 International](LICENSE.md) license. 
