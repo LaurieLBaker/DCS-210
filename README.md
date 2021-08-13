@@ -12,7 +12,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 1: Meet the Toolkit Git](course-materials/slides/u1-d03-toolkit-git/u1-d03-toolkit-git.html)
 
 ### Week 2: Visualizing data
-- [Week 2: Data Viz](course-materials/slides/u2-d01-data-viz/u2-d03-data-viz.html)
+- [Week 2: Data Viz](course-materials/slides/u2-d01-data-viz/u2-d01-data-viz.html)
 - [Week 2: ggplot2](course-materials/slides/u2-d02-ggplot2/u2-d02-ggplot2.html)
 - [Week 2: Numerical data viz](course-materials/slides/u2-d03-viz-num/u2-d03-viz-num.html)
 - [Week 2: Categorical data viz](course-materials/slides/u2-d04-viz-cat/u2-d04-viz-cat.html)
@@ -29,11 +29,33 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 4: Data Types](course-materials/slides/u2-d10-data-types/u2-d10-data-types.html)
 - [Week 4: Data Classes](course-materials/slides/u2-d11-data-classes/u2-d11-data-classes.html)
 
+- [Week 4: Text analysis](course-materials/slides/u2-d11-text-analysis/u2-d11-text-analysis.html)
+- [Week 4: Data Import](course-materials/slides/u2-d12-data-import/u2-d12-data-import.html)
+- [Week 4: Data Recode](course-materials/slides/u2-d13-data-recode/u2-d13-data-recode.html)
+
 ### Week 5: Communicating data science results effectively
+
+- [Week 5: Effective Dataviz](course-materials/slides/u2-d14-effective-dataviz/u2-d14-effective-dataviz.html)
+- [Week 5: Studies Confounding](course-materials/slides/u2-d15-studies-confounding/u2-d15-studies-confounding.html)
+- [Week 5: Simpsons Paradox](course-materials/slides/u2-d16-simpsons-paradox/u2-d16-simpsons-paradox.html)
+- [Week 5: Doing Data Science](course-materials/slides/u2-d17-doing-data-science/u2-d17-doing-data-science.html)
+
 
 ### Week 6: Webscraping and programming
 
+- [Week 6: Web scraping](course-materials/slides/u2-d18-web-scrape/u2-d18-web-scrape.html)
+- [Week 6: Top 250 imdb](course-materials/slides/u2-d19-top-250-imdb/u2-d19-top-250-imdb.html)
+- [Week 6:Considerations](course-materials/slides/u2-d20-considerations/u2-d20-considerations.html)
+
+
 ### Week 7: Data science ethics
+
+- [Week 7: Functions](course-materials/slides/u2-d21-functions/u2-d21-functions.html)
+- [Week 7: Iteration](course-materials/slides/u2-d22-iteration/u2-d22-iteration.html)
+- [Week 7: Misrepresentation](course-materials/slides/u3-d01-misrepresentation/u3-d01-misrepresentation.html)
+- [Week 7: Privacy](course-materials/slides/u3-d02-privacy/u3-d02-privacy.html)
+- [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
+
 
 ### Week 8: Modelling data
 
@@ -43,6 +65,9 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Week 11: Looking beyond DCS 201
 
+Additional:
+
+u2-d17-doing-data-science
 
 
 
