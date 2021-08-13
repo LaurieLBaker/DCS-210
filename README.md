@@ -7,27 +7,27 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 ## Slides
 
 ### Week 1: Meet the Toolkit
-[Week 1: Welcome to data science!](course-materials/slides/u1-d01-welcome/u1-d01-welcome.html)
-[Week 1: Meet the Toolkit R and RStudio](course-materials/slides/u1-d02-toolkit-r/u1-d02-toolkit-r.html)
-[Week 1: Meet the Toolkit Git](course-materials/slides/u1-d03-toolkit-git/u1-d03-toolkit-git.html)
+- [Week 1: Welcome to data science!](course-materials/slides/u1-d01-welcome/u1-d01-welcome.html)
+- [Week 1: Meet the Toolkit R and RStudio](course-materials/slides/u1-d02-toolkit-r/u1-d02-toolkit-r.html)
+- [Week 1: Meet the Toolkit Git](course-materials/slides/u1-d03-toolkit-git/u1-d03-toolkit-git.html)
 
 ### Week 2: Visualizing data
-[Week 2: Data Viz](course-materials/slides/u2-d01-data-viz/u2-d03-data-viz.html)
-[Week 2: ggplot2](course-materials/slides/u2-d02-ggplot2/u2-d02-ggplot2.html)
-[Week 2: Numerical data viz](course-materials/slides/u2-d03-viz-num/u2-d03-viz-num.html)
-[Week 2: Categorical data viz](course-materials/slides/u2-d04-viz-cat/u2-d04-viz-cat.html)
+- [Week 2: Data Viz](course-materials/slides/u2-d01-data-viz/u2-d03-data-viz.html)
+- [Week 2: ggplot2](course-materials/slides/u2-d02-ggplot2/u2-d02-ggplot2.html)
+- [Week 2: Numerical data viz](course-materials/slides/u2-d03-viz-num/u2-d03-viz-num.html)
+- [Week 2: Categorical data viz](course-materials/slides/u2-d04-viz-cat/u2-d04-viz-cat.html)
 
 ### Week 3: Wrangling and tidying data
-[Week 3: Tidy Data](course-materials/slides/u2-d05-tidy-data/u2-d05-tidy-data.html)
-[Week 3: Wrangle](course-materials/slides/u2-d06-grammar-wrangle/u2-d06-grammar-wrangle.html)
-[Week 3: Single dplyr verbs](course-materials/slides/u2-d07-single-df/u2-d07-single-df.html)
-[Week 3: Multi dplyr verbs](course-materials/slides/u2-d08-multi-df/u2-d08-multi-df.html)
+- [Week 3: Tidy Data](course-materials/slides/u2-d05-tidy-data/u2-d05-tidy-data.html)
+- [Week 3: Wrangle](course-materials/slides/u2-d06-grammar-wrangle/u2-d06-grammar-wrangle.html)
+- [Week 3: Single dplyr verbs](course-materials/slides/u2-d07-single-df/u2-d07-single-df.html)
+- [Week 3: Multi dplyr verbs](course-materials/slides/u2-d08-multi-df/u2-d08-multi-df.html)
 
 
 ### Week 4: Importing and recoding data
-[Week 4: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
-[Week 4: Data Types](course-materials/slides/u2-d10-data-types/u2-d10-data-types.html)
-[Week 4: Data Classes](course-materials/slides/u2-d11-data-classes/u2-d11-data-classes.html)
+- [Week 4: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
+- [Week 4: Data Types](course-materials/slides/u2-d10-data-types/u2-d10-data-types.html)
+- [Week 4: Data Classes](course-materials/slides/u2-d11-data-classes/u2-d11-data-classes.html)
 
 ### Week 5: Communicating data science results effectively
 
