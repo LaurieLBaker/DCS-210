@@ -4,27 +4,37 @@ Hello and welcome to **DCS 210. Programming for Data Analysis and Visualisation*
 
 This course comes from the [datasciencebox.org](https://datasciencebox.org/) project which is released under a [Creative Commons Attribution Share Alike 4.0 International](LICENSE.md) license.
 
-## Slides
+## Week 1: Meet the Toolkit
 
-### Week 1: Meet the Toolkit
+### Slides
 - [Week 1: Welcome to data science!](course-materials/slides/u1-d01-welcome/u1-d01-welcome.html)
 - [Week 1: Meet the Toolkit R and RStudio](course-materials/slides/u1-d02-toolkit-r/u1-d02-toolkit-r.html)
 - [Week 1: Meet the Toolkit Git](course-materials/slides/u1-d03-toolkit-git/u1-d03-toolkit-git.html)
 
-### Week 2: Visualizing data
+### Labs and Homework
+
+- [Week 1: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
+- [Week 1: Lab 00](course-materials/lab-instructions/lab-01/lab-01-hello-r.html)
+
+
+## Week 2: Visualizing data
+
+### Slides
 - [Week 2: Data Viz](course-materials/slides/u2-d01-data-viz/u2-d01-data-viz.html)
 - [Week 2: ggplot2](course-materials/slides/u2-d02-ggplot2/u2-d02-ggplot2.html)
 - [Week 2: Numerical data viz](course-materials/slides/u2-d03-viz-num/u2-d03-viz-num.html)
 - [Week 2: Categorical data viz](course-materials/slides/u2-d04-viz-cat/u2-d04-viz-cat.html)
 
-### Week 3: Wrangling and tidying data
+### Labs and Homework
+- 
+
+## Week 3: Wrangling and tidying data
 - [Week 3: Tidy Data](course-materials/slides/u2-d05-tidy-data/u2-d05-tidy-data.html)
 - [Week 3: Wrangle](course-materials/slides/u2-d06-grammar-wrangle/u2-d06-grammar-wrangle.html)
 - [Week 3: Single dplyr verbs](course-materials/slides/u2-d07-single-df/u2-d07-single-df.html)
 - [Week 3: Multi dplyr verbs](course-materials/slides/u2-d08-multi-df/u2-d08-multi-df.html)
 
-
-### Week 4: Importing and recoding data
+## Week 4: Importing and recoding data
 - [Week 4: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
 - [Week 4: Data Types](course-materials/slides/u2-d10-data-types/u2-d10-data-types.html)
 - [Week 4: Data Classes](course-materials/slides/u2-d11-data-classes/u2-d11-data-classes.html)
@@ -33,22 +43,20 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 4: Data Import](course-materials/slides/u2-d12-data-import/u2-d12-data-import.html)
 - [Week 4: Data Recode](course-materials/slides/u2-d13-data-recode/u2-d13-data-recode.html)
 
-### Week 5: Communicating data science results effectively
+## Week 5: Communicating data science results effectively
 
 - [Week 5: Effective Dataviz](course-materials/slides/u2-d14-effective-dataviz/u2-d14-effective-dataviz.html)
 - [Week 5: Studies Confounding](course-materials/slides/u2-d15-studies-confounding/u2-d15-studies-confounding.html)
 - [Week 5: Simpsons Paradox](course-materials/slides/u2-d16-simpsons-paradox/u2-d16-simpsons-paradox.html)
 - [Week 5: Doing Data Science](course-materials/slides/u2-d17-doing-data-science/u2-d17-doing-data-science.html)
 
-
-### Week 6: Webscraping and programming
+## Week 6: Webscraping and programming
 
 - [Week 6: Web scraping](course-materials/slides/u2-d18-web-scrape/u2-d18-web-scrape.html)
 - [Week 6: Top 250 imdb](course-materials/slides/u2-d19-top-250-imdb/u2-d19-top-250-imdb.html)
 - [Week 6:Considerations](course-materials/slides/u2-d20-considerations/u2-d20-considerations.html)
 
-
-### Week 7: Data science ethics
+## Week 7: Data science ethics
 
 - [Week 7: Functions](course-materials/slides/u2-d21-functions/u2-d21-functions.html)
 - [Week 7: Iteration](course-materials/slides/u2-d22-iteration/u2-d22-iteration.html)
@@ -56,14 +64,13 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 7: Privacy](course-materials/slides/u3-d02-privacy/u3-d02-privacy.html)
 - [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
 
+## Week 8: Modelling data
 
-### Week 8: Modelling data
+## Week 9 Classification and model building
 
-### Week 9 Classification and model building
+## Week 10: Model validation and uncertainty quantification
 
-### Week 10: Model validation and uncertainty quantification
-
-### Week 11: Looking beyond DCS 201
+## Week 11: Looking beyond DCS 201
 
 Additional:
 
