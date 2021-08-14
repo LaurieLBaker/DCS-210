@@ -15,7 +15,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 - [Week 1: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
 - [Week 1: Lab 00](course-materials/lab-instructions/lab-01/lab-01-hello-r.html)
-
+- [Week 1: Application exercise](course-materials/application-exercises/ae-01a-un-votes/unvotes.html)
 
 ## Week 2: Visualizing data
 
