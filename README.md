@@ -76,6 +76,12 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 6: Top 250 imdb](course-materials/slides/u2-d19-top-250-imdb/u2-d19-top-250-imdb.html)
 - [Week 6:Considerations](course-materials/slides/u2-d20-considerations/u2-d20-considerations.html)
 
+### Labs and Homework
+- [Week 6: Homework 02, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
+- [Week 6: Lab 04](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
+- [Week 6: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
+
 ## Week 7: Data science ethics
 
 - [Week 7: Functions](course-materials/slides/u2-d21-functions/u2-d21-functions.html)
@@ -84,7 +90,32 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 7: Privacy](course-materials/slides/u3-d02-privacy/u3-d02-privacy.html)
 - [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
 
+### Labs and Homework
+- [Week 7: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
+- [Week 7: Lab 05](course-materials/lab-instructions/lab-09/lab-09-better-viz.html) 
+- [Week 7: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
+
 ## Week 8: Modelling data
+
+2	The language of models			27:16	
+3	Fitting and interpreting models			29:04	
+4	Modelling nonlinear relationships			20:44	
+5	Models with multiple predictors			20:52	
+6	More models with multiple predictors			23:56	
+
+- [Week 8: Language of models](course-materials/slides/u4-d01-language-of-models/u4-d01-language-of-models.html)
+- [Week 8: Fitting and interpreting models](course-materials/slides/u4-d02-fitting-interpreting-models/u4-d02-fitting-interpreting-models.html)
+- [Week 8: Modelling nonlinear relationships](course-materials/slides/u4-d03-modeling-nonlinear-relationships/u4-d03-modeling-nonlinear-relationships.html)
+- [Week 8: Models with multiple predictors](course-materials/slides/u4-d04-model-multiple-predictors/u4-d04-model-multiple-predictors.html)
+- [Week 8: More models with multiple predictors](course-materials/slides/u4-d05-more-model-multiple-predictors/u4-d05-more-model-multiple-predictors.html)
+
+### Labs and Homework
+- [Week 8: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
+- [Week 8: Lab 05](course-materials/lab-instructions/lab-09/lab-09-better-viz.html) 
+- [Week 8: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
+
 
 ## Week 9 Classification and model building
 
