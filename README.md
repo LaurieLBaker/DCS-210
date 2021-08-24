@@ -27,7 +27,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 2: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
-- [Week 2: Lab 02](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
+- [Week 2: Lab 01](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
 - [Week 2: Application exercise](course-materials/application-exercises/ae-03-starwars-dataviz/starwars.Rmd)
 
 ## Week 3: Wrangling and tidying data
@@ -35,14 +35,14 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 3: Wrangle](course-materials/slides/u2-d06-grammar-wrangle/u2-d06-grammar-wrangle.html)
 - [Week 3: Single dplyr verbs](course-materials/slides/u2-d07-single-df/u2-d07-single-df.html)
 - [Week 3: Multi dplyr verbs](course-materials/slides/u2-d08-multi-df/u2-d08-multi-df.html)
-
+- [Week 3: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
 ### Labs and Homework
-- [Week 3: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
+- [Week 3: Homework 01, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
 - [Week 3: Lab 02](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
 - [Week 3: Application exercise](course-materials/application-exercises/ae-03-starwars-dataviz/starwars.Rmd)
 
 ## Week 4: Importing and recoding data
-- [Week 4: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
+
 - [Week 4: Data Types](course-materials/slides/u2-d10-data-types/u2-d10-data-types.html)
 - [Week 4: Data Classes](course-materials/slides/u2-d11-data-classes/u2-d11-data-classes.html)
 
@@ -51,7 +51,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 4: Data Recode](course-materials/slides/u2-d13-data-recode/u2-d13-data-recode.html)
 
 ### Labs and Homework
-- [Week 4: Homework 01, Airbnb Edinburgh](course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.html) 
+- [Week 4: Homework 02, Airbnb Edinburgh](course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.html) 
 - [Week 4: Lab 03](course-materials/lab-instructions/lab-03/lab-03-nobel-laureates.html) 
 - [Week 4: Application exercise](course-materials/application-exercises/ae-05-hotels-datatypes/hotels-forcats.Rmd)
 - [Week 4: Application exercise](course-materials/application-exercises/ae-06-nobels-sales-dataimport/nobels-csv.Rmd)
@@ -65,7 +65,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 5: Doing Data Science](course-materials/slides/u2-d17-doing-data-science/u2-d17-doing-data-science.html)
 
 ### Labs and Homework
-- [Week 5: Homework 02, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
+- [Week 5: Homework 03, Road accidents](course-materials/hw-instructions/hw-03/hw-03-college-majors.html) 
 - [Week 5: Lab 04](course-materials/lab-instructions/lab-06/lab-06-sad-plots.html) 
 - [Week 5: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
@@ -75,17 +75,18 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 6: Web scraping](course-materials/slides/u2-d18-web-scrape/u2-d18-web-scrape.html)
 - [Week 6: Top 250 imdb](course-materials/slides/u2-d19-top-250-imdb/u2-d19-top-250-imdb.html)
 - [Week 6:Considerations](course-materials/slides/u2-d20-considerations/u2-d20-considerations.html)
+- [Week 6: Functions](course-materials/slides/u2-d21-functions/u2-d21-functions.html)
+- [Week 6: Iteration](course-materials/slides/u2-d22-iteration/u2-d22-iteration.html)
 
 ### Labs and Homework
-- [Week 6: Homework 02, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
+- [Week 6: Homework 04, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
 - [Week 6: Lab 04](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
 - [Week 6: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
 ## Week 7: Data science ethics
 
-- [Week 7: Functions](course-materials/slides/u2-d21-functions/u2-d21-functions.html)
-- [Week 7: Iteration](course-materials/slides/u2-d22-iteration/u2-d22-iteration.html)
+
 - [Week 7: Misrepresentation](course-materials/slides/u3-d01-misrepresentation/u3-d01-misrepresentation.html)
 - [Week 7: Privacy](course-materials/slides/u3-d02-privacy/u3-d02-privacy.html)
 - [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
