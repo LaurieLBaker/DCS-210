@@ -125,11 +125,29 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ## Week 10: Model validation and uncertainty quantification
 
+- [Week 10: Cross Validation](course-materials/slides/u4-d09-cross-validation/u4-d09-cross-validation.html)
+- [Week 10: Quantifying Uncertainty](course-materials/slides/u4-d10-quantify-uncertainty/u4-d10-quantify-uncertainty.html)
+- [Week 10: Bootstrapping](course-materials/slides/u4-d11-bootstrap/u4-d11-bootstrap.html)
+
+### Labs and Homework
+
+- [Week 10: Lab 06](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
+- [Week 10: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
+
+
 ## Week 11: Looking beyond DCS 201
 
-Additional:
+- [Week 11: Text analysis](course-materials/slides/u4-d06-logistic-reg/u4-d06-logistic-reg.html)
+- [Week 11: Comparing texts](course-materials/slides/u4-d07-prediction-overfitting/u4-d07-prediction-overfitting.html)
+- [Week 11: Interactive web apps](course-materials/slides/u4-d08-feature-engineering/u4-d08-feature-engineering.html)
+- [Week 11: Machine Learning](course-materials/slides/u4-d08-feature-engineering/u4-d08-feature-engineering.html)
 
-u2-d17-doing-data-science
+
+### Labs and Homework
+
+- [Week 11: Lab 06](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
+- [Week 11: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
 
