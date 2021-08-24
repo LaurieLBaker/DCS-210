@@ -98,12 +98,6 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ## Week 8: Modelling data
 
-2	The language of models			27:16	
-3	Fitting and interpreting models			29:04	
-4	Modelling nonlinear relationships			20:44	
-5	Models with multiple predictors			20:52	
-6	More models with multiple predictors			23:56	
-
 - [Week 8: Language of models](course-materials/slides/u4-d01-language-of-models/u4-d01-language-of-models.html)
 - [Week 8: Fitting and interpreting models](course-materials/slides/u4-d02-fitting-interpreting-models/u4-d02-fitting-interpreting-models.html)
 - [Week 8: Modelling nonlinear relationships](course-materials/slides/u4-d03-modeling-nonlinear-relationships/u4-d03-modeling-nonlinear-relationships.html)
@@ -112,12 +106,21 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 8: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
-- [Week 8: Lab 05](course-materials/lab-instructions/lab-09/lab-09-better-viz.html) 
+- [Week 8: Lab 06](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.Rmd) 
 - [Week 8: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
-
 ## Week 9 Classification and model building
+
+- [Week 9: Logistic Regression](course-materials/slides/u4-d06-logistic-reg/u4-d06-logistic-reg.html)
+- [Week 9: Prediction and overfitting](course-materials/slides/u4-d07-prediction-overfitting/u4-d07-prediction-overfitting.html)
+- [Week 9: Feature engineering](course-materials/slides/u4-d08-feature-engineering/u4-d08-feature-engineering.html)
+
+### Labs and Homework
+
+- [Week 9: Lab 06](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
+- [Week 9: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
 
 ## Week 10: Model validation and uncertainty quantification
 
