@@ -92,7 +92,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
 
 ### Labs and Homework
-- [Week 7: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
+- [Week 7: Homework 04](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
 - [Week 7: Lab 05](course-materials/lab-instructions/lab-09/lab-09-better-viz.html) 
 - [Week 7: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
