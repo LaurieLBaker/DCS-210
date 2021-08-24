@@ -26,13 +26,20 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 2: Categorical data viz](course-materials/slides/u2-d04-viz-cat/u2-d04-viz-cat.html)
 
 ### Labs and Homework
-- 
+- [Week 2: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
+- [Week 2: Lab 02](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
+- [Week 2: Application exercise](course-materials/application-exercises/ae-03-starwars-dataviz/starwars.Rmd)
 
 ## Week 3: Wrangling and tidying data
 - [Week 3: Tidy Data](course-materials/slides/u2-d05-tidy-data/u2-d05-tidy-data.html)
 - [Week 3: Wrangle](course-materials/slides/u2-d06-grammar-wrangle/u2-d06-grammar-wrangle.html)
 - [Week 3: Single dplyr verbs](course-materials/slides/u2-d07-single-df/u2-d07-single-df.html)
 - [Week 3: Multi dplyr verbs](course-materials/slides/u2-d08-multi-df/u2-d08-multi-df.html)
+
+### Labs and Homework
+- [Week 3: Homework 00, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
+- [Week 3: Lab 02](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
+- [Week 3: Application exercise](course-materials/application-exercises/ae-03-starwars-dataviz/starwars.Rmd)
 
 ## Week 4: Importing and recoding data
 - [Week 4: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
@@ -43,12 +50,25 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 4: Data Import](course-materials/slides/u2-d12-data-import/u2-d12-data-import.html)
 - [Week 4: Data Recode](course-materials/slides/u2-d13-data-recode/u2-d13-data-recode.html)
 
+### Labs and Homework
+- [Week 4: Homework 01, Airbnb Edinburgh](course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.html) 
+- [Week 4: Lab 03](course-materials/lab-instructions/lab-03/lab-03-nobel-laureates.html) 
+- [Week 4: Application exercise](course-materials/application-exercises/ae-05-hotels-datatypes/hotels-forcats.Rmd)
+- [Week 4: Application exercise](course-materials/application-exercises/ae-06-nobels-sales-dataimport/nobels-csv.Rmd)
+
+
 ## Week 5: Communicating data science results effectively
 
 - [Week 5: Effective Dataviz](course-materials/slides/u2-d14-effective-dataviz/u2-d14-effective-dataviz.html)
 - [Week 5: Studies Confounding](course-materials/slides/u2-d15-studies-confounding/u2-d15-studies-confounding.html)
 - [Week 5: Simpsons Paradox](course-materials/slides/u2-d16-simpsons-paradox/u2-d16-simpsons-paradox.html)
 - [Week 5: Doing Data Science](course-materials/slides/u2-d17-doing-data-science/u2-d17-doing-data-science.html)
+
+### Labs and Homework
+- [Week 5: Homework 02, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
+- [Week 5: Lab 04](course-materials/lab-instructions/lab-06/lab-06-sad-plots.html) 
+- [Week 5: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+
 
 ## Week 6: Webscraping and programming
 
