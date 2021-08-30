@@ -3,22 +3,22 @@
   <head>
     <title>Welcome!</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
+    <meta name="author" content="Dr. Laurie Baker, DCS 210" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="../slides.css" type="text/css" />
+    <link rel="stylesheet" href="C:/Users/Laurie/repos/DCS-210/course-materials/slides/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="C:/Users/Laurie/repos/DCS-210/course-materials/slides/slides.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # Welcome!
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> Programming for Data Analysis and Visualization
+### Dr. Laurie Baker, <a href="https://vigorous-sammet-f57077.netlify.app/">DCS 210</a>
 
 ---
 
@@ -43,15 +43,138 @@ class: middle
 # Hello world!
 
 ---
+class: inverse
+
+# Dr. Laurie Baker
+
+.pull-left[
+
+.center[
+&lt;img style="border-radius: 50%;" src="img/laurie_baker.jpg" width="300px"/&gt;
+
+
+#### Call me: "Dr. Baker", "Professor Baker"
+
+]]
+.pull-right[
+### Education
+
+&lt;svg viewBox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"&gt;&lt;/path&gt;&lt;/svg&gt; Wabanaki lands in Yarmouth, ME
+
+&lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"&gt;&lt;/path&gt;&lt;/svg&gt; BSc Marine Biology, University of St. Andrews
+&lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"&gt;&lt;/path&gt;&lt;/svg&gt; Msc Marine Biology, Dalhousie University
+&lt;svg viewBox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"&gt;&lt;/path&gt;&lt;/svg&gt; PhD Epidemiology, University of Glasgow
+
+]
+
+.center[
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"&gt;&lt;/path&gt;&lt;/svg&gt; lauriebaker.rbind.io](https://lauriebaker.rbind.io)
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @llbaker1707](https://twitter.com/llbaker1707)
+[&lt;svg viewBox="0 0 496 512" style="position:relative;display:inline-block;top:.1em;height:1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt; @laurielbaker](https://github.com/laurielbaker)
+]
+???
+
+About Me
+
+* Grew up on Wabanaki lands in Yarmouth, Maine.
+
+* BSc. in Marine Biology at the University of St. Andrews, Scotland
+
+* MSc. in Marine Biology at Dalhousie University, Canada
+
+* PhD. in Epidemiology at University of Glasgow, Scotland
+
+* Head of Faculty, Data Science Campus, Office for National Statistics
+
+---
+
+class: inverse
+
+# Dr. Laurie Baker
+
+.pull-left[
+
+.center[
+&lt;img style="border-radius: 50%;" src="img/laurie_baker.jpg" width="300px"/&gt;
+
+#### Call me: "Dr. Baker", "Professor Baker"
+
+]]
+.pull-right[
+
+### Research Interests
+
+
+&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M201.5 174.8l55.7 55.8c3.1 3.1 3.1 8.2 0 11.3l-11.3 11.3c-3.1 3.1-8.2 3.1-11.3 0l-55.7-55.8-45.3 45.3 55.8 55.8c3.1 3.1 3.1 8.2 0 11.3l-11.3 11.3c-3.1 3.1-8.2 3.1-11.3 0L111 265.2l-26.4 26.4c-17.3 17.3-25.6 41.1-23 65.4l7.1 63.6L2.3 487c-3.1 3.1-3.1 8.2 0 11.3l11.3 11.3c3.1 3.1 8.2 3.1 11.3 0l66.3-66.3 63.6 7.1c23.9 2.6 47.9-5.4 65.4-23l181.9-181.9-135.7-135.7-64.9 65zm308.2-93.3L430.5 2.3c-3.1-3.1-8.2-3.1-11.3 0l-11.3 11.3c-3.1 3.1-3.1 8.2 0 11.3l28.3 28.3-45.3 45.3-56.6-56.6-17-17c-3.1-3.1-8.2-3.1-11.3 0l-33.9 33.9c-3.1 3.1-3.1 8.2 0 11.3l17 17L424.8 223l17 17c3.1 3.1 8.2 3.1 11.3 0l33.9-34c3.1-3.1 3.1-8.2 0-11.3l-73.5-73.5 45.3-45.3 28.3 28.3c3.1 3.1 8.2 3.1 11.3 0l11.3-11.3c3.1-3.2 3.1-8.2 0-11.4z"&gt;&lt;/path&gt;&lt;/svg&gt;  Public Health
+&lt;svg viewBox="0 0 576 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M327.1 96c-89.97 0-168.54 54.77-212.27 101.63L27.5 131.58c-12.13-9.18-30.24.6-27.14 14.66L24.54 256 .35 365.77c-3.1 14.06 15.01 23.83 27.14 14.66l87.33-66.05C158.55 361.23 237.13 416 327.1 416 464.56 416 576 288 576 256S464.56 96 327.1 96zm87.43 184c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24 13.26 0 24 10.74 24 24 0 13.25-10.75 24-24 24z"&gt;&lt;/path&gt;&lt;/svg&gt;  Ecology
+&lt;svg viewBox="0 0 576 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z"&gt;&lt;/path&gt;&lt;/svg&gt; Data Science
+&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M502.60969,310.04206l-96.70393,96.71625a31.88151,31.88151,0,0,1-45.00765,0L280.572,326.34115l-9.89231,9.90759a190.56343,190.56343,0,0,1-5.40716,168.52287c-4.50077,8.50115-16.39342,9.59505-23.20707,2.79725L134.54715,400.05428l-17.7999,17.79929c.70324,2.60972,1.60965,5.00067,1.60965,7.79793a32.00544,32.00544,0,1,1-32.00544-32.00434c2.79735,0,5.18838.90637,7.7982,1.60959l17.7999-17.79929L4.43129,269.94287c-6.798-6.81342-5.70409-18.6119,2.79735-23.20627a190.58161,190.58161,0,0,1,168.52864-5.407l9.79854-9.79821-80.31053-80.41716a32.002,32.002,0,0,1,0-45.09987L201.96474,9.29814A31.62639,31.62639,0,0,1,224.46868,0a31.99951,31.99951,0,0,1,22.59759,9.29814l80.32615,80.30777,47.805-47.89713a33.6075,33.6075,0,0,1,47.50808,0l47.50807,47.50645a33.63308,33.63308,0,0,1,0,47.50644l-47.805,47.89713L502.71908,265.036A31.78938,31.78938,0,0,1,502.60969,310.04206ZM219.56159,197.433l73.82505-73.82252-68.918-68.9-73.80942,73.80689Zm237.74352,90.106-68.90233-68.9156-73.825,73.82252,68.918,68.9Z"&gt;&lt;/path&gt;&lt;/svg&gt; Novel Data Sources
+
+]
+
+.center[
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"&gt;&lt;/path&gt;&lt;/svg&gt; lauriebaker.rbind.io](https://lauriebaker.rbind.io)
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @llbaker1707](https://twitter.com/llbaker1707)
+[&lt;svg viewBox="0 0 496 512" style="position:relative;display:inline-block;top:.1em;height:1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt; @laurielbaker](https://github.com/laurielbaker)
+]
+???
+---
+
+# Influence of target species on fishing effort
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/congrio_centolla.jpg" alt="Woman on boat holding a fish and a crab" width="80%" /&gt;
+&lt;p class="caption"&gt;Woman on boat holding a fish and a crab&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+
+# Grey Seal Movement off Nova Scotia
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/grey_seal.jpg" alt="Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back" width="70%" /&gt;
+&lt;p class="caption"&gt;Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# Spread and control of fox rabies in Europe
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/rabies_retreat.png" alt="Map showing rabies retreat from Western Europe" width="70%" /&gt;
+&lt;p class="caption"&gt;Map showing rabies retreat from Western Europe&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# Building Organization's Data Science Skills
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/SDGs.png" alt="Icons showing United Nation's 17 Sustainable Development Goals" width="70%" /&gt;
+&lt;p class="caption"&gt;Icons showing United Nation's 17 Sustainable Development Goals&lt;/p&gt;
+&lt;/div&gt;
+
+---
+# Creating open source learning resources
+
+&lt;iframe src="https://andysouth.shinyapps.io/intro-to-spatial-r/" width="1016" height="516" frameBorder="0"&gt;&lt;/iframe&gt;
+
+---
+# Data Storytelling: Rabies Elimination on Pemba
+
+&lt;iframe src="https://rabiesresearch.github.io/pemba_story/" width="1016" height="480" frameBorder="0"&gt;&lt;/iframe&gt;
+
+---
 
 ## Data science
 
 .pull-left-wide[
-- Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge. 
+- Data science is an exciting discipline that allows you to turn data into understanding, insight, and knowledge. 
 
 - We're going to learn to do this in a `tidy` way -- more on that later!
 
-- This is a course on introduction to data science, with an emphasis on statistical thinking.
+- This is a course on programming for analysis and visualization, with an emphasis on statistical thinking.
 ]
 
 ---
@@ -85,6 +208,20 @@ A: We can discuss that over ☕.
 ]
 
 ---
+# One link to rule them all...
+
+... where you can find everything except your course grades!
+
+[https://vigorous-sammet-f57077.netlify.app/](https://vigorous-sammet-f57077.netlify.app/)
+
+Bookmark the link!
+
+???
+This link is going to have everything but your course grades. It will link you to the relevant places including lyceum.
+
+The course material will be released on a weekly basis, this is so that you can take a look at the week ahead. There are links to videos, readings and others. I try to keep these links up to date but I may occasionally miss something and I'd love to hear from you if you have trouble.
+
+---
 
 class: middle
 
@@ -94,13 +231,26 @@ class: middle
 
 &lt;img src="img/excel.png" width="75%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+
+Before I did my undergraduate this is what data analysis mostly meant to me. Now this form of data in rows and columns may be familiar to some of you if you have worked with excel and spreadsheets. Now many of us if we are collecting data like to put it into something like this. 
+
+So data that comes in a tabular format like this might be familiar to you. 
+
 ---
 
 &lt;img src="img/r.png" width="50%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+When I did my undergraduate thesis and started learning R this is what R looked like. I remember thinking of the interface as a black box and I wasn't really sure where the data was contained.  
+
 ---
 
 &lt;img src="img/rstudio.png" width="73%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+
+In this course we are going to be using something a little bit different. We are going to be using RStudio to interact with the computing language. If you remember the images from the previous two slides you can see that RStudio combines those two components so that you can view the data and also execute code in the console. RStudio is the Integrated Development Environment (IDE) that we are going to use in this course.
 
 ---
 
@@ -112,25 +262,47 @@ class: middle
 
 &lt;img src="img/data-science-cycle/data-science-cycle.001.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+Let's also talk about the Data Science Life Cycle. This is the diagram from the book R for Data Science that we'll be referring to throughout the course. Note that this isn't the only diagram out there representing the data science life cycle but it is the one that we are using to structure this course. 
+
+So how does the data science life cycle begin?
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.002.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+Usually you have some data maybe in a spreadsheet or a database and you need to import into R.
 
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.003.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+
+Then we need to spend some time organising that data to make it easier to use and analyse. This often includes doublechecking the data for mistakes and tidying it and it may also include transforming it to get it to the table that you want, that makes it easier to use or analyse. 
+
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.004.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+
+Once the data is in a format that is easy to work with, you want to visualize your data to start to gain some insights from it. 
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.005.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+Then, perhaps you will go onto modelling your data.
+
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.006.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+And the reality is it never ends there. You will gain more insight into the data and you may need to go back and check and adjust your assumptions. 
+
+That last step is communicating your results and finding. 
 
 ---
 
@@ -140,6 +312,13 @@ class: middle
 .pull-right[
 &lt;img src="img/data-science-cycle/data-science-cycle.006.png" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
 ]
+
+???
+So here is what that cycle might look like. Here we have data from the google trend index which is basically a numerical summary of the popularity of search words on google. And in this case we're looking at search traffic data from the U.S. for the travel search index which includes searches related to airlines, hotels, beach, southwest, las vegas, flights etc. Now in the U.S. the summer months are May, June, July, August months and we can kind of see that there are these peaks that are happening around those months on an annual basis.
+
+So looking at the google trends index and visualizing that data we can see those seasonal trends happening. 
+
+But in our collected data we can see data from every day.
 
 ---
 
@@ -161,21 +340,41 @@ class: middle
 ```
 ]
 
+???
+So maybe our data looked something like the first column here where for each of our data points we had a date and the number of searches on that day.
+
+So now that we've seen that pattern we can look back at our data and say that now instead of the dates themselves, we're interested in the season.
+
+So this would be an example of doing the visualization and coming back to the data to do some further wrangling.
+
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.007.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+
+We don't necessarily want you to wait until the very end to produce your results after doing some research.
 
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.008.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+Instead we want you to build communication into the process. We're going to do this by doing our analysis in an environment where we can communicate what we have done and how we came to our decisions while we're still also doing our analysis. 
 ---
 
 &lt;img src="img/data-science-cycle/data-science-cycle.009.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
 
+???
+You can see that one program is in this diagram as well and this is what is tying all of these different elements together. Because all of these stages require programming. 
+
+
 ---
 
 &lt;img src="img/unvotes/unvotes.gif" width="85%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+What we're going to be doing looks a bit like this. On the right side you can see a document that looks human-friendly and readable. On the left we have a combination of the code and text that was used to make the document. In the next week, I will be focused on helping you make the link between the code and text on the left and the document on the right. This is an environment where you can have your narrative, code and output all in one place so that you can do your communication as you go. 
 
 ---
 
@@ -187,11 +386,26 @@ class: middle
 
 background-image: url("img/unvotes/unvotes-01.jpeg")
 
+???
+
+We're going to start with a data set that comes from the UN General Assembly. We're going to look at how countries have been voting on certain issues.
+
+These particular issues are on arms control and disarmament, colonialism, economic development, human rights, nuclear weapons and nuclear material, and the Palestinian conflict. 
+
+So I've just picked three countries. I'm from the U.S. but I have lived for a long time in the UK in Scotland, and I included Turkey as well.
+
+So what do we notice about this graph?
+
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-02.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
+
+???
+On the y-axis we have the percentage of the resolutions that the countries voted yes on. So for each year that we have data (1946-2015). 
+
+Each of these panes, each of these "facets" show us one of these issues.
 
 ---
 
@@ -199,11 +413,18 @@ class: inverse
 
 &lt;img src="img/unvotes/unvotes-03.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
 
+???
+
+I am going to focus on the Palestinian conflict issue because we can see that the countries are quite divergent on this issue. Turkey's vote trend overtime looks very dissimilar to the US vote. And if you know anything about the politics of these countries, maybe this doesn't come as a surprise to you. And that's often a good thing, that something the data shows you does not fly in the face of what you know to be true but that it actually goes along with it. But every once in a while you might find out that actually what you expected did not turn out to be the case when you visualized or modelled the data. And then there is really one of two things you can do. Either: you go back and check to make sure you did the right things (e.g. maybe your hunch was right and your analysis has a mistake in it). Or it is time to change what you believe in because the data says otherwise.
+
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-04.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
+
+???
+How did we make this data visualization? The data actual came from 3 separate sources. One was on how the countries voted: "yes" or "no". One was on roll calls (each voting session in the UN general assembly is a roll call), and then we also had a 3rd data frame that linked each roll call using the rcid (roll call id) to the particular issue it focused on. 
 
 ---
 
@@ -211,17 +432,26 @@ class: inverse
 
 &lt;img src="img/unvotes/unvotes-05.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
 
+???
+We had data from these three data sets and then we wrote some code. We're not going to jump write into that now as we don't want to get ahead of ourselves, but you can see that we have the three data sets that I showed you before: un_votes, un_roll_calls, and un_roll_call_issues. 
+
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-06.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
 
+???
+Now you can see that there is this bit of code that has the word join in it. Which we used to bring those datasets together. So maybe that starts to sound like we are going to join these datasets together. 
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-07.jpeg" width="100%" style="display: block; margin: auto;" /&gt;
+
+???
+
+Then we're going to filter for three particular countries and these are the countries that I mentioned at the start and were in our data visualization: "US", "UK &amp; NI", and "Turkey". So we're not going to visualize all of the countries but just the ones that we have filtered. 
 
 ---
 
@@ -229,11 +459,20 @@ class: inverse
 
 &lt;img src="img/unvotes/unvotes-08.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
 
+???
+Then you're going to see something called "ggplot". So you don't have to worry about what the gg part is now, but we can tell that this is plotting something. So to recap we are joining these dataframes, filtering out certain countries, and then plotting them. 
+
+This is a useful skill for you to start to gain. Whenever you're presented with a chunk of code. Being able to take a look at it "calmly" and ask: "Is there anything I can recognize?" "Is there anything I can link to the output I was seeing". 
+
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-09.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
+
+??? 
+
+And other things I can see here is the title and subtitle. And the text strings that are set as equal to them are the title and subtitle on our plot. 
 
 ---
 
@@ -241,12 +480,18 @@ class: inverse
 
 &lt;img src="img/unvotes/unvotes-10.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
 
+???
+If we actually go back to the environment we saw before which is actually called an Rmarkdown environment, we can put our analysis and text together. Looking here you can see that there are some words that are actually getting rendered as text and there is actually some code that is being run on this document. 
+
 ---
 
 class: inverse
 
 &lt;img src="img/unvotes/unvotes-11.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
 
+???
+
+We can also see that there is some metadata. We have a title, an author, the date. Would you like a table of contents (toc): yes. And you can see that that information gets rendered in a nice way in the document. And the report looks like something you can recognise as a report. And the other side is looking at the source of that report "looking under the hood". 
 ---
 
 class: inverse
@@ -272,8 +517,15 @@ class: inverse
 [minecr.shinyapps.io/unvotes](https://minecr.shinyapps.io/unvotes/)
 ]
 ]
-
-&lt;img src="img/unvotes/unvotes-15.png" width="65%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+&lt;img src="img/unvotes/unvotes-15.png" width="85%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+* Choose two new countries. What issues do they agree upon the most? What issues do they disagree upon the most?
+* Are there any issues they were agreeing upon more in the past? More in the present?
+]
+???
+If you want to play around with this data you can play around with it on this web app. Try to take out and add to these countries. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
