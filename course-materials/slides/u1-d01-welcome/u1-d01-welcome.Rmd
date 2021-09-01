@@ -49,6 +49,7 @@ class: inverse
 `r icons::fontawesome("graduation-cap")` BSc Marine Biology, University of St. Andrews
 `r icons::fontawesome("graduation-cap")` Msc Marine Biology, Dalhousie University
 `r icons::fontawesome("graduation-cap")` PhD Epidemiology, University of Glasgow
+`r icons::fontawesome("desktop")` Head of Faculty, Data Science Campus, Office for National Statistics
 
 ]
 
