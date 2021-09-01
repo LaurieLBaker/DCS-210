@@ -17,6 +17,10 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 1: Lab 00](course-materials/lab-instructions/lab-01/lab-01-hello-r.html)
 - [Week 1: Application exercise](course-materials/application-exercises/ae-01a-un-votes/unvotes.html)
 
+### Readings
+
+- [Learning to code](course-materials/tips/tip-01/tip-01-learn-to-code.html)
+
 ## Week 2: Visualizing data
 
 ### Slides
