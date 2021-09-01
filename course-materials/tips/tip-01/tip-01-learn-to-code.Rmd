@@ -1,0 +1,47 @@
+---
+title: "How to approach learning to code"
+author: "By Jeremy Manning"
+date: "01/09/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Below is an excerpt from ["CS for Psych"](https://github.com/ContextLab/cs-for-psych/blob/master/slides/module_1/intro_to_python.ipynb) by Jeremy Manning at Dartmouth College
+
+# A note on how to approach learning to code
+
+-   Like any new skill, learning to code can be daunting.
+    If you've never coded or taken courses on logic before, you might be about to embark on a journey towards an entirely new way of thinking and approaching problem solving.
+    I've found four general principles to be useful:
+
+-   The first time you go through something, don't expect to understand everything (or even anything) perfectly.
+    Sometimes going through a new lesson or example might seem like encountering a foreign language (hint: maybe because it is!).
+    Give yourself permission to relax and to not understand.
+    Not "getting it" the first time doesn't reflect on your intelligence or potential.
+
+-   If you're feeling lost, it's important to notice your points of confusion (even if you don't immediately correct or resolve them).
+    One of the most powerful ways of approaching coding is to break highly complex tasks down into successively simpler sub-tasks.
+    You don't always need to understand the full scope of the problem you're working on-- you just need to understand enough to break off a tiny piece of the next step in the puzzle.
+    By the same token, approach learning as a problem solving journey.
+    Try to take stock of what you're not understanding, and carefully separate the material into "things you know (sufficiently well)" and "things you don't know".
+    Use what you know to help further sub-divide the unknowns.
+    Your goal should be to work towards an ability to precisely formulate questions.
+    That will help you resolve your understanding (either by searching for the answer online or by asking others for help).
+    Particularly when you're starting out, it's also OK not to know how to break your questions down into smaller chunks.
+    You'll pick it up as you go.
+
+-   The best predictor of successfully learning to code is persistence.
+    Simply allowing yourself to be exposed to code (by reading and writing it, and by going through tutorials, etc.) will improve your ability to understand, even if those improvements aren't immediately obvious or noticeable to you.
+    One way to view the learning process is as a way of building up your fluency (through repeated exposure) in addition to adding the basic building blocks and vocabulary to your skill set.
+    Even if you're not adding new building blocks, simply gaining more exposure will improve your fluency.
+    Over time this will make it easier for you to add new building blocks.
+    Each new step you take in the learning process will allow you to gain a deeper understanding of previously learned material, and will help you to learn new material that much faster.
+
+-   The best way to learn to code is to write code.
+    When you're reading through a new tutorial or about a new idea, keep a scratch notebook open and code as you learn (control + alt + n or control + option + n).
+    And once you've learned about something new, try to apply it to a question or problem you're excited about.
+    The potential applications of any given idea are nearly limitless.
+    Allow yourself the freedom to get creative, make mistakes, break things, and try out new stuff!

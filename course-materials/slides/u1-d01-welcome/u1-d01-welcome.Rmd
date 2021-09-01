@@ -1,7 +1,7 @@
 ---
 title: "Welcome!"
 subtitle: "<br><br> Programming for Data Analysis and Visualization"
-author: "Dr. Laurie Baker, [DCS 210](https://vigorous-sammet-f57077.netlify.app/)"
+author: "Dr. Laurie Baker, [DCS 210](https://dcs210.netlify.app/)"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -194,7 +194,7 @@ A: We can discuss that over `r emo::ji("coffee")`.
 
 ... where you can find everything except your course grades!
 
-[https://vigorous-sammet-f57077.netlify.app/](https://vigorous-sammet-f57077.netlify.app/)
+[https://dcs210.netlify.app/](https://dcs210.netlify.app/)
 
 Bookmark the link!
 
