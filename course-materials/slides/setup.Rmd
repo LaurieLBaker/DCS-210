@@ -58,7 +58,7 @@ layout: true
   
 <div class="my-footer">
 <span>
-<a href="https://datasciencebox.org" target="_blank">datasciencebox.org</a>
+<a href="https://dcs210.netlify.app" target="_blank">dcs210.netlify.app</a>
 </span>
 </div> 
 

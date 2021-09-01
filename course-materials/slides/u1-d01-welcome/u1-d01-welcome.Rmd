@@ -114,7 +114,7 @@ knitr::include_graphics("img/congrio_centolla.jpg")
 
 # Grey Seal Movement off Nova Scotia
 
-```{r echo=FALSE, out.width="70%", fig.align="center", fig.cap = "Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back"}
+```{r echo=FALSE, out.width="65%", fig.align="center", fig.cap = "Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back"}
 knitr::include_graphics("img/grey_seal.jpg")
 ```
 
