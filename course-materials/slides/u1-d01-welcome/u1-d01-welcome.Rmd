@@ -49,8 +49,6 @@ class: inverse
 `r icons::fontawesome("graduation-cap")` BSc Marine Biology, University of St. Andrews
 `r icons::fontawesome("graduation-cap")` Msc Marine Biology, Dalhousie University
 `r icons::fontawesome("graduation-cap")` PhD Epidemiology, University of Glasgow
-`r icons::fontawesome("desktop")` Head of Faculty, Data Science Campus, Office for National Statistics
-
 ]
 
 .center[
@@ -112,7 +110,6 @@ class: inverse
 knitr::include_graphics("img/congrio_centolla.jpg")
 ```
 
-
 ---
 
 # Grey Seal Movement off Nova Scotia
@@ -120,6 +117,13 @@ knitr::include_graphics("img/congrio_centolla.jpg")
 ```{r echo=FALSE, out.width="70%", fig.align="center", fig.cap = "Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back"}
 knitr::include_graphics("img/grey_seal.jpg")
 ```
+
+---
+# Grey Seal Movement off Nova Scotia
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d367544.6964222735!2d-60.215552395501966!3d43.97088868870316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b4689632ca41c27%3A0xfcd36f09136414e!2sSable%20Island!5e0!3m2!1sen!2sus!4v1630508253565!5m2!1sen!2sus" width="1000" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
 
 ---
 
@@ -146,6 +150,19 @@ knitr::include_graphics("img/SDGs.png")
 # Data Storytelling: Rabies Elimination on Pemba
 
 <iframe src="https://rabiesresearch.github.io/pemba_story/" width="1016" height="480" frameBorder="0"></iframe>
+
+---
+# Introductions
+
+
+```{r echo=FALSE, out.width="50%", fig.cap = "Image Credit: R monster mascots by @Allison Horst", fig.align="left"}
+knitr::include_graphics("img/avatar.jpg")
+```
+
+
+* Name
+* Home discipline
+* Fun Fact
 
 ---
 
