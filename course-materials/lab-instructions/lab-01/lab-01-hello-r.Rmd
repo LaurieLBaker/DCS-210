@@ -293,7 +293,15 @@ knitr::include_graphics("img/fig-resize-global.png")
 
 -   **Resize your figures:**
 
-Click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu.
+Double check that your YAML output type is `html_document`.
+If it is another output type, e.g. `github_document`, change it to `html_document` and save your changes.
+
+```{r doublecheck_yaml, fig.width = 2, fig.height = 1.5, echo = FALSE}
+knitr::include_graphics("img/yaml-double-check.png")
+```
+
+Click on the gear icon in on top of the R Markdown document, next to the blue knit icon 🧶, and select "Output Options..." in the dropdown menu.
+
 In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done.
 Then, knit your document and see how you like the new sizes.
 Change and knit again and again until you're happy with the figure sizes.
