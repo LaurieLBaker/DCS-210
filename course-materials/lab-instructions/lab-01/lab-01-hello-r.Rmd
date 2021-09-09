@@ -85,7 +85,7 @@ You can always refer back to this lab for a detailed list of the steps involved 
 knitr::include_graphics("img/clone-repo-link.png")
 ```
 
--   On GitHub, click on the green **Clone or download** button, select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
+-   On GitHub, click on the green **Code, Clone or download** button, select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
 
 ```{r new-project-from-gh, fig.margin = TRUE, echo = FALSE, fig.width=3}
 knitr::include_graphics("img/new-project-from-gh.png")
@@ -100,6 +100,22 @@ knitr::include_graphics("img/paste-gh-repo-url.png")
 -   Copy and paste the URL of your assignment repo into the dialog box:
 
 -   Hit OK, and you're good to go!
+
+## Introduce yourself to Git
+
+ Once you've opened up RStudio Cloud, we will want to introduce ourselves to Git. This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
+ 
+ In the console (lower left panel in RStudio), run the following code:
+
+```{r, eval = FALSE}
+
+install.packages("usethis") # Install the package usethis
+library(usethis) # Load the package
+use_git_config(user.name = "Laurie Baker", user.email = "lbaker@bates.edu") # Enter your name and email.
+
+```
+
+Note that the `user.name` above is not important but the `user.email` provided needs to be the one registered with our github account. 
 
 ## Warm up
 
