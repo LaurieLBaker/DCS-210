@@ -131,6 +131,24 @@ knitr::include_graphics("img/rstudio-anatomy.png")
 -   If you click on a file, it will open in the editor, on the top left pane.
 -   Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing `x <- 2` in the Console and hit enter, what do you get in the **Environment** pane? Importantly, this pane is also where the **Git** interface lives. We will be using that regularly throughout this assignment.
 
+## Introduce yourself to Git
+
+Once you've opened up RStudio Cloud, we will want to introduce ourselves to Git.
+This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
+
+In the console (lower left panel in RStudio), run the following code:
+
+```{r, eval = FALSE}
+
+install.packages("usethis") # Install the package usethis
+library(usethis) # Load the package
+use_git_config(user.name = "Laurie Baker", 
+               user.email = "lbaker@bates.edu") # Enter your name and email.
+
+```
+
+Note that the `user.name` above is not important but the `user.email` provided needs to be the one registered with our github account.
+
 # Warm up
 
 Before we introduce the data, let's warm up with some simple exercises.
