@@ -34,7 +34,7 @@ knitr::include_graphics("img/repo-begin.png")
 ```
 
 Grab the URL of the repo, and clone it in RStudio.
-Refer to [HW 00](https://ids-s1-20.github.io/homework/hw-00/hw-00-pet-names.html) if you would like to see step-by-step instructions for cloning a repo into an RStudio project.
+Refer to [HW 01](https://laurielbaker.github.io/DCS-210/course-materials/hw-instructions/hw-01/hw-01-pet-names.html) if you would like to see step-by-step instructions for cloning a repo into an RStudio project.
 
 First, open the R Markdown document `lab-02.Rmd` and Knit it.
 Make sure it compiles without errors.
