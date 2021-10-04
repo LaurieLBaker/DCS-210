@@ -67,6 +67,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 5: Studies Confounding](course-materials/slides/u2-d15-studies-confounding/u2-d15-studies-confounding.html)
 - [Week 5: Simpsons Paradox](course-materials/slides/u2-d16-simpsons-paradox/u2-d16-simpsons-paradox.html)
 - [Week 5: Doing Data Science](course-materials/slides/u2-d17-doing-data-science/u2-d17-doing-data-science.html)
+- [Week 5: Going Further with Data Viz](course-materials/slides/u2-d23-creative-data-viz/u2-d23-creative-data-viz.html)
 
 ### Labs and Homework
 - [Week 5: Homework 03, Road accidents](course-materials/hw-instructions/hw-03/hw-03-college-majors.html) 
