@@ -1,0 +1,46 @@
+---
+title: "Going Further with Data Visualization"
+subtitle: "<br><br>"
+author: "Dr. Laurie Baker, [DCS 210](https://dcs210.netlify.app/)"
+output:
+  xaringan::moon_reader:
+    css: ["../xaringan-themer.css", "../slides.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+library(fontawesome)
+library(icons)
+```
+
+class: middle
+
+# Some compelling examples
+
+---
+# Gun Deaths in the USA
+
+<iframe width="1050" height="550" src="https://www.youtube.com/embed/8R8UOjMy-5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Gun Deaths in the USA](https://guns.periscopic.com)
+
+---
+# Get Creative
+
+* [Work with the subject: Pay Gap](https://www.theguardian.com/us-news/datablog/2017/apr/04/equal-pay-day-us-wage-gap-gender-race-ethnicity)
+
+* [Tiktok: Countries the UK has invaded](https://twitter.com/rosielanners/status/1277545491052584960?s=20)
+
+* [Media and objectivity](https://thecorrespondent.com/664/how-maps-in-the-media-make-us-more-negative-about-migrants/87812829368-c203ad78)
+
+
