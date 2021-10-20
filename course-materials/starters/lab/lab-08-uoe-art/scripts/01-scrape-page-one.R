@@ -14,24 +14,24 @@ page <- read_html(first_url)
 # scrape titles ----------------------------------------------------------------
 
 titles <- page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a") %>%
+  html_elements(".iteminfo") %>%
+  html_element("h3 a") %>%
   html_text() %>%
   ___()
 
 # scrape links -----------------------------------------------------------------
 
 links <- page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a") %>%
+  html_elements(".iteminfo") %>%
+  html_element("h3 a") %>%
   html_attr("href") %>%
   str_replace("\\.", "___")
 
 # scrape artists ---------------------------------------------------------------
 
 artists <- page %>%
-  html_nodes(".iteminfo") %>%
-  html_node(".artist") %>%
+  html_elements(".iteminfo") %>%
+  html_element(".artist") %>%
   ___
 
 # put together in a data frame -------------------------------------------------

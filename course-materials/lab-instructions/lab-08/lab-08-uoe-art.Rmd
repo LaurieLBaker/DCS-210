@@ -136,7 +136,7 @@ For the ten pieces on this page we will extract `title`, `artist`, and `link` in
 ### Titles
 
 Let's start with titles.
-We make use of the SelectorGadget to identify the tags for the relevant nodes:
+We make use of the SelectorGadget to identify the tags for the relevant elements:
 
 ```{r iteminfo-h3a, fig.margin = TRUE, echo = FALSE}
 knitr::include_graphics("img/iteminfo-h3a.gif")
@@ -144,16 +144,16 @@ knitr::include_graphics("img/iteminfo-h3a.gif")
 
 ```{r}
 page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a")
+  html_elements(".iteminfo") %>%
+  html_element("h3 a")
 ```
 
 Then we extract the text with `html_text()`:
 
 ```{r}
 page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a") %>%
+  html_elements(".iteminfo") %>%
+  html_element("h3 a") %>%
   html_text()
 ```
 
@@ -165,8 +165,8 @@ Take a look at the help for `str_squish()` to find out more about how it works a
 
 ```{r}
 page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a") %>%
+  html_elements(".iteminfo") %>%
+  html_element("h3 a") %>%
   html_text() %>%
   str_squish()
 ```
@@ -175,32 +175,32 @@ And finally save the resulting data as a vector of length 10:
 
 ```{r}
 titles <- page %>%
-  html_nodes(".iteminfo") %>%
-  html_node("h3 a") %>%
+  html_elements(".iteminfo") %>%
+  html_element("h3 a") %>%
   html_text() %>%
   str_squish()
 ```
 
 ### Links
 
-The same nodes that contain the text for the titles also contains information on the links to individual art piece pages for each title.
+The same elements that contain the text for the titles also contains information on the links to individual art piece pages for each title.
 We can extract this information using a new function from the rvest package, `html_attr()`, which extracts attributes.
 
 A mini HTML lesson!
 The following is how we define hyperlinked text in HTML:
 
-    <a href="https://www.google.com">Seach on Google</a>
+    <a href="https://www.google.com">Search on Google</a>
 
-And this is how the text would look like on a webpage: [Seach on Google](https://www.google.com).
+And this is how the text would look like on a webpage: [Search on Google](https://www.google.com).
 
-Here the text is `Seach on Google` and the `href` attribute contains the url of the website you'd go to if you click on the hyperlinked text: `https://www.google.com`.
+Here the text is `Search on Google` and the `href` attribute contains the url of the website you'd go to if you click on the hyperlinked text: `https://www.google.com`.
 
 The moral of the story is: the link is stored in the `href` attribute.
 
 ```{r}
 page %>%
-  html_nodes(".iteminfo") %>%   # same nodes
-  html_node("h3 a") %>%         # as before
+  html_elements(".iteminfo") %>%   # same elements
+  html_element("h3 a") %>%         # as before
   html_attr("href")             # but get href attribute instead of text
 ```
 
