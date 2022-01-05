@@ -42,7 +42,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 3: Tidying](course-materials/slides/u2-d09-tidying/u2-d09-tidying.html)
 ### Labs and Homework
 - [Week 3: Homework 01, Pet names](course-materials/hw-instructions/hw-01/hw-01-pet-names.html)
-- [Week 3: Lab 02](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
+- [Week 3: Lab 02, Plastic Waste](course-materials/lab-instructions/lab-02/lab-02-plastic-waste.html) 
 - [Week 3: Application exercise](course-materials/application-exercises/ae-03-starwars-dataviz/starwars.Rmd)
 
 ## Week 4: Importing and recoding data
@@ -56,7 +56,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 4: Homework 02, Airbnb Edinburgh](course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.html) 
-- [Week 4: Lab 03](course-materials/lab-instructions/lab-03/lab-03-nobel-laureates.html) 
+- [Week 4: Lab 03, Nobel Laureates](course-materials/lab-instructions/lab-03/lab-03-nobel-laureates.html) 
 - [Week 4: Application exercise](course-materials/application-exercises/ae-05-hotels-datatypes/hotels-forcats.Rmd)
 - [Week 4: Application exercise](course-materials/application-exercises/ae-06-nobels-sales-dataimport/nobels-csv.Rmd)
 
@@ -71,7 +71,6 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 5: Homework 03, Road accidents](course-materials/hw-instructions/hw-03/hw-03-college-majors.html) 
-- [Week 5: Lab 04](course-materials/lab-instructions/lab-06/lab-06-sad-plots.html) 
 - [Week 5: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
@@ -85,8 +84,9 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 6: Homework 04, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
-- [Week 6: Lab 04](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
+- [Week 6: Lab 05, UoE art](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
 - [Week 6: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
+- [Week 6: Homework 05, lego sales](course-materials/hw-instructions/hw-05/hw-05-legos.html) 
 
 
 ## Week 7: Data science ethics
@@ -97,8 +97,8 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 7: Algorithmic bias](course-materials/slides/u3-d03-algorithmic-bias/u3-d03-algorithmic-bias.html)
 
 ### Labs and Homework
-- [Week 7: Homework 04](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
-- [Week 7: Lab 05](course-materials/lab-instructions/lab-09/lab-09-better-viz.html) 
+- [Week 7: Homework 04, money in politics](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
+- [Week 7: Lab 05, La Quinta is Spanish for Next to Denny's](course-materials/lab-instructions/lab-04/lab-04-viz-sp-data.html) 
 - [Week 7: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
@@ -112,7 +112,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 8: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
-- [Week 8: Lab 06](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.Rmd) 
+- [Week 8: Lab 06, course evaluations](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.Rmd) 
 - [Week 8: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
@@ -124,7 +124,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 
-- [Week 9: Lab 06](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
+- [Week 9: Lab 07, work on projects](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
 - [Week 9: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
@@ -136,7 +136,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 
-- [Week 10: Lab 06](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
+- [Week 10: Lab 08, work on projects](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
 - [Week 10: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
