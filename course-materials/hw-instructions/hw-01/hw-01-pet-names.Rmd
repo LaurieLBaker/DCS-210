@@ -87,7 +87,7 @@ The next few steps will walk you through the process of getting information of t
 
 ### Step 1. Get URL of repo to be cloned
 
-```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, eval = TRUE}
+```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, fig.alt = "Github repo code pane: navigate to code, select https, click clipboard to clone", eval = TRUE}
 knitr::include_graphics("img/clone-repo-link.png")
 ```
 
@@ -101,10 +101,6 @@ It's very important that you do this for two reasons:
 
 -   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly.
 -   It's only when you're in the course workspace that your usage of RStudio Cloud won't count towards the free usage limits.
-
-```{r course-workspace, fig.margin = TRUE, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/course-workspace.png")
-```
 
 Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in RStudio Cloud.
 
@@ -167,7 +163,7 @@ knitr::include_graphics("img/yaml-raw-to-rendered.png")
 
 ## Step 2: Commit
 
-Then Go to the **Git pane** in your RStudio.
+Then go to the **Git pane** in your RStudio.
 
 You should see that your Rmd (R Markdown) file and its output, your md file (Markdown), file are listed there as recently changed files.
 
@@ -180,9 +176,22 @@ knitr::include_graphics("img/update-author-name-commit.png")
 ```
 
 You don't have to commit after every change, this would get quite cumbersome.
-You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration.
-In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use.
-As the semester progresses we will let you make these decisions.
+You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration. 
+Your commits will be the trail of breadcrumbs you leave in your analysis that allow you to retrace your steps. Version control is about tracking **who** made **what** change and **why**. 
+Your github account capture the **who**, your commit message should capture **what** was done and when it is not obvious from the commit message, also the **why**. If someone were to rerun the code committed, the message should describe what that code will do.
+
+Your messages should follow the guidance from the blog post, [seven rules of a great GIT commit message](https://chris.beams.io/posts/git-commit/), to construct your message. In this course we will be mainly using rules 3-5, but you might be interested in reading about the others.
+
+* Rule 3: Capitalize the subject line: **C**omplete Exercise 6
+* Rule 4: Do not end the subject line with a period
+* Rule 5: Use the imperative mood[^hw-01-pet-names-1] in the subject line: **Complete** Exercise 6
+
+In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. 
+As the semester progresses we will let you make these decisions. 
+
+**Thought Exercise**: Why follow rules? Why can't I write whatever I want?[^hw-01-pet-names-2]
+
+
 
 ## Step 3. Push
 
@@ -197,12 +206,12 @@ In order to push your changes to GitHub, click on **Push**.
 knitr::include_graphics("img/ready-to-push.png")
 ```
 
-This will prompt a dialogue box where you first need to enter your user name, and then your password.
+This will prompt a dialogue box where you first need to enter your user name, and then your personal access token (PAT).
 This might feel cumbersome.
-Bear with me... I *will* teach you how to save your password so you don't have to enter it every time.
+Bear with me... I *will* teach you how to save your personal access token so you don't have to enter it every time.
 But for this one assignment you'll have to manually enter each time you push in order to gain some experience with it.
 
-**Thought exercise:** Which of the above steps (updating the YAML, committing, and pushing) needs to talk to GitHub?[^hw-01-pet-names-1]
+**Thought exercise:** Which of the above steps (updating the YAML, committing, and pushing) needs to talk to GitHub?[^hw-01-pet-names-3]
 
 # Packages
 
@@ -247,11 +256,11 @@ You can find out more about the dataset by inspecting its documentation (which c
 
 1.  According to the data dictionary, how many pets are included in this dataset?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Completed Exercise 1", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Complete Exercise 1", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 2.  Again, according to the data dictionary, how many variables do we have for each pet?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Completed Exercise 2", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Complete Exercise 2", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 3.  What are the three most common pet names in Seattle? To do this you will need to count the frequencies of each pet name and display the results in descending order of frequency so that you can easily see the top three most popular names. The following code does exactly that.
 
@@ -264,7 +273,7 @@ seattlepets %>%
   count(animal_name, sort = TRUE)
 ```
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 3. In this exercise you will not only provide a written answer but also include some code and output. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Completed Exercise 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 3. In this exercise you will not only provide a written answer but also include some code and output. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Complete Exercise 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 Let's also look to see what the most common pet names are for various species.
 For this we need to first `group_by()` the `species`, and then do the same counting we did before.
@@ -308,7 +317,7 @@ seattlepets %>%
 
 1.  Based on the previous output we can easily identify the most common cat and dog names in Seattle, but the output is sorted by `n` (the frequencies) as opposed to being organized by the `species`. Build on the pipeline to arrange the results so that they're arranged by `species` first, and then `n`. This means you will need to add one more step to the pipeline, and you have two options: `arrange(species, n)` or `arrange(n, species)`. You should try both and decide which one organizes the output by species and then ranks the names in order of frequency for each species.
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 4. In this exercise you're asked to complete the code provided for you. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Completed Exercise 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 4. In this exercise you're asked to complete the code provided for you. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Complete Exercise 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 The following visualization plots the proportion of dogs with a given name versus the proportion of cats with the same name.
 The 20 most common cat and dog names are displayed.
@@ -365,6 +374,11 @@ ggplot(comb_name_props, aes(x = cat_prop, y = dog_prop)) +
 1.  What names are more common for cats than dogs? The ones above the line or the ones below the line?
 2.  Is the relationship between the two variables (proportion of cats with a given name and proportion of dogs with a given name) positive or negative? What does this mean in context of the data?
 
-🧶 ✅ ⬆️ *Now is a good time to commit and push your changes to GitHub with an appropriate commit message. Commit and push all changed files so that your Git pane is cleared up afterwards. Make sure that your last push to the repo comes before the deadline. You should confirm that what you committed and pushed are indeed in your repo that we will see by visiting your repo on GitHub.*
+🧶 ✅ ⬆️ *Now is a good time to commit and push your changes to GitHub with an appropriate commit message (Verb first and present tense, e.g. Add X or Complete X). Commit and push all changed files so that your Git pane is cleared up afterwards. Make sure that your last push to the repo comes before the deadline. You should confirm that what you committed and pushed are indeed in your repo that we will see by visiting your repo on GitHub.*
 
-[^hw-01-pet-names-1]: Only pushing requires talking to GitHub, this is why you're asked for your password at that point.
+[^hw-01-pet-names-1]: Spoken or written as if giving a command or instruction, e.g. "Clean your room!"
+
+[^hw-01-pet-names-2]: There's nothing stopping you from writing what you want in a commit message. Following shared rules and standards provide consistency and promote clarity and shared understanding allowing your future self and collaborators to understand what was done and why. 
+[^hw-01-pet-names-3]: Only pushing requires talking to GitHub, this is why you're asked for your password at that point.
+
+
