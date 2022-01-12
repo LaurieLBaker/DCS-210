@@ -1,10 +1,10 @@
 ---
 title: "Welcome!"
-subtitle: "<br><br> Programming for Data Analysis and Visualization"
-author: "Dr. Laurie Baker, [DCS 210](https://dcs210.netlify.app/)"
+subtitle: "<br><br> DCS 210: Programming for Data Analysis and Visualization"
+author: "Dr. Laurie Baker"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: xaringan-themer.css
     lib_dir: libs
     nature:
       ratio: "16:9"
@@ -16,6 +16,11 @@ output:
 ```{r child = "../setup.Rmd"}
 ```
 
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#23395b")
+```
+
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(emo)
@@ -23,12 +28,6 @@ library(fontawesome)
 library(icons)
 ```
 
-class: middle
-
-# Hello world!
-
----
-class: inverse
 
 # Dr. Laurie Baker
 
@@ -37,7 +36,7 @@ class: inverse
 .center[
 <img style="border-radius: 50%;" src="img/laurie_baker.jpg" width="300px"/>
 
-
+#### Pronouns: She/her
 #### Call me: "Dr. Baker", "Professor Baker"
 
 ]]
@@ -56,6 +55,7 @@ class: inverse
 [`r icons::fontawesome("twitter")` @llbaker1707](https://twitter.com/llbaker1707)
 [`r icons::icon_style(icons::fontawesome("github"), scale = 1)` @laurielbaker](https://github.com/laurielbaker)
 ]
+
 ???
 
 About Me
@@ -72,8 +72,6 @@ About Me
 
 ---
 
-class: inverse
-
 # Dr. Laurie Baker
 
 .pull-left[
@@ -81,6 +79,7 @@ class: inverse
 .center[
 <img style="border-radius: 50%;" src="img/laurie_baker.jpg" width="300px"/>
 
+#### Pronouns: She/her
 #### Call me: "Dr. Baker", "Professor Baker"
 
 ]]
@@ -129,7 +128,7 @@ knitr::include_graphics("img/grey_seal.jpg")
 
 # Spread and control of fox rabies in Europe
 
-```{r echo=FALSE, out.width="70%", fig.align="center", fig.cap = "Map showing rabies retreat from Western Europe"}
+```{r echo=FALSE, out.width="60%", fig.align="center", fig.cap = "Map showing rabies retreat from Western Europe"}
 knitr::include_graphics("img/rabies_retreat.png")
 ```
 
@@ -152,6 +151,7 @@ knitr::include_graphics("img/SDGs.png")
 <iframe src="https://rabiesresearch.github.io/pemba_story/" width="1016" height="480" frameBorder="0"></iframe>
 
 ---
+
 # Introductions
 
 
@@ -160,9 +160,23 @@ knitr::include_graphics("img/avatar.jpg")
 ```
 
 
-* Name
+* Name (and pronouns)
 * Home discipline
 * Fun Fact
+
+---
+
+# Activity
+
+## Part 1: Ice Breakers
+
+* Re-introduce yourselves to your group
+* Discuss the ice breakers
+* Report back
+
+## Part 2: Drafting community rules
+* How can we foster a welcoming and inclusive space for our own learning and others?
+* What processes and procedures do we want in place if we break them?
 
 ---
 
