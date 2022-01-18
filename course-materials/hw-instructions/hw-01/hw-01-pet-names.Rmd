@@ -128,9 +128,10 @@ knitr::include_graphics("img/rstudio-anatomy.png")
 -   If you click on a file, it will open in the editor, on the top left pane.
 -   Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing `x <- 2` in the Console and hit enter, what do you get in the **Environment** pane? Importantly, this pane is also where the **Git** interface lives. We will be using that regularly throughout this assignment.
 
-## Setting up your personal access token.
+## Introducing yourself to git: setting up your personal access token.
 
 Once you've opened up RStudio Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
+If you have already done this in the lab, skip ahead to step 6.
 Our personal access token will connect our project to our github account.
 This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
 

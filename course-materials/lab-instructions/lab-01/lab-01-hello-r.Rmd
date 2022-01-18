@@ -66,7 +66,7 @@ knitr::include_graphics("img/github-auth-4.png")
 knitr::include_graphics("img/github-auth-5.png")
 ```
 
--   To confirm that you've successfully linked up your GitHub and RStudio Cloud accounts, [GitHub settings \> Applications](https://github.com/settings/applications). You should see RStudio listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
+-   To confirm that you've successfully linked up your GitHub and RStudio Cloud accounts, [GitHub settings > Applications](https://github.com/settings/applications). You should see RStudio listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
 
 ```{r github-auth-6, echo = FALSE}
 knitr::include_graphics("img/github-auth-6.png")
@@ -101,23 +101,83 @@ knitr::include_graphics("img/paste-gh-repo-url.png")
 
 -   Hit OK, and you're good to go!
 
-## Introduce yourself to Git
+## Introducing yourself to git: setting up your personal access token.
 
-Once you've opened up RStudio Cloud, we will want to introduce ourselves to Git.
+Once you've opened up RStudio Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
+If you have already done this in the homework, skip ahead to step 6.
+Our personal access token will connect our project to our github account.
 This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
 
 In the console (lower left panel in RStudio), run the following code:
 
 ```{r, eval = FALSE}
 
-install.packages("usethis") # Install the package usethis
 library(usethis) # Load the package
-use_git_config(user.name = "Laurie Baker", 
-               user.email = "lbaker@bates.edu") # Enter your name and email.
+git_sitrep()
 
 ```
 
-Note that the `user.name` above is not important but the `user.email` provided needs to be the one registered with our github account.
+Note that before git is connected it will show that there is no personal access token `<unset>`.
+
+```{r check-git-sitrep, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/check-git-sitrep-1.png")
+```
+
+### Step 1: Open page to make personal access token
+
+To add a token we can run the following code in the console:
+
+```{r, eval = FALSE}
+
+create_github_token()
+
+```
+
+### Step 2: Add description and update expiry date
+
+Add a description (e.g. course name) and update the expiry date to never expire.
+This will mean that it does not need to be updated during the course.
+
+```{r add-new-pat-2, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/add-new-pat-2.png")
+```
+
+### Step 4: Generate the token
+
+Aside from the description and expiry date, you can leave the other default settings.
+
+```{r add-new-pat-3, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/add-new-pat-3-generate-token.png")
+```
+
+### Step 5: Copy and save generated token
+
+Copy and save your generated token by clicking on the clipboard symbol.
+Keep your token somewhere you can find it later, like in a text file in your course folder.
+Note that for more sensitive projects you might consider using a password manager.
+
+```{r add-new-pat-4-token, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/add-new-pat-4-token-generated.png")
+```
+
+### Step 6: Set github credentials
+
+Now we're ready to set our github credentials.
+
+```{r set-git-creds, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/set-git-creds-add-pat-1.png")
+```
+
+### Step 7: Recheck git credentials.
+
+Now, you'll notice that it says that the personal access token has been discovered.
+
+```{r recheck-git-sitrep, echo = FALSE, eval = TRUE}
+knitr::include_graphics("img/recheck-git-sitrep-1.png")
+```
+
+Note that for future projects you can skip directly to Step 6.
+You do not need to generate a personal access token each time.
 
 ## Warm up
 
