@@ -85,7 +85,7 @@ You can always refer back to this lab for a detailed list of the steps involved 
 knitr::include_graphics("img/clone-repo-link.png")
 ```
 
--   On GitHub, click on the green **Code, Clone or download** button, select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
+-   On GitHub, click on the green **Code** button. The button used to be called "Clone or download", select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
 
 ```{r new-project-from-gh, fig.margin = TRUE, echo = FALSE, fig.width=3}
 knitr::include_graphics("img/new-project-from-gh.png")
@@ -103,7 +103,7 @@ knitr::include_graphics("img/paste-gh-repo-url.png")
 
 ## Introducing yourself to git: setting up your personal access token.
 
-Once you've opened up RStudio Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
+Once you've opened up RStudio Cloud, we will want to introduce RStudio to git and set up our personal access token, these replaced passwords in 2021.
 If you have already done this in the homework, skip ahead to step 6.
 Our personal access token will connect our project to our github account.
 This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
