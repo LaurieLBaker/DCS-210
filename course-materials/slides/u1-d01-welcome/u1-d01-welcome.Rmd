@@ -140,6 +140,11 @@ knitr::include_graphics("img/rabies_retreat.png")
 <iframe src="https://andysouth.shinyapps.io/intro-to-spatial-r/" width="1016" height="516" frameBorder="0"></iframe>
 
 ---
+# Coding Mitten Patterns
+
+<iframe src="https://laurielbaker.github.io/coded-mittens/selbu_mitten_generator.html" width="1016" height="516" frameBorder="0"></iframe>
+
+---
 
 # Introductions
 
