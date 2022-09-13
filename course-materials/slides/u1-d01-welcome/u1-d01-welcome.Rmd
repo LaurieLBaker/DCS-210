@@ -135,14 +135,6 @@ knitr::include_graphics("img/rabies_retreat.png")
 ```
 
 ---
-
-# Building Organization's Data Science Skills
-
-```{r echo=FALSE, out.width="70%", fig.align="center", fig.cap = "Icons showing United Nation's 17 Sustainable Development Goals"}
-knitr::include_graphics("img/SDGs.png")
-```
-
----
 # Creating open source learning resources
 
 <iframe src="https://andysouth.shinyapps.io/intro-to-spatial-r/" width="1016" height="516" frameBorder="0"></iframe>
@@ -164,16 +156,18 @@ knitr::include_graphics("img/avatar.jpg")
 
 # Activity
 
-## Part 1: Ice Breakers
+## Part 1: Get to know one another
 
-* Create small groups
+* Walk around the room and find three people
 * Re-introduce yourselves to your group
-* Find something you have in common
-* Report back
+* Find something you all have in common
+* Continue on until you have formed three groups.
 
-## Part 2: Drafting community rules
-* How can we foster a welcoming and inclusive space for our own learning and others?
-* What processes and procedures do we want in place if we break them?
+## Part 2: What is this course going to look like?
+
+## Part 3: What are we excited and nervous about?
+
+## Part 4: Open Questions
 
 ---
 
