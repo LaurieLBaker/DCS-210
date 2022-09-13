@@ -53,13 +53,3 @@ knitr::knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 ```
-
-layout: true
-  
-<div class="my-footer">
-<span>
-<a href="https://dcs210.netlify.app" target="_blank">dcs210.netlify.app</a>
-</span>
-</div> 
-
----
