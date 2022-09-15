@@ -155,7 +155,8 @@ knitr::include_graphics("img/avatar.jpg")
 
 
 * Name (and pronouns if you want to share)
-* Something you recently taught yourself how to do
+* Option 1: Something you recently taught yourself how to do
+* Option 2: What item you'd be most excited to find in the free box?
 
 ---
 

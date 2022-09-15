@@ -1,7 +1,7 @@
 ---
 title: "Meet the toolkit:<br>version control and collaboration"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: "[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -30,11 +30,8 @@ library(lubridate)
 .pull-left[
 ### .gray[Course operation]
 .gray[
-- introds.org
-- Learn
-- Zoom
-- Teams
-- Piazza
+- [coa-dataviz.netlify.app](https://coa-dataviz.netlify.app/)
+- [Google classroom](https://classroom.google.com/)
 ]
 ]
 .pull-right[
@@ -157,7 +154,7 @@ knitr::include_graphics("img/whole-game-04.png")
 
 <br>
 
-*Next week...*
+*In the lab...*
 
 *Work with R, RStudio, Git, and GitHub together!*<sup>+</sup>
 

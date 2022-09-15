@@ -1,7 +1,7 @@
 ---
 title: "Meet the toolkit:<br>programming"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: "[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -23,6 +23,159 @@ library(sugrrants)
 library(lubridate)
 ```
 
+
+## Data science
+
+.pull-left-wide[
+- Data science is an exciting discipline that allows you to turn data into understanding, insight, and knowledge. 
+
+- We're going to learn to do this in a `tidy` way -- more on that later!
+
+- This is a course on programming for analysis and visualization, with an emphasis on statistical thinking.
+]
+
+---
+
+## Course FAQ
+
+.pull-left-wide[
+**Q - What data science/programming background does this course assume?**  
+A - None.
+
+**Q - Is this an intro stat course?**  
+A - While statistics $\ne$ data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is *not* your typical high school statistics course and there is a greater emphasis on data visualization.
+
+**Q - Will we be doing computing?**   
+A - Yes.
+]
+
+---
+
+## Course Schedule
+
+- .pink[**Tuesday**]: Topic Intro
+- .pink[**Wednesday**]: Lab
+- .pink[**Friday**]: HW Intro and open workshop
+- .pink[**Help Sessions**]: CHE 103 (2:30-3:30 Wed with Laurie and Amy, 1:30-2:30 Thu with Nynke)
+
+---
+# One link to rule them all...
+
+... where you can find everything except your course grades!
+
+[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)
+
+Bookmark the link!
+
+???
+This link is going to have everything but your course grades. It will link you to the relevant places including lyceum.
+
+The course material will be released on a weekly basis, this is so that you can take a look at the week ahead. There are links to videos, readings and others. I try to keep these links up to date but I may occasionally miss something and I'd love to hear from you if you have trouble.
+
+---
+
+class: middle
+
+# Software
+
+---
+
+```{r echo=FALSE, out.width="75%", fig.align="left"}
+knitr::include_graphics("img/excel.png")
+```
+
+???
+
+Before I did my undergraduate this is what data analysis mostly meant to me. Now this form of data in rows and columns may be familiar to some of you if you have worked with excel and spreadsheets. Now many of us if we are collecting data like to put it into something like this. 
+
+So data that comes in a tabular format like this might be familiar to you. 
+
+---
+
+```{r echo=FALSE, out.width="50%", fig.align="left"}
+knitr::include_graphics("img/r.png")
+```
+
+???
+When I did my undergraduate thesis and started learning R this is what R looked like. I remember thinking of the interface as a black box and I wasn't really sure where the data was contained.  
+
+---
+
+```{r echo=FALSE, out.width="73%", fig.align="left"}
+knitr::include_graphics("img/rstudio.png")
+```
+
+???
+
+In this course we are going to be using something a little bit different. We are going to be using RStudio to interact with the computing language. If you remember the images from the previous two slides you can see that RStudio combines those two components so that you can view the data and also execute code in the console. RStudio is the Integrated Development Environment (IDE) that we are going to use in this course.
+
+---
+
+class: middle
+
+# Data science life cycle
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.001.png")
+```
+
+???
+Let's also talk about the Data Science Life Cycle. This is the diagram from the book R for Data Science that we'll be referring to throughout the course. Note that this isn't the only diagram out there representing the data science life cycle but it is the one that we are using to structure this course. 
+
+So how does the data science life cycle begin?
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.002.png")
+```
+
+???
+Usually you have some data maybe in a spreadsheet or a database and you need to import into R.
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.003.png")
+```
+
+???
+
+Then we need to spend some time organising that data to make it easier to use and analyse. This often includes doublechecking the data for mistakes and tidying it and it may also include transforming it to get it to the table that you want, that makes it easier to use or analyse. 
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.004.png")
+```
+
+???
+
+Once the data is in a format that is easy to work with, you want to visualize your data to start to gain some insights from it. 
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.005.png")
+```
+
+???
+Then, perhaps you will go onto modelling your data.
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.006.png")
+```
+
+???
+And the reality is it never ends there. You will gain more insight into the data and you may need to go back and check and adjust your assumptions. 
+
+That last step is communicating your results and finding. 
+
+---
+
+
 ## Course toolkit
 
 <br>
@@ -30,11 +183,8 @@ library(lubridate)
 .pull-left[
 ### .gray[Course operation]
 .gray[
-- introds.org
-- Learn
-- Zoom
-- Teams
-- Piazza
+- [coa-dataviz.netlify.app](https://coa-dataviz.netlify.app/)
+- [Google classroom](https://classroom.google.com/)
 ]
 ]
 .pull-right[
@@ -102,9 +252,9 @@ Long-term goals:
 
 ## Toolkit for reproducibility
 
-- Scriptability $\rightarrow$ R
-- Literate programming (code, narrative, output in one place) $\rightarrow$ R Markdown
-- Version control $\rightarrow$ Git / GitHub
+- Scriptability $\rightarrow$ .pink[R]
+- Literate programming (code, narrative, output in one place) $\rightarrow$ .pink[R Markdown]
+- Version control $\rightarrow$ .pink[Git / GitHub]
 
 ---
 
@@ -355,3 +505,8 @@ Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.co
 - Go to [RStudio Cloud](https://rstudio.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
 - Open and knit the R Markdown document `bechdel.Rmd`, review the document, and fill in the blanks.
 ]
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
