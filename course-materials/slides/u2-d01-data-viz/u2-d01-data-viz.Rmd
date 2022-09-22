@@ -1,7 +1,7 @@
 ---
 title: "Data and visualisation"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: "[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -20,7 +20,7 @@ output:
 library(tidyverse)
 library(magick)
 library(Tmisc)
-library(dsbox)
+#library(dsbox)
 ```
 
 class: middle
@@ -124,21 +124,8 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 
 ## Jabba!
 
-```{r echo = FALSE, warning = FALSE, cache = TRUE, out.width = "80%"}
-jabba <- image_read("img/jabba.png")
-
-fig <- image_graph(width = 1600, height = 900, res = 200)
-ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
-  geom_point() +
-  labs(title = "Mass vs. height of Starwars characters",
-       x = "Height (cm)", y = "Weight (kg)") +
-  geom_point(data = starwars %>% filter(name == "Jabba Desilijic Tiure"), size = 5, pch = 1, color = "pink", stroke = 3)
-dev.off()
-
-out <- fig %>% image_composite(jabba, offset = "+1000+30")
-
-image_write(out, "img/jabbaplot.png", format = "png")
-knitr::include_graphics("img/jabbaplot.png")
+```{r echo=FALSE}
+knitr::include_graphics("img/jabba.png")
 ```
 
 ---
@@ -292,35 +279,7 @@ ggplot(quartet, aes(x = x, y = y)) +
 ```
 
 ---
+## Acknowledgements
 
-## Age at first kiss
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
 
-.question[ 
-Do you see anything out of the ordinary?
-]
-
-```{r echo = FALSE, warning = FALSE}
-ggplot(student_survey, aes(x = first_kiss)) +
-  geom_histogram(binwidth = 1) +
-  labs(
-    title = "How old were you when you had your first kiss?", 
-    x = "Age (years)", y = NULL
-    )
-```
-
----
-
-## Facebook visits
-
-.question[ 
-How are people reporting lower vs. higher values of FB visits?
-]
-
-```{r echo = FALSE, warning = FALSE}
-ggplot(student_survey, aes(x = fb_visits_per_day)) +
-  geom_histogram(binwidth = 1) +
-  labs(
-    title = "How many times do you go on Facebook per day?", 
-    x = "Number of times", y = NULL
-    )
-```

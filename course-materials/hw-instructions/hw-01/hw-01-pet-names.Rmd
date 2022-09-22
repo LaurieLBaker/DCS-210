@@ -73,10 +73,6 @@ Please go back to [Prerequisites] and complete them before continuing the assign
 
 # Workflow
 
-```{marginfigure}
-**IMPORTANT:** If there is no GitHub repo created for you for this assignment, it means I didn't have your GitHub username as of when I assigned the homework. Please let me know your GitHub username asap, and I can create your repo.
-```
-
 For each assignment in this course you will start with a GitHub repo that I created for you and that contains the starter documents you will build upon when working on your assignment.
 
 The first step is always to bring these files into RStudio so that you can edit them, run them, view your results, and interpret them.
@@ -271,8 +267,7 @@ knitr::include_graphics("img/ready-to-push.png")
 
 This will prompt a dialogue box where you first need to enter your user name, and then your personal access token (PAT).
 This might feel cumbersome.
-Bear with me... I *will* teach you how to save your personal access token so you don't have to enter it every time.
-But for this one assignment you'll have to manually enter each time you push in order to gain some experience with it.
+I recommended keeping your PAT somewhere handy on your computer like on a sticky note on your desktop so it is easy to access.
 
 **Thought exercise:** Which of the above steps (updating the YAML, committing, and pushing) needs to talk to GitHub?[^hw-01-pet-names-3]
 
