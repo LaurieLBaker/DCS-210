@@ -1,7 +1,7 @@
 ---
 title: "Grammar of data wrangling"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: ""
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -414,3 +414,10 @@ ggplot(hotels,aes(x=hotel,y=deposit_type))+geom_bar()
 ggplot(hotels, aes(x = hotel, y = deposit_type)) + 
   geom_bar()
 ```
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+

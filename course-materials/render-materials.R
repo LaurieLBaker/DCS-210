@@ -4,6 +4,9 @@ library(fs)
 library(tidyverse)
 library(rmarkdown)
 library(xaringan)
+library(Tmisc)
+# devtools::install_github("rstudio-education/dsbox")
+
 
 # non-xaringan -----------------------------------------------------------------
 
@@ -14,7 +17,7 @@ walk(rmds, render)
 
 # xaringan ---------------------------------------------------------------------
 
-xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u1-d02-toolkit-r/*.Rmd") %>% 
+xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d05-tidy-data/*.Rmd") %>% 
   filter(str_detect(path, "slides")) %>%
   filter(!str_detect(path, "setup")) %>%
   pull(path)
