@@ -3,7 +3,6 @@
   <head>
     <title>Importing data</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Importing data
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 class: middle
@@ -85,23 +73,21 @@ nobel
 
 ```
 ## # A tibble: 935 x 26
-##      id firstname  surname   year category affiliation      city 
-##   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;
-## 1     1 Wilhelm C… Röntgen   1901 Physics  Munich Universi… Muni…
-## 2     2 Hendrik A. Lorentz   1902 Physics  Leiden Universi… Leid…
-## 3     3 Pieter     Zeeman    1902 Physics  Amsterdam Unive… Amst…
-## 4     4 Henri      Becquer…  1903 Physics  École Polytechn… Paris
-## 5     5 Pierre     Curie     1903 Physics  École municipal… Paris
-## 6     6 Marie      Curie     1903 Physics  &lt;NA&gt;             &lt;NA&gt; 
-## # … with 929 more rows, and 19 more variables: country &lt;chr&gt;,
-## #   born_date &lt;date&gt;, died_date &lt;date&gt;, gender &lt;chr&gt;,
-## #   born_city &lt;chr&gt;, born_country &lt;chr&gt;,
-## #   born_country_code &lt;chr&gt;, died_city &lt;chr&gt;,
-## #   died_country &lt;chr&gt;, died_country_code &lt;chr&gt;,
-## #   overall_motivation &lt;chr&gt;, share &lt;dbl&gt;, motivation &lt;chr&gt;,
-## #   born_country_original &lt;chr&gt;, born_city_original &lt;chr&gt;,
-## #   died_country_original &lt;chr&gt;, died_city_original &lt;chr&gt;,
-## #   city_original &lt;chr&gt;, country_original &lt;chr&gt;
+##      id firstname     surname  year categ~1 affil~2 city  country
+##   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  
+## 1     1 Wilhelm Conr~ Röntgen  1901 Physics Munich~ Muni~ Germany
+## 2     2 Hendrik A.    Lorentz  1902 Physics Leiden~ Leid~ Nether~
+## 3     3 Pieter        Zeeman   1902 Physics Amster~ Amst~ Nether~
+## 4     4 Henri         Becque~  1903 Physics École ~ Paris France 
+## 5     5 Pierre        Curie    1903 Physics École ~ Paris France 
+## 6     6 Marie         Curie    1903 Physics &lt;NA&gt;    &lt;NA&gt;  &lt;NA&gt;   
+## # ... with 929 more rows, 18 more variables: born_date &lt;date&gt;,
+## #   died_date &lt;date&gt;, gender &lt;chr&gt;, born_city &lt;chr&gt;,
+## #   born_country &lt;chr&gt;, born_country_code &lt;chr&gt;,
+## #   died_city &lt;chr&gt;, died_country &lt;chr&gt;,
+## #   died_country_code &lt;chr&gt;, overall_motivation &lt;chr&gt;,
+## #   share &lt;dbl&gt;, motivation &lt;chr&gt;, born_country_original &lt;chr&gt;,
+## #   born_city_original &lt;chr&gt;, died_country_original &lt;chr&gt;, ...
 ```
 
 ---
@@ -113,11 +99,9 @@ nobel
 
 
 ```r
-df &lt;- tribble(
-  ~x, ~y,
-  1,  "a",
-  2,  "b",
-  3,  "c"
+df &lt;- data.frame(
+  "x" = c(1, 2, 3), 
+  "y" = c("a", "b", "c")
 )
 
 write_csv(df, file = "data/df.csv")
@@ -329,9 +313,10 @@ read_csv("data/df-na.csv", col_types = list(col_double(),
 
 
 ```
-## Warning: 1 parsing failure.
-## row col expected actual             file
-##   6   x a double      . 'data/df-na.csv'
+## Warning: One or more parsing issues, call `problems()` on your data frame
+## for details, e.g.:
+##   dat &lt;- vroom(...)
+##   problems(dat)
 ```
 
 ```
@@ -382,13 +367,13 @@ read_csv("data/df-na.csv")
 ```
 
 ```
+## Rows: 9 Columns: 3
+## -- Column specification -----------------------------------------
+## Delimiter: ","
+## chr (3): x, y, z
 ## 
-## ── Column specification ─────────────────────────────────────────
-## cols(
-##   x = col_character(),
-##   y = col_character(),
-##   z = col_character()
-## )
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 ```
@@ -425,13 +410,15 @@ fav_food
 
 ```
 ## # A tibble: 5 x 6
-##   `Student ID` `Full Name`  favourite.food  mealPlan  AGE   SES  
-##          &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;
-## 1            1 Sunil Huffm… Strawberry yog… Lunch on… 4     High 
-## 2            2 Barclay Lynn French fries    Lunch on… 5     Midd…
-## 3            3 Jayendra Ly… N/A             Breakfas… 7     Low  
-## 4            4 Leon Rossini Anchovies       Lunch on… 99999 Midd…
-## 5            5 Chidiegwu D… Pizza           Breakfas… five  High
+##   `Student ID` `Full Name`      favourite.f~1 mealP~2 AGE   SES  
+##          &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
+## 1            1 Sunil Huffmann   Strawberry y~ Lunch ~ 4     High 
+## 2            2 Barclay Lynn     French fries  Lunch ~ 5     Midd~
+## 3            3 Jayendra Lyne    N/A           Breakf~ 7     Low  
+## 4            4 Leon Rossini     Anchovies     Lunch ~ 99999 Midd~
+## 5            5 Chidiegwu Dunkel Pizza         Breakf~ five  High 
+## # ... with abbreviated variable names 1: favourite.food,
+## #   2: mealPlan
 ```
 
 ---
@@ -452,13 +439,14 @@ fav_food
 
 ```
 ## # A tibble: 5 x 6
-##   student_id full_name   favourite_food   meal_plan   age   ses  
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;
-## 1          1 Sunil Huff… Strawberry yogh… Lunch only  4     High 
-## 2          2 Barclay Ly… French fries     Lunch only  5     Midd…
-## 3          3 Jayendra L… N/A              Breakfast … 7     Low  
-## 4          4 Leon Rossi… Anchovies        Lunch only  99999 Midd…
-## 5          5 Chidiegwu … Pizza            Breakfast … five  High
+##   student_id full_name        favourite_food  meal_~1 age   ses  
+##        &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
+## 1          1 Sunil Huffmann   Strawberry yog~ Lunch ~ 4     High 
+## 2          2 Barclay Lynn     French fries    Lunch ~ 5     Midd~
+## 3          3 Jayendra Lyne    N/A             Breakf~ 7     Low  
+## 4          4 Leon Rossini     Anchovies       Lunch ~ 99999 Midd~
+## 5          5 Chidiegwu Dunkel Pizza           Breakf~ five  High 
+## # ... with abbreviated variable name 1: meal_plan
 ```
 
 ---
@@ -480,13 +468,14 @@ fav_food
 
 ```
 ## # A tibble: 5 x 6
-##   student_id full_name   favourite_food   meal_plan   age   ses  
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;
-## 1          1 Sunil Huff… Strawberry yogh… Lunch only  4     High 
-## 2          2 Barclay Ly… French fries     Lunch only  5     Midd…
-## 3          3 Jayendra L… &lt;NA&gt;             Breakfast … 7     Low  
-## 4          4 Leon Rossi… Anchovies        Lunch only  &lt;NA&gt;  Midd…
-## 5          5 Chidiegwu … Pizza            Breakfast … five  High
+##   student_id full_name        favourite_food  meal_~1 age   ses  
+##        &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
+## 1          1 Sunil Huffmann   Strawberry yog~ Lunch ~ 4     High 
+## 2          2 Barclay Lynn     French fries    Lunch ~ 5     Midd~
+## 3          3 Jayendra Lyne    &lt;NA&gt;            Breakf~ 7     Low  
+## 4          4 Leon Rossini     Anchovies       Lunch ~ &lt;NA&gt;  Midd~
+## 5          5 Chidiegwu Dunkel Pizza           Breakf~ five  High 
+## # ... with abbreviated variable name 1: meal_plan
 ```
 
 ---
@@ -509,9 +498,9 @@ glimpse(fav_food)
 ## Rows: 5
 ## Columns: 6
 ## $ student_id     &lt;dbl&gt; 1, 2, 3, 4, 5
-## $ full_name      &lt;chr&gt; "Sunil Huffmann", "Barclay Lynn", "Jayen…
-## $ favourite_food &lt;chr&gt; "Strawberry yoghurt", "French fries", NA…
-## $ meal_plan      &lt;chr&gt; "Lunch only", "Lunch only", "Breakfast a…
+## $ full_name      &lt;chr&gt; "Sunil Huffmann", "Barclay Lynn", "Jayen~
+## $ favourite_food &lt;chr&gt; "Strawberry yoghurt", "French fries", NA~
+## $ meal_plan      &lt;chr&gt; "Lunch only", "Lunch only", "Breakfast a~
 ## $ age            &lt;dbl&gt; 4, 5, 7, NA, 5
 ## $ ses            &lt;chr&gt; "High", "Middle", "Low", "Middle", "High"
 ```
@@ -591,13 +580,14 @@ fav_food
 
 ```
 ## # A tibble: 5 x 6
-##   student_id full_name   favourite_food   meal_plan     age ses  
-##        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;       &lt;dbl&gt; &lt;fct&gt;
-## 1          1 Sunil Huff… Strawberry yogh… Lunch only      4 High 
-## 2          2 Barclay Ly… French fries     Lunch only      5 Midd…
-## 3          3 Jayendra L… &lt;NA&gt;             Breakfast …     7 Low  
-## 4          4 Leon Rossi… Anchovies        Lunch only     NA Midd…
-## 5          5 Chidiegwu … Pizza            Breakfast …     5 High
+##   student_id full_name        favourite_food  meal_~1   age ses  
+##        &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;   &lt;dbl&gt; &lt;fct&gt;
+## 1          1 Sunil Huffmann   Strawberry yog~ Lunch ~     4 High 
+## 2          2 Barclay Lynn     French fries    Lunch ~     5 Midd~
+## 3          3 Jayendra Lyne    &lt;NA&gt;            Breakf~     7 Low  
+## 4          4 Leon Rossini     Anchovies       Lunch ~    NA Midd~
+## 5          5 Chidiegwu Dunkel Pizza           Breakf~     5 High 
+## # ... with abbreviated variable name 1: meal_plan
 ```
 
 ---
@@ -710,7 +700,7 @@ class: middle
 ## 4 1822    3    
 ## 5 Brand 2 n    
 ## 6 3333    1    
-## # … with 3 more rows
+## # ... with 3 more rows
 ```
 ]
 .pull-right[
@@ -725,9 +715,17 @@ class: middle
 ## 4 Brand 2  3333     1
 ## 5 Brand 2  2156     3
 ## 6 Brand 2  3987     6
-## # … with 1 more row
+## # ... with 1 more row
 ```
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

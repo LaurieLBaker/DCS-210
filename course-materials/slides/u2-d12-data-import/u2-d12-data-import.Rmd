@@ -1,7 +1,6 @@
 ---
 title: "Importing data"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -80,12 +79,10 @@ nobel
 .pull-left[
 - Write a file
 
-```{r cache=TRUE}
-df <- tribble(
-  ~x, ~y,
-  1,  "a",
-  2,  "b",
-  3,  "c"
+```{r create dataframe}
+df <- data.frame(
+  "x" = c(1, 2, 3), 
+  "y" = c("a", "b", "c")
 )
 
 write_csv(df, file = "data/df.csv")
@@ -495,3 +492,11 @@ sales %>%
   )
 ```
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
+

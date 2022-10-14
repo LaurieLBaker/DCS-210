@@ -1,7 +1,6 @@
 ---
 title: "Data types"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -19,7 +18,7 @@ output:
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(DT)
-library(scales)
+#library(scales)
 ```
 
 class: middle
@@ -451,3 +450,11 @@ FALSE | FALSE # if NA was FALSE
 
 - Doesn't make sense for mathematical operations 
 - Makes sense in the context of missing data
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
+
+

@@ -3,7 +3,6 @@
   <head>
     <title>Recoding data</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Recoding data
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -64,17 +52,18 @@ rel_inc &lt;- read_excel("data/relig-income.xlsx")
 
 ```
 ## # A tibble: 12 x 6
-##   `Religious tradition`      `Less than $30,000` `$30,000-$49,99…
-##   &lt;chr&gt;                                    &lt;dbl&gt;            &lt;dbl&gt;
-## 1 Buddhist                                  0.36             0.18
-## 2 Catholic                                  0.36             0.19
-## 3 Evangelical Protestant                    0.35             0.22
-## 4 Hindu                                     0.17             0.13
-## 5 Historically Black Protes…                0.53             0.22
-## 6 Jehovah's Witness                         0.48             0.25
-## # … with 6 more rows, and 3 more variables:
-## #   $50,000-$99,999 &lt;dbl&gt;, $100,000 or more &lt;dbl&gt;,
-## #   Sample Size &lt;dbl&gt;
+##   `Religious tradition`   Less ~1 $30,0~2 $50,0~3 $100,~4 Sampl~5
+##   &lt;chr&gt;                     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Buddhist                   0.36    0.18    0.32    0.13     233
+## 2 Catholic                   0.36    0.19    0.26    0.19    6137
+## 3 Evangelical Protestant     0.35    0.22    0.28    0.14    7462
+## 4 Hindu                      0.17    0.13    0.34    0.36     172
+## 5 Historically Black Pro~    0.53    0.22    0.17    0.08    1704
+## 6 Jehovah's Witness          0.48    0.25    0.22    0.04     208
+## # ... with 6 more rows, and abbreviated variable names
+## #   1: `Less than $30,000`, 2: `$30,000-$49,999`,
+## #   3: `$50,000-$99,999`, 4: `$100,000 or more`,
+## #   5: `Sample Size`
 ```
 ]
 
@@ -94,16 +83,17 @@ rel_inc %&gt;%
 
 ```
 ## # A tibble: 12 x 6
-##   religion     `Less than $30,… `$30,000-$49,99… `$50,000-$99,99…
-##   &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1 Buddhist                 0.36             0.18             0.32
-## 2 Catholic                 0.36             0.19             0.26
-## 3 Evangelical…             0.35             0.22             0.28
-## 4 Hindu                    0.17             0.13             0.34
-## 5 Historicall…             0.53             0.22             0.17
-## 6 Jehovah's W…             0.48             0.25             0.22
-## # … with 6 more rows, and 2 more variables:
-## #   $100,000 or more &lt;dbl&gt;, n &lt;dbl&gt;
+##   religion                  Less ~1 $30,0~2 $50,0~3 $100,~4     n
+##   &lt;chr&gt;                       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Buddhist                     0.36    0.18    0.32    0.13   233
+## 2 Catholic                     0.36    0.19    0.26    0.19  6137
+## 3 Evangelical Protestant       0.35    0.22    0.28    0.14  7462
+## 4 Hindu                        0.17    0.13    0.34    0.36   172
+## 5 Historically Black Prote~    0.53    0.22    0.17    0.08  1704
+## 6 Jehovah's Witness            0.48    0.25    0.22    0.04   208
+## # ... with 6 more rows, and abbreviated variable names
+## #   1: `Less than $30,000`, 2: `$30,000-$49,999`,
+## #   3: `$50,000-$99,999`, 4: `$100,000 or more`
 ```
 ]
 
@@ -133,7 +123,7 @@ If we want a new variable called `income` with levels such as "Less than $30,000
 ## 13 Hindu                    172 Less than $30,000       0.17
 ## 14 Hindu                    172 $30,000-$49,999         0.13
 ## 15 Hindu                    172 $50,000-$99,999         0.34
-## # … with 33 more rows
+## # ... with 33 more rows
 ```
 
 ---
@@ -165,7 +155,7 @@ rel_inc %&gt;%
 ## 4 Buddhist   233 $100,000 or more        0.13
 ## 5 Catholic  6137 Less than $30,000       0.36
 ## 6 Catholic  6137 $30,000-$49,999         0.19
-## # … with 42 more rows
+## # ... with 42 more rows
 ```
 ]
 
@@ -199,7 +189,7 @@ rel_inc %&gt;%
 ## 4 Buddhist   233 $100,000 or more        0.13        30
 ## 5 Catholic  6137 Less than $30,000       0.36      2209
 ## 6 Catholic  6137 $30,000-$49,999         0.19      1166
-## # … with 42 more rows
+## # ... with 42 more rows
 ```
 ]
 
@@ -232,7 +222,7 @@ ggplot(rel_inc_long, aes(y = religion, x = frequency)) +
   geom_col()
 ```
 
-&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-10-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d13-data-recode_files/figure-html/bar plot-1.png" width="65%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -254,7 +244,7 @@ rel_inc_long &lt;- rel_inc_long %&gt;%
 ]
 
 .panel[.panel-name[Plot]
-&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-12-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-11-1.png" width="65%" style="display: block; margin: auto;" /&gt;
 ]
 
 ]
@@ -274,7 +264,7 @@ rel_inc_long &lt;- rel_inc_long %&gt;%
 ]
 
 .panel[.panel-name[Plot]
-&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-14-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-13-1.png" width="65%" style="display: block; margin: auto;" /&gt;
 ]
 
 ]
@@ -393,7 +383,7 @@ ggplot(rel_inc_long, aes(y = religion, x = frequency, fill = income)) +
 .panelset[
 
 .panel[.panel-name[Plot]
-&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-20-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-19-1.png" width="65%" style="display: block; margin: auto;" /&gt;
 ]
 
 .panel[.panel-name[Code]
@@ -417,7 +407,7 @@ ggplot(rel_inc_long, aes(y = religion, x = frequency, fill = income)) +
 .panelset[
 
 .panel[.panel-name[Plot]
-&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-21-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d13-data-recode_files/figure-html/unnamed-chunk-20-1.png" width="65%" style="display: block; margin: auto;" /&gt;
 ]
 
 .panel[.panel-name[Code]
@@ -439,6 +429,13 @@ ggplot(rel_inc_long, aes(y = religion, x = frequency, fill = income)) +
 ]
 
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
