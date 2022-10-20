@@ -1,7 +1,7 @@
 ---
 title: "Interactive web apps"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: ""
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -44,9 +44,11 @@ knitr::include_graphics("img/shiny.png")
 ---
 
 .center[
-[minecr.shinyapps.io/fm-speeches-covid19-simple](https://minecr.shinyapps.io/fm-speeches-covid19-simple/)
+[laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/](https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/)
 ]
 
 .center[
-<iframe width="1000" height="500" src="https://minecr.shinyapps.io/fm-speeches-covid19-simple/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+<iframe width="1000" height="500" src="https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 ]
+
+Credit: Created by students in [Community-Engaged Data Science](https://community-engaged-data-science.netlify.app/) at Bates.

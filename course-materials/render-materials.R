@@ -17,7 +17,7 @@ walk(rmds, render)
 
 # xaringan ---------------------------------------------------------------------
 
-xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d12-data-import/*.Rmd") %>% 
+xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u5-d03-interactive-web-app/*.Rmd") %>% 
   filter(str_detect(path, "slides")) %>%
   filter(!str_detect(path, "setup")) %>%
   pull(path)
