@@ -137,7 +137,11 @@ Let's de-construct this code:
 4.  In this exercise you will be exploring the distribution of prices for neighbourhoods in Edinburgh and learning to calculate summary statistics. In parts a-c you will be creating three pipelines.
 
 ```{marginfigure}
-**Hint:** 4a will give you the names you will use to filter the neighbourhoods before making the plot in 4b.
+**Hint:** 4a will give you the names you will use to filter the neighbourhoods before making the plot in 4b. 
+```
+
+```{marginfigure}
+**New term**: Whenever you have more than one pipe `%>%` it is called a pipeline 😎.
 ```
 
 4a.
