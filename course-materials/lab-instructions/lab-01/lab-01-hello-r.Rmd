@@ -66,7 +66,7 @@ knitr::include_graphics("img/github-auth-4.png")
 knitr::include_graphics("img/github-auth-5.png")
 ```
 
--   To confirm that you've successfully linked up your GitHub and RStudio Cloud accounts, [GitHub settings > Applications](https://github.com/settings/applications). You should see RStudio listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
+-   To confirm that you've successfully linked up your GitHub and RStudio Cloud accounts, [GitHub settings \> Applications](https://github.com/settings/applications). You should see RStudio listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
 
 ```{r github-auth-6, echo = FALSE}
 knitr::include_graphics("img/github-auth-6.png")
@@ -407,8 +407,4 @@ Play around with these until you're happy with the look.
 
 <br>
 
-```{marginfigure}
-Not sure how to use emojis on your computer? Maybe a teammate can help? Or you can ask your TA as well!
-```
-
-🧶 ✅ ⬆️ *Yay, you're done! Commit all remaining changes, use the commit message "Finish Lab 1!* 💪*", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+🧶 ✅ ⬆️ *Yay, you're done! Commit all remaining changes, use the commit message "Finish Lab 1!* 💪*", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. Use the self check list in the Readme to review.*

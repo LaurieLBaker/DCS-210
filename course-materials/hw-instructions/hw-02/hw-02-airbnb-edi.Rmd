@@ -61,6 +61,10 @@ library(dsbox)
 library(ggridges)
 ```
 
+```{marginfigure}
+**Note:** The dsbox package is loaded using a package call to `devtools`. `devtools` is used to load packages installed on GitHub. You can type `??dsbox` within the console or do a google search to figure out where it is loaded from.
+```
+
 If the above code does not run, you will want to uncomment (remove the \#) and install the required packages.
 You will then want to recommend (add the \#) so that the package does not get installed everytime you knit.
 
@@ -69,7 +73,7 @@ You will then want to recommend (add the \#) so that the package does not get in
 The data can be found in the **dsbox** package, and it's called `edibnb`.
 Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
 
-Occasionaly RStudio Cloud and Github have trouble connecting.
+Occasionally RStudio Cloud and Github have trouble connecting.
 So the dataset is also in the data folder and can be loaded using this code instead.
 
 ```{r load-data, eval = FALSE}

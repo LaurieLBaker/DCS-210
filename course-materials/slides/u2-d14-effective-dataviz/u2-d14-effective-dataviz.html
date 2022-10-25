@@ -3,7 +3,6 @@
   <head>
     <title>Tips for effective data visualization</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Tips for effective data visualization
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -436,6 +424,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-20-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -448,6 +442,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
   facet_wrap(~region, nrow = 1) +
 * guides(fill = FALSE)
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -459,6 +458,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-21-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -475,6 +480,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
     x = NULL, y = NULL
   )
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -486,6 +496,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-22-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -504,6 +520,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
     x = NULL, y = NULL
   )
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -515,6 +536,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-23-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -533,6 +560,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
     x = NULL, y = NULL
   )
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -544,6 +576,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-24-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -565,6 +603,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
     x = NULL, y = NULL
   )
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -579,6 +622,12 @@ class: middle
 
 ## Rainbow colors not always the right choice
 
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-25-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
@@ -588,6 +637,12 @@ class: middle
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-26-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -608,6 +663,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 *   "Right" = "green",
 *   "Don't know" = "gray"
 * ))
+```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
 ```
 ]
 
@@ -630,6 +690,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-28-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -651,6 +717,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 *   "Don't know" = "gray"
   ))
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -662,6 +733,12 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 .panelset[
 
 .panel[.panel-name[Plot]
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
+
 &lt;img src="u2-d14-effective-dataviz_files/figure-html/unnamed-chunk-29-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -682,6 +759,11 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
                                "Don't know" = "gray")) +
 * theme_minimal()
 ```
+
+```
+## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use
+## `guides(&lt;scale&gt; = "none")` instead.
+```
 ]
 
 ]
@@ -695,6 +777,13 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 - Change the visualisation in three different ways to tell slightly different stories with it each time.
 ]
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

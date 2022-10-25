@@ -26,7 +26,8 @@ This week we'll do some data gymnastics to refresh and review what we learned ov
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Click on your assignment link and go to the Github repo.
+Clone the repo in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -39,14 +40,17 @@ If anything is missing, commit and push again.
 
 ## Packages
 
-We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package.
-These packages are already installed for you.
-You can load them by running the following in your Console:
-
-```{r load-packages, message = FALSE, eval = TRUE}
+```{r load-packages, message = FALSE}
+#install.packages("tidyverse")
 library(tidyverse)
+# install.packages("devtools")
+# library(devtools)
+# devtools::install_github("rstudio-education/dsbox")
 library(dsbox)
 ```
+
+Note, if the above code does not run, you will want to uncomment (remove the \#) and install the required packages.
+You will then want to recommend (add the \#) so that the package does not get installed everytime you knit.
 
 ## Data
 
@@ -99,4 +103,4 @@ Note that the answers to all questions are within the context of this particular
 9.  Come up with a question you want to answer using these data, and write it down.
     Then, create a data visualization that answers the question, and explain how your visualization answers the question.
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
+🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work. Check also the self checklist in your Github Readme to check to see if you missed a solution or interpretation that was expected on your lab/hw.*
