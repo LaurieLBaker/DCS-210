@@ -52,3 +52,62 @@ knitr::include_graphics("img/shiny.png")
 ]
 
 Credit: Created by students in [Community-Engaged Data Science](https://community-engaged-data-science.netlify.app/) at Bates.
+
+
+---
+
+.center[
+[laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/](https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/)
+]
+
+.center[
+<iframe width="1000" height="500" src="https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+]
+
+What does the app do?
+
+---
+
+
+class: middle
+
+# Anatomy of a Shiny app
+
+---
+
+## What's in a Shiny app
+
+.pull-left[
+
+```{r shiny_ex, eval = FALSE}
+library(shiny)
+
+ui <- fluidPage()
+
+server <- function(input, output){}
+
+shinyApp(ui = ui, server = server)
+```
+
+
+]
+
+.pull-right[
+
+- **User interface (ui)** controls the layout and appearance of the app.
+- **Server function (server)** contains instructions needed to build the app
+
+]
+
+---
+
+## The User Interface (ui)
+
+- Spot the 4 widgets that allow the user to interact with the app. What do they do?
+
+- The user interface is divided into 3 parts: a title panel, a main panel, and a side bar panel. Can you identify which is which?
+
+```{r picture-side-panel, echo = FALSE}
+knitr::include_graphics("img/parts_shiny_app.jpg")
+```
+
