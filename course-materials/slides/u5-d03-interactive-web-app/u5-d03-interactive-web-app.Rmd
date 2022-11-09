@@ -15,6 +15,27 @@ output:
 ---
 
 ```{r child = "../setup.Rmd"}
+
+```
+
+```{r additional libraries, echo = FALSE, warning = FALSE, message = FALSE}
+
+library(DT)
+library(shiny)
+library(RColorBrewer)
+```
+
+```{r code set up, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+
+
+# Load data
+raw_data <- read.csv("data/raw_data.csv", stringsAsFactors = FALSE)
+
+# Format as a date
+raw_data$date <- as.Date(raw_data$date) 
+
+# Create a colour palette
+col_palette <- brewer.pal(name="Dark2", n=8)
 ```
 
 ## Shiny
@@ -101,13 +122,110 @@ shinyApp(ui = ui, server = server)
 
 ---
 
+## Inputs  
+
+- To make the app interactive, you need an **input** that the user can change  
+- Shiny includes a selection of functions for this called **widgets**.
+
+
+.center[
+[https://shiny.rstudio.com/gallery/widget-gallery.html](https://shiny.rstudio.com/gallery/widget-gallery.html)
+]
+
+.center[
+<iframe width="1000" height="500" src="https://shiny.rstudio.com/gallery/widget-gallery.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+]
+
+---
+
+## Inputs
+
+- Inputs are used in the **ui** to set the options for the user to interact with. 
+
+``` {r widgets, echo=FALSE}
+widgets <- data.frame(Name = c("actionButton()", 
+                               "checkboxInput()",
+                               "checkboxGroupInput()",
+                               "dateInput()", 
+                               "dateRangeInput()", 
+                               "numericInput()", 
+                               "radioButtons()",
+                               "selectInput()", 
+                               "sliderInput()", 
+                               "textInput()"),
+                      Description = c("a button click input", 
+                                      "a single checkbox",
+                                      "a set of checkboxes where multiple can be selected", 
+                                      "a calendar for date selection",
+                                      "a pair of calendars for start and end date selection",
+                                      "a free-text for numbers", 
+                                      "a set of buttons where only 1 can be selected",
+                                      "a dropdown menu", 
+                                      "a slider bar", 
+                                      "a free-text for letters/words"))
+
+DT::datatable(widgets,
+              options = list(pageLength = 5))
+```
+
+---
+
+## Outputs
+
+- An **output** is required to show the user the effects of their **input**
+- ``render()`` is used in the **server** to generate the output
+- ``output()`` is used in the **ui** to display the output to the user
+
+``` {r, echo=FALSE}
+outputs <- data.frame("render" = c("renderImage()",
+                                 "renderPlot()",
+                                 "renderPrint()",
+                                 "renderTable()",
+                                 "DT::renderDataTable()",
+                                 "renderText()",
+                                 "rendeerUI()"),
+                      "output"=c("imageOutput()",
+                                 "plotOutput()",
+                                 "verbatimTextOutput()",
+                                 "tableOutput()",
+                                 "dataTableOutput()",
+                                 "textOutput()",
+                                 "uiOutput() or htmlOutput()"),
+                      "Produces" = c("an image",
+                                     "a plot/map",
+                                     "any printed output formatted as code",
+                                     "a table", 
+                                     "an interactable table",
+                                     "any character string formatted to match app",
+                                     "any character string formatted with raw HTML code"))
+
+DT::datatable(outputs,
+              options = list(pageLength = 5))
+```
+
+
+---
+
 ## The User Interface (ui)
 
 - Spot the 4 widgets that allow the user to interact with the app. What do they do?
 
-- The user interface is divided into 3 parts: a title panel, a main panel, and a side bar panel. Can you identify which is which?
+.center[
+<iframe width="1000" height="450" src="https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+---
+
+## Parts of the user interface
+
+- The user interface is divided into 3 parts: a title panel, a main panel, and a side bar panel. 
+- When you construct the user interface you can choose your layout.
 
 ```{r picture-side-panel, echo = FALSE}
 knitr::include_graphics("img/parts_shiny_app.jpg")
 ```
 
+---
+class: middle
+
+# Let's Play!

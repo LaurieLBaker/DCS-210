@@ -9,6 +9,15 @@
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding/datatables.js"></script>
+    <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
   </head>
@@ -21,6 +30,10 @@ class: center, middle, inverse, title-slide
 ### 
 
 ---
+
+
+
+
 
 
 
@@ -109,14 +122,64 @@ shinyApp(ui = ui, server = server)
 
 ---
 
+## Inputs  
+
+- To make the app interactive, you need an **input** that the user can change  
+- Shiny includes a selection of functions for this called **widgets**.
+
+
+.center[
+[https://shiny.rstudio.com/gallery/widget-gallery.html](https://shiny.rstudio.com/gallery/widget-gallery.html)
+]
+
+.center[
+&lt;iframe width="1000" height="500" src="https://shiny.rstudio.com/gallery/widget-gallery.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;  
+]
+
+---
+
+## Inputs
+
+- Inputs are used in the **ui** to set the options for the user to interact with. 
+
+<div id="htmlwidget-27424792bc78c3775352" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27424792bc78c3775352">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["actionButton()","checkboxInput()","checkboxGroupInput()","dateInput()","dateRangeInput()","numericInput()","radioButtons()","selectInput()","sliderInput()","textInput()"],["a button click input","a single checkbox","a set of checkboxes where multiple can be selected","a calendar for date selection","a pair of calendars for start and end date selection","a free-text for numbers","a set of buttons where only 1 can be selected","a dropdown menu","a slider bar","a free-text for letters/words"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Outputs
+
+- An **output** is required to show the user the effects of their **input**
+- ``render()`` is used in the **server** to generate the output
+- ``output()`` is used in the **ui** to display the output to the user
+
+<div id="htmlwidget-f9c65f1018a28164aeae" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f9c65f1018a28164aeae">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["renderImage()","renderPlot()","renderPrint()","renderTable()","DT::renderDataTable()","renderText()","rendeerUI()"],["imageOutput()","plotOutput()","verbatimTextOutput()","tableOutput()","dataTableOutput()","textOutput()","uiOutput() or htmlOutput()"],["an image","a plot/map","any printed output formatted as code","a table","an interactable table","any character string formatted to match app","any character string formatted with raw HTML code"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>render<\/th>\n      <th>output<\/th>\n      <th>Produces<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
 ## The User Interface (ui)
 
 - Spot the 4 widgets that allow the user to interact with the app. What do they do?
 
-- The user interface is divided into 3 parts: a title panel, a main panel, and a side bar panel. Can you identify which is which?
+.center[
+&lt;iframe width="1000" height="450" src="https://laurie-the-student-baker.shinyapps.io/NeCSA_Temperature_Outliers/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## Parts of the user interface
+
+- The user interface is divided into 3 parts: a title panel, a main panel, and a side bar panel. 
+- When you construct the user interface you can choose your layout.
 
 &lt;img src="img/parts_shiny_app.jpg" width="60%" style="display: block; margin: auto;" /&gt;
 
+---
+class: middle
+
+# Let's Play!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
