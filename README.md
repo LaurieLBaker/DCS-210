@@ -145,7 +145,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 - [Week 11: Text analysis](course-materials/slides/u4-d06-logistic-reg/u4-d06-logistic-reg.html)
 - [Week 11: Comparing texts](course-materials/slides/u4-d07-prediction-overfitting/u4-d07-prediction-overfitting.html)
-- [Week 11: Interactive web apps](course-materials/slides/u4-d08-feature-engineering/u4-d08-feature-engineering.html)
+- [Week 11: Interactive web apps](course-materials/slides/u5-d03-interactive-web-app/u5-d03-interactive-web-app.html)
 - [Week 11: Machine Learning](course-materials/slides/u4-d08-feature-engineering/u4-d08-feature-engineering.html)
 
 
