@@ -1,7 +1,7 @@
 ---
 title: "Meet the toolkit:<br>programming"
 subtitle: "<br><br> College of the Atlantic"
-author: "[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)"
+author: ""
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
