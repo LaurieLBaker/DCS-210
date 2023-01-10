@@ -171,9 +171,7 @@ knitr::include_graphics("img/avatar.jpg")
 
 ## Part 2: What is this course going to look like?
 
-## Part 3: What are we excited and nervous about?
-
-## Part 4: Open Questions
+## Part 3: Open Questions
 
 ---
 
