@@ -111,7 +111,7 @@ This is perhaps the most tedious part of the process as you have to (re)introduc
 In the console (lower left panel in RStudio), run the following code:
 
 ```{r, eval = FALSE}
-
+install.packages("usethis") # Install the package
 library(usethis) # Load the package
 git_sitrep()
 

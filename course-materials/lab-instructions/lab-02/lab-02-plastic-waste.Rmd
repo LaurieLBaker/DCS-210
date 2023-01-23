@@ -26,7 +26,7 @@ Additionally, National Geographic ran a data visualization communication contest
 
 # Getting started
 
-Go to the course GitHub organization and locate your assignment repo, which should be named `lab-02-plastic-waste-YOUR_GITHUB_USERNAME`.
+Aafter you've clicked on your assignment link go ahead and open up the assignment repo.
 If you're in the right place, it should look like the following.
 
 ```{r echo=FALSE, eval=TRUE}
@@ -210,6 +210,10 @@ plastic_waste %>%
          title = "Plastic waste vs. coastal population proportion",
          subtitle = "by continent") +
     theme_minimal()
+```
+
+```{marginfigure}
+**Hint:** Not sure how to get the same color scheme? Revisit the slides from this week where we introduce color-blind friendly palettes.
 ```
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
