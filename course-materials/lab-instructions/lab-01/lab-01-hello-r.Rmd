@@ -363,48 +363,6 @@ datasaurus_dozen %>%
   print(13)
 ```
 
-You're done with the data analysis exercises, but we'd like you to do two more things:
-
-```{r fig-resize-global, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/fig-resize-global.png")
-```
-
--   **Resize your figures:**
-
-Double check that your YAML output type is `html_document`.
-If it is another output type, e.g. `github_document`, change it to `html_document` and save your changes.
-
-```{r doublecheck_yaml, fig.width = 2, fig.height = 1.5, echo = FALSE}
-knitr::include_graphics("img/yaml-double-check.png")
-```
-
-Click on the gear icon in on top of the R Markdown document, next to the blue knit icon 🧶, and select "Output Options..." in the dropdown menu.
-
-In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done.
-Then, knit your document and see how you like the new sizes.
-Change and knit again and again until you're happy with the figure sizes.
-Note that these values get saved in the YAML.
-
-```{r fig-resize-local, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/fig-resize-local.png")
-```
-
-You can also use different figure sizes for differen figures.
-To do so click on the gear icon within the chunk where you want to make a change.
-Changing the figure sizes added new options to these chunks: `fig.width` and `fig.height`.
-You can change them by defining different values directly in your R Markdown document as well.
-
-```{r theme-highlight, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/theme-highlight.png")
-```
-
--   **Change the look of your report:**
-
-Once again click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu.
-In the General tab of the pop up dialogue box try out different Syntax highlighting and theme options.
-Hit OK and knit your document to see how it looks.
-Play around with these until you're happy with the look.
-
 <br>
 
 🧶 ✅ ⬆️ *Yay, you're done! Commit all remaining changes, use the commit message "Finish Lab 1!* 💪*", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. Use the self check list in the Readme to review.*
