@@ -412,8 +412,8 @@ wrangling and visualization and the data lives in the
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># library(devtools)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;rstudio-education/dsbox&quot;)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#library(devtools)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github(&quot;rstudio-education/dsbox&quot;)</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code></pre></div>
 <p>Note, if the above code does not run, you will want to uncomment
 (remove the #) and install the required packages. You will then want to
@@ -431,9 +431,9 @@ inspecting its documentation, which you can access by running
 to search for <code>accidents</code>. You can also find this information
 <a href="https://rstudio-education.github.io/dsbox/reference/accidents.html">here</a>.</p>
 <p>Occasionally RStudio Cloud and Github have trouble connecting. So the
-dataset is also in the data folder and can be loaded using this code
+dataset is also in the folder and can be loaded using this code
 instead.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accidents &lt;- read_csv(&quot;data/accidents.csv&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>accidents <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;accidents.csv&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="exercises" class="section level1">
@@ -481,9 +481,9 @@ answer, don’t forget to label your R chunk as well (where it says
 appropriate commit message. Make sure to commit and push all changed
 files so that your Git pane is cleared up afterwards and review the md
 document on GitHub to make sure you’re happy with the final state of
-your work. Check also the self checklist in your Readme to check to see
-if you missed a solution or interpretation that was expected on your
-lab/hw</em></p>
+your work. Check also the self checklist in your Github Readme to check
+to see if you missed a solution or interpretation that was expected on
+your lab/hw.</em></p>
 </div>
 
 
