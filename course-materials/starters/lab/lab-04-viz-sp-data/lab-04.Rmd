@@ -9,11 +9,14 @@ output: github_document
 
 ```{r load-packages, message = FALSE}
 library(tidyverse) 
-library(dsbox) 
+library(dsbox)
+library(leaflet)
 ```
 
 ```{r load-data, message = FALSE}
 states <- read_csv("data/states.csv")
+dennys <- read_csv("data/dennys.csv")
+laquinta <- read_csv("data/laquinta.csv")
 ```
 
 ### Exercise 1
@@ -47,4 +50,3 @@ Do not use spaces in code chunk labels.
 ...
 
 Add exercise headings as needed.
-

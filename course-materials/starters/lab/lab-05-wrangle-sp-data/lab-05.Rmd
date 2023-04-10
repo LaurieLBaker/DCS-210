@@ -9,7 +9,8 @@ output: github_document
 
 ```{r load-packages, message = FALSE}
 library(tidyverse) 
-library(dsbox) 
+library(dsbox)
+library(leaflet)
 ```
 
 ```{r load-data, message = FALSE}
