@@ -54,7 +54,7 @@ class: middle
 ## Hypertext Markup Language
 
 - Most of the data on the web is still largely available as HTML 
-- It is structured (hierarchical / tree based), but it''s often not available in a form useful for analysis (flat / tidy).
+- It is structured (hierarchical / tree based), but it's often not available in a form useful for analysis (flat / tidy).
 
 ```html
 <html>
