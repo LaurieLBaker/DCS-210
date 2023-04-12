@@ -101,7 +101,7 @@ knitr::include_graphics("img/rvest.png")
 .pull-left-narrow[
 - Open source tool that eases CSS selector generation and discovery
 - Easiest to use with the [Chrome Extension](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb) 
-- Find out more on the [SelectorGadget vignette](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html)
+- Find out more on the [SelectorGadget vignette](https://rvest.tidyverse.org/articles/selectorgadget.html)
 ]
 .pull-right-wide[
 ```{r echo=FALSE, out.width="75%"}
