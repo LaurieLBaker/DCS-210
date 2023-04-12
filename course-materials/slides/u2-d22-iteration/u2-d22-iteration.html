@@ -3,7 +3,6 @@
   <head>
     <title>Iteration</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Iteration
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -53,27 +41,6 @@ class: middle
 ## End with 🛑
 
 
-```
-## # A tibble: 141 x 6
-##    title      date       location   abstract      text  url      
-##    &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;         &lt;lis&gt; &lt;chr&gt;    
-##  1 Coronavir… 2020-10-26 St Andrew… Statement gi… &lt;chr… https://…
-##  2 Coronavir… 2020-10-23 St Andrew… Statement gi… &lt;chr… https://…
-##  3 Coronavir… 2020-10-22 St Andrew… Statement gi… &lt;chr… https://…
-##  4 Coronavir… 2020-10-21 St Andrew… Statement gi… &lt;chr… https://…
-##  5 Coronavir… 2020-10-20 St Andrew… Statement gi… &lt;chr… https://…
-##  6 Coronavir… 2020-10-19 St Andrew… Statement gi… &lt;chr… https://…
-##  7 Coronavir… 2020-10-16 St Andrew… Statement gi… &lt;chr… https://…
-##  8 Coronavir… 2020-10-15 Scottish … Statement gi… &lt;chr… https://…
-##  9 Coronavir… 2020-10-14 St Andrew… Statement gi… &lt;chr… https://…
-## 10 Coronavir… 2020-10-13 St Andrew… Statement gi… &lt;chr… https://…
-## 11 Coronavir… 2020-10-12 St Andrew… Statement gi… &lt;chr… https://…
-## 12 Coronavir… 2020-10-09 St Andrew… Statement gi… &lt;chr… https://…
-## 13 Coronavir… 2020-10-07 Scottish … Statement gi… &lt;chr… https://…
-## 14 Coronavir… 2020-10-06 St Andrew… Statement gi… &lt;chr… https://…
-## 15 Coronavir… 2020-10-05 St Andrew… Statement gi… &lt;chr… https://…
-## # … with 126 more rows
-```
 
 
 ---
@@ -88,27 +55,27 @@ scrape_speech &lt;- function(url) {
   
   speech_page &lt;- read_html(url)
 
-  title &lt;- speech_page %&gt;%
-    html_node(".article-header__title") %&gt;%
-    html_text()
+ title &lt;- speech_page %&gt;%
+  html_element(".ds_page-header__title") %&gt;%
+  html_text()
 
-  date &lt;- speech_page %&gt;%
-    html_node(".content-data__list:nth-child(1) strong") %&gt;%
-    html_text() %&gt;%
-    dmy()
+date &lt;- speech_page %&gt;%
+  html_element("#sg-meta__publication-date") %&gt;%
+  html_text() %&gt;%
+  dmy()
 
-  location &lt;- speech_page %&gt;%
-    html_node(".content-data__list+ .content-data__list strong") %&gt;%
-    html_text()
+location &lt;- speech_page %&gt;%
+  html_element(".ds_metadata__item:nth-child(5) strong") %&gt;%
+  html_text()
 
-  abstract &lt;- speech_page %&gt;%
-    html_node(".leader--first-para p") %&gt;%
-    html_text()
+abstract &lt;- speech_page %&gt;%
+  html_element(".ds_no-margin--bottom") %&gt;%
+  html_text()
 
-  text &lt;- speech_page %&gt;%
-    html_nodes("#preamble p") %&gt;%
-    html_text() %&gt;%
-    list()
+text &lt;- speech_page %&gt;%
+  html_elements("#preamble p") %&gt;%
+  html_text() %&gt;%
+  list()
 
   tibble(
     title = title, date = date, location = location,
@@ -131,9 +98,10 @@ scrape_speech(url = url_26_oct)
 
 ```
 ## # A tibble: 1 x 6
-##   title       date       location   abstract     text  url       
-##   &lt;chr&gt;       &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;        &lt;lis&gt; &lt;chr&gt;     
-## 1 Coronaviru… 2020-10-26 St Andrew… Statement g… &lt;chr… https://w…
+##   title                    date       locat~1 abstr~2 text  url  
+##   &lt;chr&gt;                    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;lis&gt; &lt;chr&gt;
+## 1 Coronavirus (COVID-19) ~ 2020-10-26 St And~ Statem~ &lt;chr&gt; http~
+## # ... with abbreviated variable names 1: location, 2: abstract
 ```
 
 ```r
@@ -143,9 +111,10 @@ scrape_speech(url = url_23_oct)
 
 ```
 ## # A tibble: 1 x 6
-##   title       date       location   abstract     text  url       
-##   &lt;chr&gt;       &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;        &lt;lis&gt; &lt;chr&gt;     
-## 1 Coronaviru… 2020-10-23 St Andrew… Statement g… &lt;chr… https://w…
+##   title                    date       locat~1 abstr~2 text  url  
+##   &lt;chr&gt;                    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;lis&gt; &lt;chr&gt;
+## 1 Coronavirus (COVID-19) ~ 2020-10-23 St And~ Statem~ &lt;chr&gt; http~
+## # ... with abbreviated variable names 1: location, 2: abstract
 ```
 
 ---
@@ -174,21 +143,21 @@ You now have a function that will scrape the relevant info on speeches given the
 all_speeches_page &lt;- read_html("https://www.gov.scot/collections/first-ministers-speeches/")
 
 all_speeches_page %&gt;%
-  html_nodes(".collections-list a") %&gt;%
+  html_elements(".collections-list a") %&gt;%
   html_attr("href")
 ```
 
 ```
-##   [1] "/publications/coronavirus-covid-19-update-first-ministers-statement-24-march-2021/"                  
-##   [2] "/publications/coronavirus-covid-19-update-first-ministers-statement-23-march-2021/"                  
-##   [3] "/publications/coronavirus-covid-19-update-first-ministers-statement-18-march-2021/"                  
-##   [4] "/publications/coronavirus-covid-19-update-first-ministers-statement-17-march-2021/"                  
-##   [5] "/publications/coronavirus-covid-19-update-march-16-2021/"                                            
-##   [6] "/publications/coronavirus-covid-19-update-first-ministers-statement-15-march-2021/"                  
-##   [7] "/publications/coronavirus-covid-19-update-first-ministers-statement-11-march-2021/"                  
-##   [8] "/publications/coronavirus-covid-19-update-first-ministers-statement-9-march-2021/"                   
-##   [9] "/publications/race-zero-event-first-ministers-speech/"                                               
-##  [10] "/publications/coronavirus-covid-19-update-first-ministers-statement-5-march-2021/"                   
+##   [1] "/publications/apology-historical-adoption-practices-first-ministers-speech-22-march-2023/"                   
+##   [2] "/publications/scottish-womens-convention-first-ministers-speech-march-2023/"                                 
+##   [3] "/publications/business-parliament-conference-first-ministers-speech-3-february-2023/"                        
+##   [4] "/publications/first-ministers-speech-scottish-renewables-offshore-wind-conference-wednesday-25-january-2023/"
+##   [5] "/publications/update-pressures-facing-nhs-first-ministers-speech-monday-16-january/"                         
+##   [6] "/publications/pressures-facing-nhs-first-ministers-speech-monday-9-january/"                                 
+##   [7] "/publications/thecityuk-annual-conference-first-ministers-speech-1-december-2022/"                           
+##   [8] "/publications/poverty-alliance-30th-anniversary-conference-first-ministers-speech-25-november-2022/"         
+##   [9] "/publications/cop27-loss-damage-panel-first-ministers-speech-8-november-2022/"                               
+##  [10] "/publications/first-minister-opens-scottish-government-conference-loss-damage/"                              
 ...
 ```
 
@@ -199,22 +168,22 @@ all_speeches_page %&gt;%
 
 ```r
 all_speeches_page %&gt;%
-  html_nodes(".collections-list a") %&gt;%
+  html_elements(".collections-list a") %&gt;%
   html_attr("href") %&gt;%
   str_subset("covid-19")
 ```
 
 ```
-##   [1] "/publications/coronavirus-covid-19-update-first-ministers-statement-24-march-2021/"             
-##   [2] "/publications/coronavirus-covid-19-update-first-ministers-statement-23-march-2021/"             
-##   [3] "/publications/coronavirus-covid-19-update-first-ministers-statement-18-march-2021/"             
-##   [4] "/publications/coronavirus-covid-19-update-first-ministers-statement-17-march-2021/"             
-##   [5] "/publications/coronavirus-covid-19-update-march-16-2021/"                                       
-##   [6] "/publications/coronavirus-covid-19-update-first-ministers-statement-15-march-2021/"             
-##   [7] "/publications/coronavirus-covid-19-update-first-ministers-statement-11-march-2021/"             
-##   [8] "/publications/coronavirus-covid-19-update-first-ministers-statement-9-march-2021/"              
-##   [9] "/publications/coronavirus-covid-19-update-first-ministers-statement-5-march-2021/"              
-##  [10] "/publications/coronavirus-covid-19-update-first-ministers-statement-4-march-2021/"              
+##   [1] "/publications/coronavirus-covid-19-update-first-ministers-speech-tuesday-22-february-2022/"     
+##   [2] "/publications/coronavirus-covid-19-update-first-ministers-statement-8-february-2022/"           
+##   [3] "/publications/coronavirus-covid-19-update-first-ministers-statement-1-february-2022/"           
+##   [4] "/publications/coronavirus-covid-19-update-first-ministers-statement-25-january-2022/"           
+##   [5] "/publications/coronavirus-covid-19-update-first-ministers-statement-18-january-2022/"           
+##   [6] "/publications/coronavirus-covid-19-update-first-ministers-statement-11-january-2022/"           
+##   [7] "/publications/coronavirus-covid-19-update-first-ministers-statement-5-january-2022/"            
+##   [8] "/publications/coronavirus-covid-19-update-first-ministers-statement-21-december-2021/"          
+##   [9] "/publications/coronavirus-covid-19-update-first-ministers-speech-17-december-2021/"             
+##  [10] "/publications/coronavirus-covid-19-update-first-ministers-statement-14-december-2021/"          
 ...
 ```
 
@@ -225,23 +194,23 @@ all_speeches_page %&gt;%
 
 ```r
 all_speeches_page %&gt;%
-  html_nodes(".collections-list a") %&gt;%
+  html_elements(".collections-list a") %&gt;%
   html_attr("href") %&gt;%
   str_subset("covid-19") %&gt;%
   str_c("https://www.gov.scot", .)
 ```
 
 ```
-##   [1] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-24-march-2021/"             
-##   [2] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-23-march-2021/"             
-##   [3] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-18-march-2021/"             
-##   [4] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-17-march-2021/"             
-##   [5] "https://www.gov.scot/publications/coronavirus-covid-19-update-march-16-2021/"                                       
-##   [6] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-15-march-2021/"             
-##   [7] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-11-march-2021/"             
-##   [8] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-9-march-2021/"              
-##   [9] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-5-march-2021/"              
-##  [10] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-4-march-2021/"              
+##   [1] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-tuesday-22-february-2022/"     
+##   [2] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-8-february-2022/"           
+##   [3] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-1-february-2022/"           
+##   [4] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-25-january-2022/"           
+##   [5] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-18-january-2022/"           
+##   [6] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-11-january-2022/"           
+##   [7] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-5-january-2022/"            
+##   [8] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-21-december-2021/"          
+##   [9] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-17-december-2021/"             
+##  [10] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-14-december-2021/"          
 ...
 ```
 
@@ -252,7 +221,7 @@ all_speeches_page %&gt;%
 
 ```r
 covid_speech_urls &lt;- all_speeches_page %&gt;%
-  html_nodes(".collections-list a") %&gt;%
+  html_elements(".collections-list a") %&gt;%
   html_attr("href") %&gt;%
   str_subset("covid-19") %&gt;%
   str_c("https://www.gov.scot", .)
@@ -261,16 +230,16 @@ covid_speech_urls
 ```
 
 ```
-##   [1] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-24-march-2021/"             
-##   [2] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-23-march-2021/"             
-##   [3] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-18-march-2021/"             
-##   [4] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-17-march-2021/"             
-##   [5] "https://www.gov.scot/publications/coronavirus-covid-19-update-march-16-2021/"                                       
-##   [6] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-15-march-2021/"             
-##   [7] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-11-march-2021/"             
-##   [8] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-9-march-2021/"              
-##   [9] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-5-march-2021/"              
-##  [10] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-4-march-2021/"              
+##   [1] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-tuesday-22-february-2022/"     
+##   [2] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-8-february-2022/"           
+##   [3] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-1-february-2022/"           
+##   [4] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-25-january-2022/"           
+##   [5] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-18-january-2022/"           
+##   [6] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-11-january-2022/"           
+##   [7] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-5-january-2022/"            
+##   [8] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-21-december-2021/"          
+##   [9] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-17-december-2021/"             
+##  [10] "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-statement-14-december-2021/"          
 ...
 ```
 
@@ -408,25 +377,26 @@ covid_speeches %&gt;%
 ```
 
 ```
-## # A tibble: 141 x 6
-##    title      date       location   abstract      text  url      
-##    &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;         &lt;lis&gt; &lt;chr&gt;    
-##  1 Coronavir… 2020-10-26 St Andrew… Statement gi… &lt;chr… https://…
-##  2 Coronavir… 2020-10-23 St Andrew… Statement gi… &lt;chr… https://…
-##  3 Coronavir… 2020-10-22 St Andrew… Statement gi… &lt;chr… https://…
-##  4 Coronavir… 2020-10-21 St Andrew… Statement gi… &lt;chr… https://…
-##  5 Coronavir… 2020-10-20 St Andrew… Statement gi… &lt;chr… https://…
-##  6 Coronavir… 2020-10-19 St Andrew… Statement gi… &lt;chr… https://…
-##  7 Coronavir… 2020-10-16 St Andrew… Statement gi… &lt;chr… https://…
-##  8 Coronavir… 2020-10-15 Scottish … Statement gi… &lt;chr… https://…
-##  9 Coronavir… 2020-10-14 St Andrew… Statement gi… &lt;chr… https://…
-## 10 Coronavir… 2020-10-13 St Andrew… Statement gi… &lt;chr… https://…
-## 11 Coronavir… 2020-10-12 St Andrew… Statement gi… &lt;chr… https://…
-## 12 Coronavir… 2020-10-09 St Andrew… Statement gi… &lt;chr… https://…
-## 13 Coronavir… 2020-10-07 Scottish … Statement gi… &lt;chr… https://…
-## 14 Coronavir… 2020-10-06 St Andrew… Statement gi… &lt;chr… https://…
-## 15 Coronavir… 2020-10-05 St Andrew… Statement gi… &lt;chr… https://…
-## # … with 126 more rows
+## # A tibble: 260 x 6
+##    title                   date       locat~1 abstr~2 text  url  
+##    &lt;chr&gt;                   &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;lis&gt; &lt;chr&gt;
+##  1 Coronavirus (COVID-19)~ 2022-02-22 Scotti~ Statem~ &lt;chr&gt; http~
+##  2 Coronavirus (COVID-19)~ 2022-02-08 Scotti~ Statem~ &lt;chr&gt; http~
+##  3 Coronavirus (COVID-19)~ 2022-02-01 Scotti~ Statem~ &lt;chr&gt; http~
+##  4 Coronavirus (COVID-19)~ 2022-01-25 Scotti~ Statem~ &lt;chr&gt; http~
+##  5 Coronavirus (COVID-19)~ 2022-01-18 Scotti~ Statem~ &lt;chr&gt; http~
+##  6 Coronavirus (COVID-19)~ 2022-01-11 Scotti~ Statem~ &lt;chr&gt; http~
+##  7 Coronavirus (COVID-19)~ 2022-01-05 Scotti~ Statem~ &lt;chr&gt; http~
+##  8 Coronavirus (COVID-19)~ 2021-12-21 &lt;NA&gt;    Statem~ &lt;chr&gt; http~
+##  9 Coronavirus (COVID-19)~ 2021-12-17 St And~ Statem~ &lt;chr&gt; http~
+## 10 Coronavirus (COVID-19)~ 2021-12-14 Scotti~ Statem~ &lt;chr&gt; http~
+## 11 Coronavirus (COVID-19)~ 2021-12-10 St And~ Statem~ &lt;chr&gt; http~
+## 12 Coronavirus (COVID-19)~ 2021-12-07 Scotti~ Statem~ &lt;chr&gt; http~
+## 13 Coronavirus (COVID-19)~ 2021-11-30 Scotti~ Statem~ &lt;chr&gt; http~
+## 14 Coronavirus (COVID-19)~ 2021-11-29 St And~ Statem~ &lt;chr&gt; http~
+## 15 Coronavirus (COVID-19)~ 2021-11-23 &lt;NA&gt;    Statem~ &lt;chr&gt; http~
+## # ... with 245 more rows, and abbreviated variable names
+## #   1: location, 2: abstract
 ```
 
 ---
@@ -452,6 +422,15 @@ scrape_speech &lt;- function(url){
   # Rest of your function code goes here...
 }
 ```
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

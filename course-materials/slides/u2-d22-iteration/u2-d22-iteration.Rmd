@@ -38,8 +38,8 @@ knitr::include_graphics("img/fm-speeches.png")
 ## End with 🛑
 
 ```{r echo=FALSE}
-covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
-  print(n = 15)
+#covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
+#  print(n = 15)
 ```
 
 
@@ -54,27 +54,27 @@ scrape_speech <- function(url) {
   
   speech_page <- read_html(url)
 
-  title <- speech_page %>%
-    html_node(".article-header__title") %>%
-    html_text()
+ title <- speech_page %>%
+  html_element(".ds_page-header__title") %>%
+  html_text()
 
-  date <- speech_page %>%
-    html_node(".content-data__list:nth-child(1) strong") %>%
-    html_text() %>%
-    dmy()
+date <- speech_page %>%
+  html_element("#sg-meta__publication-date") %>%
+  html_text() %>%
+  dmy()
 
-  location <- speech_page %>%
-    html_node(".content-data__list+ .content-data__list strong") %>%
-    html_text()
+location <- speech_page %>%
+  html_element(".ds_metadata__item:nth-child(5) strong") %>%
+  html_text()
 
-  abstract <- speech_page %>%
-    html_node(".leader--first-para p") %>%
-    html_text()
+abstract <- speech_page %>%
+  html_element(".ds_no-margin--bottom") %>%
+  html_text()
 
-  text <- speech_page %>%
-    html_nodes("#preamble p") %>%
-    html_text() %>%
-    list()
+text <- speech_page %>%
+  html_elements("#preamble p") %>%
+  html_text() %>%
+  list()
 
   tibble(
     title = title, date = date, location = location,
@@ -124,7 +124,7 @@ knitr::include_graphics("img/fm-speeches-links.png")
 all_speeches_page <- read_html("https://www.gov.scot/collections/first-ministers-speeches/")
 
 all_speeches_page %>%
-  html_nodes(".collections-list a") %>%
+  html_elements(".collections-list a") %>%
   html_attr("href")
 ```
 
@@ -134,7 +134,7 @@ all_speeches_page %>%
 
 ```{r output.lines=10}
 all_speeches_page %>%
-  html_nodes(".collections-list a") %>%
+  html_elements(".collections-list a") %>%
   html_attr("href") %>%
   str_subset("covid-19")
 ```
@@ -145,7 +145,7 @@ all_speeches_page %>%
 
 ```{r output.lines=10}
 all_speeches_page %>%
-  html_nodes(".collections-list a") %>%
+  html_elements(".collections-list a") %>%
   html_attr("href") %>%
   str_subset("covid-19") %>%
   str_c("https://www.gov.scot", .)
@@ -157,7 +157,7 @@ all_speeches_page %>%
 
 ```{r output.lines=10}
 covid_speech_urls <- all_speeches_page %>%
-  html_nodes(".collections-list a") %>%
+  html_elements(".collections-list a") %>%
   html_attr("href") %>%
   str_subset("covid-19") %>%
   str_c("https://www.gov.scot", .)
@@ -269,6 +269,7 @@ covid_speeches <- map_dfr(covid_speech_urls, scrape_speech)
 ---
 
 ```{r include=FALSE}
+# write_rds(covid_speeches, file = "data/covid-speeches-scot.rds")
 covid_speeches <- read_rds("data/covid-speeches-scot.rds")
 ```
 
