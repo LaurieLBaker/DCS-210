@@ -38,8 +38,8 @@ knitr::include_graphics("img/fm-speeches.png")
 ## End with 🛑
 
 ```{r echo=FALSE}
-covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
-  print(n = 15)
+#covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
+#  print(n = 15)
 ```
 
 
@@ -88,7 +88,7 @@ speech_page <- read_html(url)
 
 ```{r include=FALSE}
 url <- "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-26-october/"
-speech_page <- read_html("data/oct-26.html")
+speech_page <- read_html(url)
 ```
 
 .pull-left[
@@ -110,10 +110,9 @@ knitr::include_graphics("img/fm-speech-oct-26.png")
 <br><br>
 ```{r}
 title <- speech_page %>%
-    html_node(".article-header__title") %>%
-    html_text()
+  html_element(".ds_page-header__title") %>%
+  html_text()
 
-title
 ```
 ]
 .pull-right-narrow[
@@ -131,19 +130,22 @@ knitr::include_graphics("img/title.png")
 library(lubridate)
 
 speech_page %>%
-    html_node(".content-data__list:nth-child(1) strong") %>%
-    html_text() 
+  html_element("#sg-meta__publication-date") %>%
+  html_text() %>%
+  dmy()
 
 date <- speech_page %>%
-    html_node(".content-data__list:nth-child(1) strong") %>%
-    html_text() %>%
-    dmy()
+  html_element("#sg-meta__publication-date") %>%
+  html_text() %>%
+  dmy()
+
+
 date
 ```
 ]
 .pull-right-narrow[
 ```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/date.png")
+knitr::include_graphics("img/covid_date.jpg")
 ```
 ]
 
@@ -154,15 +156,15 @@ knitr::include_graphics("img/date.png")
 .pull-left-wide[
 ```{r}
 location <- speech_page %>%
-    html_node(".content-data__list+ .content-data__list strong") %>%
-    html_text()
+  html_element(".ds_metadata__item:nth-child(5) strong") %>%
+  html_text()
 
 location
 ```
 ]
 .pull-right-narrow[
 ```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/location.png")
+knitr::include_graphics("img/covid_location.jpg")
 ```
 ]
 
@@ -173,15 +175,15 @@ knitr::include_graphics("img/location.png")
 .pull-left-wide[
 ```{r}
 abstract <- speech_page %>%
-    html_node(".leader--first-para p") %>%
-    html_text()
+  html_element(".ds_no-margin--bottom") %>%
+  html_text()
 
 abstract
 ```
 ]
 .pull-right-narrow[
 ```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics("img/abstract.png")
+knitr::include_graphics("img/covid_abstract.jpg")
 ```
 ]
 
@@ -191,10 +193,11 @@ knitr::include_graphics("img/abstract.png")
 
 .pull-left-wide[
 ```{r output.lines=11}
-text <- speech_page %>% 
-    html_nodes("#preamble p") %>%
-    html_text() %>%
-    list()
+
+text <- speech_page %>%
+  html_elements("#preamble p") %>%
+  html_text() %>%
+  list()
 
 text
 ```
@@ -240,7 +243,7 @@ speech_page <- read_html(url)
 
 ```{r include=FALSE}
 url <- "https://www.gov.scot/publications/coronavirus-covid-19-update-first-ministers-speech-23-october/"
-speech_page <- read_html("data/oct-23.html")
+speech_page <- read_html(url)
 ```
 
 ```{r}
@@ -253,24 +256,24 @@ speech_page
 
 ```{r}
 title <- speech_page %>%
-  html_node(".article-header__title") %>%
+  html_element(".ds_page-header__title") %>%
   html_text()
 
 date <- speech_page %>%
-  html_node(".content-data__list:nth-child(1) strong") %>%
+  html_element("#sg-meta__publication-date") %>%
   html_text() %>%
   dmy()
 
 location <- speech_page %>%
-  html_node(".content-data__list+ .content-data__list strong") %>%
+  html_element(".ds_metadata__item:nth-child(5) strong") %>%
   html_text()
 
 abstract <- speech_page %>%
-  html_node(".leader--first-para p") %>%
+  html_element(".ds_no-margin--bottom") %>%
   html_text()
 
 text <- speech_page %>%
-  html_nodes("#preamble p") %>%
+  html_elements("#preamble p") %>%
   html_text() %>%
   list()
 ```
@@ -368,24 +371,24 @@ url_23_oct <- "https://www.gov.scot/publications/coronavirus-covid-19-update-fir
 speech_page <- read_html(url_23_oct)
 
 title <- speech_page %>%
-  html_node(".article-header__title") %>%
+  html_element(".ds_page-header__title") %>%
   html_text()
 
 date <- speech_page %>%
-  html_node(".content-data__list:nth-child(1) strong") %>%
+  html_element("#sg-meta__publication-date") %>%
   html_text() %>%
   dmy()
 
 location <- speech_page %>%
-  html_node(".content-data__list+ .content-data__list strong") %>%
+  html_element(".ds_metadata__item:nth-child(5) strong") %>%
   html_text()
 
 abstract <- speech_page %>%
-  html_node(".leader--first-para p") %>%
+  html_element(".ds_no-margin--bottom") %>%
   html_text()
 
 text <- speech_page %>%
-  html_nodes("#preamble p") %>%
+  html_elements("#preamble p") %>%
   html_text() %>%
   list()
 
@@ -466,26 +469,26 @@ scrape_speech <- function(url) {
   speech_page <- read_html(url)
 
   title <- speech_page %>%
-    html_node(".article-header__title") %>%
-    html_text()
+  html_element(".ds_page-header__title") %>%
+  html_text()
 
-  date <- speech_page %>%
-    html_node(".content-data__list:nth-child(1) strong") %>%
-    html_text() %>%
-    dmy()
+date <- speech_page %>%
+  html_element("#sg-meta__publication-date") %>%
+  html_text() %>%
+  dmy()
 
-  location <- speech_page %>%
-    html_node(".content-data__list+ .content-data__list strong") %>%
-    html_text()
+location <- speech_page %>%
+  html_element(".ds_metadata__item:nth-child(5) strong") %>%
+  html_text()
 
-  abstract <- speech_page %>%
-    html_node(".leader--first-para p") %>%
-    html_text()
+abstract <- speech_page %>%
+  html_element(".ds_no-margin--bottom") %>%
+  html_text()
 
-  text <- speech_page %>%
-    html_nodes("#preamble p") %>%
-    html_text() %>%
-    list()
+text <- speech_page %>%
+  html_elements("#preamble p") %>%
+  html_text() %>%
+  list()
 
   tibble(
     title = title, date = date, location = location,
