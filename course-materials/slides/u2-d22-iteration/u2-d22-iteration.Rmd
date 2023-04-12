@@ -38,8 +38,8 @@ knitr::include_graphics("img/fm-speeches.png")
 ## End with 🛑
 
 ```{r echo=FALSE}
-#covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
-#  print(n = 15)
+covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
+  print(n = 15)
 ```
 
 
