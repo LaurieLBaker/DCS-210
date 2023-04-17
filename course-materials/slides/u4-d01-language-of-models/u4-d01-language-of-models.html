@@ -3,10 +3,9 @@
   <head>
     <title>The language of models</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # The language of models
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -162,7 +150,7 @@ pp %&gt;%
 ## $ artistliving      &lt;dbl&gt; 0
 ## $ authorstyle       &lt;chr&gt; NA
 ## $ author            &lt;chr&gt; "Philippe Wouwermans"
-## $ winningbidder     &lt;chr&gt; "Langlier, Jacques for Poullain, Anto…
+## $ winningbidder     &lt;chr&gt; "Langlier, Jacques for Poullain, Anto~
 ## $ winningbiddertype &lt;chr&gt; "DC"
 ## $ endbuyer          &lt;chr&gt; "C"
 ...
@@ -269,11 +257,12 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
 
 ```
 ## Warning: Removed 258 rows containing non-finite values
-## (stat_smooth).
+## (`stat_smooth()`).
 ```
 
 ```
-## Warning: Removed 258 rows containing missing values (geom_point).
+## Warning: Removed 258 rows containing missing values
+## (`geom_point()`).
 ```
 ]
 ]
@@ -546,6 +535,13 @@ is just as important as the model, if not more!
 
 - Explanation: Characterize the relationship between `\(y\)` and `\(x\)` via *slopes* for numerical explanatory variables or *differences* for categorical explanatory variables
 - Prediction: Plug in `\(x\)`, get the predicted `\(y\)`
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

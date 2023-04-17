@@ -1,12 +1,10 @@
 ---
 title: "Models with multiple predictors"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
     lib_dir: libs
-    anchor_sections: FALSE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -111,7 +109,7 @@ linear_reg() %>%
 - **Slope - volume:** *All else held constant*, for each additional cubic centimetre books are larger in volume, we would expect the weight to be higher, on average, by 0.718 grams.
 
 --
-- **Slope - cover:** *All else held constant*, paperback books are weigh, on average, by 184 grams less than hardcover books.
+- **Slope - cover:** *All else held constant*, paperback books weigh, on average, by 184 grams less than hardcover books.
 
 --
 - **Intercept:** Hardcover books with 0 volume are expected to weigh 198 grams, on average. (Doesn't make sense in context.)
@@ -258,3 +256,10 @@ glance(book_int_fit)$adj.r.squared > glance(book_main_fit)$adj.r.squared
 ```
 ]
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+

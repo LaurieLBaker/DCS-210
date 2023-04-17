@@ -3,10 +3,9 @@
   <head>
     <title>More models with multiple predictors</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <script src="libs/htmlwidgets/htmlwidgets.js"></script>
@@ -20,24 +19,13 @@
 class: center, middle, inverse, title-slide
 
 # More models with multiple predictors
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -77,7 +65,7 @@ tidy(pp_fit)
 ## # A tibble: 3 x 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)   4.77     0.0579      82.4  0.      
+## 1 (Intercept)   4.77     0.0579      82.4  0       
 ## 2 Width_in      0.0269   0.00373      7.22 6.58e-13
 ## 3 Height_in    -0.0133   0.00395     -3.36 7.93e- 4
 ```
@@ -91,7 +79,7 @@ tidy(pp_fit)
 ## # A tibble: 3 x 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)   4.77     0.0579      82.4  0.      
+## 1 (Intercept)   4.77     0.0579      82.4  0       
 ## 2 Width_in      0.0269   0.00373      7.22 6.58e-13
 ## 3 Height_in    -0.0133   0.00395     -3.36 7.93e- 4
 ```
@@ -107,8 +95,8 @@ tidy(pp_fit)
 .panelset[
 .panel[.panel-name[Plot]
 .pull-left-wide[
-<div id="htmlwidget-e314a9658508aa12f815" style="width:100%;height:1483.2px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e314a9658508aa12f815">{"x":{"url":"u4-d05-more-model-multiple-predictors_files/figure-html//widgets/widget_plotly-plot.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c2e3fede5c798441fdae" style="width:100%;height:1483.2px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c2e3fede5c798441fdae">{"x":{"url":"u4-d05-more-model-multiple-predictors_files/figure-html//widgets/widget_plotly-plot.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 ]
 .panel[.panel-name[Code]
@@ -192,7 +180,7 @@ ggplot(data = pp, aes(x = Surface, fill = artistliving)) +
 
 ```
 ## Warning: Removed 176 rows containing non-finite values
-## (stat_bin).
+## (`stat_bin()`).
 ```
 ]
 ]
@@ -295,7 +283,7 @@ tidy(pp_main_fit)
 ## # A tibble: 3 x 5
 ##   term               estimate std.error statistic  p.value
 ##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)        4.88     0.0424       115.   0.      
+## 1 (Intercept)        4.88     0.0424       115.   0       
 ## 2 Surface            0.000265 0.0000415      6.39 1.85e-10
 ## 3 artistlivingLiving 0.137    0.0970         1.41 1.57e- 1
 ```
@@ -398,12 +386,13 @@ tidy(pp_int_fit)
 
 ```
 ## # A tibble: 4 x 5
-##   term                     estimate std.error statistic   p.value
-##   &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)              4.91     0.0432       114.     0.     
-## 2 Surface                  0.000206 0.0000442      4.65   3.37e-6
-## 3 artistlivingLiving      -0.126    0.119         -1.06   2.89e-1
-## 4 Surface:artistlivingLi…  0.000479 0.000126       3.81   1.39e-4
+##   term                        estimate std.error statis~1 p.value
+##   &lt;chr&gt;                          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)                 4.91     0.0432      114.   0      
+## 2 Surface                     0.000206 0.0000442     4.65 3.37e-6
+## 3 artistlivingLiving         -0.126    0.119        -1.06 2.89e-1
+## 4 Surface:artistlivingLiving  0.000479 0.000126      3.81 1.39e-4
+## # ... with abbreviated variable name 1: statistic
 ```
 ]
 
@@ -415,12 +404,13 @@ tidy(pp_int_fit)
 
 ```
 ## # A tibble: 4 x 5
-##   term                     estimate std.error statistic   p.value
-##   &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)              4.91     0.0432       114.     0.     
-## 2 Surface                  0.000206 0.0000442      4.65   3.37e-6
-## 3 artistlivingLiving      -0.126    0.119         -1.06   2.89e-1
-## 4 Surface:artistlivingLi…  0.000479 0.000126       3.81   1.39e-4
+##   term                        estimate std.error statis~1 p.value
+##   &lt;chr&gt;                          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)                 4.91     0.0432      114.   0      
+## 2 Surface                     0.000206 0.0000442     4.65 3.37e-6
+## 3 artistlivingLiving         -0.126    0.119        -1.06 2.89e-1
+## 4 Surface:artistlivingLiving  0.000479 0.000126      3.81 1.39e-4
+## # ... with abbreviated variable name 1: statistic
 ```
 ]
 
@@ -485,6 +475,13 @@ glance(pp_int_fit)$adj.r.squared
 - Can you? Yes
 - Should you? Probably not if you want to interpret these interactions in context
 of the data.
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

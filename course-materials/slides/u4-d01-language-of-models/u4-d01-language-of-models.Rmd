@@ -1,12 +1,10 @@
 ---
 title: "The language of models"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
     lib_dir: libs
-    anchor_sections: FALSE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -512,3 +510,10 @@ is just as important as the model, if not more!
 
 - Explanation: Characterize the relationship between $y$ and $x$ via *slopes* for numerical explanatory variables or *differences* for categorical explanatory variables
 - Prediction: Plug in $x$, get the predicted $y$
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+

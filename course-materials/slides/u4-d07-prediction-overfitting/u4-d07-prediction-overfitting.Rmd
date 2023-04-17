@@ -1,12 +1,10 @@
 ---
 title: "Prediction and overfitting"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
     lib_dir: libs
-    anchor_sections: FALSE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -377,3 +375,9 @@ email_pred %>%
 ```{r ref.label="roc", echo=FALSE, out.width="100%"}
 ```
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)

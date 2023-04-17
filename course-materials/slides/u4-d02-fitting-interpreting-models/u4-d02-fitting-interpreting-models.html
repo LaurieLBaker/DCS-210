@@ -3,10 +3,9 @@
   <head>
     <title>Fitting and interpreting models</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <script src="libs/kePrint/kePrint.js"></script>
@@ -19,24 +18,13 @@
 class: center, middle, inverse, title-slide
 
 # Fitting and interpreting models
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -80,6 +68,8 @@ linear_reg()
 
 ```
 ## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
 ```
 
 ---
@@ -114,7 +104,6 @@ linear_reg() %&gt;%
 ```
 ## parsnip model object
 ## 
-## Fit time:  1ms 
 ## 
 ## Call:
 ## stats::lm(formula = Height_in ~ Width_in, data = data)
@@ -132,7 +121,6 @@ linear_reg() %&gt;%
 ```
 ## parsnip model object
 ## 
-## Fit time:  32ms 
 ## 
 ## Call:
 ## stats::lm(formula = Height_in ~ Width_in, data = data)
@@ -163,7 +151,7 @@ linear_reg() %&gt;%
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    3.62    0.254        14.3 8.82e-45
-## 2 Width_in       0.781   0.00950      82.1 0.
+## 2 Width_in       0.781   0.00950      82.1 0
 ```
 
 .large[
@@ -301,7 +289,7 @@ class: middle
 ## 18 L1764-13a        15        1
 ## 19 L1764-13b        15        1
 ## 20 L1764-14         37        0
-## # … with 3,373 more rows
+## # ... with 3,373 more rows
 ```
 ]
 ]
@@ -326,7 +314,7 @@ linear_reg() %&gt;%
 ## # A tibble: 2 x 5
 ##   term              estimate std.error statistic  p.value
 ##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)          22.7      0.328      69.1 0.      
+## 1 (Intercept)          22.7      0.328      69.1 0       
 ## 2 factor(landsALL)1    -5.65     0.532     -10.6 7.97e-26
 ```
 
@@ -357,7 +345,7 @@ linear_reg() %&gt;%
 ## # A tibble: 7 x 5
 ##   term            estimate std.error statistic p.value
 ##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)        14.        10.0     1.40  0.162  
+## 1 (Intercept)        14.0       10.0     1.40  0.162  
 ## 2 school_pntgD/FL     2.33      10.0     0.232 0.816  
 ## 3 school_pntgF       10.2       10.0     1.02  0.309  
 ## 4 school_pntgG        1.65      11.9     0.139 0.889  
@@ -375,7 +363,7 @@ linear_reg() %&gt;%
 ## # A tibble: 7 x 5
 ##   term            estimate std.error statistic p.value
 ##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)        14.        10.0     1.40  0.162  
+## 1 (Intercept)        14.0       10.0     1.40  0.162  
 ## 2 school_pntgD/FL     2.33      10.0     0.232 0.816  
 ## 3 school_pntgF       10.2       10.0     1.02  0.309  
 ## 4 school_pntgG        1.65      11.9     0.139 0.889  
@@ -498,7 +486,7 @@ linear_reg() %&gt;%
 ## 18 L1764-13a        15 D/FL       
 ## 19 L1764-13b        15 D/FL       
 ## 20 L1764-14         37 F          
-## # … with 3,373 more rows
+## # ... with 3,373 more rows
 ```
 ]
 ]
@@ -513,7 +501,7 @@ linear_reg() %&gt;%
 ## # A tibble: 7 x 5
 ##   term            estimate std.error statistic p.value
 ##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)        14.        10.0     1.40  0.162  
+## 1 (Intercept)        14.0       10.0     1.40  0.162  
 ## 2 school_pntgD/FL     2.33      10.0     0.232 0.816  
 ## 3 school_pntgF       10.2       10.0     1.02  0.309  
 ## 4 school_pntgG        1.65      11.9     0.139 0.889  
@@ -530,6 +518,16 @@ linear_reg() %&gt;%
 - **Spanish school (S)** paintings are expected, on average, to be **30.4 inches taller** than *Austrian school* paintings.
 - Paintings whose school is **unknown (X)** are expected, on average, to be **2.87 inches taller** than *Austrian school* paintings.
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

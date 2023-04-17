@@ -3,10 +3,9 @@
   <head>
     <title>Models with multiple predictors</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Models with multiple predictors
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -154,7 +142,7 @@ linear_reg() %&gt;%
 - **Slope - volume:** *All else held constant*, for each additional cubic centimetre books are larger in volume, we would expect the weight to be higher, on average, by 0.718 grams.
 
 --
-- **Slope - cover:** *All else held constant*, paperback books are weigh, on average, by 184 grams less than hardcover books.
+- **Slope - cover:** *All else held constant*, paperback books weigh, on average, by 184 grams less than hardcover books.
 
 --
 - **Intercept:** Hardcover books with 0 volume are expected to weigh 198 grams, on average. (Doesn't make sense in context.)
@@ -314,6 +302,13 @@ glance(book_int_fit)$adj.r.squared &gt; glance(book_main_fit)$adj.r.squared
 ```
 ]
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
