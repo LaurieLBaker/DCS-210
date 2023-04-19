@@ -36,7 +36,7 @@ In order to complete this assignment you will need a Chrome browser with the [Se
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Click on the assignment link, clone it in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -86,9 +86,12 @@ paths_allowed("https://www.opensecrets.org")
 Our goal is to scrape data for contributions in all election years Open Secrets has data for.
 Since that means repeating a task many times, let's first write a function that works on the first page.
 Confirm it works on a few others.
+We will be scraping from the page <https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022>.
+Note that you can select the year from a drop down.
+
 Then iterate it over pages for all years.
 
-::: {.box}
+::: box
 Complete the following set of steps in the `scrape-pac.R` file in the `scripts` folder of your repository.
 This file already contains some starter code to help you out.
 :::

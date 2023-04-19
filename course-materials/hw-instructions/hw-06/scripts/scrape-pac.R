@@ -60,6 +60,8 @@ pac_1998 <- scrape_pac(___)
 
 # list of urls -----------------------------------------------------------------
 
+example_url <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022"
+
 # first part of url
 root <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs?cycle="
 
