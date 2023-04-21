@@ -70,9 +70,9 @@ test_data  <- testing(email_split)
 ```{r}
 train_data %>%
   mutate(
-    date = date(time),
-    dow  = wday(time),
-    month = month(time)
+    date = lubridate::date(time),
+    dow  = lubridate::wday(time),
+    month = lubridate::month(time)
     ) %>%
   select(time, date, dow, month) %>%
   sample_n(size = 5) # shuffle to show a variety
@@ -106,7 +106,7 @@ class: middle
 ```{r initiate-recipe, results="hide"}
 email_rec <- recipe(
   spam ~ .,          # formula
-  data = train_data  # data to use for cataloguing names and types of variables
+  data = train_data  # data to use for cataloging names and types of variables
   )
 
 summary(email_rec)

@@ -3,10 +3,9 @@
   <head>
     <title>Prediction and overfitting</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -17,24 +16,13 @@
 class: center, middle, inverse, title-slide
 
 # Prediction and overfitting
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+## <br><br> College of the Atlantic
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -126,7 +114,7 @@ logistic_reg() %&gt;%
 
 ## Underfitting and overfitting
 
-&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-37-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -188,29 +176,29 @@ glimpse(train_data)
 ```
 
 ```
-## Rows: 3,137
+## Rows: 3,136
 ## Columns: 21
-## $ spam         &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ to_multiple  &lt;fct&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, …
-## $ from         &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-## $ cc           &lt;int&gt; 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, …
-## $ sent_email   &lt;fct&gt; 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, …
-## $ time         &lt;dttm&gt; 2012-01-01 06:16:41, 2012-01-01 07:03:59,…
-## $ image        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
-## $ attach       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
-## $ dollar       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, …
-## $ winner       &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no…
-## $ inherit      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ viagra       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ password     &lt;dbl&gt; 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, …
-## $ num_char     &lt;dbl&gt; 11.370, 10.504, 13.256, 1.231, 1.091, 4.83…
-## $ line_breaks  &lt;int&gt; 202, 202, 255, 29, 25, 193, 237, 69, 79, 1…
-## $ format       &lt;fct&gt; 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, …
-## $ re_subj      &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, …
-## $ exclaim_subj &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, …
-## $ urgent_subj  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ exclaim_mess &lt;dbl&gt; 0, 1, 48, 1, 1, 1, 18, 1, 1, 0, 10, 4, 10,…
-## $ number       &lt;fct&gt; big, small, small, none, none, big, small,…
+## $ spam         &lt;fct&gt; 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, ~
+## $ to_multiple  &lt;fct&gt; 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, ~
+## $ from         &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ cc           &lt;int&gt; 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35,~
+## $ sent_email   &lt;fct&gt; 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ time         &lt;dttm&gt; 2012-01-25 17:46:55, 2012-01-03 00:28:28,~
+## $ image        &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ attach       &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ dollar       &lt;dbl&gt; 10, 0, 0, 0, 0, 0, 13, 0, 0, 0, 2, 0, 0, 0~
+## $ winner       &lt;fct&gt; no, no, no, no, no, no, no, yes, no, no, n~
+## $ inherit      &lt;dbl&gt; 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ viagra       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ password     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ num_char     &lt;dbl&gt; 23.308, 1.162, 4.732, 42.238, 1.228, 25.59~
+## $ line_breaks  &lt;int&gt; 477, 2, 127, 712, 30, 674, 367, 226, 98, 6~
+## $ format       &lt;fct&gt; 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, ~
+## $ re_subj      &lt;fct&gt; 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, ~
+## $ exclaim_subj &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, ~
+## $ urgent_subj  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ exclaim_mess &lt;dbl&gt; 12, 0, 2, 2, 2, 31, 2, 0, 0, 1, 0, 1, 2, 0~
+## $ number       &lt;fct&gt; small, none, big, big, small, small, small~
 ```
 ]
 .pull-right[
@@ -220,29 +208,29 @@ glimpse(test_data)
 ```
 
 ```
-## Rows: 784
+## Rows: 785
 ## Columns: 21
-## $ spam         &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ to_multiple  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, …
-## $ from         &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-## $ cc           &lt;int&gt; 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 7, 0, 0, …
-## $ sent_email   &lt;fct&gt; 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
-## $ time         &lt;dttm&gt; 2012-01-01 16:00:32, 2012-01-01 18:12:00,…
-## $ image        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ attach       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ dollar       &lt;dbl&gt; 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, …
-## $ winner       &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no…
-## $ inherit      &lt;dbl&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ viagra       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ password     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ num_char     &lt;dbl&gt; 7.773, 2.643, 0.869, 13.890, 4.560, 2.192,…
-## $ line_breaks  &lt;int&gt; 192, 68, 25, 225, 64, 85, 10, 57, 97, 39, …
-## $ format       &lt;fct&gt; 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, …
-## $ re_subj      &lt;fct&gt; 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, …
-## $ exclaim_subj &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, …
-## $ urgent_subj  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-## $ exclaim_mess &lt;dbl&gt; 6, 0, 2, 0, 0, 3, 0, 5, 1, 3, 3, 0, 4, 32,…
-## $ number       &lt;fct&gt; small, small, small, small, none, big, sma…
+## $ spam         &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ to_multiple  &lt;fct&gt; 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, ~
+## $ from         &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ cc           &lt;int&gt; 0, 1, 0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ sent_email   &lt;fct&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ time         &lt;dttm&gt; 2012-01-01 12:55:06, 2012-01-01 14:38:32,~
+## $ image        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ attach       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, ~
+## $ dollar       &lt;dbl&gt; 0, 0, 5, 0, 0, 0, 0, 5, 4, 0, 0, 0, 21, 0,~
+## $ winner       &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no~
+## $ inherit      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, ~
+## $ viagra       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ password     &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, ~
+## $ num_char     &lt;dbl&gt; 4.837, 15.075, 18.037, 45.842, 11.438, 1.4~
+## $ line_breaks  &lt;int&gt; 193, 354, 345, 881, 125, 24, 296, 13, 192,~
+## $ format       &lt;fct&gt; 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, ~
+## $ re_subj      &lt;fct&gt; 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, ~
+## $ exclaim_subj &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ urgent_subj  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ exclaim_mess &lt;dbl&gt; 1, 10, 20, 5, 2, 0, 0, 0, 6, 0, 0, 1, 3, 0~
+## $ number       &lt;fct&gt; big, small, small, big, small, none, small~
 ```
 ]
 ]
@@ -272,7 +260,7 @@ email_fit &lt;- logistic_reg() %&gt;%
 
 ## Categorical predictors
 
-&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-8-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-42-1.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -291,9 +279,9 @@ train_data %&gt;%
 ## # A tibble: 3 x 3
 ##   spam  from      n
 ##   &lt;fct&gt; &lt;fct&gt; &lt;int&gt;
-## 1 0     1      2847
+## 1 0     1      2837
 ## 2 1     0         3
-## 3 1     1       287
+## 3 1     1       296
 ```
 ]
 .pull-right[
@@ -309,9 +297,9 @@ train_data %&gt;%
 ## # A tibble: 3 x 3
 ##   spam  sent_email     n
 ##   &lt;fct&gt; &lt;fct&gt;      &lt;int&gt;
-## 1 0     0           1962
-## 2 0     1            885
-## 3 1     0            290
+## 1 0     0           1972
+## 2 0     1            865
+## 3 1     0            299
 ```
 ]
 
@@ -322,31 +310,27 @@ train_data %&gt;%
 .small[
 
 ```
-## 
-## ── Variable type: numeric ──────────────────────────────────────────────────────────────────────────
-##    skim_variable spam  n_missing complete_rate      mean       sd    p0    p25    p50    p75  p100
-##  1 cc            0             0             1   0.416     2.77   0      0       0      0      68 
-##  2 cc            1             0             1   0.345     2.02   0      0       0      0      23 
-##  3 image         0             0             1   0.0562    0.510  0      0       0      0      20 
-##  4 image         1             0             1   0.00690   0.0829 0      0       0      0       1 
-##  5 attach        0             0             1   0.128     0.765  0      0       0      0      21 
-##  6 attach        1             0             1   0.193     0.574  0      0       0      0       2 
-##  7 dollar        0             0             1   1.54      5.19   0      0       0      0      64 
-##  8 dollar        1             0             1   0.655     2.63   0      0       0      0      36 
-##  9 inherit       0             0             1   0.0351    0.237  0      0       0      0       6 
-## 10 inherit       1             0             1   0.0690    0.560  0      0       0      0       9 
-*## 11 viagra        0             0             1   0         0      0      0       0      0       0 
-*## 12 viagra        1             0             1   0         0      0      0       0      0       0 
-## 13 password      0             0             1   0.126     1.09   0      0       0      0      28 
-## 14 password      1             0             1   0.0138    0.143  0      0       0      0       2 
-## 15 num_char      0             0             1  11.2      14.3    0.003  1.86    6.83  15.4   165.
-## 16 num_char      1             0             1   4.60     13.0    0.001  0.503   1.08   3.20  174.
-## 17 line_breaks   0             0             1 244.      317.     2     42     136    320.   3589 
-## 18 line_breaks   1             0             1  88.8     265.     1     14      22.5   63.8  3729 
-## 19 exclaim_subj  0             0             1   0.0780    0.268  0      0       0      0       1 
-## 20 exclaim_subj  1             0             1   0.0862    0.281  0      0       0      0       1 
-## 21 exclaim_mess  0             0             1   6.02     41.2    0      0       1      5    1203 
-## 22 exclaim_mess  1             0             1   5.65     71.1    0      0       0      1    1209
+##  spam           cc              image              attach            dollar          inherit       
+##  0:2837   Min.   : 0.0000   Min.   : 0.00000   Min.   : 0.0000   Min.   : 0.000   Min.   :0.00000  
+##  1: 299   1st Qu.: 0.0000   1st Qu.: 0.00000   1st Qu.: 0.0000   1st Qu.: 0.000   1st Qu.:0.00000  
+##           Median : 0.0000   Median : 0.00000   Median : 0.0000   Median : 0.000   Median :0.00000  
+##           Mean   : 0.3922   Mean   : 0.04879   Mean   : 0.1342   Mean   : 1.485   Mean   :0.03858  
+##           3rd Qu.: 0.0000   3rd Qu.: 0.00000   3rd Qu.: 0.0000   3rd Qu.: 0.000   3rd Qu.:0.00000  
+##           Max.   :68.0000   Max.   :20.00000   Max.   :21.0000   Max.   :64.000   Max.   :9.00000  
+##      viagra            password          num_char        line_breaks      exclaim_subj    
+##  Min.   :0.000000   Min.   : 0.0000   Min.   :  0.001   Min.   :   1.0   Min.   :0.00000  
+##  1st Qu.:0.000000   1st Qu.: 0.0000   1st Qu.:  1.448   1st Qu.:  34.0   1st Qu.:0.00000  
+##  Median :0.000000   Median : 0.0000   Median :  5.891   Median : 121.0   Median :0.00000  
+##  Mean   :0.002551   Mean   : 0.1036   Mean   : 10.852   Mean   : 233.4   Mean   :0.07812  
+##  3rd Qu.:0.000000   3rd Qu.: 0.0000   3rd Qu.: 14.437   3rd Qu.: 299.0   3rd Qu.:0.00000  
+*##  Max.   :8.000000   Max.   :22.0000   Max.   :190.087   Max.   :4022.0   Max.   :1.00000  
+*##   exclaim_mess     
+##  Min.   :   0.000  
+##  1st Qu.:   0.000  
+##  Median :   1.000  
+##  Mean   :   6.875  
+##  3rd Qu.:   4.000  
+##  Max.   :1236.000
 ```
 ]
 
@@ -361,6 +345,10 @@ email_fit &lt;- logistic_reg() %&gt;%
 * fit(spam ~ . - from - sent_email - viagra, data = train_data, family = "binomial")
 ```
 
+```
+## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+```
+
 .small[
 
 ```r
@@ -370,22 +358,21 @@ email_fit
 ```
 ## parsnip model object
 ## 
-## Fit time:  68ms 
 ## 
 ## Call:  stats::glm(formula = spam ~ . - from - sent_email - viagra, family = stats::binomial, 
 ##     data = data)
 ## 
 ## Coefficients:
 ##  (Intercept)  to_multiple1            cc          time         image        attach        dollar  
-##   -8.251e+01    -3.114e+00     2.130e-02     6.173e-08    -1.412e+00     3.871e-01    -7.115e-02  
+##   -9.867e+01    -2.505e+00     1.944e-02     7.396e-08    -2.854e+00     5.070e-01    -6.440e-02  
 ##    winneryes       inherit      password      num_char   line_breaks       format1      re_subj1  
-##    2.134e+00     3.569e-01    -9.737e-01     5.793e-02    -6.367e-03    -7.715e-01    -3.050e+00  
+##    2.170e+00     4.499e-01    -7.065e-01     5.870e-02    -5.420e-03    -9.017e-01    -2.995e+00  
 ## exclaim_subj  urgent_subj1  exclaim_mess   numbersmall     numberbig  
-##    2.350e-01     3.866e+00     1.200e-02    -6.915e-01     1.174e-01  
+##    1.002e-01     3.572e+00     1.009e-02    -8.518e-01    -1.329e-01  
 ## 
-## Degrees of Freedom: 3136 Total (i.e. Null);  3118 Residual
-## Null Deviance:	    1933 
-## Residual Deviance: 1402 	AIC: 1440
+## Degrees of Freedom: 3135 Total (i.e. Null);  3117 Residual
+## Null Deviance:	    1974 
+## Residual Deviance: 1447 	AIC: 1485
 ```
 ]
 
@@ -399,7 +386,7 @@ predict(email_fit, test_data)
 ```
 
 ```
-## # A tibble: 784 x 1
+## # A tibble: 785 x 1
 ##   .pred_class
 ##   &lt;fct&gt;      
 ## 1 0          
@@ -408,7 +395,7 @@ predict(email_fit, test_data)
 ## 4 0          
 ## 5 0          
 ## 6 0          
-## # … with 778 more rows
+## # ... with 779 more rows
 ```
 
 
@@ -425,16 +412,16 @@ email_pred
 ```
 
 ```
-## # A tibble: 784 x 4
+## # A tibble: 785 x 4
 ##   .pred_0 .pred_1 spam  time               
 ##     &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt; &lt;dttm&gt;             
-## 1   0.942 0.0581  0     2012-01-01 16:00:32
-## 2   0.920 0.0804  0     2012-01-01 18:12:00
-## 3   0.904 0.0960  0     2012-01-01 18:23:44
-## 4   0.997 0.00304 0     2012-01-02 00:54:46
-## 5   0.833 0.167   0     2012-01-02 01:58:14
-## 6   0.849 0.151   0     2012-01-02 02:05:45
-## # … with 778 more rows
+## 1   0.993 0.00709 0     2012-01-01 12:55:06
+## 2   0.998 0.00181 0     2012-01-01 14:38:32
+## 3   0.981 0.0191  0     2012-01-02 00:42:16
+## 4   0.999 0.00124 0     2012-01-02 10:12:51
+## 5   0.988 0.0121  0     2012-01-02 11:45:36
+## 6   0.830 0.170   0     2012-01-02 16:55:03
+## # ... with 779 more rows
 ```
 
 ---
@@ -450,20 +437,20 @@ email_pred %&gt;%
 ```
 
 ```
-## # A tibble: 784 x 4
+## # A tibble: 785 x 4
 ##    .pred_0 .pred_1 spam  time               
 ##      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt; &lt;dttm&gt;             
-##  1  0.0381   0.962 1     2012-03-27 06:17:01
-##  2  0.205    0.795 1     2012-02-21 08:34:56
-*##  3  0.408    0.592 0     2012-02-03 13:25:39
-##  4  0.412    0.588 1     2012-03-10 22:43:58
-##  5  0.448    0.552 1     2012-02-14 19:45:19
-##  6  0.462    0.538 1     2012-02-04 15:54:23
-*##  7  0.469    0.531 0     2012-01-12 02:00:16
-##  8  0.472    0.528 1     2012-01-25 16:17:54
-##  9  0.477    0.523 1     2012-03-21 02:00:30
-## 10  0.486    0.514 1     2012-03-16 21:39:28
-## # … with 774 more rows
+##  1  0.0972   0.903 1     2012-02-13 07:15:00
+##  2  0.167    0.833 0     2012-01-27 15:05:06
+*##  3  0.175    0.825 1     2012-03-01 00:40:27
+##  4  0.267    0.733 1     2012-03-17 06:13:27
+##  5  0.317    0.683 1     2012-03-21 08:33:12
+##  6  0.374    0.626 1     2012-02-08 03:00:05
+*##  7  0.386    0.614 0     2012-01-30 09:20:29
+##  8  0.403    0.597 1     2012-01-07 11:11:49
+##  9  0.462    0.538 1     2012-03-06 06:46:20
+## 10  0.463    0.537 0     2012-02-17 17:54:16
+## # ... with 775 more rows
 ```
 ]
 
@@ -486,7 +473,7 @@ email_pred %&gt;%
 ```
 ]
 .pull-right[
-&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-51-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 .footnote[
@@ -516,12 +503,18 @@ email_pred %&gt;%
 ## # A tibble: 1 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 roc_auc binary         0.828
+## 1 roc_auc binary         0.857
 ```
 ]
 .pull-right[
-&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d07-prediction-overfitting_files/figure-html/unnamed-chunk-53-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

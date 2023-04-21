@@ -36,7 +36,7 @@ Source: [UCI Machine Learning Repository - Bike Sharing Dataset](http://archive.
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Click on your assignment link, clone it in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -50,8 +50,8 @@ If anything is missing, commit and push again.
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package.
-These packages are already installed for you.
-You can load them by running the following in your Console:
+Remember to install these packages before loading using `install.packages("tidyverse")' and 'install.packages("dsbox")` in the Console.
+You can then load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE, eval = TRUE}
 library(tidyverse)
@@ -71,6 +71,10 @@ The original data sources are <http://capitalbikeshare.com/system-data> and <htt
 # Exercises
 
 ## Data wrangling
+
+```{marginfigure}
+**Note:** You will find it helpful to review the functions `case_when` and functions in the `forcats` for this exercize.
+```
 
 1.  Recode the `season` variable to be a factor with meaningful level names as outlined in the codebook, with spring as the baseline level.
 

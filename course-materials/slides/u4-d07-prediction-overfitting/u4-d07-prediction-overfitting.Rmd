@@ -273,7 +273,7 @@ options(width = 100)
 x <- train_data %>%
   group_by(spam) %>%
   select(where(is.numeric)) %>%
-  skim_without_charts()
+  summary()
 
 print(x, include_summary = FALSE)
 ```
