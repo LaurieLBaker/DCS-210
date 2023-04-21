@@ -11,19 +11,20 @@ scrape_pac <- function(url) {
   # read the page
   page <- ___(___)
   
-  # exract the table
+  # extract the table
   pac <-  page %>%
-    # select node .DataTable (identified using the SelectorGadget)
-    html_node(".DataTable") %>%
-    # parse table at node td into a data frame
-    #   table has a head and empty cells should be filled with NAs
-    html_table("td", header = ___, fill = ___) %>%
+    # # parse table at node td
+    html_table("td", header = TRUE)
+  
+  
+  ###pac is currently a list and we want to take out the dataset 
+  pac <- pac[[1]] %>%
     # convert to a tibble
     as_tibble()
   
   # rename variables
   pac <- pac %>%
-    # rename columns
+    # rename columns (new name = old name)
     rename(
       name = ___ ,
       country_parent = ___,
@@ -49,21 +50,19 @@ scrape_pac <- function(url) {
 
 # test function ----------------------------------------------------------------
 
+url_2022 <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022"
+
+
 url_2020 <- "___"
 pac_2020 <- scrape_pac(___)
 
 url_2018 <- "___"
 pac_2018 <- scrape_pac(___)
 
-url_1998 <- "___"
-pac_1998 <- scrape_pac(___)
-
 # list of urls -----------------------------------------------------------------
 
-example_url <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022"
-
 # first part of url
-root <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs?cycle="
+root <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/"
 
 # second part of url (election years as a sequence)
 year <- seq(from = ___, to = ___, by = ___)

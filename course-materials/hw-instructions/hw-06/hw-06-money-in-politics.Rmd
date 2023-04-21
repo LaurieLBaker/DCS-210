@@ -105,7 +105,9 @@ This file already contains some starter code to help you out.
     -   add a new column to the data frame for `year`. We will want this information when we ultimately have data from all years, so this is a good time to keep track of it. Our function doesn't take a year argument, but the year is embedded in the URL, so we can extract it out of there, and add it as a new column. Use the `str_sub()` function to extract the last 4 characters from the URL. You will probably want to look at the help for this function to figure out how to specify "last 4 characters".
 
 -   Define the URLs for 2022.
-    2020, 2018, and 1998 contributions (and more! This dataset is constantly updated).
+    2020, 2018, through 2000 contributions and more!
+    This dataset is constantly updated and the dates may shift.
+    Use the drop-down menu to make sure you cover all dates and keep these updated.
     Then, test your function using these URLs as inputs.
     Does the function seem to do what you expected it to do?
 
@@ -167,6 +169,10 @@ The following exercises walk you through how to make these fixes to the data.
 ```
 
 4.  Recreate the following visualisation. Once you have made the plot, write a brief interpretation of what the graph reveals. Note that these are only UK contributions. You will need to make use of functions from the **scales** package for axis labels as well as from **ggplot2**.
+
+```{marginfigure}
+**Hint:** You will need to use `pivot_longer` to create this graphic.
+```
 
 ```{r eval = TRUE, echo = FALSE, message = FALSE, fig.fullwidth = TRUE, fig.asp = 0.5}
 pac_all <- read_csv("data/pac-all.csv")
