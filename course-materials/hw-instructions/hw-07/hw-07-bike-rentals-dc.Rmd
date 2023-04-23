@@ -52,7 +52,7 @@ If anything is missing, commit and push again.
 We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package.
 Remember to install these packages before loading using `install.packages("tidyverse")'. Loading the`dsbox`package is a little more involved. We first need to install`devtools\` and then install the package from Github.
 
-```{r install-packages, message = FALSE, eval = TRUE}
+```{r install-packages, message = FALSE, eval = FALSE}
 install.packages("devtools")
 library(devtools)
 

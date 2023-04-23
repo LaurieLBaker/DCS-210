@@ -476,25 +476,26 @@ linear_reg() %>%
 
 $$\widehat{Height_{in}} = 22.7 - 5.645~landsALL$$
 
-- **Slope:** Paintings with landscape features are expected, on average, to be 5.645 inches shorter than paintings that without landscape features
-  - Compares baseline level (`landsALL = 0`) to the other level (`landsALL = 1`)
-    
+
 - **Intercept:** Paintings that don't have landscape features are expected, on average, to be 22.7 inches tall
 
+- **Landscapes** Paintings with landscape features are expected, on average, to be 5.645 inches shorter than paintings that without landscape features
+  - Compares baseline level (`landsALL = 0`) to the other level (`landsALL = 1`)
+    
 ---
 
 ## Graphical diagnostic: residuals plot
 
 .panelset[
 .panel[.panel-name[Plot]
-```{r ref.label = "residuals-plot", echo = FALSE, warning = FALSE, out.width = "60%"}
+```{r ref.label = "residuals-plot-2", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
 ]
 .panel[.panel-name[Code]
-```{r residuals-plot, fig.show="hide"}
+```{r residuals-plot-2, fig.show="hide"}
 ht_land_fit <- linear_reg() %>%
   set_engine("lm") %>%
-  fit(Height_in ~ factor(landsAll), data = pp)
+  fit(Height_in ~ factor(landsALL), data = pp)
 
 ht_land_fit_aug <- augment(ht_land_fit$fit) #<<
 
@@ -513,8 +514,118 @@ ht_land_fit_aug
 ]
 
 ---
-## Relationship between height, width, and landscape paintings
 
+## Height, Width & landscape features
+
+```{r ht-lands-width-fit}
+linear_reg() %>%
+  set_engine("lm") %>%
+  fit(Height_in ~ factor(landsALL) + Width_in, data = pp) %>%
+  tidy()
+```
+
+---
+
+## Height & landscape features
+
+$$\widehat{Height_{in}} = 5.615 - 5.017~landsALL + 0.777 \times width_{i}$$ 
+
+
+- **Intercept:** Paintings that don't have landscape features are expected, on average, to be 5.615 inches tall
+
+- **Landscapes** Paintings with landscape features are expected, on average, to be 5.017 inches shorter than paintings that without landscape features
+  - Compares baseline level (`landsALL = 0`) to the other level (`landsALL = 1`)
+  
+- **Slope:** For every inch in width, paintings are expected to be 0.777 inches taller.
+    
+---
+
+## Graphical diagnostic: residuals plot
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "residuals-plot-3", echo = FALSE, warning = FALSE, out.width = "60%"}
+```
+]
+.panel[.panel-name[Code]
+```{r residuals-plot-3, fig.show="hide"}
+ht_wt_land_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(Height_in ~ factor(landsALL) + Width_in, data = pp)
+
+ht_wt_land_fit_aug <- augment(ht_wt_land_fit$fit) #<<
+
+ggplot(ht_wt_land_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted height", y = "Residuals")
+```
+]
+
+.panel[.panel-name[Augment]
+```{r}
+ht_wt_land_fit_aug
+```
+]
+]
+
+---
+
+## Logging Height, Graphical diagnostic: residuals plot
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "residuals-plot-4", echo = FALSE, warning = FALSE, out.width = "60%"}
+```
+]
+.panel[.panel-name[Code]
+```{r residuals-plot-4, fig.show="hide"}
+ht_wt_land_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(log(Height_in) ~ factor(landsALL) + Width_in, data = pp)
+
+ht_wt_land_fit_aug <- augment(ht_wt_land_fit$fit) #<<
+
+ggplot(ht_wt_land_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted logged height", y = "Residuals")
+```
+]
+
+.panel[.panel-name[Augment]
+```{r}
+ht_wt_land_fit_aug
+```
+]
+]
+
+---
+## Residuals Summary
+
+- Non-constant variance is one of the most common model violations, however it is usually fixable by transforming the response (y) variable.
+
+--
+- The most common transformation when the response variable is right skewed is the log transform: $log(y)$, especially useful when the response variable is 
+(extremely) right skewed.
+
+--
+- This transformation is also useful for variance stabilization.
+
+--
+- When using a log transformation on the response variable the interpretation of 
+the slope changes: *"For each unit increase in x, y is expected on average to be higher/lower <br> by a factor of $e^{b_1}$."*
+
+--
+- Another useful transformation is the square root: $\sqrt{y}$, especially 
+useful when the response variable is counts.
+
+
+
+---
+class: inverse
+
+# Additional Slides
 
 ---
 
