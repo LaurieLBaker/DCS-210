@@ -248,6 +248,194 @@ $$\bar{y} = b_0 + b_1 \bar{x} ~ \rightarrow ~ b_0 = \bar{y} - b_1 \bar{x}$$
 - The residuals and $x$ values are uncorrelated
 
 ---
+class: middle
+
+# Model checking
+
+---
+
+## Data: Paris Paintings
+
+```{r message=FALSE}
+pp <- read_csv("data/paris-paintings.csv", na = c("n/a", "", "NA"))
+```
+
+- Number of observations: `r nrow(pp)`
+- Number of variables: `r ncol(pp)`
+
+---
+
+## "Linear" models
+
+- We're fitting a "linear" model, which assumes a linear relationship between our explanatory and response variables.
+- But how do we assess this?
+
+---
+
+## Graphical diagnostic: residuals plot
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "residuals-plot", echo = FALSE, warning = FALSE, out.width = "60%"}
+```
+]
+.panel[.panel-name[Code]
+```{r residuals-plot, fig.show="hide"}
+ht_wt_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(Height_in ~ Width_in, data = pp)
+
+ht_wt_fit_aug <- augment(ht_wt_fit$fit) #<<
+
+ggplot(ht_wt_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted height", y = "Residuals")
+```
+]
+
+.panel[.panel-name[Augment]
+```{r}
+ht_wt_fit_aug
+```
+]
+]
+
+---
+
+## More on `augment()`
+
+```{r}
+glimpse(ht_wt_fit_aug)
+```
+
+
+---
+
+## Looking for...
+
+- Residuals distributed randomly around 0
+- With no visible pattern along the x or y axes
+
+```{r out.width = "60%", echo=FALSE}
+df <- tibble(
+  fake_resid = rnorm(1000, mean = 0, sd = 30),
+  fake_predicted = runif(1000, min = 0, max = 200)
+)
+ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted", y = "Residuals")
+```
+
+---
+
+## Not looking for...
+
+.large[
+**Fan shapes**
+]
+
+```{r out.width = "60%", echo=FALSE}
+set.seed(12346)
+df <- tibble(
+  fake_resid = c(rnorm(100, mean = 0, sd = 1), 
+                 rnorm(100, mean = 0, sd = 15), 
+                 rnorm(100, mean = 0, sd = 25), 
+                 rnorm(100, mean = 0, sd = 20), 
+                 rnorm(100, mean = 0, sd = 25), 
+                 rnorm(100, mean = 0, sd = 50), 
+                 rnorm(100, mean = 0, sd = 35), 
+                 rnorm(100, mean = 0, sd = 40),
+                 rnorm(200, mean = 0, sd = 80)),
+  fake_predicted = seq(0.2, 200, 0.2)
+)
+ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted", y = "Residuals")
+```
+
+---
+
+## Not looking for...
+
+.large[
+**Groups of patterns**
+]
+
+```{r out.width = "60%", echo=FALSE}
+set.seed(12346)
+df <- tibble(
+  fake_predicted = seq(0.2, 200, 0.2),
+  fake_resid = c(
+    rnorm(500, mean = -20, sd = 10),
+    rnorm(500, mean = 10, sd = 10)
+  )
+)
+ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted", y = "Residuals")
+```
+
+---
+
+## Not looking for...
+
+.large[
+**Residuals correlated with predicted values**
+]
+
+```{r out.width = "60%", echo=FALSE}
+set.seed(12346)
+df <- tibble(
+  fake_predicted = seq(0.2, 200, 0.2),
+  fake_resid = fake_predicted + rnorm(1000, mean = 0, sd = 50)
+)
+ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted", y = "Residuals")
+```
+
+---
+
+## Not looking for...
+
+.large[
+**Any patterns!**
+]
+
+```{r out.width = "60%", echo=FALSE}
+set.seed(12346)
+df <- tibble(
+  fake_predicted = seq(-100, 100, 0.4),
+  fake_resid = -5*fake_predicted^2 - 3*fake_predicted + 20000 + rnorm(501, mean = 0, sd = 10000)
+)
+ggplot(df, mapping = aes(x = fake_predicted, y = fake_resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted", y = "Residuals")
+```
+
+---
+
+.question[
+What patterns does the residuals plot reveal that should make us question whether the current model is a good fit for modeling the height of the paintings?
+]
+
+```{r out.width = "60%", echo=FALSE}
+ggplot(ht_wt_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted height", y = "Residuals")
+```
+
+
+
+
+---
 
 class: middle
 
@@ -292,6 +480,41 @@ $$\widehat{Height_{in}} = 22.7 - 5.645~landsALL$$
   - Compares baseline level (`landsALL = 0`) to the other level (`landsALL = 1`)
     
 - **Intercept:** Paintings that don't have landscape features are expected, on average, to be 22.7 inches tall
+
+---
+
+## Graphical diagnostic: residuals plot
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "residuals-plot", echo = FALSE, warning = FALSE, out.width = "60%"}
+```
+]
+.panel[.panel-name[Code]
+```{r residuals-plot, fig.show="hide"}
+ht_land_fit <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit(Height_in ~ factor(landsAll), data = pp)
+
+ht_land_fit_aug <- augment(ht_land_fit$fit) #<<
+
+ggplot(ht_land_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
+  labs(x = "Predicted height", y = "Residuals")
+```
+]
+
+.panel[.panel-name[Augment]
+```{r}
+ht_land_fit_aug
+```
+]
+]
+
+---
+## Relationship between height, width, and landscape paintings
+
 
 ---
 

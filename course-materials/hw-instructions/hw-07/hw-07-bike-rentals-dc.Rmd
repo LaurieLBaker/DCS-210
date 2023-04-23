@@ -50,7 +50,15 @@ If anything is missing, commit and push again.
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package.
-Remember to install these packages before loading using `install.packages("tidyverse")' and 'install.packages("dsbox")` in the Console.
+Remember to install these packages before loading using `install.packages("tidyverse")'. Loading the`dsbox`package is a little more involved. We first need to install`devtools\` and then install the package from Github.
+
+```{r install-packages, message = FALSE, eval = TRUE}
+install.packages("devtools")
+library(devtools)
+
+devtools::install_github("rstudio-education/dsbox")
+```
+
 You can then load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE, eval = TRUE}
@@ -62,6 +70,11 @@ library(dsbox)
 
 The data can be found in the **dsbox** package, and it's called `dcbikeshare`.
 Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
+
+In case there are problems with loading the `dsbox` package.
+I have also included the dataset in the data folder.
+You can load this in directly if you have any issues.
+
 You can find out more about the dataset by inspecting its documentation, which you can access by running `?dcbikeshare` in the Console or using the Help menu in RStudio to search for `dcbikeshare`.
 You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html).
 

@@ -423,22 +423,67 @@ md files. If anything is missing, commit and push again.</p>
 wrangling and visualisation and the data lives in the
 <strong>dsbox</strong> package. Remember to install these packages
 before loading using
-<code>install.packages(&quot;tidyverse&quot;)&#39; and &#39;install.packages(&quot;dsbox&quot;)</code>
-in the Console. You can then load them by running the following in your
-Console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code></pre></div>
+<code>install.packages(&quot;tidyverse&quot;)&#39;. Loading the</code>dsbox<code>package is a little more involved. We first need to install</code>devtools`
+and then install the package from Github.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code></pre></div>
+<pre><code>## Warning: package &#39;usethis&#39; was built under R version 4.1.3</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rstudio-education/dsbox&quot;</span>)</span></code></pre></div>
+<pre><code>##   
+  
+  
+   checking for file &#39;C:\Users\Laurie\AppData\Local\Temp\RtmpAhTYX0\remotes7f0031247f7\rstudio-education-dsbox-8fd2a47/DESCRIPTION&#39; ...
+  
+   checking for file &#39;C:\Users\Laurie\AppData\Local\Temp\RtmpAhTYX0\remotes7f0031247f7\rstudio-education-dsbox-8fd2a47/DESCRIPTION&#39; ... 
+  
+v  checking for file &#39;C:\Users\Laurie\AppData\Local\Temp\RtmpAhTYX0\remotes7f0031247f7\rstudio-education-dsbox-8fd2a47/DESCRIPTION&#39; (583ms)
+## 
+  
+  
+  
+-  preparing &#39;dsbox&#39;: (825ms)
+##    checking DESCRIPTION meta-information ...
+  
+   checking DESCRIPTION meta-information ... 
+  
+v  checking DESCRIPTION meta-information
+## 
+  
+  
+  
+-  checking for LF line-endings in source and make files and shell scripts
+## 
+  
+  
+  
+-  checking for empty or unneeded directories
+## 
+  
+  
+  
+-  building &#39;dsbox_0.1.1.tar.gz&#39;
+## 
+  
+   
+## </code></pre>
+<p>You can then load them by running the following in your Console:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsbox)</span></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>The data can be found in the <strong>dsbox</strong> package, and it’s
 called <code>dcbikeshare</code>. Since the dataset is distributed with
 the package, we don’t need to load it separately; it becomes available
-to us when we load the package. You can find out more about the dataset
-by inspecting its documentation, which you can access by running
-<code>?dcbikeshare</code> in the Console or using the Help menu in
-RStudio to search for <code>dcbikeshare</code>. You can also find this
-information <a href="https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html">here</a>.</p>
+to us when we load the package.</p>
+<p>In case there are problems with loading the <code>dsbox</code>
+package. I have also included the dataset in the data folder. You can
+load this in directly if you have any issues.</p>
+<p>You can find out more about the dataset by inspecting its
+documentation, which you can access by running <code>?dcbikeshare</code>
+in the Console or using the Help menu in RStudio to search for
+<code>dcbikeshare</code>. You can also find this information <a href="https://rstudio-education.github.io/dsbox/reference/dcbikeshare.html">here</a>.</p>
 <p>The data include daily bike rental counts (by members and casual
 users) of Capital Bikeshare in Washington, DC in 2011 and 2012 as well
 as weather information on these days. The original data sources are <a href="http://capitalbikeshare.com/system-data" class="uri">http://capitalbikeshare.com/system-data</a> and <a href="http://www.freemeteo.com" class="uri">http://www.freemeteo.com</a>.</p>
