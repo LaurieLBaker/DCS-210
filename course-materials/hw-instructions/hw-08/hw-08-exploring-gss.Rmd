@@ -1,5 +1,5 @@
 ---
-title: "HW 08 - Exploring the GSS"
+title: "Lab 08 - Exploring the GSS"
 output: 
   tufte::tufte_html:
     css: ../hw.css
@@ -58,6 +58,7 @@ library(dsbox)
 ## Data
 
 The data can be found in the **dsbox** package, and it's called `gss16`.
+It is also included in your data folder.
 Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
 You can find out more about the dataset by inspecting its documentation, which you can access by running `?gss16` in the Console or using the Help menu in RStudio to search for `gss16`.
 You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/gss16.html).
