@@ -26,7 +26,7 @@ In this assignment we continue our exploration of the 2016 GSS dataset from the 
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Follow the assignment link and clone the project in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -40,10 +40,13 @@ If anything is missing, commit and push again.
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling and visualisation, the **tidymodels** package for modeling and inference, and the data lives in the **dsbox** package.
-These packages are already installed for you.
+
 You can load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE, eval = TRUE}
+#install.packages("devtools")
+library(devtools)
+#devtools::install_github("rstudio-education/dsbox")
 library(tidyverse)
 library(tidymodels)
 library(dsbox)
@@ -52,7 +55,8 @@ library(dsbox)
 ## Data
 
 The data can be found in the **dsbox** package, and it's called `gss16`.
-Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
+Since the dataset is distributed with the package.
+It is also available in the data folder.
 You can find out more about the dataset by inspecting its documentation, which you can access by running `?gss16` in the Console or using the Help menu in RStudio to search for `gss16`.
 You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/gss16.html).
 
@@ -70,7 +74,7 @@ The responses to the question on the GSS about this statement are in the `advfro
 It's important that you don't recode the NAs, just the remaining levels.
 ```
 
-1.  Re-level the `advfront` variable such that it has two levels: `Strongly agree` and "`Agree"` combined into a new level called `agree` and the remaining levels (except `NA`s) combined into "`Not agree"`. Then, re-order the levels in the following order: `"Agree"` and `"Not agree"`. Finally, `count()` how many times each new level appears in the `advfront` variable.
+1.  Re-level the `advfront` variable such that it has two levels: `Strongly agree` and "`Agree"` combined into a new level called `agree` and the remaining levels (except `NA`s) combined into"`Not agree"`. Then, re-order the levels in the following order: `"Agree"` and `"Not agree"`. Finally, `count()` how many times each new level appears in the `advfront` variable.
 
 ```{marginfigure}
 You can do this in various ways. One option is to use the `str_detect()` function to detect the existence of words like liberal or conservative. Note that these sometimes show up with lowercase first letters and sometimes with upper case first letters. To detect either in the `str_detect()` function, you can use "[Ll]iberal" and "[Cc]onservative". But feel free to solve the problem however you like, this is just one option!
@@ -94,7 +98,8 @@ gss16_train <- training(gss16_split)
 gss16_test  <- testing(gss16_split)
 ```
 
-5.  Create a recipe with the following steps for predicting `advfront` from `polviews`, `wrkstat`, and `educ`.
+5.  We are going to do a little extra preproccessing using a recipe with the following steps for predicting `advfront` from `polviews`, `wrkstat`, and `educ`.
+
     Name this recipe `gss16_rec_1`.
     (We'll create one more recipe later, that's why we're naming this recipe `_1`.) Sample code is provided below.
 
@@ -103,8 +108,8 @@ gss16_test  <- testing(gss16_split)
     -   `step_dummy()` to create dummy variables for `all_nominal()` variables that are predictors, i.e. `all_predictors()`
 
 ```{r eval=FALSE}
-gss16_rec_1 <- recipe(___ ~ ___, data = ___) %>%
-  step_other(wrkstat, threshold = ___, other = "Other") %>%
+gss16_rec_1 <- recipe(advfront ~ factor(polviews) + factor(wrkstat) + educ, data = gss16) %>%
+  step_other(wrkstat, threshold = 0.10, other = "Other") %>%
   step_dummy(all_nominal(), -all_outcomes())
 ```
 

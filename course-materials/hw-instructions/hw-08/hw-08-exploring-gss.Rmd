@@ -50,8 +50,12 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 Remember to install the packages and then you can load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE, eval = TRUE}
+#install.packages("devtools")
+library(devtools)
+#devtools::install_github("rstudio-education/dsbox")
 library(tidyverse)
 library(dsbox)
+library(tidymodels)
 ```
 
 ## Data
