@@ -33,7 +33,7 @@ In this assignment we analyze data from the 2016 GSS, using it to estimate value
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Follow the github assignment link and clone it in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -47,8 +47,7 @@ If anything is missing, commit and push again.
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **dsbox** package.
-These packages are already installed for you.
-You can load them by running the following in your Console:
+Remember to install the packages and then you can load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE, eval = TRUE}
 library(tidyverse)
@@ -91,7 +90,7 @@ For example, if the response is 2.5 hrs, this would be recorded as `emailhr = 2`
 
 4.  Visualize the distribution of this new variable.
     Find the mean and the median number of minutes respondents spend on email weekly.
-    Is the mean or the median a better measure of the typical among of time Americans spend on email weekly?
+    Is the mean or the median a better measure of the typical amount of time Americans spend on email weekly?
     Why?
 
 5.  Create another new variable, `snap_insta` that is coded as "Yes" if the respondent reported using any of Snapchat (`snapchat`) or Instagram (`instagrm`), and "No" if not.

@@ -12,7 +12,7 @@ output: github_document
 # You can install the package dsbox using
 # install.packages("devtools")
 # library(devtools)
-# devtools::install_github
+# devtools::install_github("rstudio-education/dsbox")
 library(tidyverse)
 library(dsbox)
 ```
