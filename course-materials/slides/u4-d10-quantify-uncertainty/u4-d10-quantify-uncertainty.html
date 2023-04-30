@@ -3,10 +3,9 @@
   <head>
     <title>Quantifying uncertainty</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -16,25 +15,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Quantifying uncertainty
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+]
+.subtitle[
+## <br><br> College of the Atlantic
+]
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://introds.org" target="_blank"&gt;introds.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -49,7 +41,7 @@ class: middle
 - Family income and gift aid data from a random sample of fifty students in the freshman class of Elmhurst College in Illinois, USA
 - Gift aid is financial aid that does not need to be paid back, as opposed to a loan
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-40-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 .footnote[
 .small[
@@ -72,7 +64,7 @@ linear_reg() %&gt;%
 ```
 
 ```
-## # A tibble: 2 x 5
+## # A tibble: 2 × 5
 ##   term          estimate std.error statistic  p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    24.3       1.29       18.8  8.28e-24
@@ -81,7 +73,7 @@ linear_reg() %&gt;%
 ]
 ]
 .pull-right[
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-42-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -91,7 +83,7 @@ linear_reg() %&gt;%
 .pull-left-wide[
 
 ```
-## # A tibble: 2 x 5
+## # A tibble: 2 × 5
 ##   term          estimate std.error statistic  p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    24.3       1.29       18.8  8.28e-24
@@ -99,7 +91,7 @@ linear_reg() %&gt;%
 ```
 ]
 .pull-right-narrow[
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-43-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 --
@@ -230,7 +222,7 @@ or
 
 
 ```
-## # A tibble: 2 x 5
+## # A tibble: 2 × 5
 ##   term          estimate std.error statistic  p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    24.3       1.29       18.8  8.28e-24
@@ -264,15 +256,7 @@ class: middle
 
 ## Observed sample
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
----
-
-## Bootstrap population
-
-Generated assuming there are more students like the ones in the observed sample...
-
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-49-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -300,7 +284,7 @@ elmhurtst_boot_1 &lt;- elmhurst %&gt;%
 ```
 
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-51-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -313,7 +297,7 @@ elmhurtst_boot_2 &lt;- elmhurst %&gt;%
 ```
 
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-53-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -326,7 +310,7 @@ elmhurtst_boot_3 &lt;- elmhurst %&gt;%
 ```
 
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-55-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -339,13 +323,13 @@ elmhurtst_boot_4 &lt;- elmhurst %&gt;%
 ```
 
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-20-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-57-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Bootstrap samples 1 - 4
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-21-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-58-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -361,19 +345,19 @@ we could keep going...
 
 ## Many many samples...
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-22-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-59-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Slopes of bootstrap samples
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-23-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-60-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## 95% confidence interval
 
-&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u4-d10-quantify-uncertainty_files/figure-html/unnamed-chunk-61-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -381,7 +365,7 @@ we could keep going...
 
 
 ```
-## # A tibble: 2 x 6
+## # A tibble: 2 × 6
 ##   term           .lower .estimate  .upper .alpha .method   
 ##   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     
 ## 1 (Intercept)   21.8      24.4    26.8      0.05 percentile
@@ -418,6 +402,13 @@ elmhurst_coefs &lt;- elmhurst_models %&gt;%
 # calculate 95% (default) percentile interval
 int_pctl(elmhurst_models, coef_info)
 ```
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -466,6 +457,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

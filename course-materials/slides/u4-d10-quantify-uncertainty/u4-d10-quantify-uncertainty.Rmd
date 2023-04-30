@@ -1,12 +1,10 @@
 ---
 title: "Quantifying uncertainty"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
     lib_dir: libs
-    anchor_sections: FALSE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -299,31 +297,6 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     y = "Gift aid",
     title = "Gift aid and family income",
     subtitle = "Random sample 50 students at Elmhurst College"
-  )
-```
-
----
-
-## Bootstrap population
-
-Generated assuming there are more students like the ones in the observed sample...
-
-```{r echo=FALSE, warning=FALSE}
-elmhurst_boot %>% 
-  slice_head(n = 50) %>%
-  hoist(splits, "data") %>% 
-  unnest(data) %>% 
-  ggplot(aes(x = family_income, y = gift_aid)) +
-  geom_jitter(alpha = 0.11, width = 30, height = 10) +
-  geom_point(data = elmhurst, mapping = aes(x = family_income, y = gift_aid), color = "#8E2C90", size = 2) +
-  scale_x_continuous(labels = label_dollar(suffix = "K"), limits = c(0, 275)) + 
-  scale_y_continuous(labels = label_dollar(suffix = "K"), limits = c(0, 42)) +
-  geom_text(aes(x = 200, y = 40), label = paste("slope = ?"), size = 6, hjust = 0)  +
-  labs(
-    x = "Family income",
-    y = "Gift aid",
-    title = "Gift aid and family income",
-    subtitle = "(Simulated) population of students at Elmhurst College"
   )
 ```
 
@@ -637,3 +610,10 @@ elmhurst_coefs <- elmhurst_models %>%
 # calculate 95% (default) percentile interval
 int_pctl(elmhurst_models, coef_info)
 ```
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
