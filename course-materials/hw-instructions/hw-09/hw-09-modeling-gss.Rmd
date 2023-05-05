@@ -1,5 +1,5 @@
 ---
-title: "HW 09 - Modeling the GSS"
+title: "Lab 04 - Modeling the GSS"
 output: 
   tufte::tufte_html:
     css: ../hw.css
@@ -43,7 +43,7 @@ We'll use the **tidyverse** package for much of the data wrangling and visualisa
 
 You can load them by running the following in your Console:
 
-```{r load-packages, message = FALSE, eval = TRUE}
+```{r load-packages, message = FALSE, warning = FALSE, eval = TRUE}
 #install.packages("devtools")
 library(devtools)
 #devtools::install_github("rstudio-education/dsbox")
