@@ -109,7 +109,7 @@ gss16_test  <- testing(gss16_split)
 
 ```{r eval=FALSE}
 gss16_rec_1 <- recipe(advfront ~ factor(polviews) + factor(wrkstat) + educ, data = gss16) %>%
-  step_other(wrkstat, threshold = 0.10, other = "Other") %>%
+  step_other(wrkstat, threshold = ______, other = "Other") %>%
   step_dummy(all_nominal(), -all_outcomes())
 ```
 

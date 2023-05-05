@@ -10,14 +10,14 @@ library(Tmisc)
 
 # non-xaringan -----------------------------------------------------------------
 
-rmds <- dir_info(recurse = 3, glob = "course-materials/hw-instructions/hw-07/*.Rmd") %>% 
+rmds <- dir_info(recurse = 3, glob = "course-materials/hw-instructions/hw-08/*.Rmd") %>% 
   filter(!str_detect(path, "slides")) %>%
   pull(path)
 walk(rmds, render)
 
 # xaringan ---------------------------------------------------------------------
 
-xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u4-d06-logistic-reg/*.Rmd") %>% 
+xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u4-d02-fitting-interpreting-models/*.Rmd") %>% 
   filter(str_detect(path, "slides")) %>%
   filter(!str_detect(path, "setup")) %>%
   pull(path)
