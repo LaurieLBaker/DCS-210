@@ -134,7 +134,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 10: Cross Validation](course-materials/slides/u4-d09-cross-validation/u4-d09-cross-validation.html)
 - [Week 10: Quantifying Uncertainty](course-materials/slides/u4-d10-quantify-uncertainty/u4-d10-quantify-uncertainty.html)
 - [Week 10: Bootstrapping](course-materials/slides/u4-d11-bootstrap/u4-d11-bootstrap.html)
-
+- [Week 10: Lab GSS 2](course-materials/hw-instructions/hw-09/hw-09-modeling-gss.html)
 ### Labs and Homework
 
 - [Week 10: Lab 08, work on projects](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
