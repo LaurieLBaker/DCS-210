@@ -150,6 +150,10 @@ collect_metrics(___, summarize = FALSE)
 collect_metrics(___)
 ```
 
+```{marginfigure}
+**Note:** ROC AUC compares the relation between True Positive Rate and False Positive Rate, while Accuracy is simply the percentage of correct predictions. In both cases, a higher AUC and higher accuracy are better. Generally you are also looking for your AUC to be above 0.5, as 0.5 is the equivalent of a coin flip.
+```
+
 9.  Now, try a different, simpler model: predict `advfront` from only `polviews` and `educ`.
     Specifically,
 

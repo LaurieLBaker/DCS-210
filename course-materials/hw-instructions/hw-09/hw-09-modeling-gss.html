@@ -546,6 +546,12 @@ all cross validation folds <code>collect_metrics()</code></p></li>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(___, <span class="at">summarize =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(___)</span></code></pre></div>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Note:</strong>
+ROC AUC compares the relation between True Positive Rate and False
+Positive Rate, while Accuracy is simply the percentage of correct
+predictions. In both cases, a higher AUC and higher accuracy are better.
+Generally you are also looking for your AUC to be above 0.5, as 0.5 is
+the equivalent of a coin flip.</span></span></p>
 <ol start="9" style="list-style-type: decimal">
 <li><p>Now, try a different, simpler model: predict
 <code>advfront</code> from only <code>polviews</code> and
