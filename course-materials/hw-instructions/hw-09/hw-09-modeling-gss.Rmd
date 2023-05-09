@@ -108,7 +108,7 @@ gss16_test  <- testing(gss16_split)
     -   `step_dummy()` to create dummy variables for `all_nominal()` variables that are predictors, i.e. `all_predictors()`
 
 ```{r eval=FALSE}
-gss16_rec_1 <- recipe(advfront ~ factor(polviews) + factor(wrkstat) + educ, data = gss16) %>%
+gss16_rec_1 <- recipe(advfront ~ polviews + wrkstat + educ, data = gss16_train) %>%
   step_other(wrkstat, threshold = ______, other = "Other") %>%
   step_dummy(all_nominal(), -all_outcomes())
 ```

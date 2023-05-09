@@ -504,7 +504,7 @@ variable into <code>&quot;Other&quot;</code>.</p></li>
 i.e. <code>all_predictors()</code></p></li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gss16_rec_1 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(advfront <span class="sc">~</span> <span class="fu">factor</span>(polviews) <span class="sc">+</span> <span class="fu">factor</span>(wrkstat) <span class="sc">+</span> educ, <span class="at">data =</span> gss16) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gss16_rec_1 <span class="ot">&lt;-</span> <span class="fu">recipe</span>(advfront <span class="sc">~</span> polviews <span class="sc">+</span> wrkstat <span class="sc">+</span> educ, <span class="at">data =</span> gss16_train) <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(wrkstat, <span class="at">threshold =</span> ______, <span class="at">other =</span> <span class="st">&quot;Other&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
