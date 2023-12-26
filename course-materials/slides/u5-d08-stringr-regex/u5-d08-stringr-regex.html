@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Text analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Laurie Baker" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Text analysis
+]
+.subtitle[
+## <br><br> College of the Atlantic
+]
+.author[
+### Laurie Baker
+]
+
+---
+
+
+
+
+
+
+
+class: middle
+
+# Working with strings using stringr and regex
+
+---
+
+
+
+## Introduction
+
+&gt; &gt; Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
+
+Fret not, stringr is here!
+
+---
+
+## stringr
+
+- `stringr` is a lightweight package designed by Hadley Wickham to assist with string manipulation.
+- Interacts seamlessly with the pipe ( %&gt;% ) operator from dplyr / magrittr.
+- Much like Hadley's other packages, stringr's function names are consistent and its arguments are easy to understand.
+
+---
+
+### **Review of Strings**
+
+- Character strings in R are wrapped with quotes " "
+  - Character strings can be letters "a", 
+                             numbers "1", 
+                             symbols "&amp;", 
+                             or both "a1&amp;"
+- While numbers can be both integers and characters, letters and symbols have no integer meaning and thus create NAs.
+
+```r
+as.integer(c("a", "&amp;"))
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+```
+## [1] NA NA
+```
+
+---
+
+### **Review of Strings**
+- Concatenating strings and integers with the c() function will convert the integers to characters.
+- By default, R converts objects to their lowest denomination.
+  - Factors reduce to integers and integers reduce to characters
+
+```r
+c(factor("a"), "b", "&amp;", 1)
+```
+
+```
+## [1] "1" "b" "&amp;" "1"
+```
+
+```r
+c(as.character(factor("a")), "b", "&amp;", 1)
+```
+
+```
+## [1] "a" "b" "&amp;" "1"
+```
+
+---
+
+## Overview
+
+- Getting Started with stringr
+- Basic String Operators
+- Regular Expressions
+- Pattern Matching Functions
+- Final Exercise
+
+---
+
+## Getting Started
+
+#### Loading stringr
+
+
+```r
+install.packages("stringr")
+library(stringr)
+```
+
+
+```r
+movie_titles &lt;- c("gold diggers of broadway", "gone baby gone", 
+    "gone in 60 seconds", "gone with the wind", "good girl, the", 
+    "good burger", "goodbye girl, the", "good bye lenin!", 
+    "goodfellas", "good luck chuck", "good morning, vietnam", 
+    "good night, and good luck.", "good son, the", "good will hunting")
+
+strings &lt;- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
+  "387 287 6718", "apple", "233.398.9187  ", "482 952 3315", 
+  "239 923 8115 and 842 566 4692", "Work: 579-499-7527", "$1000", "Home: 543.355.3679")
+
+fruit &lt;- c("apple", "banana", "pear", "pineapple")
+```
+
+---
+## Basic String Operators
+
+- String operators are basic string manipulation functions
+- Many of them have equivalent base R functions that are much slower and bulkier
+
+---
+#### **str_to_upper(string)**
+    - converts strings to uppercase
+      - ex. Convert all movie_titles to uppercase and store them as movie_titles
+
+#### **str_to_lower(string)**
+    - converts strings to lowercase
+      - ex. Convert all movie_titles back to lowercase and save as movie_titles
+
+#### **str_to_title(string)**
+    - converts strings to title case
+      - ex. Convert all movie_titles to titlecase and store them as movie_titles
+
+---     
+## str_to_upper(string)
+
+```r
+movie_titles &lt;- str_to_upper(movie_titles)
+movie_titles
+```
+
+```
+##  [1] "GOLD DIGGERS OF BROADWAY"   "GONE BABY GONE"            
+##  [3] "GONE IN 60 SECONDS"         "GONE WITH THE WIND"        
+##  [5] "GOOD GIRL, THE"             "GOOD BURGER"               
+##  [7] "GOODBYE GIRL, THE"          "GOOD BYE LENIN!"           
+##  [9] "GOODFELLAS"                 "GOOD LUCK CHUCK"           
+## [11] "GOOD MORNING, VIETNAM"      "GOOD NIGHT, AND GOOD LUCK."
+## [13] "GOOD SON, THE"              "GOOD WILL HUNTING"
+```
+
+---
+## str_to_lower(string)
+
+```r
+movie_titles &lt;- str_to_lower(movie_titles)
+movie_titles
+```
+
+```
+##  [1] "gold diggers of broadway"   "gone baby gone"            
+##  [3] "gone in 60 seconds"         "gone with the wind"        
+##  [5] "good girl, the"             "good burger"               
+##  [7] "goodbye girl, the"          "good bye lenin!"           
+##  [9] "goodfellas"                 "good luck chuck"           
+## [11] "good morning, vietnam"      "good night, and good luck."
+## [13] "good son, the"              "good will hunting"
+```
+
+---
+## str_to_title(string)
+
+```r
+movie_titles &lt;- str_to_title(movie_titles)
+movie_titles
+```
+
+```
+##  [1] "Gold Diggers Of Broadway"   "Gone Baby Gone"            
+##  [3] "Gone In 60 Seconds"         "Gone With The Wind"        
+##  [5] "Good Girl, The"             "Good Burger"               
+##  [7] "Goodbye Girl, The"          "Good Bye Lenin!"           
+##  [9] "Goodfellas"                 "Good Luck Chuck"           
+## [11] "Good Morning, Vietnam"      "Good Night, And Good Luck."
+## [13] "Good Son, The"              "Good Will Hunting"
+```
+
+---
+#### **str_c(string, sep = "")**
+    - Joins together multiple strings including integers
+    - Is the stringr equivalent to paste(sep = "") or paste0()
+
+#### **str_length(string)**
+    - Returns the string length
+    - Similar to base function nchar()
+    - str_length() converts factors to strings and also preserves NA's
+    
+
+```r
+nchar(NA)
+```
+
+```
+## [1] NA
+```
+
+```r
+str_length(NA)
+```
+
+```
+## [1] NA
+```
+
+---
+#### **str_sub(string, start, end) &lt;- value**
+    - Subsets text within a string or vector of strings by specifying
+      start and end positions.
+    - Base equivalent function is substr()
+    - By default, end goes to the end of the word
+
+```r
+fruit
+```
+
+```
+## [1] "apple"     "banana"    "pear"      "pineapple"
+```
+
+```r
+str_sub(fruit, start = 3)
+```
+
+```
+## [1] "ple"     "nana"    "ar"      "neapple"
+```
+
+---
+#### **str_dup(string, times)**
+    - Duplicates strings by a number of times.
+    - Essentially copy / paste function
+
+```r
+str_dup(fruit, 3)
+```
+
+```
+## [1] "appleappleapple"             "bananabananabanana"         
+## [3] "pearpearpear"                "pineapplepineapplepineapple"
+```
+
+---
+#### **str_trim(string, side = c("both", "left", "right"))**
+    - Removes leading and trailing whitespaces
+    - Side argument defaults to "both"
+    - ex. trim the whitespace from both sides of every string in "strings"
+
+#### **str_pad(string, width, side = c("left", "both", "right"), pad = " ")**
+    - Pads strings with whitespace to make them a certain length
+    - Width argument lets users specify the width of the padding
+    - Side argument defaults to "left"
+    - ex. pad "movie_titles" with whitespace to the right such that each title 
+      becomes 30 characters long.
+
+## **str_trim(string, side = c("both", "left", "right"))**
+#### **ex. trim the whitespace from both sides of every string in strings**
+
+```r
+str_trim(strings)
+```
+
+```
+##  [1] "219 733 8965"                 
+##  [2] "329-293-8753"                 
+##  [3] "banana"                       
+##  [4] "595 794 7569"                 
+##  [5] "387 287 6718"                 
+##  [6] "apple"                        
+##  [7] "233.398.9187"                 
+##  [8] "482 952 3315"                 
+##  [9] "239 923 8115 and 842 566 4692"
+## [10] "Work: 579-499-7527"           
+## [11] "$1000"                        
+## [12] "Home: 543.355.3679"
+```
+
+---
+## str_pad(string, width, side = c("left", "both", "right"), pad = " ")
+
+#### **ex. pad movie_titles with whitespace to the right so that each title becomes 30 characters long.**
+
+```r
+str_pad(movie_titles, side = "right", 30)
+```
+
+```
+##  [1] "Gold Diggers Of Broadway      "
+##  [2] "Gone Baby Gone                "
+##  [3] "Gone In 60 Seconds            "
+##  [4] "Gone With The Wind            "
+##  [5] "Good Girl, The                "
+##  [6] "Good Burger                   "
+##  [7] "Goodbye Girl, The             "
+##  [8] "Good Bye Lenin!               "
+##  [9] "Goodfellas                    "
+## [10] "Good Luck Chuck               "
+## [11] "Good Morning, Vietnam         "
+## [12] "Good Night, And Good Luck.    "
+## [13] "Good Son, The                 "
+## [14] "Good Will Hunting             "
+```
+
+---
+# Regular Expressions
+
+---
+## Regular Expressions
+
+Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
+
+#### **Common expressions:**
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeat the last regex 3 times.
+  
+For more expressions or examples, refer to &lt;http://www.regular-expressions.info/refquick.html&gt;
+
+---
+## Compound Expressions
+
+    Regular expressions can be combined to form compound expressions.
+
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeat the last regex 3 times.
+
+#### **California license plate:**
+    - California plates start with a number, followed by 3 letters, followed by   
+      another 3 numbers.
+    - Regex expression: "^[0-9][A-Z]{3}[0-9]{3}$"
+
+---
+## Compound Expressions
+
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeat the last regex 3 times.
+    
+  - **Your turn:** create a regex expression that would identify any social security number. Please do not write your own...
+    - Format: SSS-SS-SSSS where S is any number between 0 and 9
+
+---
+## Social Security Example
+
+  - Format: SSS-SS-SSSS where S is any number between 0 and 9
+  - Regex expression: 
+    - "\^[0-9]{3}-[0-9]{2}-[0-9]{4}$"
+
+
+---
+# Pattern Matching Functions
+---
+
+## Pattern Matching Functions
+
+  - Now that we know how to build regular expressions, we can leverage these skills to perform even more advanced functions.
+  - Pattern matching functions in stringr take advantage of the regex syntax to perform helpful tasks.
+  - The usual form of these pattern matching functions consists of:
+      - function(string, pattern)
+    - string = a character string or a vector of character strings
+    - pattern = your regex request
+
+---
+#### **str_detect(string, pattern)**
+    - detects the presence of a pattern within a string or vector of strings
+    - returns a boolean (TRUE FALSE) vector
+    - ex. use str_detect in a way that returns any string that contains "apple".
+
+```r
+str_detect(fruit, pattern = "^apple$")
+```
+
+```
+## [1]  TRUE FALSE FALSE FALSE
+```
+
+```r
+fruit[str_detect(fruit, "^apple$")]
+```
+
+```
+## [1] "apple"
+```
+
+
+```r
+str_detect(fruit, pattern = "apple")
+```
+
+```
+## [1]  TRUE FALSE FALSE  TRUE
+```
+
+```r
+fruit[str_detect(fruit, "apple")]
+```
+
+```
+## [1] "apple"     "pineapple"
+```
+
+#### **str_locate(string, pattern)**
+    - locates and returns the start and end position of the first instance of the pattern.
+       - to locate more than one within a string, use str_locate_all(string, pattern)
+    - ex. use str_locate to find every position of "apple"
+
+```r
+fruit
+```
+
+```
+## [1] "apple"     "banana"    "pear"      "pineapple"
+```
+
+```r
+# on the second word, this pattern exists from the first character to the sixth
+str_locate(fruit, "banana")
+```
+
+```
+##      start end
+## [1,]    NA  NA
+## [2,]     1   6
+## [3,]    NA  NA
+## [4,]    NA  NA
+```
+
+---
+
+
+```r
+fruit
+```
+
+```
+## [1] "apple"     "banana"    "pear"      "pineapple"
+```
+
+```r
+str_locate(fruit, "apple")
+```
+
+```
+##      start end
+## [1,]     1   5
+## [2,]    NA  NA
+## [3,]    NA  NA
+## [4,]     5   9
+```
+
+---
+#### **str_extract(string, pattern) or str_extract_all()**
+    - matches the exact pattern to the string
+    - mainly used to extract compound patterns
+
+#### **str_match(string, pattern) or str_match_all()**
+    - equivalent to str_extract except that str_match returns a matrix.
+    - str_(m)atch(): remember "m" for matrix!
+
+---
+### String Extract
+
+```r
+labels &lt;- c("a99", "a92", "a93l", "b99", "b92", "b93l",
+            "c99", "c92", "c93l", "e99", "e92", "e93l")
+
+# extract everything that begins with an "a" or "e" and ends with two numbers
+str_extract(labels, "^[ae][0-9]{2}$")
+```
+
+```
+##  [1] "a99" "a92" NA    NA    NA    NA    NA    NA    NA    "e99"
+## [11] "e92" NA
+```
+
+---
+#### Exercise:
+  - Extract every phone number from the variable "strings" that is composed of spaces " ". Extract it in matrix form.
+
+```r
+strings
+```
+
+```
+##  [1] " 219 733 8965"                
+##  [2] "329-293-8753 "                
+##  [3] "banana"                       
+##  [4] "595 794 7569"                 
+##  [5] "387 287 6718"                 
+##  [6] "apple"                        
+##  [7] "233.398.9187  "               
+##  [8] "482 952 3315"                 
+##  [9] "239 923 8115 and 842 566 4692"
+## [10] "Work: 579-499-7527"           
+## [11] "$1000"                        
+## [12] "Home: 543.355.3679"
+```
+
+---
+
+```r
+str_match(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
+```
+
+```
+##       [,1]          
+##  [1,] "219 733 8965"
+##  [2,] NA            
+##  [3,] NA            
+##  [4,] "595 794 7569"
+##  [5,] "387 287 6718"
+##  [6,] NA            
+##  [7,] NA            
+##  [8,] "482 952 3315"
+##  [9,] "239 923 8115"
+## [10,] NA            
+## [11,] NA            
+## [12,] NA
+```
+
+#### Exercise:
+
+```r
+str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
+```
+
+```
+## [[1]]
+##      [,1]          
+## [1,] "219 733 8965"
+## 
+## [[2]]
+##      [,1]
+## 
+## [[3]]
+##      [,1]
+## 
+## [[4]]
+##      [,1]          
+## [1,] "595 794 7569"
+## 
+## [[5]]
+##      [,1]          
+## [1,] "387 287 6718"
+## 
+## [[6]]
+##      [,1]
+## 
+## [[7]]
+##      [,1]
+## 
+## [[8]]
+##      [,1]          
+## [1,] "482 952 3315"
+## 
+## [[9]]
+##      [,1]          
+## [1,] "239 923 8115"
+## [2,] "842 566 4692"
+## 
+## [[10]]
+##      [,1]
+## 
+## [[11]]
+##      [,1]
+## 
+## [[12]]
+##      [,1]
+```
+
+---
+
+#### Exercise:
+
+```r
+str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
+  unlist() %&gt;% matrix()
+```
+
+```
+##      [,1]          
+## [1,] "219 733 8965"
+## [2,] "595 794 7569"
+## [3,] "387 287 6718"
+## [4,] "482 952 3315"
+## [5,] "239 923 8115"
+## [6,] "842 566 4692"
+```
+
+```r
+# ALTERNATIVELY
+matrix(unlist(str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")))
+```
+
+---
+#### Exercise:
+
+```r
+str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
+```
+
+```
+## [[1]]
+##      [,1]          
+## [1,] "219 733 8965"
+## 
+## [[2]]
+##      [,1]
+## 
+## [[3]]
+##      [,1]
+## 
+## [[4]]
+##      [,1]          
+## [1,] "595 794 7569"
+## 
+## [[5]]
+##      [,1]          
+## [1,] "387 287 6718"
+## 
+## [[6]]
+##      [,1]
+## 
+## [[7]]
+##      [,1]
+## 
+## [[8]]
+##      [,1]          
+## [1,] "482 952 3315"
+## 
+## [[9]]
+##      [,1]          
+## [1,] "239 923 8115"
+## [2,] "842 566 4692"
+## 
+## [[10]]
+##      [,1]
+## 
+## [[11]]
+##      [,1]
+## 
+## [[12]]
+##      [,1]
+```
+
+---
+##### tip: command shift m = %&gt;%
+
+```r
+str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
+  unlist()
+```
+
+```
+## [1] "219 733 8965" "595 794 7569" "387 287 6718" "482 952 3315"
+## [5] "239 923 8115" "842 566 4692"
+```
+
+```r
+str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
+  unlist() %&gt;% matrix()
+```
+
+```
+##      [,1]          
+## [1,] "219 733 8965"
+## [2,] "595 794 7569"
+## [3,] "387 287 6718"
+## [4,] "482 952 3315"
+## [5,] "239 923 8115"
+## [6,] "842 566 4692"
+```
+
+---
+#### **str_replace(string, pattern, replacement)**
+    - replaces the first instance of the matched pattern with the replacement string
+    - str_replace_all replaces all instances of the pattern with the replacement string
+    - str_replace_na replaces all NA with "NA".
+
+```r
+str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
+```
+
+```
+## [1] "epple"     "benana"    "peer"      "pineepple"
+```
+
+```r
+str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
+```
+
+```
+## [1] "epple"     "benene"    "peer"      "pineepple"
+```
+  **Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+    
+---
+## **str_replace(string, pattern, replacement)**
+
+```r
+str_replace_all(movie_titles, pattern = "Good", replacement = "Bad")
+```
+
+```
+##  [1] "Gold Diggers Of Broadway" "Gone Baby Gone"          
+##  [3] "Gone In 60 Seconds"       "Gone With The Wind"      
+##  [5] "Bad Girl, The"            "Bad Burger"              
+##  [7] "Badbye Girl, The"         "Bad Bye Lenin!"          
+##  [9] "Badfellas"                "Bad Luck Chuck"          
+## [11] "Bad Morning, Vietnam"     "Bad Night, And Bad Luck."
+## [13] "Bad Son, The"             "Bad Will Hunting"
+```
+
+---
+#### **str_split(string, pattern)**
+  - splits a string into a variable number of pieces and returns a **list** of character vectors.
+
+```r
+str_split(movie_titles, "[ ,]")
+```
+
+```
+## [[1]]
+## [1] "Gold"     "Diggers"  "Of"       "Broadway"
+## 
+## [[2]]
+## [1] "Gone" "Baby" "Gone"
+## 
+## [[3]]
+## [1] "Gone"    "In"      "60"      "Seconds"
+## 
+## [[4]]
+## [1] "Gone" "With" "The"  "Wind"
+## 
+## [[5]]
+## [1] "Good" "Girl" ""     "The" 
+## 
+## [[6]]
+## [1] "Good"   "Burger"
+## 
+## [[7]]
+## [1] "Goodbye" "Girl"    ""        "The"    
+## 
+## [[8]]
+## [1] "Good"   "Bye"    "Lenin!"
+## 
+## [[9]]
+## [1] "Goodfellas"
+## 
+## [[10]]
+## [1] "Good"  "Luck"  "Chuck"
+## 
+## [[11]]
+## [1] "Good"    "Morning" ""        "Vietnam"
+## 
+## [[12]]
+## [1] "Good"  "Night" ""      "And"   "Good"  "Luck."
+## 
+## [[13]]
+## [1] "Good" "Son"  ""     "The" 
+## 
+## [[14]]
+## [1] "Good"    "Will"    "Hunting"
+```
+
+---
+#### **str_split_fixed(string, pattern, n)**
+  - splits the string into a fixed number of pieces and returns a character **matrix**. 
+
+```r
+str_split_fixed(movie_titles, "[ ,]", 5)
+```
+
+```
+##       [,1]         [,2]      [,3]      [,4]       [,5]        
+##  [1,] "Gold"       "Diggers" "Of"      "Broadway" ""          
+##  [2,] "Gone"       "Baby"    "Gone"    ""         ""          
+##  [3,] "Gone"       "In"      "60"      "Seconds"  ""          
+##  [4,] "Gone"       "With"    "The"     "Wind"     ""          
+##  [5,] "Good"       "Girl"    ""        "The"      ""          
+##  [6,] "Good"       "Burger"  ""        ""         ""          
+##  [7,] "Goodbye"    "Girl"    ""        "The"      ""          
+##  [8,] "Good"       "Bye"     "Lenin!"  ""         ""          
+##  [9,] "Goodfellas" ""        ""        ""         ""          
+## [10,] "Good"       "Luck"    "Chuck"   ""         ""          
+## [11,] "Good"       "Morning" ""        "Vietnam"  ""          
+## [12,] "Good"       "Night"   ""        "And"      "Good Luck."
+## [13,] "Good"       "Son"     ""        "The"      ""          
+## [14,] "Good"       "Will"    "Hunting" ""         ""
+```
+
+---
+# Questions?
+
+---
+## Final Exercise
+
+#### **Instructions**
+
+  1. Extract **all** phone numbers from the variable **strings**
+  2. Remove all "-" and "."
+  3. Split the numbers into a matrix
+      - First column contains area codes and the second column contains the rest of the phone number.
+  
+  Matrix should contain 10 phone numbers (rows) and 2 columns
+  
+---
+### Solution
+
+
+```r
+strings %&gt;% str_match_all(pattern = "[0-9]{3}[-. ][0-9]{3}[-. ][0-9]{4}") %&gt;% 
+  unlist() %&gt;% str_replace_all(pattern = "[-. ]", replacement = " ") %&gt;% 
+  str_split_fixed(pattern = " ", 2)
+```
+
+```
+##       [,1]  [,2]      
+##  [1,] "219" "733 8965"
+##  [2,] "329" "293 8753"
+##  [3,] "595" "794 7569"
+##  [4,] "387" "287 6718"
+##  [5,] "233" "398 9187"
+##  [6,] "482" "952 3315"
+##  [7,] "239" "923 8115"
+##  [8,] "842" "566 4692"
+##  [9,] "579" "499 7527"
+## [10,] "543" "355 3679"
+```
+
+---
+# Thank you
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
