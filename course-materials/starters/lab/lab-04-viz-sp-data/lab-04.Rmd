@@ -1,5 +1,5 @@
 ---
-title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
+title: "Lab 00 - La Quinta is Spanish for next to Denny's, Pt. 1"
 author: "Insert your name here"
 date: "Insert date here"
 output: github_document
@@ -8,8 +8,10 @@ output: github_document
 ### Load packages and data
 
 ```{r load-packages, message = FALSE}
-library(tidyverse) 
-library(dsbox)
+library(tidyverse)
+#install.packages("remotes")
+#remotes::install_github("rstudio-education/dsbox")
+#library(dsbox)
 library(leaflet)
 ```
 

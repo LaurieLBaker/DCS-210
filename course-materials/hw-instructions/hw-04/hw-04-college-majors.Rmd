@@ -1,5 +1,5 @@
 ---
-title: "HW 04 - What should I major in?"
+title: "HW 00 - What should I major in?"
 output: 
   tufte::tufte_html:
     css: ../hw.css
@@ -34,11 +34,8 @@ Keep this in mind as you analyze the data.
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, which should be named `hw-04-college-majors-YOUR_GITHUB_USERNAME`.
-Grab the URL of the repo, and clone it in RStudio.
-First, open the R Markdown document `hw-04.Rmd` and Knit it.
-Make sure it compiles without errors.
-The output will be in the file markdown `.md` file with the same name.
+Click on your assignment link, clone it in Posit and open the R Markdown document.
+Knit the document to make sure it compiles without errors.
 
 ## Warm up
 
@@ -172,7 +169,9 @@ ggplot(data = college_recent_grads, mapping = aes(x = median)) +
 
 Along with the plot, we get a message:
 
-    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```         
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 
 This is telling us that we might want to reconsider the binwidth we chose for our histogram -- or more accurately, the binwidth we didn't specify.
 It's good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth.
