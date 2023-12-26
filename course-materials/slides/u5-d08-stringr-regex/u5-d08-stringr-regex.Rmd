@@ -1,10 +1,10 @@
 ---
-title: "Text analysis"
+title: "Working with strings"
 subtitle: "<br><br> College of the Atlantic"
 author: "Laurie Baker"
 output:
   xaringan::moon_reader:
-    css: ["../slides.css"]
+    css: ["../xaringan-themer.css", "../slides.css"]
     lib_dir: libs
     anchor_sections: FALSE
     nature:
@@ -34,7 +34,7 @@ library(stringr)
 
 ## Introduction
 
-> > Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
+> Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
 
 Fret not, stringr is here!
 
@@ -368,7 +368,7 @@ str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
 ```
 
 ---
-##### tip: command shift m = %>%
+
 ```{r}
 str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %>% 
   unlist()

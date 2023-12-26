@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Text analysis</title>
+    <title>Working with strings</title>
     <meta charset="utf-8" />
     <meta name="author" content="Laurie Baker" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -9,6 +9,7 @@
     <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="../slides.css" type="text/css" />
   </head>
   <body>
@@ -16,7 +17,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Text analysis
+# Working with strings
 ]
 .subtitle[
 ## <br><br> College of the Atlantic
@@ -43,7 +44,7 @@ class: middle
 
 ## Introduction
 
-&gt; &gt; Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
+&gt; Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
 
 Fret not, stringr is here!
 
@@ -692,7 +693,7 @@ str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
 ```
 
 ---
-##### tip: command shift m = %&gt;%
+
 
 ```r
 str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
