@@ -83,7 +83,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 6: Iteration](course-materials/slides/u2-d22-iteration/u2-d22-iteration.html)
 
 ### Labs and Homework
-- [Week 6: Homework 04, College Majors](course-materials/hw-instructions/hw-04/hw-04-college-majors.html) 
+- [Week 6: Homework 04, College Majors](course-materials/hw-instructions/hw-04/hw-00-college-majors.html) 
 - [Week 6: Lab 05, UoE art](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
 - [Week 6: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 - [Week 6: Homework 05, lego sales](course-materials/hw-instructions/hw-05/hw-05-legos.html) 
@@ -98,7 +98,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 7: Homework 04, money in politics](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
-- [Week 7: Lab 05, La Quinta is Spanish for Next to Denny's](course-materials/lab-instructions/lab-04/lab-04-viz-sp-data.html) 
+- [Week 7: Lab 05, La Quinta is Spanish for Next to Denny's](course-materials/lab-instructions/lab-04a/lab-00-viz-sp-data.html) 
 - [Week 7: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
