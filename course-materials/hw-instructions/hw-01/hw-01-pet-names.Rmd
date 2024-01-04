@@ -25,7 +25,7 @@ library(ggrepel)
 knitr::include_graphics("img/jovana-askrabic-XYIQXLH_v0o-unsplash.jpg")
 ```
 
-The goal of this assignment is to introduce you to R, RStudio, Git, and GitHub, which you'll be using throughout the course both to learn the data science concepts discussed in the course and to analyze real data and come to informed conclusions.
+The goal of this assignment is to introduce you to R, Posit, Git, and GitHub, which you'll be using throughout the course both to learn the data science concepts discussed in the course and to analyze real data and come to informed conclusions.
 
 # Getting started
 
@@ -40,7 +40,7 @@ We've already thrown around a few new terms, so let's define them before we proc
 
 -   **R:** Name of the programming language we will be using throughout the course.
 
--   **RStudio:** An integrated development environment for R.
+-   **Posit:** An integrated development environment for R.
     In other words, a convenient interface for writing and running R code.
 
 -   **Git:** A version control system.
@@ -66,21 +66,21 @@ Before you can get started with the analysis, you need to make sure you:
 
 -   are a member of the course GitHub organization
 
--   are a member of the course RStudio Cloud space
+-   are a member of the course Posit Cloud space
 
 If you failed to confirm any of these, it means you have not yet completed the prerequisites for this assignment.
 Please go back to [Prerequisites] and complete them before continuing the assignment.
 
 # Workflow
 
-For each assignment in this course you will start with a GitHub repo that I created for you and that contains the starter documents you will build upon when working on your assignment.
+For each assignment in this course you will start with an assignment link which will take you to a GitHub repo that contains the starter documents you will build upon when working on your assignment.
 
-The first step is always to bring these files into RStudio so that you can edit them, run them, view your results, and interpret them.
+The first step is always to bring these files into Posit so that you can edit them, run them, view your results, and interpret them.
 This action is called **cloning**.
 
-Then you will work in RStudio on the data analysis, making **commits** along the way (snapshots of your changes) and finally **push** all your work back to GitHub.
+Then you will work in Posit on the data analysis, making **commits** along the way (snapshots of your changes) and finally **push** all your work back to GitHub.
 
-The next few steps will walk you through the process of getting information of the repo to be cloned, cloning your repo in a new RStudio Cloud project, and getting started with the analysis.
+The next few steps will walk you through the process of getting information of the repo to be cloned, cloning your repo in a new Posit Cloud project, and getting started with the analysis.
 
 ### Step 1. Get URL of repo to be cloned
 
@@ -91,19 +91,19 @@ knitr::include_graphics("img/clone-repo-link.png")
 On GitHub, click on the green **Code** button, select **HTTPS** (this might already be selected by default, and if it is, you'll see the text *Use Git or checkout with SVN using the web URL* jas in the image on the right).
 Click on the clipboard icon 📋 to copy the repo URL.
 
-### Step 2. Go to RStudio Cloud
+### Step 2. Go to Posit Cloud
 
-Go to [rstudio.cloud](https://rstudio.cloud/ "RStudio Cloud") and then **navigate to the course workspace** via the left sidebar.
+Go to [posit.cloud](https://posit.cloud/ "Posit Cloud") and then **navigate to the course workspace** via the left sidebar.
 It's very important that you do this for two reasons:
 
 -   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly.
--   It's only when you're in the course workspace that your usage of RStudio Cloud won't count towards the free usage limits.
+-   It's only when you're in the course workspace that your usage of Posit Cloud won't count towards the free usage limits.
 
-Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in RStudio Cloud.
+Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in Posit Cloud.
 
 ### Step 3. Clone the repo
 
-In RStudio, click on the **down arrow** next to New Project and then choose **New Project from Git Repository**.
+In Posit, click on the **down arrow** next to New Project and then choose **New Project from Git Repository**.
 
 In the pop-up window, **paste the URL** you copied from GitHub, make sure the box for **Add packages from the base project** is checked (it should be, by default) and then click **OK**.
 
@@ -111,9 +111,9 @@ In the pop-up window, **paste the URL** you copied from GitHub, make sure the bo
 knitr::include_graphics("img/new-project-from-git.png")
 ```
 
-# Hello RStudio!
+# Hello Posit!
 
-RStudio is comprised of four panes.
+Posit is comprised of four panes.
 
 ```{r rstudio-anatomy, fig.fullwidth=TRUE, echo = FALSE, eval = TRUE}
 knitr::include_graphics("img/rstudio-anatomy.png")
@@ -126,12 +126,12 @@ knitr::include_graphics("img/rstudio-anatomy.png")
 
 ## Introducing yourself to git: setting up your personal access token.
 
-Once you've opened up RStudio Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
+Once you've opened up Posit Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
 If you have already done this in the lab, skip ahead to step 6.
 Our personal access token will connect our project to our github account.
 This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
 
-In the console (lower left panel in RStudio), run the following code:
+In the console (lower left panel in Posit), run the following code:
 
 ```{r, eval = FALSE}
 
@@ -220,7 +220,7 @@ knitr::include_graphics("img/yaml-raw-to-rendered.png")
 
 ## Step 2: Commit
 
-Then go to the **Git pane** in your RStudio.
+Then go to the **Git pane** in your Posit.
 
 You should see that your Rmd (R Markdown) file and its output, your md file (Markdown), file are listed there as recently changed files.
 
@@ -308,7 +308,7 @@ View(seattlepets)
 knitr::include_graphics("img/view-data.png")
 ```
 
-You can find out more about the dataset by inspecting its documentation (which contains a **data dictionary**, name of each variable and its description), which you can access by running `?seattlepets` in the Console or using the Help menu in RStudio to search for `seattlepets`.
+You can find out more about the dataset by inspecting its documentation (which contains a **data dictionary**, name of each variable and its description), which you can access by running `?seattlepets` in the Console or using the Help menu in Posit to search for `seattlepets`.
 
 # Exercises
 

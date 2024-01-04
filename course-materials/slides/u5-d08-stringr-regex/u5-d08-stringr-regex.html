@@ -44,63 +44,27 @@ class: middle
 
 ## Introduction
 
-&gt; Strings play a big role in many data cleaning and preparations tasks. R provides a solid set of string operations, but because they have grown organically over time, they can be inconsistent and a little hard to learn. Additionally, they lag behind the string operations in other programming languages.
+&gt; Strings play a big role in many data cleaning and preparations tasks.
 
-Fret not, stringr is here!
+- Character strings in R are wrapped with double (`"`) or single quotes (`'`).
+  - Character strings can be letters "a", 
+                             numbers "1", 
+                             symbols "&amp;", 
+                             or both "a1&amp;"
+
+- *the [tidyverse style guide](https://style.tidyverse.org/syntax.html#character-vectors) recommends using `"` unless the string contains multiple `"`.
 
 ---
 
 ## stringr
 
 - `stringr` is a lightweight package designed by Hadley Wickham to assist with string manipulation.
-- Interacts seamlessly with the pipe ( %&gt;% ) operator from dplyr / magrittr.
-- Much like Hadley's other packages, stringr's function names are consistent and its arguments are easy to understand.
+- `stringr` functions begin with `str_`. Follow with + TAB to see the options.
 
----
-
-### **Review of Strings**
-
-- Character strings in R are wrapped with quotes " "
-  - Character strings can be letters "a", 
-                             numbers "1", 
-                             symbols "&amp;", 
-                             or both "a1&amp;"
-- While numbers can be both integers and characters, letters and symbols have no integer meaning and thus create NAs.
-
-```r
-as.integer(c("a", "&amp;"))
-```
-
-```
-## Warning: NAs introduced by coercion
-```
-
-```
-## [1] NA NA
-```
-
----
-
-### **Review of Strings**
-- Concatenating strings and integers with the c() function will convert the integers to characters.
-- By default, R converts objects to their lowest denomination.
-  - Factors reduce to integers and integers reduce to characters
-
-```r
-c(factor("a"), "b", "&amp;", 1)
-```
-
-```
-## [1] "1" "b" "&amp;" "1"
-```
-
-```r
-c(as.character(factor("a")), "b", "&amp;", 1)
-```
-
-```
-## [1] "a" "b" "&amp;" "1"
-```
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/stringr-autocomplete.png" alt="Stringr autocomplete functions from R4DS" width="60%" /&gt;
+&lt;p class="caption"&gt;Stringr autocomplete functions from R4DS&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 
@@ -108,6 +72,7 @@ c(as.character(factor("a")), "b", "&amp;", 1)
 
 - Getting Started with stringr
 - Basic String Operators
+- Special Characters
 - Regular Expressions
 - Pattern Matching Functions
 - Final Exercise
@@ -146,20 +111,10 @@ fruit &lt;- c("apple", "banana", "pear", "pineapple")
 - Many of them have equivalent base R functions that are much slower and bulkier
 
 ---
-#### **str_to_upper(string)**
+## **str_to_upper(string)**
     - converts strings to uppercase
       - ex. Convert all movie_titles to uppercase and store them as movie_titles
 
-#### **str_to_lower(string)**
-    - converts strings to lowercase
-      - ex. Convert all movie_titles back to lowercase and save as movie_titles
-
-#### **str_to_title(string)**
-    - converts strings to title case
-      - ex. Convert all movie_titles to titlecase and store them as movie_titles
-
----     
-## str_to_upper(string)
 
 ```r
 movie_titles &lt;- str_to_upper(movie_titles)
@@ -177,7 +132,10 @@ movie_titles
 ```
 
 ---
-## str_to_lower(string)
+## **str_to_lower(string)**
+    - converts strings to lowercase
+      - ex. Convert all movie_titles back to lowercase and save as movie_titles
+      
 
 ```r
 movie_titles &lt;- str_to_lower(movie_titles)
@@ -195,7 +153,10 @@ movie_titles
 ```
 
 ---
-## str_to_title(string)
+## **str_to_title(string)**
+    - converts strings to title case
+      - ex. Convert all movie_titles to titlecase and store them as movie_titles
+
 
 ```r
 movie_titles &lt;- str_to_title(movie_titles)
@@ -213,84 +174,58 @@ movie_titles
 ```
 
 ---
-#### **str_c(string, sep = "")**
-    - Joins together multiple strings including integers
-    - Is the stringr equivalent to paste(sep = "") or paste0()
-
-#### **str_length(string)**
+## `str_length(string)`
     - Returns the string length
-    - Similar to base function nchar()
-    - str_length() converts factors to strings and also preserves NA's
+    - `str_length()` converts factors to strings and also preserves NA's
     
 
 ```r
-nchar(NA)
+str_length("hello")
 ```
 
 ```
-## [1] NA
-```
-
-```r
-str_length(NA)
-```
-
-```
-## [1] NA
+## [1] 5
 ```
 
 ---
-#### **str_sub(string, start, end) &lt;- value**
-    - Subsets text within a string or vector of strings by specifying
-      start and end positions.
-    - Base equivalent function is substr()
-    - By default, end goes to the end of the word
+## `str_c(string, sep = "")`
+    - Joins together multiple strings including integers
+    - Is the stringr equivalent to `paste(sep = "")` or `paste0()`
 
-```r
-fruit
-```
-
-```
-## [1] "apple"     "banana"    "pear"      "pineapple"
-```
-
-```r
-str_sub(fruit, start = 3)
-```
-
-```
-## [1] "ple"     "nana"    "ar"      "neapple"
-```
-
----
-#### **str_dup(string, times)**
+## `str_dup(string, times)`
     - Duplicates strings by a number of times.
     - Essentially copy / paste function
+    
 
 ```r
-str_dup(fruit, 3)
+str_c("Heartbreakers gonna ", str_dup("break, ", 3), "break")
 ```
 
 ```
-## [1] "appleappleapple"             "bananabananabanana"         
-## [3] "pearpearpear"                "pineapplepineapplepineapple"
+## [1] "Heartbreakers gonna break, break, break, break"
 ```
 
 ---
-#### **str_trim(string, side = c("both", "left", "right"))**
+## `str_sub(string, start, end)`
+    - Subsets text within a string or vector of strings by specifying
+      start and end positions.
+    - Base equivalent function is `substr()`
+
+
+```r
+str_sub("Dr Jekyll", start = 1, end = 2)
+```
+
+```
+## [1] "Dr"
+```
+
+---
+## `str_trim(string, side = c("both", "left", "right"))`
     - Removes leading and trailing whitespaces
     - Side argument defaults to "both"
-    - ex. trim the whitespace from both sides of every string in "strings"
-
-#### **str_pad(string, width, side = c("left", "both", "right"), pad = " ")**
-    - Pads strings with whitespace to make them a certain length
-    - Width argument lets users specify the width of the padding
-    - Side argument defaults to "left"
-    - ex. pad "movie_titles" with whitespace to the right such that each title 
-      becomes 30 characters long.
-
-## **str_trim(string, side = c("both", "left", "right"))**
-#### **ex. trim the whitespace from both sides of every string in strings**
+    - example: trim the whitespace from both sides of every string in strings
+ 
 
 ```r
 str_trim(strings)
@@ -312,9 +247,13 @@ str_trim(strings)
 ```
 
 ---
-## str_pad(string, width, side = c("left", "both", "right"), pad = " ")
+## `str_pad(string, width, side = c("left", "both", "right"), pad = " ")`
+    - Pads strings with whitespace to make them a certain length
+    - Width argument lets users specify the width of the padding
+    - Side argument defaults to "left"
+    - ex. pad "movie_titles" with whitespace to the right such that each title 
+      becomes 30 characters long.
 
-#### **ex. pad movie_titles with whitespace to the right so that each title becomes 30 characters long.**
 
 ```r
 str_pad(movie_titles, side = "right", 30)
@@ -338,6 +277,180 @@ str_pad(movie_titles, side = "right", 30)
 ```
 
 ---
+## Making sentences with `str_glue`
+
+
+```r
+ship_log &lt;- tibble(locations = c("Bar Harbor, Mt. Desert Rock, Great Cranberry Island", "Winter Harbor, Stave Island", "Bass Rock"),
+             day = c("Monday", "Tuesday", "Monday"))
+
+ship_log |&gt;
+  mutate(account = str_glue("On {day} we went to {locations}"))
+```
+
+```
+## # A tibble: 3 × 3
+##   locations                                         day   account
+##   &lt;chr&gt;                                             &lt;chr&gt; &lt;glue&gt; 
+## 1 Bar Harbor, Mt. Desert Rock, Great Cranberry Isl… Mond… On Mon…
+## 2 Winter Harbor, Stave Island                       Tues… On Tue…
+## 3 Bass Rock                                         Mond… On Mon…
+```
+
+---
+# Summarize strings with `str_flatten`
+
+- `str_flatten()` takes a character vector and combines each element of the vector into a single string.
+
+
+```r
+purchases &lt;- data.frame(fruit, name = c("Carmen", "Carmen", "Aziz", "Maganga"))
+
+purchases |&gt;
+  group_by(name) |&gt;
+  summarize(fruits = str_flatten(fruit, ", ", last = " and "))
+```
+
+```
+## # A tibble: 3 × 2
+##   name    fruits          
+##   &lt;chr&gt;   &lt;chr&gt;           
+## 1 Aziz    pear            
+## 2 Carmen  apple and banana
+## 3 Maganga pineapple
+```
+
+---
+# Extracting data from strings
+
+- Separating into rows: `separate_longer_delim`
+- Separating into columns: `separate_wider_delim`
+
+*similar to `pivot_longer()` and `pivot_wider()`. Helpful when there is information contained within the text that should be in columns or their own row.
+
+---
+# Separate into rows
+
+
+```r
+ship_log &lt;- tibble(locations = c("Bar Harbor, Mt. Desert Rock, Great Cranberry Island", "Winter Harbor, Stave Island", "Bass Rock"),
+             day = c("Monday", "Tuesday", "Thursday"))
+ship_log |&gt; 
+  separate_longer_delim(locations, delim = ",")
+```
+
+```
+## # A tibble: 6 × 2
+##   locations                 day     
+##   &lt;chr&gt;                     &lt;chr&gt;   
+## 1 "Bar Harbor"              Monday  
+## 2 " Mt. Desert Rock"        Monday  
+## 3 " Great Cranberry Island" Monday  
+## 4 "Winter Harbor"           Tuesday 
+## 5 " Stave Island"           Tuesday 
+## 6 "Bass Rock"               Thursday
+```
+---
+# Separate into columns by delimiter
+
+
+```r
+df &lt;- tibble(quote = c("LB: What did you have for breakfast today?", "GK: Toast and a cup of coffee.", "LB: When did you first become involved in fishing?", "GK: When I was a kid, I used to go out with my uncle Bobby"))
+df |&gt; 
+  separate_wider_delim(quote, 
+                       delim = ":",
+                       names = c("speaker", "quote"))
+```
+
+```
+## # A tibble: 4 × 2
+##   speaker quote                                                  
+##   &lt;chr&gt;   &lt;chr&gt;                                                  
+## 1 LB      " What did you have for breakfast today?"              
+## 2 GK      " Toast and a cup of coffee."                          
+## 3 LB      " When did you first become involved in fishing?"      
+## 4 GK      " When I was a kid, I used to go out with my uncle Bob…
+```
+---
+# Separate into columns by position
+
+
+```r
+df2 &lt;- tibble(term = c("S19", "F19", "W20", "S20", "F20"))
+df2 |&gt; 
+  separate_wider_position(term, 
+                          widths = c(term = 1, year = 2))
+```
+
+```
+## # A tibble: 5 × 2
+##   term  year 
+##   &lt;chr&gt; &lt;chr&gt;
+## 1 S     19   
+## 2 F     19   
+## 3 W     20   
+## 4 S     20   
+## 5 F     20
+```
+---
+### Combining `stringr` functions
+
+
+```r
+df2 &lt;- tibble(term = c("S19", "F19", "W20", "S20", "F20"))
+df2 |&gt; 
+  separate_wider_position(term, 
+                          widths = c(term = 1, year = 2)) |&gt;
+  mutate(year = str_c("20", year))
+```
+
+```
+## # A tibble: 5 × 2
+##   term  year 
+##   &lt;chr&gt; &lt;chr&gt;
+## 1 S     2019 
+## 2 F     2019 
+## 3 W     2020 
+## 4 S     2020 
+## 5 F     2020
+```
+---
+# Special characters in strings
+
+- Some characters require an **escape** (`\`) to put the non-printable character into a string.
+
+- To see the raw contents of the string use `str_view()`
+
+
+
+```r
+double_quote = "\""
+single_quote = "\'"
+backslash = "\\"
+newline = "first line \n second line"
+
+x &lt;- c(double_quote, single_quote, backslash, newline)
+x
+```
+
+```
+## [1] "\""                        "'"                        
+## [3] "\\"                        "first line \n second line"
+```
+
+```r
+str_view(x)
+```
+
+```
+## [1] │ "
+## [2] │ '
+## [3] │ \
+## [4] │ first line 
+##     │  second line
+```
+
+---
 # Regular Expressions
 
 ---
@@ -345,386 +458,333 @@ str_pad(movie_titles, side = "right", 30)
 
 Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
 
-#### **Common expressions:**
-    - "a"  = is the letter "a"
-    - "^a" = starts with the letter "a"
-    - "a$" = ends with the letter "a"
-    - "[ ]" = contains any letter (or number) within the brackets
-    - "[ - ]" = contains any letter (or number) within this range
-    - "[^ae]" = everything except these letters (or numbers)
-    - "{3}" = repeat the last regex 3 times.
-  
-For more expressions or examples, refer to &lt;http://www.regular-expressions.info/refquick.html&gt;
+---
+## Pattern basics
+
+- We can use `str_view()` to show the elements of the string vector that match the regular expression `&lt;&gt;`.
+
+
+```r
+library(stringr)
+library(babynames)
+```
+
+The simplest patterns consist of letters and numbers which match those characters:
+
+
+```r
+str_view(string = fruit, pattern = "berry")
+```
+
+*Note that the first argument in `str_view` is for the `string` and the second argument is the `pattern`. 
 
 ---
-## Compound Expressions
+## Literal characters and meta characters
 
-    Regular expressions can be combined to form compound expressions.
-
-    - "a"  = is the letter "a"
-    - "^a" = starts with the letter "a"
-    - "a$" = ends with the letter "a"
-    - "[ ]" = contains any letter (or number) within the brackets
-    - "[ - ]" = contains any letter (or number) within this range
-    - "[^ae]" = everything except these letters (or numbers)
-    - "{3}" = repeat the last regex 3 times.
-
-#### **California license plate:**
-    - California plates start with a number, followed by 3 letters, followed by   
-      another 3 numbers.
-    - Regex expression: "^[0-9][A-Z]{3}[0-9]{3}$"
-
----
-## Compound Expressions
-
-    - "a"  = is the letter "a"
-    - "^a" = starts with the letter "a"
-    - "a$" = ends with the letter "a"
-    - "[ ]" = contains any letter (or number) within the brackets
-    - "[ - ]" = contains any letter (or number) within this range
-    - "[^ae]" = everything except these letters (or numbers)
-    - "{3}" = repeat the last regex 3 times.
+- **Literal characters** Letters and numbers
+- **Meta characters** Includes most punctuation characters like `.`, `+`, `*`, `[`, `]`, and `?` which have special meanings. 
+    - For example, `.` will match any character. So `"a." will match any string that contains an `"a"` followed by another character:
     
-  - **Your turn:** create a regex expression that would identify any social security number. Please do not write your own...
-    - Format: SSS-SS-SSSS where S is any number between 0 and 9
-
----
-## Social Security Example
-
-  - Format: SSS-SS-SSSS where S is any number between 0 and 9
-  - Regex expression: 
-    - "\^[0-9]{3}-[0-9]{2}-[0-9]{4}$"
-
-
----
-# Pattern Matching Functions
----
-
-## Pattern Matching Functions
-
-  - Now that we know how to build regular expressions, we can leverage these skills to perform even more advanced functions.
-  - Pattern matching functions in stringr take advantage of the regex syntax to perform helpful tasks.
-  - The usual form of these pattern matching functions consists of:
-      - function(string, pattern)
-    - string = a character string or a vector of character strings
-    - pattern = your regex request
-
----
-#### **str_detect(string, pattern)**
-    - detects the presence of a pattern within a string or vector of strings
-    - returns a boolean (TRUE FALSE) vector
-    - ex. use str_detect in a way that returns any string that contains "apple".
 
 ```r
-str_detect(fruit, pattern = "^apple$")
+str_view(c("apple", "orange", "pomegranate"), pattern = "a.")
 ```
 
 ```
-## [1]  TRUE FALSE FALSE FALSE
+## [1] │ &lt;ap&gt;ple
+## [2] │ or&lt;an&gt;ge
+## [3] │ pomegr&lt;an&gt;&lt;at&gt;e
 ```
 
-```r
-fruit[str_detect(fruit, "^apple$")]
-```
-
-```
-## [1] "apple"
-```
+We could find names that include an `"a"` followed by three letters, followed by an `"e"`. 
 
 
 ```r
-str_detect(fruit, pattern = "apple")
+baby1880 &lt;- babynames %&gt;%
+  filter(year == 1880)
+
+str_view(baby1880$name, pattern = "a...e")
 ```
 
 ```
-## [1]  TRUE FALSE FALSE  TRUE
-```
-
-```r
-fruit[str_detect(fruit, "apple")]
-```
-
-```
-## [1] "apple"     "pineapple"
-```
-
-#### **str_locate(string, pattern)**
-    - locates and returns the start and end position of the first instance of the pattern.
-       - to locate more than one within a string, use str_locate_all(string, pattern)
-    - ex. use str_locate to find every position of "apple"
-
-```r
-fruit
-```
-
-```
-## [1] "apple"     "banana"    "pear"      "pineapple"
-```
-
-```r
-# on the second word, this pattern exists from the first character to the sixth
-str_locate(fruit, "banana")
-```
-
-```
-##      start end
-## [1,]    NA  NA
-## [2,]     1   6
-## [3,]    NA  NA
-## [4,]    NA  NA
+##  [20] │ C&lt;arrie&gt;
+##  [27] │ H&lt;attie&gt;
+##  [29] │ M&lt;attie&gt;
+##  [46] │ M&lt;aggie&gt;
+##  [49] │ F&lt;annie&gt;
+##  [59] │ Bl&lt;anche&gt;
+##  [64] │ S&lt;allie&gt;
+##  [73] │ H&lt;arrie&gt;t
+##  [87] │ N&lt;annie&gt;
+## [124] │ C&lt;allie&gt;
+## [156] │ H&lt;arrie&gt;tt
+## [172] │ Kath&lt;arine&gt;
+## [214] │ H&lt;allie&gt;
+## [224] │ M&lt;argue&gt;rite
+## [271] │ C&lt;assie&gt;
+## [279] │ M&lt;argie&gt;
+## [296] │ Cath&lt;arine&gt;
+## [332] │ M&lt;argre&gt;t
+## [333] │ Ad&lt;aline&gt;
+## [350] │ P&lt;attie&gt;
+## ... and 47 more
 ```
 
 ---
+## Quantifiers
+
+**Quantifiers** control how many times a pattern can match.
+
+- `?` makes a pattern optional (i.e. it matches 0 or 1 times)
+- `+` lets a pattern repeat (i.e. matches at least once)
+- `*` lets a pattern be optional or repeat (i.e. it matches any number of times, including 0)
 
 
 ```r
-fruit
+str_view(c("a", "ab", "abb"), pattern = "ab?")
 ```
 
 ```
-## [1] "apple"     "banana"    "pear"      "pineapple"
+## [1] │ &lt;a&gt;
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;ab&gt;b
+```
+
+
+```r
+str_view(c("a", "ab", "abb"), pattern = "ab+")
+```
+
+```
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;abb&gt;
+```
+
+
+```r
+str_view(c("a", "ab", "abb"), pattern = "ab*")
+```
+
+```
+## [1] │ &lt;a&gt;
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;abb&gt;
+```
+
+- **Your Turn**: With your partner write a short description of what the pattern matches. 
+
+---
+## Character Classes
+
+**Character classes** are defined by `[]` and let you match a set of characters
+
+- e.g. `[lmno]` matches "l", "m", "n", or "o".
+- starting with `^` will invert the match so that you can match anything **except** "l", "m", "n", or "o". 
+
+
+```r
+str_view(words, "[aeiou]x[aeiou]")
+```
+
+```
+## [284] │ &lt;exa&gt;ct
+## [285] │ &lt;exa&gt;mple
+## [288] │ &lt;exe&gt;rcise
+## [289] │ &lt;exi&gt;st
 ```
 
 ```r
-str_locate(fruit, "apple")
+str_view(words, "[^aeiou]y[^aeiou]")
 ```
 
 ```
-##      start end
-## [1,]     1   5
-## [2,]    NA  NA
-## [3,]    NA  NA
-## [4,]     5   9
+## [836] │ &lt;sys&gt;tem
+## [901] │ &lt;typ&gt;e
 ```
 
 ---
-#### **str_extract(string, pattern) or str_extract_all()**
-    - matches the exact pattern to the string
-    - mainly used to extract compound patterns
+## Alternation
 
-#### **str_match(string, pattern) or str_match_all()**
-    - equivalent to str_extract except that str_match returns a matrix.
-    - str_(m)atch(): remember "m" for matrix!
+**alternation**, `|` can be used to pick between one or more alternative patterns.
 
----
-### String Extract
+- Fruits with "nut", "berry", or "apple".
+
 
 ```r
-labels &lt;- c("a99", "a92", "a93l", "b99", "b92", "b93l",
-            "c99", "c92", "c93l", "e99", "e92", "e93l")
-
-# extract everything that begins with an "a" or "e" and ends with two numbers
-str_extract(labels, "^[ae][0-9]{2}$")
+str_view(fruit, "apple|nut|berry")
 ```
 
 ```
-##  [1] "a99" "a92" NA    NA    NA    NA    NA    NA    NA    "e99"
-## [11] "e92" NA
+## [1] │ &lt;apple&gt;
+## [4] │ pine&lt;apple&gt;
 ```
 
----
-#### Exercise:
-  - Extract every phone number from the variable "strings" that is composed of spaces " ". Extract it in matrix form.
+
+- Names with a repeating vowel
+
 
 ```r
-strings
+str_view(baby1880$name, pattern = "aa|ee|ii|oo|uu")
 ```
 
 ```
-##  [1] " 219 733 8965"                
-##  [2] "329-293-8753 "                
-##  [3] "banana"                       
-##  [4] "595 794 7569"                 
-##  [5] "387 287 6718"                 
-##  [6] "apple"                        
-##  [7] "233.398.9187  "               
-##  [8] "482 952 3315"                 
-##  [9] "239 923 8115 and 842 566 4692"
-## [10] "Work: 579-499-7527"           
-## [11] "$1000"                        
-## [12] "Home: 543.355.3679"
-```
-
----
-
-```r
-str_match(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
-```
-
-```
-##       [,1]          
-##  [1,] "219 733 8965"
-##  [2,] NA            
-##  [3,] NA            
-##  [4,] "595 794 7569"
-##  [5,] "387 287 6718"
-##  [6,] NA            
-##  [7,] NA            
-##  [8,] "482 952 3315"
-##  [9,] "239 923 8115"
-## [10,] NA            
-## [11,] NA            
-## [12,] NA
-```
-
-#### Exercise:
-
-```r
-str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
-```
-
-```
-## [[1]]
-##      [,1]          
-## [1,] "219 733 8965"
-## 
-## [[2]]
-##      [,1]
-## 
-## [[3]]
-##      [,1]
-## 
-## [[4]]
-##      [,1]          
-## [1,] "595 794 7569"
-## 
-## [[5]]
-##      [,1]          
-## [1,] "387 287 6718"
-## 
-## [[6]]
-##      [,1]
-## 
-## [[7]]
-##      [,1]
-## 
-## [[8]]
-##      [,1]          
-## [1,] "482 952 3315"
-## 
-## [[9]]
-##      [,1]          
-## [1,] "239 923 8115"
-## [2,] "842 566 4692"
-## 
-## [[10]]
-##      [,1]
-## 
-## [[11]]
-##      [,1]
-## 
-## [[12]]
-##      [,1]
+##  [300] │ L&lt;ee&gt;
+##  [358] │ Kathl&lt;ee&gt;n
+##  [416] │ Qu&lt;ee&gt;n
+##  [466] │ Aim&lt;ee&gt;
+##  [539] │ Qu&lt;ee&gt;nie
+##  [725] │ Paral&lt;ee&gt;
+##  [739] │ Ail&lt;ee&gt;n
+##  [768] │ D&lt;ee&gt;
+##  [923] │ Rosal&lt;ee&gt;
+##  [932] │ Tenness&lt;ee&gt;
+##  [985] │ L&lt;ee&gt;
+## [1004] │ Is&lt;aa&gt;c
+## [1213] │ Gr&lt;ee&gt;n
+## [1279] │ Fr&lt;ee&gt;man
+## [1298] │ Elw&lt;oo&gt;d
+## [1326] │ D&lt;ee&gt;
+## [1466] │ Wh&lt;ee&gt;ler
+## [1559] │ Hayw&lt;oo&gt;d
+## [1685] │ W&lt;oo&gt;dson
+## [1705] │ Cr&lt;ee&gt;d
+## ... and 10 more
 ```
 
 ---
+## Key stringr functions
 
-#### Exercise:
+- `str_detect` detect the presence or absence of a match
+- `str_count` count how many matches are in each string
+- `str_extract` extract the matches
 
-```r
-str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
-  unlist() %&gt;% matrix()
-```
+---
+## Detect matches
 
-```
-##      [,1]          
-## [1,] "219 733 8965"
-## [2,] "595 794 7569"
-## [3,] "387 287 6718"
-## [4,] "482 952 3315"
-## [5,] "239 923 8115"
-## [6,] "842 566 4692"
-```
+`str_detect()` returns a logical vector that is `TRUE` if the pattern matches an element of the character vector and `FALSE` otherwise.
+
 
 ```r
-# ALTERNATIVELY
-matrix(unlist(str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")))
+str_detect(c("a", "b", "c"), "[aeiou]")
+```
+
+```
+## [1]  TRUE FALSE FALSE
+```
+
+`str_detect()` works well with `filter`
+
+
+```r
+baby1880 |&gt;
+  filter(str_detect(name, pattern = "x")) |&gt;
+  count(name, wt = n, sort = TRUE)
+```
+
+```
+## # A tibble: 13 × 2
+##   name          n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 Alexander   211
+## 2 Alex        147
+## 3 Felix        92
+## 4 Roxie        62
+## 5 Max          52
+## 6 Axel         16
+## # ℹ 7 more rows
 ```
 
 ---
-#### Exercise:
+## Count matches
+
+`str_count()` can be used to count the number of times a pattern occurs in a string.
+
 
 ```r
-str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}")
+str_count("ababbaba", pattern = "ab")
 ```
 
 ```
-## [[1]]
-##      [,1]          
-## [1,] "219 733 8965"
-## 
-## [[2]]
-##      [,1]
-## 
-## [[3]]
-##      [,1]
-## 
-## [[4]]
-##      [,1]          
-## [1,] "595 794 7569"
-## 
-## [[5]]
-##      [,1]          
-## [1,] "387 287 6718"
-## 
-## [[6]]
-##      [,1]
-## 
-## [[7]]
-##      [,1]
-## 
-## [[8]]
-##      [,1]          
-## [1,] "482 952 3315"
-## 
-## [[9]]
-##      [,1]          
-## [1,] "239 923 8115"
-## [2,] "842 566 4692"
-## 
-## [[10]]
-##      [,1]
-## 
-## [[11]]
-##      [,1]
-## 
-## [[12]]
-##      [,1]
+## [1] 3
+```
+
+```r
+str_view("ababbaba", pattern = "ab")
+```
+
+```
+## [1] │ &lt;ab&gt;&lt;ab&gt;b&lt;ab&gt;a
+```
+
+`str_count()` can be easily paired with `mutate()`
+
+
+```r
+# number of vowels and consonants for babynames with an x
+
+babynames |&gt;
+  filter(str_detect(name, pattern = "x")) |&gt;
+  count(name) |&gt;
+  mutate(vowels = str_count(name, "[aeiou]"),
+         consonants = str_count(name, "[^aeiou]")
+         ) %&gt;%
+  arrange(vowels, consonants, n)
+```
+
+```
+## # A tibble: 974 × 4
+##   name      n vowels consonants
+##   &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Nyx       9      0          3
+## 2 Axl      30      0          3
+## 3 Axyl      9      0          4
+## 4 Lynx      9      0          4
+## 5 Eryx     11      0          4
+## 6 Alyx     57      0          4
+## # ℹ 968 more rows
+```
+
+There's something off with our calculations. What is it?
+
+---
+## Regular expressions are case_sensitive
+
+Options: 
+- Add uppercase vowels: `str_count(name, pattern = "[aeiouAEIOU]")`
+- Tell the regular expression to ignore case:
+`str_count(name, regex("[aeiou]", ignore_case = TRUE))`
+- Use str_to_lower() to convert the names to lower case:
+`str_count(str_to_lower(name), "[aeiou]")`
+
+---
+## Replace values
+
+- We can also modify matched with `str_replace()` and `str_replace_all()`. `str_replace` replaces the first match and `str_replace_all()` replaces all matches.
+
+
+```r
+babynames |&gt;
+  count(name) |&gt;
+  filter(str_detect(name, pattern = "[cC]")) |&gt;
+  mutate(new_name = str_replace_all(name, "[cC]", "cup"))
+```
+
+```
+## # A tibble: 12,917 × 3
+##   name        n new_name 
+##   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;    
+## 1 Aalicia     1 Aalicupia
+## 2 Aalycia     4 Aalycupia
+## 3 Aanchal    10 Aancuphal
+## 4 Aaric      33 Aaricup  
+## 5 Aarica     13 Aaricupa 
+## 6 Aarick      5 Aaricupk 
+## # ℹ 12,911 more rows
 ```
 
 ---
+## Replace values
 
-
-```r
-str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
-  unlist()
-```
-
-```
-## [1] "219 733 8965" "595 794 7569" "387 287 6718" "482 952 3315"
-## [5] "239 923 8115" "842 566 4692"
-```
-
-```r
-str_match_all(strings, pattern = "[1-9]{3} [1-9]{3} [1-9]{4}") %&gt;% 
-  unlist() %&gt;% matrix()
-```
-
-```
-##      [,1]          
-## [1,] "219 733 8965"
-## [2,] "595 794 7569"
-## [3,] "387 287 6718"
-## [4,] "482 952 3315"
-## [5,] "239 923 8115"
-## [6,] "842 566 4692"
-```
-
----
-#### **str_replace(string, pattern, replacement)**
-    - replaces the first instance of the matched pattern with the replacement string
-    - str_replace_all replaces all instances of the pattern with the replacement string
-    - str_replace_na replaces all NA with "NA".
 
 ```r
 str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
@@ -741,141 +801,69 @@ str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
 ```
 ## [1] "epple"     "benene"    "peer"      "pineepple"
 ```
-  **Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+
+**Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+
+
+```r
+str____________(movie_titles, pattern = "")
+```
+
     
 ---
-## **str_replace(string, pattern, replacement)**
+## Extracting Patterns
 
-```r
-str_replace_all(movie_titles, pattern = "Good", replacement = "Bad")
-```
-
-```
-##  [1] "Gold Diggers Of Broadway" "Gone Baby Gone"          
-##  [3] "Gone In 60 Seconds"       "Gone With The Wind"      
-##  [5] "Bad Girl, The"            "Bad Burger"              
-##  [7] "Badbye Girl, The"         "Bad Bye Lenin!"          
-##  [9] "Badfellas"                "Bad Luck Chuck"          
-## [11] "Bad Morning, Vietnam"     "Bad Night, And Bad Luck."
-## [13] "Bad Son, The"             "Bad Will Hunting"
-```
-
----
-#### **str_split(string, pattern)**
-  - splits a string into a variable number of pieces and returns a **list** of character vectors.
-
-```r
-str_split(movie_titles, "[ ,]")
-```
-
-```
-## [[1]]
-## [1] "Gold"     "Diggers"  "Of"       "Broadway"
-## 
-## [[2]]
-## [1] "Gone" "Baby" "Gone"
-## 
-## [[3]]
-## [1] "Gone"    "In"      "60"      "Seconds"
-## 
-## [[4]]
-## [1] "Gone" "With" "The"  "Wind"
-## 
-## [[5]]
-## [1] "Good" "Girl" ""     "The" 
-## 
-## [[6]]
-## [1] "Good"   "Burger"
-## 
-## [[7]]
-## [1] "Goodbye" "Girl"    ""        "The"    
-## 
-## [[8]]
-## [1] "Good"   "Bye"    "Lenin!"
-## 
-## [[9]]
-## [1] "Goodfellas"
-## 
-## [[10]]
-## [1] "Good"  "Luck"  "Chuck"
-## 
-## [[11]]
-## [1] "Good"    "Morning" ""        "Vietnam"
-## 
-## [[12]]
-## [1] "Good"  "Night" ""      "And"   "Good"  "Luck."
-## 
-## [[13]]
-## [1] "Good" "Son"  ""     "The" 
-## 
-## [[14]]
-## [1] "Good"    "Will"    "Hunting"
-```
-
----
-#### **str_split_fixed(string, pattern, n)**
-  - splits the string into a fixed number of pieces and returns a character **matrix**. 
-
-```r
-str_split_fixed(movie_titles, "[ ,]", 5)
-```
-
-```
-##       [,1]         [,2]      [,3]      [,4]       [,5]        
-##  [1,] "Gold"       "Diggers" "Of"      "Broadway" ""          
-##  [2,] "Gone"       "Baby"    "Gone"    ""         ""          
-##  [3,] "Gone"       "In"      "60"      "Seconds"  ""          
-##  [4,] "Gone"       "With"    "The"     "Wind"     ""          
-##  [5,] "Good"       "Girl"    ""        "The"      ""          
-##  [6,] "Good"       "Burger"  ""        ""         ""          
-##  [7,] "Goodbye"    "Girl"    ""        "The"      ""          
-##  [8,] "Good"       "Bye"     "Lenin!"  ""         ""          
-##  [9,] "Goodfellas" ""        ""        ""         ""          
-## [10,] "Good"       "Luck"    "Chuck"   ""         ""          
-## [11,] "Good"       "Morning" ""        "Vietnam"  ""          
-## [12,] "Good"       "Night"   ""        "And"      "Good Luck."
-## [13,] "Good"       "Son"     ""        "The"      ""          
-## [14,] "Good"       "Will"    "Hunting" ""         ""
-```
-
----
-# Questions?
-
----
-## Final Exercise
-
-#### **Instructions**
-
-  1. Extract **all** phone numbers from the variable **strings**
-  2. Remove all "-" and "."
-  3. Split the numbers into a matrix
-      - First column contains area codes and the second column contains the rest of the phone number.
-  
-  Matrix should contain 10 phone numbers (rows) and 2 columns
-  
----
-### Solution
+- You can extract pattern matches using `str_extract()`
 
 
 ```r
-strings %&gt;% str_match_all(pattern = "[0-9]{3}[-. ][0-9]{3}[-. ][0-9]{4}") %&gt;% 
-  unlist() %&gt;% str_replace_all(pattern = "[-. ]", replacement = " ") %&gt;% 
-  str_split_fixed(pattern = " ", 2)
+lab_fees &lt;- c("100 dollars", "10$", "1500 USD")
+
+str_extract(lab_fees, pattern = "[0-9]*")
 ```
 
 ```
-##       [,1]  [,2]      
-##  [1,] "219" "733 8965"
-##  [2,] "329" "293 8753"
-##  [3,] "595" "794 7569"
-##  [4,] "387" "287 6718"
-##  [5,] "233" "398 9187"
-##  [6,] "482" "952 3315"
-##  [7,] "239" "923 8115"
-##  [8,] "842" "566 4692"
-##  [9,] "579" "499 7527"
-## [10,] "543" "355 3679"
+## [1] "100"  "10"   "1500"
 ```
+
+---
+## Extract phone numbers case study
+
+#### **Maine phone numbers:**
+    - Maine phone numbers begin with 207 and are followed by 7 more digits.
+    - Regex expression: "^207[0-9]{3}[0-9]{4}"
+
+
+```r
+phone_numbers &lt;- c("207-846-3630", "207-865-3823", "603-712-5043", "0783-792-9863", "+4478438971066", "207-865-7916")
+
+str_extract(phone_numbers, pattern = "^207-[0-9]{3}-[0-9]{4}")
+```
+
+```
+## [1] "207-846-3630" "207-865-3823" NA             NA            
+## [5] NA             "207-865-7916"
+```
+
+*N.B. `{3}` will repeat your regular expression pattern a specified number of times.
+
+---
+## Advanced Patterns
+
+---
+
+---
+## Recap of Common expressions:
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeats a regular expression.
+
+For more expressions or examples, refer to &lt;http://www.regular-expressions.info/refquick.html&gt;
+
 
 ---
 # Thank you

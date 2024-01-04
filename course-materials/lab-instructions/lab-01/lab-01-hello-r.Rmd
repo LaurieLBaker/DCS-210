@@ -9,10 +9,10 @@ link-citations: yes
 ---
 
 ```{marginfigure}
-R is the name of the programming language itself and RStudio is a convenient interface.
+R is the name of the programming language itself and Posit is a convenient interface.
 ```
 
-The main goal of this lab is to introduce you to R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
+The main goal of this lab is to introduce you to R and Posit, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
 
 ```{marginfigure}
 git is a version control system (like "Track Changes" features from Microsoft Word on steroids) and GitHub is the home for your Git-based projects on the internet (like DropBox but much, much better).
@@ -22,18 +22,18 @@ An additional goal is to introduce you to Git and GitHub, which is the collabora
 
 As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer.
 Before we get to that stage, however, you need to build some basic fluency in R.
-Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.
+Today we begin with the fundamental building blocks of R and Posit: the interface, reading in data, and basic commands.
 
 And to make versioning simpler, this is a solo lab.
 Additionally, we want to make sure everyone gets a significant amount of time at the steering wheel.
 In future labs you'll learn about collaborating on GitHub and produce a single lab report for your team.
 
-# Connecting GitHub and RStudio Cloud
+# Connecting GitHub and Posit Cloud
 
 You should have already received an invitation to join the GitHub organization for this course.
 You need to accept the invitation before moving on to the next step.
 
-To connect your RStudio and GitHub accounts by following the steps below:
+To connect your Posit and GitHub accounts by following the steps below:
 
 -   Click on your name on the top right corner to open the right menu.
 -   Then, click on Authentication.
@@ -66,7 +66,7 @@ knitr::include_graphics("img/github-auth-4.png")
 knitr::include_graphics("img/github-auth-5.png")
 ```
 
--   To confirm that you've successfully linked up your GitHub and RStudio Cloud accounts, [GitHub settings \> Applications](https://github.com/settings/applications). You should see RStudio listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
+-   To confirm that you've successfully linked up your GitHub and Posit Cloud accounts, [GitHub settings \> Applications](https://github.com/settings/applications). You should see Posit listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
 
 ```{r github-auth-6, echo = FALSE}
 knitr::include_graphics("img/github-auth-6.png")
@@ -91,7 +91,7 @@ knitr::include_graphics("img/clone-repo-link.png")
 knitr::include_graphics("img/new-project-from-gh.png")
 ```
 
--   Go to RStudio Cloud and into the course workspace. Create a **New Project from Git Repo**. You will need to click on the down arrow next to the **New Project** button to see this option.
+-   Go to Posit Cloud and into the course workspace. Create a **New Project from Git Repo**. You will need to click on the down arrow next to the **New Project** button to see this option.
 
 ```{r paste-gh-repo-url, fig.margin = TRUE, echo = FALSE, fig.width=5}
 knitr::include_graphics("img/paste-gh-repo-url.png")
@@ -103,12 +103,12 @@ knitr::include_graphics("img/paste-gh-repo-url.png")
 
 ## Introducing yourself to git: setting up your personal access token.
 
-Once you've opened up RStudio Cloud, we will want to introduce RStudio to git and set up our personal access token, these replaced passwords in 2021.
+Once you've opened up Posit Cloud, we will want to introduce Posit to git and set up our personal access token, these replaced passwords in 2021.
 If you have already done this in the homework, skip ahead to step 6.
 Our personal access token will connect our project to our github account.
-This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
+This is perhaps the most tedious part of the process as you often have to (re)introduce yourself to git when you make a new project.
 
-In the console (lower left panel in RStudio), run the following code:
+In the console (lower left panel in Posit), run the following code:
 
 ```{r, eval = FALSE}
 install.packages("usethis") # Install the package
@@ -197,7 +197,7 @@ knitr::include_graphics("img/yaml-raw-to-rendered.png")
 
 ### Committing changes
 
-Then go to the Git pane in your RStudio.
+Then go to the Git pane in your Posit.
 
 If you have made changes to your Rmd file, you should see it listed here.
 Click on it to select it in this list and then click on **Diff**.
@@ -223,14 +223,17 @@ And by others, we mean the course teaching team (your repos in this course are p
 
 In order to push your changes to GitHub, click on **Push**.
 This will prompt a dialogue box where you first need to enter your user name, and then your password.
-This might feel cumbersome.
-Bear with me... We *will* teach you how to save your password so you don't have to enter it every time.
-But for this one assignment you'll have to manually enter each time you push in order to gain some experience with it.
 
 ## Packages
 
 In this lab we will work with two packages: **datasauRus** which contains the dataset we'll be using and **tidyverse** which is a collection of packages for doing data analysis in a "tidy" way.
-These packages are already installed for you.
+You can install these packages using the following code **once** in the Console:
+
+```{r message=FALSE}
+install.packages("tidyverse")
+install.packages("datasauRus")
+```
+
 You can load the packages by running the following in the Console.
 
 ```{r message=FALSE}
