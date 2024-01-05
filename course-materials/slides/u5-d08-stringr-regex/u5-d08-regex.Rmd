@@ -1,0 +1,383 @@
+---
+title: "Working with regular expressions"
+subtitle: "<br><br> College of the Atlantic"
+author: "Laurie Baker"
+output:
+  xaringan::moon_reader:
+    css: ["../xaringan-themer.css", "../slides.css"]
+    lib_dir: libs
+    anchor_sections: FALSE
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidytext)
+```
+
+class: middle
+
+# Regular Expressions
+
+---
+## Regular Expressions
+
+Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
+
+- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+
+---
+## Pattern basics
+
+- We can use `str_view()` to show the elements of the string vector that match the regular expression `<>`.
+
+```{r}
+library(stringr)
+library(babynames)
+```
+
+The simplest patterns consist of letters and numbers which match those characters:
+
+```{r}
+str_view(string = fruit, pattern = "berry")
+```
+
+*Note that the first argument in `str_view` is for the `string` and the second argument is the `pattern`. 
+
+---
+## Literal characters and meta characters
+
+- **Literal characters** Letters and numbers
+- **Meta characters** Includes most punctuation characters like `.`, `+`, `*`, `[`, `]`, and `?` which have special meanings. 
+    - For example, `.` will match any character. So `"a." will match any string that contains an `"a"` followed by another character:
+    
+```{r}
+str_view(c("apple", "orange", "pomegranate"), pattern = "a.")
+```
+
+We could find names that include an `"a"` followed by three letters, followed by an `"e"`. 
+
+```{r}
+baby1880 <- babynames %>%
+  filter(year == 1880)
+
+str_view(baby1880$name, pattern = "a...e")
+```
+
+---
+## Quantifiers
+
+**Quantifiers** control how many times a pattern can match.
+
+- `?` makes a pattern optional (i.e. it matches 0 or 1 times)
+- `+` lets a pattern repeat (i.e. matches at least once)
+- `*` lets a pattern be optional or repeat (i.e. it matches any number of times, including 0)
+
+```{r}
+str_view(c("a", "ab", "abb"), pattern = "ab?")
+```
+
+```{r}
+str_view(c("a", "ab", "abb"), pattern = "ab+")
+```
+
+```{r}
+str_view(c("a", "ab", "abb"), pattern = "ab*")
+```
+
+- **Your Turn**: With your partner write a short description of what the pattern matches. 
+
+---
+## Character Classes
+
+**Character classes** are defined by `[]` and let you match a set of characters
+
+- e.g. `[lmno]` matches "l", "m", "n", or "o".
+- starting with `^` will invert the match so that you can match anything **except** "l", "m", "n", or "o". 
+
+```{r}
+str_view(words, "[aeiou]x[aeiou]")
+
+str_view(words, "[^aeiou]y[^aeiou]")
+```
+
+---
+## Alternation
+
+**alternation**, `|` can be used to pick between one or more alternative patterns.
+
+- Fruits with "nut", "berry", or "apple".
+
+```{r}
+str_view(fruit, "apple|nut|berry")
+```
+
+
+- Names with a repeating vowel
+
+```{r}
+str_view(baby1880$name, pattern = "aa|ee|ii|oo|uu")
+```
+
+---
+## Key stringr functions
+
+- `str_detect` detect the presence or absence of a match
+- `str_count` count how many matches are in each string
+- `str_extract` extract the matches
+
+---
+## Detect matches
+
+`str_detect()` returns a logical vector that is `TRUE` if the pattern matches an element of the character vector and `FALSE` otherwise.
+
+```{r}
+str_detect(c("a", "b", "c"), "[aeiou]")
+```
+
+`str_detect()` works well with `filter`
+
+```{r}
+baby1880 |>
+  filter(str_detect(name, pattern = "x")) |>
+  count(name, wt = n, sort = TRUE)
+```
+
+---
+## Count matches
+
+`str_count()` can be used to count the number of times a pattern occurs in a string.
+
+```{r}
+str_count("ababbaba", pattern = "ab")
+str_view("ababbaba", pattern = "ab")
+```
+
+`str_count()` can be easily paired with `mutate()`
+
+```{r}
+# number of vowels and consonants for babynames with an x
+
+babynames |>
+  filter(str_detect(name, pattern = "x")) |>
+  count(name) |>
+  mutate(vowels = str_count(name, "[aeiou]"),
+         consonants = str_count(name, "[^aeiou]")
+         ) %>%
+  arrange(vowels, consonants, n)
+```
+
+There's something off with our calculations. What is it?
+
+---
+## Regular expressions are case_sensitive
+
+Options: 
+- Add uppercase vowels: `str_count(name, pattern = "[aeiouAEIOU]")`
+- Tell the regular expression to ignore case:
+`str_count(name, regex("[aeiou]", ignore_case = TRUE))`
+- Use str_to_lower() to convert the names to lower case:
+`str_count(str_to_lower(name), "[aeiou]")`
+
+---
+## Replace values
+
+- We can also modify matched with `str_replace()` and `str_replace_all()`. `str_replace` replaces the first match and `str_replace_all()` replaces all matches.
+
+```{r}
+babynames |>
+  count(name) |>
+  filter(str_detect(name, pattern = "[cC]")) |>
+  mutate(new_name = str_replace_all(name, "[cC]", "cup"))
+```
+
+---
+## Replace values
+
+```{r small = T}
+str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
+str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
+```
+
+**Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+
+```{r eval = FALSE}
+str____________(movie_titles, pattern = "")
+```
+
+    
+---
+## Extracting Patterns
+
+- You can extract pattern matches using `str_extract()`
+
+```{r}
+lab_fees <- c("100 dollars", "10$", "1500 USD")
+
+str_extract(lab_fees, pattern = "[0-9]*")
+
+```
+
+---
+## Extract phone numbers case study
+
+#### **Maine phone numbers:**
+    - Maine phone numbers begin with 207 and are followed by 7 more digits.
+    - Regex expression: "^207[0-9]{3}[0-9]{4}"
+
+```{r}
+phone_numbers <- c("207-846-3630", "207-865-3823", "603-712-5043", "0783-792-9863", "+4478438971066", "207-865-7916")
+
+str_extract(phone_numbers, pattern = "^207-[0-9]{3}-[0-9]{4}")
+```
+
+*N.B. `{3}` will repeat your regular expression pattern a specified number of times.
+
+---
+## Pattern details
+
+- **Escaping** how to match metacharacters. 
+- **Anchors** match the start or end of a string.
+- More on **character classes** and their shortcuts.
+- More on **quantifiers** which control how many times a pattern can match.
+
+---
+## Escaping
+
+---
+## Anchors
+
+By default regular expressions will match any part of a string. To match the start or end you need to **anchor** the regular expression:
+- `^` matches the start
+- `$` to match the end.
+
+```{r}
+str_view(baby1880$name, "^G")
+str_view(baby1880$name, "g$")
+```
+
+- `\b` can match the boundary between words
+
+```{r}
+str_view(fruit, "\\bapple\\b")
+str_view(fruit, "apple")
+```
+
+---
+## Character classes
+
+You can construct your own **character class** or **set** with `[]`.
+- `[abc]` matches "a", "b", or "c" and `[^abc]` matches any character except "a", "b", or "c". 
+- `-` defines a range, e.g., `[a-z]` matches any lower case letter and `[0-9]` matches any number.
+- `\` escapes special characters, so `[\^\-\.]` matches `^`, `-`, or `.`
+
+```{r}
+x <- "abcd ABCD 12345 -!@#%."
+
+str_view(x, "[abc]+")
+
+str_view(x, "[a-z0-9]+")
+
+str_view(x, "[^a-z0-9]+")
+
+```
+
+---
+## Character shortcuts
+
+`.` matches any character apart from a newline. There are three other useful pairs:
+
+- `\d` matches any digit; `\D` matches anything that **isn't** a digit
+- `\s` matches any whitespace (e.g. space, tab, newline)' `\S` matches anything that isn't whitespace.
+- `\w` matches any "word" character, i.e. letters and numbers; `\W` matches any "non-word" character.
+
+```{r}
+x <- "abcd ABCD 12345 -!@#%."
+
+str_view(x, "\\d+")
+str_view(x, "\\D+")
+str_view(x, "\\s+")
+str_view(x, "\\S+")
+str_view(x, "\\w+")
+str_view(x, "\\W+")
+```
+
+---
+## Quantifiers
+
+- **Quantifiers** control how many times a pattern matches. 
+    - `?` (0 or 1 matches)
+    - `+` (1 or more matches)
+    - `*` (0 or more matches)
+
+```{r}
+spelling_bee <- c("color", "colour", "coloor")
+
+str_view(spelling_bee, pattern = "colou?r")
+
+lab_fees <- c("100 dollars", "10$", "1500 USD")
+# \\d+ for one or more digits
+str_extract(lab_fees, pattern = "\\d+")
+```
+
+---
+## Number of matches
+
+You can specify the number of matches precisely with `{}`
+
+- `{n}` matches exactly n times
+- `{n,}` matches **at least** n times
+- `{n,m}` matches between n and m times
+
+---
+## Operator precedence and parentheses
+
+- Does `ab+` match "a" followed by one or more "b"s, or does it match "ab" repeated any number of times?
+
+--
+
+- What does `^a|b$` match? Does it match the complete *string a* **OR** the complete *string b* or does it match a string starting with "a" or a string ending with "b"?
+
+---
+## Operator precedence and parentheses
+
+- It's similar to PEMDAS or BEMDAS.
+- Quantifiers have high precedence and alternation has low precedence which means `ab+` is equivalent to `a(b+)`, and `^a|b$` is equivalent to `(^a)|(b$)`.
+- You can use parentheses to override the usual order or to match anything in the middle try `.+`.
+
+```{r}
+
+word_ex <- c("abba", "ababab", "arbitrary", "about", "aplomb")
+
+str_view(word_ex, pattern = "ab+")
+str_view(word_ex, pattern = "(ab)+")
+
+str_view(word_ex, pattern = "^a|b$")
+str_view(word_ex, pattern = "^a.+b$")
+
+
+```
+
+
+---
+## Recap of Common expressions:
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeats a regular expression.
+
+For more expressions or examples, refer to <http://www.regular-expressions.info/refquick.html>
+
+
+---
+# Thank you
