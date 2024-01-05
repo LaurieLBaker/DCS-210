@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Working with regular expressions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Laurie Baker" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Working with regular expressions
+]
+.subtitle[
+## <br><br> College of the Atlantic
+]
+.author[
+### Laurie Baker
+]
+
+---
+
+
+
+
+
+
+
+class: middle
+
+# Regular Expressions
+
+---
+## Regular Expressions
+
+Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
+
+- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+
+---
+## Pattern basics
+
+- We can use `str_view()` to show the elements of the string vector that match the regular expression `&lt;&gt;`.
+
+
+```r
+library(stringr)
+library(babynames)
+```
+
+The simplest patterns consist of letters and numbers which match those characters:
+
+
+```r
+str_view(string = fruit, pattern = "berry")
+```
+
+*Note that the first argument in `str_view` is for the `string` and the second argument is the `pattern`. 
+
+---
+## Literal characters and meta characters
+
+- **Literal characters** Letters and numbers
+- **Meta characters** Includes most punctuation characters like `.`, `+`, `*`, `[`, `]`, and `?` which have special meanings. 
+    - For example, `.` will match any character. So `"a." will match any string that contains an `"a"` followed by another character:
+    
+
+```r
+str_view(c("apple", "orange", "pomegranate"), pattern = "a.")
+```
+
+```
+## [1] │ &lt;ap&gt;ple
+## [2] │ or&lt;an&gt;ge
+## [3] │ pomegr&lt;an&gt;&lt;at&gt;e
+```
+
+We could find names that include an `"a"` followed by three letters, followed by an `"e"`. 
+
+
+```r
+baby1880 &lt;- babynames %&gt;%
+  filter(year == 1880)
+
+str_view(baby1880$name, pattern = "a...e")
+```
+
+```
+##  [20] │ C&lt;arrie&gt;
+##  [27] │ H&lt;attie&gt;
+##  [29] │ M&lt;attie&gt;
+##  [46] │ M&lt;aggie&gt;
+##  [49] │ F&lt;annie&gt;
+##  [59] │ Bl&lt;anche&gt;
+##  [64] │ S&lt;allie&gt;
+##  [73] │ H&lt;arrie&gt;t
+##  [87] │ N&lt;annie&gt;
+## [124] │ C&lt;allie&gt;
+## [156] │ H&lt;arrie&gt;tt
+## [172] │ Kath&lt;arine&gt;
+## [214] │ H&lt;allie&gt;
+## [224] │ M&lt;argue&gt;rite
+## [271] │ C&lt;assie&gt;
+## [279] │ M&lt;argie&gt;
+## [296] │ Cath&lt;arine&gt;
+## [332] │ M&lt;argre&gt;t
+## [333] │ Ad&lt;aline&gt;
+## [350] │ P&lt;attie&gt;
+## ... and 47 more
+```
+
+---
+## Quantifiers
+
+**Quantifiers** control how many times a pattern can match.
+
+- `?` makes a pattern optional (i.e. it matches 0 or 1 times)
+- `+` lets a pattern repeat (i.e. matches at least once)
+- `*` lets a pattern be optional or repeat (i.e. it matches any number of times, including 0)
+
+
+```r
+str_view(c("a", "ab", "abb"), pattern = "ab?")
+```
+
+```
+## [1] │ &lt;a&gt;
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;ab&gt;b
+```
+
+
+```r
+str_view(c("a", "ab", "abb"), pattern = "ab+")
+```
+
+```
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;abb&gt;
+```
+
+
+```r
+str_view(c("a", "ab", "abb"), pattern = "ab*")
+```
+
+```
+## [1] │ &lt;a&gt;
+## [2] │ &lt;ab&gt;
+## [3] │ &lt;abb&gt;
+```
+
+- **Your Turn**: With your partner write a short description of what the pattern matches. 
+
+---
+## Character Classes
+
+**Character classes** are defined by `[]` and let you match a set of characters
+
+- e.g. `[lmno]` matches "l", "m", "n", or "o".
+- starting with `^` will invert the match so that you can match anything **except** "l", "m", "n", or "o". 
+
+
+```r
+str_view(words, "[aeiou]x[aeiou]")
+```
+
+```
+## [284] │ &lt;exa&gt;ct
+## [285] │ &lt;exa&gt;mple
+## [288] │ &lt;exe&gt;rcise
+## [289] │ &lt;exi&gt;st
+```
+
+```r
+str_view(words, "[^aeiou]y[^aeiou]")
+```
+
+```
+## [836] │ &lt;sys&gt;tem
+## [901] │ &lt;typ&gt;e
+```
+
+---
+## Alternation
+
+**alternation**, `|` can be used to pick between one or more alternative patterns.
+
+- Fruits with "nut", "berry", or "apple".
+
+
+```r
+str_view(fruit, "apple|nut|berry")
+```
+
+```
+## [1] │ &lt;apple&gt;
+## [4] │ pine&lt;apple&gt;
+```
+
+
+- Names with a repeating vowel
+
+
+```r
+str_view(baby1880$name, pattern = "aa|ee|ii|oo|uu")
+```
+
+```
+##  [300] │ L&lt;ee&gt;
+##  [358] │ Kathl&lt;ee&gt;n
+##  [416] │ Qu&lt;ee&gt;n
+##  [466] │ Aim&lt;ee&gt;
+##  [539] │ Qu&lt;ee&gt;nie
+##  [725] │ Paral&lt;ee&gt;
+##  [739] │ Ail&lt;ee&gt;n
+##  [768] │ D&lt;ee&gt;
+##  [923] │ Rosal&lt;ee&gt;
+##  [932] │ Tenness&lt;ee&gt;
+##  [985] │ L&lt;ee&gt;
+## [1004] │ Is&lt;aa&gt;c
+## [1213] │ Gr&lt;ee&gt;n
+## [1279] │ Fr&lt;ee&gt;man
+## [1298] │ Elw&lt;oo&gt;d
+## [1326] │ D&lt;ee&gt;
+## [1466] │ Wh&lt;ee&gt;ler
+## [1559] │ Hayw&lt;oo&gt;d
+## [1685] │ W&lt;oo&gt;dson
+## [1705] │ Cr&lt;ee&gt;d
+## ... and 10 more
+```
+
+---
+## Key stringr functions
+
+- `str_detect` detect the presence or absence of a match
+- `str_count` count how many matches are in each string
+- `str_extract` extract the matches
+
+---
+## Detect matches
+
+`str_detect()` returns a logical vector that is `TRUE` if the pattern matches an element of the character vector and `FALSE` otherwise.
+
+
+```r
+str_detect(c("a", "b", "c"), "[aeiou]")
+```
+
+```
+## [1]  TRUE FALSE FALSE
+```
+
+`str_detect()` works well with `filter`
+
+
+```r
+baby1880 |&gt;
+  filter(str_detect(name, pattern = "x")) |&gt;
+  count(name, wt = n, sort = TRUE)
+```
+
+```
+## # A tibble: 13 × 2
+##   name          n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 Alexander   211
+## 2 Alex        147
+## 3 Felix        92
+## 4 Roxie        62
+## 5 Max          52
+## 6 Axel         16
+## # ℹ 7 more rows
+```
+
+---
+## Count matches
+
+`str_count()` can be used to count the number of times a pattern occurs in a string.
+
+
+```r
+str_count("ababbaba", pattern = "ab")
+```
+
+```
+## [1] 3
+```
+
+```r
+str_view("ababbaba", pattern = "ab")
+```
+
+```
+## [1] │ &lt;ab&gt;&lt;ab&gt;b&lt;ab&gt;a
+```
+
+`str_count()` can be easily paired with `mutate()`
+
+
+```r
+# number of vowels and consonants for babynames with an x
+
+babynames |&gt;
+  filter(str_detect(name, pattern = "x")) |&gt;
+  count(name) |&gt;
+  mutate(vowels = str_count(name, "[aeiou]"),
+         consonants = str_count(name, "[^aeiou]")
+         ) %&gt;%
+  arrange(vowels, consonants, n)
+```
+
+```
+## # A tibble: 974 × 4
+##   name      n vowels consonants
+##   &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Nyx       9      0          3
+## 2 Axl      30      0          3
+## 3 Axyl      9      0          4
+## 4 Lynx      9      0          4
+## 5 Eryx     11      0          4
+## 6 Alyx     57      0          4
+## # ℹ 968 more rows
+```
+
+There's something off with our calculations. What is it?
+
+---
+## Regular expressions are case_sensitive
+
+Options: 
+- Add uppercase vowels: `str_count(name, pattern = "[aeiouAEIOU]")`
+- Tell the regular expression to ignore case:
+`str_count(name, regex("[aeiou]", ignore_case = TRUE))`
+- Use str_to_lower() to convert the names to lower case:
+`str_count(str_to_lower(name), "[aeiou]")`
+
+---
+## Replace values
+
+- We can also modify matched with `str_replace()` and `str_replace_all()`. `str_replace` replaces the first match and `str_replace_all()` replaces all matches.
+
+
+```r
+babynames |&gt;
+  count(name) |&gt;
+  filter(str_detect(name, pattern = "[cC]")) |&gt;
+  mutate(new_name = str_replace_all(name, "[cC]", "cup"))
+```
+
+```
+## # A tibble: 12,917 × 3
+##   name        n new_name 
+##   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;    
+## 1 Aalicia     1 Aalicupia
+## 2 Aalycia     4 Aalycupia
+## 3 Aanchal    10 Aancuphal
+## 4 Aaric      33 Aaricup  
+## 5 Aarica     13 Aaricupa 
+## 6 Aarick      5 Aaricupk 
+## # ℹ 12,911 more rows
+```
+
+---
+## Replace values
+
+
+```r
+str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
+```
+
+```
+## [1] "epple"     "benana"    "peer"      "pineepple"
+```
+
+```r
+str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
+```
+
+```
+## [1] "epple"     "benene"    "peer"      "pineepple"
+```
+
+**Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+
+
+```r
+str____________(movie_titles, pattern = "")
+```
+
+    
+---
+## Extracting Patterns
+
+- You can extract pattern matches using `str_extract()`
+
+
+```r
+lab_fees &lt;- c("100 dollars", "10$", "1500 USD")
+
+str_extract(lab_fees, pattern = "[0-9]*")
+```
+
+```
+## [1] "100"  "10"   "1500"
+```
+
+---
+## Extract phone numbers case study
+
+#### **Maine phone numbers:**
+    - Maine phone numbers begin with 207 and are followed by 7 more digits.
+    - Regex expression: "^207[0-9]{3}[0-9]{4}"
+
+
+```r
+phone_numbers &lt;- c("207-846-3630", "207-865-3823", "603-712-5043", "0783-792-9863", "+4478438971066", "207-865-7916")
+
+str_extract(phone_numbers, pattern = "^207-[0-9]{3}-[0-9]{4}")
+```
+
+```
+## [1] "207-846-3630" "207-865-3823" NA             NA            
+## [5] NA             "207-865-7916"
+```
+
+*N.B. `{3}` will repeat your regular expression pattern a specified number of times.
+
+---
+## Pattern details
+
+- **Escaping** how to match metacharacters. 
+- **Anchors** match the start or end of a string.
+- More on **character classes** and their shortcuts.
+- More on **quantifiers** which control how many times a pattern can match.
+
+---
+## Escaping
+
+---
+## Anchors
+
+By default regular expressions will match any part of a string. To match the start or end you need to **anchor** the regular expression:
+- `^` matches the start
+- `$` to match the end.
+
+
+```r
+str_view(baby1880$name, "^G")
+```
+
+```
+##  [19] │ &lt;G&gt;race
+##  [25] │ &lt;G&gt;ertrude
+##  [84] │ &lt;G&gt;eorgia
+## [202] │ &lt;G&gt;enevieve
+## [209] │ &lt;G&gt;ussie
+## [237] │ &lt;G&gt;eorgie
+## [256] │ &lt;G&gt;eorgiana
+## [266] │ &lt;G&gt;ertie
+## [298] │ &lt;G&gt;eneva
+## [312] │ &lt;G&gt;eorge
+## [330] │ &lt;G&gt;oldie
+## [370] │ &lt;G&gt;ladys
+## [393] │ &lt;G&gt;eorgianna
+## [394] │ &lt;G&gt;racie
+## [529] │ &lt;G&gt;ena
+## [700] │ &lt;G&gt;eraldine
+## [701] │ &lt;G&gt;ina
+## [702] │ &lt;G&gt;lenna
+## [703] │ &lt;G&gt;rayce
+## [784] │ &lt;G&gt;olda
+## ... and 45 more
+```
+
+```r
+str_view(baby1880$name, "g$")
+```
+
+```
+##  [704] │ Hedwi&lt;g&gt;
+## [1145] │ Irvin&lt;g&gt;
+## [1273] │ Kin&lt;g&gt;
+## [1382] │ Sterlin&lt;g&gt;
+## [1446] │ Youn&lt;g&gt;
+## [1580] │ Won&lt;g&gt;
+## [1608] │ Ludwi&lt;g&gt;
+## [1902] │ Flemin&lt;g&gt;
+## [1985] │ Starlin&lt;g&gt;
+```
+
+- `\b` can match the boundary between words
+
+
+```r
+str_view(fruit, "\\bapple\\b")
+```
+
+```
+## [1] │ &lt;apple&gt;
+```
+
+```r
+str_view(fruit, "apple")
+```
+
+```
+## [1] │ &lt;apple&gt;
+## [4] │ pine&lt;apple&gt;
+```
+
+---
+## Character classes
+
+You can construct your own **character class** or **set** with `[]`.
+- `[abc]` matches "a", "b", or "c" and `[^abc]` matches any character except "a", "b", or "c". 
+- `-` defines a range, e.g., `[a-z]` matches any lower case letter and `[0-9]` matches any number.
+- `\` escapes special characters, so `[\^\-\.]` matches `^`, `-`, or `.`
+
+
+```r
+x &lt;- "abcd ABCD 12345 -!@#%."
+
+str_view(x, "[abc]+")
+```
+
+```
+## [1] │ &lt;abc&gt;d ABCD 12345 -!@#%.
+```
+
+```r
+str_view(x, "[a-z0-9]+")
+```
+
+```
+## [1] │ &lt;abcd&gt; ABCD &lt;12345&gt; -!@#%.
+```
+
+```r
+str_view(x, "[^a-z0-9]+")
+```
+
+```
+## [1] │ abcd&lt; ABCD &gt;12345&lt; -!@#%.&gt;
+```
+
+---
+## Character shortcuts
+
+`.` matches any character apart from a newline. There are three other useful pairs:
+
+- `\d` matches any digit; `\D` matches anything that **isn't** a digit
+- `\s` matches any whitespace (e.g. space, tab, newline)' `\S` matches anything that isn't whitespace.
+- `\w` matches any "word" character, i.e. letters and numbers; `\W` matches any "non-word" character.
+
+
+```r
+x &lt;- "abcd ABCD 12345 -!@#%."
+
+str_view(x, "\\d+")
+```
+
+```
+## [1] │ abcd ABCD &lt;12345&gt; -!@#%.
+```
+
+```r
+str_view(x, "\\D+")
+```
+
+```
+## [1] │ &lt;abcd ABCD &gt;12345&lt; -!@#%.&gt;
+```
+
+```r
+str_view(x, "\\s+")
+```
+
+```
+## [1] │ abcd&lt; &gt;ABCD&lt; &gt;12345&lt; &gt;-!@#%.
+```
+
+```r
+str_view(x, "\\S+")
+```
+
+```
+## [1] │ &lt;abcd&gt; &lt;ABCD&gt; &lt;12345&gt; &lt;-!@#%.&gt;
+```
+
+```r
+str_view(x, "\\w+")
+```
+
+```
+## [1] │ &lt;abcd&gt; &lt;ABCD&gt; &lt;12345&gt; -!@#%.
+```
+
+```r
+str_view(x, "\\W+")
+```
+
+```
+## [1] │ abcd&lt; &gt;ABCD&lt; &gt;12345&lt; -!@#%.&gt;
+```
+
+---
+## Quantifiers
+
+- **Quantifiers** control how many times a pattern matches. 
+    - `?` (0 or 1 matches)
+    - `+` (1 or more matches)
+    - `*` (0 or more matches)
+
+
+```r
+spelling_bee &lt;- c("color", "colour", "coloor")
+
+str_view(spelling_bee, pattern = "colou?r")
+```
+
+```
+## [1] │ &lt;color&gt;
+## [2] │ &lt;colour&gt;
+```
+
+```r
+lab_fees &lt;- c("100 dollars", "10$", "1500 USD")
+# \\d+ for one or more digits
+str_extract(lab_fees, pattern = "\\d+")
+```
+
+```
+## [1] "100"  "10"   "1500"
+```
+
+---
+## Number of matches
+
+You can specify the number of matches precisely with `{}`
+
+- `{n}` matches exactly n times
+- `{n,}` matches **at least** n times
+- `{n,m}` matches between n and m times
+
+---
+## Operator precedence and parentheses
+
+- Does `ab+` match "a" followed by one or more "b"s, or does it match "ab" repeated any number of times?
+
+--
+
+- What does `^a|b$` match? Does it match the complete *string a* **OR** the complete *string b* or does it match a string starting with "a" or a string ending with "b"?
+
+---
+## Operator precedence and parentheses
+
+- It's similar to PEMDAS or BEMDAS.
+- Quantifiers have high precedence and alternation has low precedence which means `ab+` is equivalent to `a(b+)`, and `^a|b$` is equivalent to `(^a)|(b$)`.
+- You can use parentheses to override the usual order or to match anything in the middle try `.+`.
+
+
+```r
+word_ex &lt;- c("abba", "ababab", "arbitrary", "about", "aplomb")
+
+str_view(word_ex, pattern = "ab+")
+```
+
+```
+## [1] │ &lt;abb&gt;a
+## [2] │ &lt;ab&gt;&lt;ab&gt;&lt;ab&gt;
+## [4] │ &lt;ab&gt;out
+```
+
+```r
+str_view(word_ex, pattern = "(ab)+")
+```
+
+```
+## [1] │ &lt;ab&gt;ba
+## [2] │ &lt;ababab&gt;
+## [4] │ &lt;ab&gt;out
+```
+
+```r
+str_view(word_ex, pattern = "^a|b$")
+```
+
+```
+## [1] │ &lt;a&gt;bba
+## [2] │ &lt;a&gt;baba&lt;b&gt;
+## [3] │ &lt;a&gt;rbitrary
+## [4] │ &lt;a&gt;bout
+## [5] │ &lt;a&gt;plom&lt;b&gt;
+```
+
+```r
+str_view(word_ex, pattern = "^a.+b$")
+```
+
+```
+## [2] │ &lt;ababab&gt;
+## [5] │ &lt;aplomb&gt;
+```
+
+
+---
+## Recap of Common expressions:
+    - "a"  = is the letter "a"
+    - "^a" = starts with the letter "a"
+    - "a$" = ends with the letter "a"
+    - "[ ]" = contains any letter (or number) within the brackets
+    - "[ - ]" = contains any letter (or number) within this range
+    - "[^ae]" = everything except these letters (or numbers)
+    - "{3}" = repeats a regular expression.
+
+For more expressions or examples, refer to &lt;http://www.regular-expressions.info/refquick.html&gt;
+
+
+---
+# Thank you
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

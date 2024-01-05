@@ -453,7 +453,7 @@ The first argument is the data frame, and the next argument gives the mapping of
 It’s good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth.
 You might ask yourself: “What would be a meaningful difference in median incomes?” $1 is obviously too little, $10000 might be too high.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Try binwidths of $1000 and $5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the <code>geom_histogram</code> function. So to specify a binwidth of $1000, you would use <code>geom_histogram(binwidth = 1000)</code>.</li>
+<li>✏️ Try binwidths of $1000 and $5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the <code>geom_histogram</code> function. So to specify a binwidth of $1000, you would use <code>geom_histogram(binwidth = 1000)</code>.</li>
 </ol>
 <p>We can also calculate summary statistics for this distribution using the <code>summarise</code> function:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
@@ -463,14 +463,14 @@ You might ask yourself: “What would be a meaningful difference in median incom
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">q1 =</span> <span class="fu">quantile</span>(median, <span class="at">probs =</span> <span class="fl">0.25</span>),</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">q3 =</span> <span class="fu">quantile</span>(median, <span class="at">probs =</span> <span class="fl">0.75</span>))</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Based on the shape of the histogram you created in the previous exercise, determine which of these summary statistics is useful for describing the distribution.
+<li><p>✏️ Based on the shape of the histogram you created in the previous exercise, determine which of these summary statistics is useful for describing the distribution.
 Write up your description (remember shape, center, spread, any unusual observations) and include the summary statistic output as well.</p></li>
 <li><p>Plot the distribution of <code>median</code> income using a histogram, faceted by <code>major_category</code>.
 Use the <code>binwidth</code> you chose in the earlier exercise.</p></li>
 </ol>
 <p>Now that we’ve seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.</p>
 <ol start="6" style="list-style-type: decimal">
-<li>Which major category has the highest typical (you’ll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.</li>
+<li>✏️ Which major category has the highest typical (you’ll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(major_category) <span class="sc">%&gt;%</span></span>
@@ -562,13 +562,13 @@ Other logical operators that are commonly used are</p>
 <div id="what-types-of-majors-do-women-tend-to-major-in" class="section level2">
 <h2>What types of majors do women tend to major in?</h2>
 <ol start="9" style="list-style-type: decimal">
-<li>Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.</li>
+<li>✏️ Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.</li>
 </ol>
 </div>
 <div id="further-exploration" class="section level2">
 <h2>Further exploration</h2>
 <ol start="10" style="list-style-type: decimal">
-<li>Ask a question of interest to you, and answer it using summary statistic(s) and/or visualization(s).</li>
+<li>✏️ Ask a question of interest to you, and answer it using summary statistic(s) and/or visualization(s). Write a short interpretation from your plot.</li>
 </ol>
 <p>🧶 ✅ ⬆️ Knit, <em>commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you’re happy with the final state of your work.</em></p>
 </div>

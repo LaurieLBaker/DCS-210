@@ -323,8 +323,8 @@ spelling_bee <- c("color", "colour", "coloor")
 str_view(spelling_bee, pattern = "colou?r")
 
 lab_fees <- c("100 dollars", "10$", "1500 USD")
-# \d+ for one or more digits
-str_extract(lab_fees, pattern = "\d+")
+# \\d+ for one or more digits
+str_extract(lab_fees, pattern = "\\d+")
 ```
 
 ---

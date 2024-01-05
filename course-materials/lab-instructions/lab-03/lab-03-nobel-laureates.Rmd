@@ -45,15 +45,17 @@ So our first task today is to walk you through a merge conflict!
 
 Git will put conflict markers in your code that look like:
 
-    <<<<<<< HEAD 
+```         
+<<<<<<< HEAD 
 
-    See also: [dplyr documentation](https://dplyr.tidyverse.org/)   
+See also: [dplyr documentation](https://dplyr.tidyverse.org/)   
 
-    ======= 
+======= 
 
-    See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)  
+See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)  
 
-    >>>>>>> some1alpha2numeric3string4
+>>>>>>> some1alpha2numeric3string4
+```
 
 The `===`s separate *your* changes (top) from *their* changes (bottom).
 
@@ -208,7 +210,7 @@ You don't have to switch at each exercise, you can find your a cadence that work
 
 ## Get to know your data
 
-1.  How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?
+1.  ✏️ How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?
 
 There are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.
 
@@ -265,7 +267,7 @@ nobel_living_science <- nobel_living %>%
 For the next exercise work with the `nobel_living_science` data frame you created above.
 This means you'll need to define this data frame in your R Markdown document, even though the next exercise doesn't explicitly ask you to do so.
 
-3.  Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
+3.  ✏️ Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
     Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
     -   Your visualization should be faceted by category.
@@ -280,10 +282,10 @@ This means you'll need to define this data frame in your R Markdown document, ev
 **Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
 ```
 
-4.  Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
+4.  ✏️ Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
     How many of the winners are born in the US?
 
-5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
+5.  ✏️ Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
     Based on your visualization, do the data appear to support Buzzfeed's claim?
     Explain your reasoning in 1-2 sentences.
 
@@ -299,7 +301,7 @@ This means you'll need to define this data frame in your R Markdown document, ev
 Note that your bar plot won't exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.
 ```
 
-6.  In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
+6.  ✏️ In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
 

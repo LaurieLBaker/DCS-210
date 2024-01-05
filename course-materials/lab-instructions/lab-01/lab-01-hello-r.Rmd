@@ -229,7 +229,7 @@ This will prompt a dialogue box where you first need to enter your user name, an
 In this lab we will work with two packages: **datasauRus** which contains the dataset we'll be using and **tidyverse** which is a collection of packages for doing data analysis in a "tidy" way.
 You can install these packages using the following code **once** in the Console:
 
-```{r message=FALSE}
+```{r message=FALSE, eval = FALSE}
 install.packages("tidyverse")
 install.packages("datasauRus")
 ```
@@ -259,7 +259,11 @@ This command must be ran in the Console.
 
 # Exercises
 
-1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report.
+```{marginfigure}
+The ✏️ symbol is a reminder to write a written response discussing the questions in the exercises.
+```
+
+1.  ✏️ Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report.
 
 Let's take a look at what these datasets are.
 To do so we can make a *frequency table* of the dataset variable:
@@ -336,11 +340,11 @@ dino_data %>%
 
 🧶 ✅ ⬆️ *Knit, commit, and push your changes to GitHub with the commit message "Add answer for Ex 2". Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
-3.  Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+3.  ✏️ Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`? Write a sentence based on your comparison.
 
 🧶 ✅ ⬆️ *This is another good place to pause, knit, commit changes with the commit message "Add answer for Ex 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
-4.  Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+4.  ✏️ Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`? Write a sentence based on your comparison.
 
 🧶 ✅ ⬆️ *You should pause again, commit changes with the commit message "Add answer for Ex 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 

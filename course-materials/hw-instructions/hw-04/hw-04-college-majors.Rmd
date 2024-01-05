@@ -177,7 +177,7 @@ This is telling us that we might want to reconsider the binwidth we chose for ou
 It's good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth.
 You might ask yourself: "What would be a meaningful difference in median incomes?" \$1 is obviously too little, \$10000 might be too high.
 
-3.  Try binwidths of \$1000 and \$5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the `geom_histogram` function. So to specify a binwidth of \$1000, you would use `geom_histogram(binwidth = 1000)`.
+3.  ✏️ Try binwidths of \$1000 and \$5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the `geom_histogram` function. So to specify a binwidth of \$1000, you would use `geom_histogram(binwidth = 1000)`.
 
 We can also calculate summary statistics for this distribution using the `summarise` function:
 
@@ -190,7 +190,7 @@ college_recent_grads %>%
             q3 = quantile(median, probs = 0.75))
 ```
 
-4.  Based on the shape of the histogram you created in the previous exercise, determine which of these summary statistics is useful for describing the distribution.
+4.  ✏️ Based on the shape of the histogram you created in the previous exercise, determine which of these summary statistics is useful for describing the distribution.
     Write up your description (remember shape, center, spread, any unusual observations) and include the summary statistic output as well.
 
 5.  Plot the distribution of `median` income using a histogram, faceted by `major_category`.
@@ -198,7 +198,7 @@ college_recent_grads %>%
 
 Now that we've seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.
 
-6.  Which major category has the highest typical (you'll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.
+6.  ✏️ Which major category has the highest typical (you'll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.
 
 ```{r eval=FALSE}
 college_recent_grads %>%
@@ -271,10 +271,10 @@ college_recent_grads %>%
 
 ## What types of majors do women tend to major in?
 
-9.  Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.
+9.  ✏️ Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.
 
 ## Further exploration
 
-10. Ask a question of interest to you, and answer it using summary statistic(s) and/or visualization(s).
+10. ✏️ Ask a question of interest to you, and answer it using summary statistic(s) and/or visualization(s). Write a short interpretation from your plot.
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
