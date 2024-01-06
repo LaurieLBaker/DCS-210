@@ -1,5 +1,5 @@
 ---
-title: "Lab 07 - Smokers in Whickham"
+title: "Lab 00 - Smokers in Whickham"
 subtitle: "Simpson's paradox"
 output: 
   tufte::tufte_html:
@@ -27,7 +27,7 @@ In this lab we analyse the relationships between these variables, first two at a
 
 # Getting started
 
-Go to the course GitHub organization and locate your homework repo, clone it in RStudio and open the R Markdown document.
+Click on the assignment link clone it in RStudio and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
