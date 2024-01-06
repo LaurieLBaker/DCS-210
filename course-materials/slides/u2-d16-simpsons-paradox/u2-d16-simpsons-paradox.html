@@ -3,10 +3,10 @@
   <head>
     <title>Simpson’s paradox</title>
     <meta charset="utf-8" />
-    <meta name="author" content="datasciencebox.org" />
+    <meta name="author" content="https://coa-data-analysis.netlify.app/" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -16,25 +16,21 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Simpson’s paradox
-## <br><br> Data Science in a Box
-### <a href="https://datasciencebox.org/">datasciencebox.org</a>
+]
+.subtitle[
+## <br><br> College of the Atlantic
+]
+.author[
+### <a href="https://coa-data-analysis.netlify.app/">https://coa-data-analysis.netlify.app/</a>
+]
 
 ---
 
 
 
 
-
-layout: true
-  
-&lt;div class="my-footer"&gt;
-&lt;span&gt;
-&lt;a href="https://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
-&lt;/span&gt;
-&lt;/div&gt; 
-
----
 
 
 
@@ -58,7 +54,7 @@ class: middle
 .pull-left[
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ##    admit    gender dept 
 ##    &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
 ##  1 Admitted Male   A    
@@ -76,13 +72,13 @@ class: middle
 ## 13 Admitted Male   A    
 ## 14 Admitted Male   A    
 ## 15 Admitted Male   A    
-## # … with 4,511 more rows
+## # ℹ 4,511 more rows
 ```
 ]
 .pull-right[
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   gender     n
 ##   &lt;fct&gt;  &lt;int&gt;
 ## 1 Female  1835
@@ -90,7 +86,7 @@ class: middle
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   dept      n
 ##   &lt;ord&gt; &lt;int&gt;
 ## 1 A       933
@@ -102,7 +98,7 @@ class: middle
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   admit        n
 ##   &lt;fct&gt;    &lt;int&gt;
 ## 1 Rejected  2771
@@ -123,7 +119,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 3
+## # A tibble: 4 × 3
 ##   gender admit        n
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;
 ## 1 Female Rejected  1278
@@ -143,7 +139,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 4
+## # A tibble: 4 × 4
 ## # Groups:   gender [2]
 ##   gender admit        n prop_admit
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;      &lt;dbl&gt;
@@ -191,7 +187,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 24 x 4
+## # A tibble: 24 × 4
 ##   dept  gender admit        n
 ##   &lt;ord&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;
 ## 1 A     Female Rejected    19
@@ -200,7 +196,7 @@ ucbadmit %&gt;%
 ## 4 A     Male   Admitted   512
 ## 5 B     Female Rejected     8
 ## 6 B     Female Admitted    17
-## # … with 18 more rows
+## # ℹ 18 more rows
 ```
 
 ---
@@ -217,7 +213,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 8
+## # A tibble: 4 × 8
 ##   gender admit        A     B     C     D     E     F
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
 ## 1 Female Rejected    19     8   391   244   299   317
@@ -271,7 +267,7 @@ ggplot(ucbadmit, aes(y = gender, fill = admit)) +
 .panel[.panel-name[Output]
 
 ```
-## # A tibble: 12 x 5
+## # A tibble: 12 × 5
 ## # Groups:   dept, gender [12]
 ##    dept  gender n_admitted n_applied prop_admit
 ##    &lt;ord&gt; &lt;fct&gt;       &lt;int&gt;     &lt;int&gt;      &lt;dbl&gt;
@@ -322,7 +318,7 @@ class: middle
 .pull-left[
 
 ```
-## # A tibble: 8 x 3
+## # A tibble: 8 × 3
 ##       x     y z    
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1     2     4 A    
@@ -331,7 +327,7 @@ class: middle
 ## 4     5     1 A    
 ## 5     6    11 B    
 ## 6     7    10 B    
-## # … with 2 more rows
+## # ℹ 2 more rows
 ```
 ]
 .pull-right[
@@ -345,7 +341,7 @@ class: middle
 .pull-left[
 
 ```
-## # A tibble: 8 x 3
+## # A tibble: 8 × 3
 ##       x     y z    
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1     2     4 A    
@@ -354,7 +350,7 @@ class: middle
 ## 4     5     1 A    
 ## 5     6    11 B    
 ## 6     7    10 B    
-## # … with 2 more rows
+## # ℹ 2 more rows
 ```
 ]
 .pull-right[
@@ -368,7 +364,7 @@ class: middle
 .pull-left[
 
 ```
-## # A tibble: 8 x 3
+## # A tibble: 8 × 3
 ##       x     y z    
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1     2     4 A    
@@ -377,7 +373,7 @@ class: middle
 ## 4     5     1 A    
 ## 5     6    11 B    
 ## 6     7    10 B    
-## # … with 2 more rows
+## # ℹ 2 more rows
 ```
 ]
 .pull-right[
@@ -391,7 +387,7 @@ class: middle
 .pull-left[
 
 ```
-## # A tibble: 8 x 3
+## # A tibble: 8 × 3
 ##       x     y z    
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1     2     4 A    
@@ -400,7 +396,7 @@ class: middle
 ## 4     5     1 A    
 ## 5     6    11 B    
 ## 6     7    10 B    
-## # … with 2 more rows
+## # ℹ 2 more rows
 ```
 ]
 .pull-right[
@@ -434,7 +430,7 @@ ucbadmit
 ```
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ##   admit    gender dept 
 ##   &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
 ## 1 Admitted Male   A    
@@ -443,7 +439,7 @@ ucbadmit
 ## 4 Admitted Male   A    
 ## 5 Admitted Male   A    
 ## 6 Admitted Male   A    
-## # … with 4,520 more rows
+## # ℹ 4,520 more rows
 ```
 ]
 .pull-right[
@@ -454,7 +450,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ## # Groups:   gender [2]
 ##   admit    gender dept 
 ##   &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
@@ -464,7 +460,7 @@ ucbadmit %&gt;%
 ## 4 Admitted Male   A    
 ## 5 Admitted Male   A    
 ## 6 Admitted Male   A    
-## # … with 4,520 more rows
+## # ℹ 4,520 more rows
 ```
 ]
 
@@ -482,7 +478,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ## # Groups:   gender [2]
 ##   admit    gender dept 
 ##   &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
@@ -492,7 +488,7 @@ ucbadmit %&gt;%
 ## 4 Admitted Male   A    
 ## 5 Admitted Male   A    
 ## 6 Admitted Male   A    
-## # … with 4,520 more rows
+## # ℹ 4,520 more rows
 ```
 ]
 .pull-right[
@@ -503,7 +499,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ##   admit    gender dept 
 ##   &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
 ## 1 Admitted Female A    
@@ -512,7 +508,7 @@ ucbadmit %&gt;%
 ## 4 Admitted Female A    
 ## 5 Admitted Female A    
 ## 6 Admitted Female A    
-## # … with 4,520 more rows
+## # ℹ 4,520 more rows
 ```
 ]
 
@@ -530,7 +526,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4,526 x 3
+## # A tibble: 4,526 × 3
 ## # Groups:   gender [2]
 ##   admit    gender dept 
 ##   &lt;fct&gt;    &lt;fct&gt;  &lt;ord&gt;
@@ -540,7 +536,7 @@ ucbadmit %&gt;%
 ## 4 Admitted Male   A    
 ## 5 Admitted Male   A    
 ## 6 Admitted Male   A    
-## # … with 4,520 more rows
+## # ℹ 4,520 more rows
 ```
 ]
 .pull-right[
@@ -551,7 +547,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   gender     n
 ##   &lt;fct&gt;  &lt;int&gt;
 ## 1 Female  1835
@@ -574,7 +570,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 2
+## # A tibble: 4 × 2
 ## # Groups:   gender [2]
 ##   gender prop_admit
 ##   &lt;fct&gt;       &lt;dbl&gt;
@@ -596,7 +592,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 2
+## # A tibble: 4 × 2
 ##   gender prop_admit
 ##   &lt;fct&gt;       &lt;dbl&gt;
 ## 1 Female      0.696
@@ -621,7 +617,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   gender     n
 ##   &lt;fct&gt;  &lt;int&gt;
 ## 1 Female  1835
@@ -636,7 +632,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   gender     n
 ##   &lt;fct&gt;  &lt;int&gt;
 ## 1 Female  1835
@@ -657,7 +653,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 3
+## # A tibble: 4 × 3
 ## # Groups:   gender [2]
 ##   gender admit        n
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;
@@ -675,7 +671,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 3
+## # A tibble: 4 × 3
 ##   gender admit        n
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;
 ## 1 Female Rejected  1278
@@ -701,7 +697,7 @@ ucbadmit %&gt;%
 ```
 
 ```
-## # A tibble: 4 x 3
+## # A tibble: 4 × 3
 ## # Groups:   gender [2]
 ##   gender admit        n
 ##   &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;
@@ -710,6 +706,12 @@ ucbadmit %&gt;%
 ## 3 Male   Rejected  1493
 ## 4 Male   Admitted  1198
 ```
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -758,6 +760,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

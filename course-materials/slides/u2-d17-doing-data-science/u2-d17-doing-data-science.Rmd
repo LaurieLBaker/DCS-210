@@ -1,7 +1,7 @@
 ---
 title: "Doing data science"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> College of the Atlantic"
+author: "[https://coa-data-analysis.netlify.app/](https://coa-data-analysis.netlify.app/)"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -155,7 +155,7 @@ fav_food %>% clean_names()
 - This table contains squirrel data for each of the 3,023 sightings, including location coordinates, age, primary and secondary fur color, elevation, activities, communications, and interactions between squirrels and with humans.
 
 ```{r}
-#install_github("mine-cetinkaya-rundel/nycsquirrels18")
+# install_github("mine-cetinkaya-rundel/nycsquirrels18")
 library(nycsquirrels18)
 ```
 
@@ -163,7 +163,7 @@ library(nycsquirrels18)
 
 ## Locate the codebook
 
-[mine-cetinkaya-rundel.github.io/nycsquirrels18/reference/squirrels.html](https://mine-cetinkaya-rundel.github.io/nycsquirrels18/reference/squirrels.html)
+[Squirrel's codebook](https://mine-cetinkaya-rundel.github.io/nycsquirrels18/reference/squirrels.html)
 
 <br><br>
 
@@ -301,3 +301,10 @@ squirrels %>%
 - Pay attention to: Organization, presentation, flow
 - Don't forget about: Code style, coding best practices, meaningful commits
 - Be open to: Suggestions, feedback, taking (calculated) risks
+
+
+---
+## Acknowledgements
+
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
+
