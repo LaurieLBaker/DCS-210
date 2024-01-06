@@ -112,7 +112,10 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 8: Homework 03](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
-- [Week 8: Lab 06, course evaluations](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.Rmd) 
+- [Week 8: Lab 06, course evaluations](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.html)
+- [Week 8: Lab 06, course evaluations](course-materials/lab-instructions/lab-10/lab-10-slr-course-evals.html)
+- [Week 8: Lab 07, simpson's paradox](course-materials/lab-instructions/lab-07/lab-07-simpsons-paradox.html)
+- [Week 8: Lab 11, mlr course evaluations](course-materials/lab-instructions/lab-11/lab-11-mlr-course-evals.html)
 - [Week 8: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 
 
