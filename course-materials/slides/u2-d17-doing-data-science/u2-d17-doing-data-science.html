@@ -34,6 +34,108 @@ class: center, middle, inverse, title-slide
 
 
 
+---
+
+class: middle
+
+# Welcome to Data Science 2: Programming for Data Analysis
+
+---
+
+# Introductions
+
+
+&lt;div class="figure" style="text-align: left"&gt;
+&lt;img src="img/avatar.jpg" alt="Image Credit: R monster mascots by @Allison Horst" width="50%" /&gt;
+&lt;p class="caption"&gt;Image Credit: R monster mascots by @Allison Horst&lt;/p&gt;
+&lt;/div&gt;
+
+
+* Name (and pronouns if you want to share)
+* Option 1: Something you recently taught yourself how to do
+* Option 2: What item you'd be most excited to find in the free box?
+
+---
+
+# Agenda
+
+## Part 1: Get to know one another
+
+* Walk around the room and find three people
+* Re-introduce yourselves to your group
+* Find something you all have in common
+* Continue on until you have formed three groups.
+
+## Part 2: What is this course going to look like?
+
+## Part 3: Open Questions
+
+---
+
+## Data science
+
+.pull-left-wide[
+- Data science is an exciting discipline that allows you to turn data into understanding, insight, and knowledge. 
+
+- We're going to learn to do this in a `tidy` way -- more on that later!
+
+- This is a course on programming for analysis and visualization, with an emphasis on statistical thinking.
+]
+
+---
+
+class: middle
+
+# Data science life cycle
+
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.001.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+Let's also talk about the Data Science Life Cycle. This is the diagram from the book R for Data Science that we'll be referring to throughout the course. Note that this isn't the only diagram out there representing the data science life cycle but it is the one that we are using to structure this course. 
+
+So how does the data science life cycle begin?
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.002.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+Usually you have some data maybe in a spreadsheet or a database and you need to import into R.
+
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.003.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+
+Then we need to spend some time organising that data to make it easier to use and analyse. This often includes doublechecking the data for mistakes and tidying it and it may also include transforming it to get it to the table that you want, that makes it easier to use or analyse. 
+
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.004.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+
+Once the data is in a format that is easy to work with, you want to visualize your data to start to gain some insights from it. 
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.005.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+Then, perhaps you will go onto modelling your data.
+
+---
+
+&lt;img src="img/data-science-cycle/data-science-cycle.006.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+???
+And the reality is it never ends there. You will gain more insight into the data and you may need to go back and check and adjust your assumptions. 
+
+That last step is communicating your results and finding. 
+
+
+---
 class: middle
 
 # What's in a data analysis?
@@ -318,7 +420,7 @@ ggplot(squirrels, aes(x = long, y = lat)) +
   geom_point(alpha = 0.2)
 ```
 
-&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-12-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-17-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 --
 
@@ -333,7 +435,7 @@ ggplot(squirrels, aes(x = long, y = lat)) +
 .panelset[
 
 .panel[.panel-name[Plot]
-&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 ]
 
 .panel[.panel-name[Code]
@@ -367,7 +469,7 @@ ggplot(squirrels, aes(x = long, y = lat, color = where)) +
 ##   numerical variable into a factor?
 ```
 
-&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 ]
 
 .panel[.panel-name[Code]

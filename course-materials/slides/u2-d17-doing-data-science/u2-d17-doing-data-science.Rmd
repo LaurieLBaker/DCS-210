@@ -21,6 +21,119 @@ output:
 library(tidyverse)
 ```
 
+---
+
+class: middle
+
+# Welcome to Data Science 2: Programming for Data Analysis
+
+---
+
+# Introductions
+
+
+```{r echo=FALSE, out.width="50%", fig.cap = "Image Credit: R monster mascots by @Allison Horst", fig.align="left"}
+knitr::include_graphics("img/avatar.jpg")
+```
+
+
+* Name (and pronouns if you want to share)
+* Option 1: Something you recently taught yourself how to do
+* Option 2: What item you'd be most excited to find in the free box?
+
+---
+
+# Agenda
+
+## Part 1: Get to know one another
+
+* Walk around the room and find three people
+* Re-introduce yourselves to your group
+* Find something you all have in common
+* Continue on until you have formed three groups.
+
+## Part 2: What is this course going to look like?
+
+## Part 3: Open Questions
+
+---
+
+## Data science
+
+.pull-left-wide[
+- Data science is an exciting discipline that allows you to turn data into understanding, insight, and knowledge. 
+
+- We're going to learn to do this in a `tidy` way -- more on that later!
+
+- This is a course on programming for analysis and visualization, with an emphasis on statistical thinking.
+]
+
+---
+
+class: middle
+
+# Data science life cycle
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.001.png")
+```
+
+???
+Let's also talk about the Data Science Life Cycle. This is the diagram from the book R for Data Science that we'll be referring to throughout the course. Note that this isn't the only diagram out there representing the data science life cycle but it is the one that we are using to structure this course. 
+
+So how does the data science life cycle begin?
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.002.png")
+```
+
+???
+Usually you have some data maybe in a spreadsheet or a database and you need to import into R.
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.003.png")
+```
+
+???
+
+Then we need to spend some time organising that data to make it easier to use and analyse. This often includes doublechecking the data for mistakes and tidying it and it may also include transforming it to get it to the table that you want, that makes it easier to use or analyse. 
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.004.png")
+```
+
+???
+
+Once the data is in a format that is easy to work with, you want to visualize your data to start to gain some insights from it. 
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.005.png")
+```
+
+???
+Then, perhaps you will go onto modelling your data.
+
+---
+
+```{r echo=FALSE, out.width="90%", fig.align="left"}
+knitr::include_graphics("img/data-science-cycle/data-science-cycle.006.png")
+```
+
+???
+And the reality is it never ends there. You will gain more insight into the data and you may need to go back and check and adjust your assumptions. 
+
+That last step is communicating your results and finding. 
+
+
+---
 class: middle
 
 # What's in a data analysis?
