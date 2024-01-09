@@ -459,16 +459,6 @@ ggplot(squirrels, aes(x = long, y = lat, color = where)) +
 .panelset[
 
 .panel[.panel-name[Plot]
-
-```
-## Warning: The following aesthetics were dropped during statistical
-## transformation: colour
-## ℹ This can happen when ggplot fails to infer the correct
-##   grouping structure in the data.
-## ℹ Did you forget to specify a `group` aesthetic or to convert a
-##   numerical variable into a factor?
-```
-
 &lt;img src="u2-d17-doing-data-science_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 ]
 
@@ -491,15 +481,6 @@ squirrels %&gt;%
   left_join(hectare_centroids, by = "hectare") %&gt;%
   ggplot(aes(x = centroid_x, y = centroid_y, color = n)) +
   geom_hex()
-```
-
-```
-## Warning: The following aesthetics were dropped during statistical
-## transformation: colour
-## ℹ This can happen when ggplot fails to infer the correct
-##   grouping structure in the data.
-## ℹ Did you forget to specify a `group` aesthetic or to convert a
-##   numerical variable into a factor?
 ```
 ]
 

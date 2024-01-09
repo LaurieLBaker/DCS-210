@@ -350,7 +350,7 @@ ggplot(squirrels, aes(x = long, y = lat)) +
 ]
 
 .panel[.panel-name[Code]
-```{r easy-solution, message = FALSE, warnings = FALSE, fig.show = "hide"}
+```{r easy-solution, message = FALSE, warning = FALSE, fig.show = "hide"}
 squirrels <- squirrels %>%
   separate(hectare, into = c("NS", "EW"), sep = 2, remove = FALSE) %>%
   mutate(where = if_else(NS %in% c("01", "42") | EW %in% c("A", "I"), "perimeter", "inside")) 
@@ -369,12 +369,12 @@ ggplot(squirrels, aes(x = long, y = lat, color = where)) +
 .panelset[
 
 .panel[.panel-name[Plot]
-```{r ref.label="hex-plot", echo = FALSE}
+```{r ref.label="hex-plot", message = FALSE, warning = FALSE, echo = FALSE}
 ```
 ]
 
 .panel[.panel-name[Code]
-```{r hex-plot, message = FALSE, warnings = FALSE,fig.show = "hide"}
+```{r hex-plot, message = FALSE, warning = FALSE,fig.show = "hide"}
 hectare_counts <- squirrels %>%
   group_by(hectare) %>%
   summarise(n = n()) 
