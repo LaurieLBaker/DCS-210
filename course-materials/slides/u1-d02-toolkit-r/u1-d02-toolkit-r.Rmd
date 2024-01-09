@@ -107,7 +107,7 @@ knitr::include_graphics("img/rstudio.png")
 
 ???
 
-In this course we are going to be using something a little bit different. We are going to be using RStudio to interact with the computing language. If you remember the images from the previous two slides you can see that RStudio combines those two components so that you can view the data and also execute code in the console. RStudio is the Integrated Development Environment (IDE) that we are going to use in this course.
+In this course we are going to be using something a little bit different. We are going to be using Posit to interact with the computing language. If you remember the images from the previous two slides you can see that Posit combines those two components so that you can view the data and also execute code in the console. Posit is the Integrated Development Environment (IDE) that we are going to use in this course.
 
 ---
 
@@ -191,7 +191,7 @@ That last step is communicating your results and finding.
 ### .pink[Doing data science]
 - .pink[Programming:]
   - .pink[R]
-  - .pink[RStudio]
+  - .pink[Posit]
   - .pink[tidyverse]
   - .pink[R Markdown]
 - .gray[Version control and collaboration:]
@@ -260,11 +260,11 @@ Long-term goals:
 
 class: middle
 
-# R and RStudio
+# R and Posit
 
 ---
 
-## R and RStudio
+## R and Posit
 
 .pull-left[
 ```{r echo=FALSE, out.width="25%"}
@@ -278,8 +278,8 @@ knitr::include_graphics("img/r-logo.png")
 ```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("img/rstudio-logo.png")
 ```
-- RStudio is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the RStudio IDE"*
-- RStudio is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+- Posit is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the Posit IDE"*
+- Posit is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
 ]
 
 
@@ -301,7 +301,7 @@ knitr::include_graphics("img/rstudio-logo.png")
 
 ---
 
-## Tour: R and RStudio
+## Tour: R and Posit
 
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics("img/tour-r-rstudio.png")
@@ -502,7 +502,7 @@ Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.co
 .your-turn[
 .light-blue[.hand[Your turn:]] `AE 02 - Bechdel + R Markdown`
 - [The Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
-- Go to [RStudio Cloud](https://rstudio.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
+- Go to [PositCloud](https://posit.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
 - Open and knit the R Markdown document `bechdel.Rmd`, review the document, and fill in the blanks.
 ]
 

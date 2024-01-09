@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Laurie Baker" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
@@ -15,9 +15,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Welcome!
+]
+.subtitle[
 ## <br><br> ES 1085: Data Science 1: Visualization
+]
+.author[
 ### Dr. Laurie Baker
+]
 
 ---
 
@@ -263,7 +269,7 @@ When I did my undergraduate thesis and started learning R this is what R looked 
 
 ???
 
-In this course we are going to be using something a little bit different. We are going to be using RStudio to interact with the computing language. If you remember the images from the previous two slides you can see that RStudio combines those two components so that you can view the data and also execute code in the console. RStudio is the Integrated Development Environment (IDE) that we are going to use in this course.
+In this course we are going to be using something a little bit different. We are going to be using Posit to interact with the computing language. If you remember the images from the previous two slides you can see that Posit combines those two components so that you can view the data and also execute code in the console. Posit is the Integrated Development Environment (IDE) that we are going to use in this course.
 
 ---
 
@@ -317,256 +323,11 @@ And the reality is it never ends there. You will gain more insight into the data
 
 That last step is communicating your results and finding. 
 
----
-
-.pull-left[
-&lt;img src="img/google-trend-index.png" width="75%" style="display: block; margin: auto auto auto 0;" /&gt;
-]
-.pull-right[
-&lt;img src="img/data-science-cycle/data-science-cycle.006.png" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
-]
-
-???
-So here is what that cycle might look like. Here we have data from the google trend index which is basically a numerical summary of the popularity of search words on google. And in this case we're looking at search traffic data from the U.S. for the travel search index which includes searches related to airlines, hotels, beach, southwest, las vegas, flights etc. Now in the U.S. the summer months are May, June, July, August months and we can kind of see that there are these peaks that are happening around those months on an annual basis.
-
-So looking at the google trends index and visualizing that data we can see those seasonal trends happening. 
-
-But in our collected data we can see data from every day.
 
 ---
+## Acknowledgements
 
-.pull-left[
-&lt;img src="img/google-trend-index.png" width="75%" style="display: block; margin: auto auto auto 0;" /&gt;
-]
-.pull-right[
-&lt;img src="img/data-science-cycle/data-science-cycle.006.png" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
-
-```
-## # A tibble: 5 x 2
-##   date             season
-##   &lt;chr&gt;            &lt;chr&gt; 
-## 1 23 January 2017  winter
-## 2 4 March 2017     spring
-## 3 14 June 2017     summer
-## 4 1 September 2017 fall  
-## 5 ...              ...
-```
-]
-
-???
-So maybe our data looked something like the first column here where for each of our data points we had a date and the number of searches on that day.
-
-So now that we've seen that pattern we can look back at our data and say that now instead of the dates themselves, we're interested in the season.
-
-So this would be an example of doing the visualization and coming back to the data to do some further wrangling.
-
----
-
-&lt;img src="img/data-science-cycle/data-science-cycle.007.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
-
-???
-
-We don't necessarily want you to wait until the very end to produce your results after doing some research.
-
----
-
-&lt;img src="img/data-science-cycle/data-science-cycle.008.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
-
-???
-Instead we want you to build communication into the process. We're going to do this by doing our analysis in an environment where we can communicate what we have done and how we came to our decisions while we're still also doing our analysis. 
----
-
-&lt;img src="img/data-science-cycle/data-science-cycle.009.png" width="90%" style="display: block; margin: auto auto auto 0;" /&gt;
-
-???
-You can see that one program is in this diagram as well and this is what is tying all of these different elements together. Because all of these stages require programming. 
-
-
----
-
-&lt;img src="img/unvotes/unvotes.gif" width="85%" style="display: block; margin: auto auto auto 0;" /&gt;
-
-???
-What we're going to be doing looks a bit like this. On the right side you can see a document that looks human-friendly and readable. On the left we have a combination of the code and text that was used to make the document. In the next week, I will be focused on helping you make the link between the code and text on the left and the document on the right. This is an environment where you can have your narrative, code and output all in one place so that you can do your communication as you go. 
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: middle --&gt;
-
-&lt;!-- # Let's dive in! --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- background-image: url("img/unvotes/unvotes-01.jpeg") --&gt;
-
-&lt;!-- ??? --&gt;
-
-&lt;!-- We're going to start with a data set that comes from the UN General Assembly. We're going to look at how countries have been voting on certain issues. --&gt;
-
-&lt;!-- These particular issues are on arms control and disarmament, colonialism, economic development, human rights, nuclear weapons and nuclear material, and the Palestinian conflict.  --&gt;
-
-&lt;!-- So I've just picked three countries. I'm from the U.S. but I have lived for a long time in the UK in Scotland, and I included Turkey as well. --&gt;
-
-&lt;!-- So what do we notice about this graph? --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-02.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- On the y-axis we have the percentage of the resolutions that the countries voted yes on. So for each year that we have data (1946-2015).  --&gt;
-
-&lt;!-- Each of these panes, each of these "facets" show us one of these issues. --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-03.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-
-&lt;!-- I am going to focus on the Palestinian conflict issue because we can see that the countries are quite divergent on this issue. Turkey's vote trend overtime looks very dissimilar to the US vote. And if you know anything about the politics of these countries, maybe this doesn't come as a surprise to you. And that's often a good thing, that something the data shows you does not fly in the face of what you know to be true but that it actually goes along with it. But every once in a while you might find out that actually what you expected did not turn out to be the case when you visualized or modelled the data. And then there is really one of two things you can do. Either: you go back and check to make sure you did the right things (e.g. maybe your hunch was right and your analysis has a mistake in it). Or it is time to change what you believe in because the data says otherwise. --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-04.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- How did we make this data visualization? The data actual came from 3 separate sources. One was on how the countries voted: "yes" or "no". One was on roll calls (each voting session in the UN general assembly is a roll call), and then we also had a 3rd data frame that linked each roll call using the rcid (roll call id) to the particular issue it focused on.  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-05.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- We had data from these three data sets and then we wrote some code. We're not going to jump write into that now as we don't want to get ahead of ourselves, but you can see that we have the three data sets that I showed you before: un_votes, un_roll_calls, and un_roll_call_issues.  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-06.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- Now you can see that there is this bit of code that has the word join in it. Which we used to bring those datasets together. So maybe that starts to sound like we are going to join these datasets together.  --&gt;
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-07.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-
-&lt;!-- Then we're going to filter for three particular countries and these are the countries that I mentioned at the start and were in our data visualization: "US", "UK &amp; NI", and "Turkey". So we're not going to visualize all of the countries but just the ones that we have filtered.  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="90%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-08.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- Then you're going to see something called "ggplot". So you don't have to worry about what the gg part is now, but we can tell that this is plotting something. So to recap we are joining these dataframes, filtering out certain countries, and then plotting them.  --&gt;
-
-&lt;!-- This is a useful skill for you to start to gain. Whenever you're presented with a chunk of code. Being able to take a look at it "calmly" and ask: "Is there anything I can recognize?" "Is there anything I can link to the output I was seeing".  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="90%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-09.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ???  --&gt;
-
-&lt;!-- And other things I can see here is the title and subtitle. And the text strings that are set as equal to them are the title and subtitle on our plot.  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="90%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-10.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-&lt;!-- If we actually go back to the environment we saw before which is actually called an Rmarkdown environment, we can put our analysis and text together. Looking here you can see that there are some words that are actually getting rendered as text and there is actually some code that is being run on this document.  --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="90%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-11.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ??? --&gt;
-
-&lt;!-- We can also see that there is some metadata. We have a title, an author, the date. Would you like a table of contents (toc): yes. And you can see that that information gets rendered in a nice way in the document. And the report looks like something you can recognise as a report. And the other side is looking at the source of that report "looking under the hood".  --&gt;
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="90%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-12.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-13.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- class: inverse --&gt;
-
-&lt;!-- ```{r echo=FALSE, out.width="100%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-14.jpeg") --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- --- --&gt;
-
-&lt;!-- .center[ --&gt;
-&lt;!-- .large[ --&gt;
-&lt;!-- [minecr.shinyapps.io/unvotes](https://minecr.shinyapps.io/unvotes/) --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- .pull-left[ --&gt;
-&lt;!-- ```{r echo=FALSE, out.width="85%"} --&gt;
-&lt;!-- knitr::include_graphics("img/unvotes/unvotes-15.png") --&gt;
-&lt;!-- ``` --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- .pull-right[ --&gt;
-&lt;!-- * Choose two new countries. What issues do they agree upon the most? What issues do they disagree upon the most? --&gt;
-&lt;!-- * Are there any issues they were agreeing upon more in the past? More in the present? --&gt;
-&lt;!-- ] --&gt;
-&lt;!-- ??? --&gt;
-&lt;!-- If you want to play around with this data you can play around with it on this web app. Try to take out and add to these countries.  --&gt;
+* This course builds on the materials from [Data Science in a Box](https://datasciencebox.org/) developed by Mine Çetinkaya-Rundel and are adapted under the [Creative Commons Attribution Share Alike 4.0 International](https://github.com/rstudio-education/datascience-box/blob/master/LICENSE.md)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -615,6 +376,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -16,9 +16,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Meet the toolkit:<br>programming
+]
+.subtitle[
 ## <br><br> College of the Atlantic
+]
+.author[
 ### 
+]
 
 ---
 
@@ -106,7 +112,7 @@ When I did my undergraduate thesis and started learning R this is what R looked 
 
 ???
 
-In this course we are going to be using something a little bit different. We are going to be using RStudio to interact with the computing language. If you remember the images from the previous two slides you can see that RStudio combines those two components so that you can view the data and also execute code in the console. RStudio is the Integrated Development Environment (IDE) that we are going to use in this course.
+In this course we are going to be using something a little bit different. We are going to be using Posit to interact with the computing language. If you remember the images from the previous two slides you can see that Posit combines those two components so that you can view the data and also execute code in the console. Posit is the Integrated Development Environment (IDE) that we are going to use in this course.
 
 ---
 
@@ -178,7 +184,7 @@ That last step is communicating your results and finding.
 ### .pink[Doing data science]
 - .pink[Programming:]
   - .pink[R]
-  - .pink[RStudio]
+  - .pink[Posit]
   - .pink[tidyverse]
   - .pink[R Markdown]
 - .gray[Version control and collaboration:]
@@ -247,11 +253,11 @@ Long-term goals:
 
 class: middle
 
-# R and RStudio
+# R and Posit
 
 ---
 
-## R and RStudio
+## R and Posit
 
 .pull-left[
 &lt;img src="img/r-logo.png" width="25%" style="display: block; margin: auto;" /&gt;
@@ -261,8 +267,8 @@ class: middle
 ]
 .pull-right[
 &lt;img src="img/rstudio-logo.png" width="50%" style="display: block; margin: auto;" /&gt;
-- RStudio is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the RStudio IDE"*
-- RStudio is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+- Posit is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the Posit IDE"*
+- Posit is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
 ]
 
 
@@ -284,7 +290,7 @@ class: middle
 
 ---
 
-## Tour: R and RStudio
+## Tour: R and Posit
 
 &lt;img src="img/tour-r-rstudio.png" width="80%" style="display: block; margin: auto;" /&gt;
 
@@ -477,7 +483,7 @@ Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.co
 .your-turn[
 .light-blue[.hand[Your turn:]] `AE 02 - Bechdel + R Markdown`
 - [The Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
-- Go to [RStudio Cloud](https://rstudio.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
+- Go to [PositCloud](https://posit.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
 - Open and knit the R Markdown document `bechdel.Rmd`, review the document, and fill in the blanks.
 ]
 
@@ -533,6 +539,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
