@@ -1,5 +1,5 @@
 ---
-title: "Doing data science"
+title: "Doing data science refresher"
 subtitle: "<br><br> College of the Atlantic"
 author: "[https://coa-data-analysis.netlify.app/](https://coa-data-analysis.netlify.app/)"
 output:
@@ -350,7 +350,7 @@ ggplot(squirrels, aes(x = long, y = lat)) +
 ]
 
 .panel[.panel-name[Code]
-```{r easy-solution, fig.show = "hide"}
+```{r easy-solution, message = FALSE, warnings = FALSE, fig.show = "hide"}
 squirrels <- squirrels %>%
   separate(hectare, into = c("NS", "EW"), sep = 2, remove = FALSE) %>%
   mutate(where = if_else(NS %in% c("01", "42") | EW %in% c("A", "I"), "perimeter", "inside")) 
@@ -374,7 +374,7 @@ ggplot(squirrels, aes(x = long, y = lat, color = where)) +
 ]
 
 .panel[.panel-name[Code]
-```{r hex-plot, fig.show = "hide"}
+```{r hex-plot, message = FALSE, warnings = FALSE,fig.show = "hide"}
 hectare_counts <- squirrels %>%
   group_by(hectare) %>%
   summarise(n = n()) 
