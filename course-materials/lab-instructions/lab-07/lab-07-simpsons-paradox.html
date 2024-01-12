@@ -363,7 +363,7 @@ In this lab we analyse the relationships between these variables, first two at a
 </div>
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
-<p>Click on the assignment link clone it in RStudio and open the R Markdown document.
+<p>Click on the assignment link clone it in Posit and open the R Markdown document.
 Knit the document to make sure it compiles without errors.</p>
 <div id="warm-up" class="section level2">
 <h2>Warm up</h2>
@@ -375,16 +375,15 @@ If anything is missing, commit and push again.</p>
 </div>
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-<p>We’ll use the <strong>tidyverse</strong> package for much of the data wrangling and visualisation and the data lives in the <strong>mosaicData</strong> package.
-These packages are already installed for you.
-You can load them by running the following in your Console:</p>
+<p>We’ll use the <strong>tidyverse</strong> package for much of the data wrangling and visualisation and the data lives in the <strong>mosaicData</strong> package which you will want to install in the Console.</p>
+<p>After installing, you can load them by running the following in your Console:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaicData) </span></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>The dataset we’ll use is called Whickham from the <strong>mosaicData</strong> package.
-You can find out more about the dataset by inspecting their documentation, which you can access by running <code>?Whickham</code> in the Console or using the Help menu in RStudio to search for <code>Whickham</code>.</p>
+You can find out more about the dataset by inspecting their documentation, which you can access by running <code>?Whickham</code> in the Console or using the Help menu in Posit to search for <code>Whickham</code>.</p>
 </div>
 </div>
 <div id="exercises" class="section level1">
@@ -406,7 +405,7 @@ Display each variable using an appropriate visualization.</p></li>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Whickham <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(smoker, outcome)</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
-<li>Create a new variable called <code>age_cat</code> using the following scheme:</li>
+<li>Create a new variable called <code>age_cat</code> using the following scheme. Hint you’ll want to think about using <code>if_else</code> or <code>case_when</code> here:</li>
 </ol>
 <ul>
 <li><code>age &lt;= 44 ~ &quot;18-44&quot;</code></li>

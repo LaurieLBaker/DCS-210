@@ -27,7 +27,7 @@ In this lab we analyse the relationships between these variables, first two at a
 
 # Getting started
 
-Click on the assignment link clone it in RStudio and open the R Markdown document.
+Click on the assignment link clone it in Posit and open the R Markdown document.
 Knit the document to make sure it compiles without errors.
 
 ## Warm up
@@ -40,9 +40,9 @@ If anything is missing, commit and push again.
 
 ## Packages
 
-We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **mosaicData** package.
-These packages are already installed for you.
-You can load them by running the following in your Console:
+We'll use the **tidyverse** package for much of the data wrangling and visualisation and the data lives in the **mosaicData** package which you will want to install in the Console.
+
+After installing, you can load them by running the following in your Console:
 
 ```{r eval = TRUE, message = FALSE}
 library(tidyverse) 
@@ -52,7 +52,7 @@ library(mosaicData)
 ## Data
 
 The dataset we'll use is called Whickham from the **mosaicData** package.
-You can find out more about the dataset by inspecting their documentation, which you can access by running `?Whickham` in the Console or using the Help menu in RStudio to search for `Whickham`.
+You can find out more about the dataset by inspecting their documentation, which you can access by running `?Whickham` in the Console or using the Help menu in Posit to search for `Whickham`.
 
 # Exercises
 
@@ -77,7 +77,7 @@ Whickham %>%
   count(smoker, outcome)
 ```
 
-6.  Create a new variable called `age_cat` using the following scheme:
+6.  Create a new variable called `age_cat` using the following scheme. Hint you'll want to think about using `if_else` or `case_when` here:
 
 -   `age <= 44 ~ "18-44"`
 -   `age > 44 & age <= 64 ~ "45-64"`
