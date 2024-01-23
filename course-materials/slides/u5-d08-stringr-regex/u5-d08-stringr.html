@@ -73,8 +73,6 @@ class: middle
 - Getting Started with stringr
 - Basic String Operators
 - Special Characters
-- Regular Expressions
-- Pattern Matching Functions
 
 ---
 
@@ -108,7 +106,7 @@ strings &lt;- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
 - Many of them have equivalent base R functions that are much slower and bulkier
 
 ---
-## **str_to_upper(string)**
+## str_to_upper(string)
     - converts strings to uppercase
       - ex. Convert all movie_titles to uppercase and store them as movie_titles
 
@@ -129,7 +127,7 @@ movie_titles
 ```
 
 ---
-## **str_to_lower(string)**
+## str_to_lower(string)
     - converts strings to lowercase
       - ex. Convert all movie_titles back to lowercase and save as movie_titles
       
@@ -150,7 +148,7 @@ movie_titles
 ```
 
 ---
-## **str_to_title(string)**
+## str_to_title(string)
     - converts strings to title case
       - ex. Convert all movie_titles to titlecase and store them as movie_titles
 
@@ -218,14 +216,14 @@ str_sub("Dr Jekyll", start = 1, end = 2)
 ```
 
 ---
-## `str_trim(string, side = c("both", "left", "right"))`
+## `str_trim(string)`
     - Removes leading and trailing whitespaces
-    - Side argument defaults to "both"
+    - `side = c("both", "left", "right")` Side argument defaults to "both"
     - example: trim the whitespace from both sides of every string in strings
  
 
 ```r
-str_trim(strings)
+str_trim(strings, side = "both")
 ```
 
 ```
@@ -244,7 +242,7 @@ str_trim(strings)
 ```
 
 ---
-## `str_pad(string, width, side = c("left", "both", "right"), pad = " ")`
+## `str_pad()`
     - Pads strings with whitespace to make them a certain length
     - Width argument lets users specify the width of the padding
     - Side argument defaults to "left"
@@ -253,7 +251,7 @@ str_trim(strings)
 
 
 ```r
-str_pad(movie_titles, side = "right", 30)
+str_pad(movie_titles, side = "right", width = 30)
 ```
 
 ```
@@ -310,11 +308,11 @@ purchases |&gt;
 
 ```
 ## # A tibble: 3 × 2
-##   name    fruits          
-##   &lt;chr&gt;   &lt;chr&gt;           
-## 1 Aziz    pear            
-## 2 Carmen  apple and banana
-## 3 Maganga pineapple
+##   name    fruits                                                 
+##   &lt;chr&gt;   &lt;chr&gt;                                                  
+## 1 Aziz    avocado, blackberry, boysenberry, cherimoya, cloudberr…
+## 2 Carmen  apple, apricot, bell pepper, bilberry, blood orange, b…
+## 3 Maganga banana, blackcurrant, breadfruit, cherry, coconut, dam…
 ```
 
 ---

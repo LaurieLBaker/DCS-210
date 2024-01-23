@@ -63,6 +63,23 @@ The simplest patterns consist of letters and numbers which match those character
 str_view(string = fruit, pattern = "berry")
 ```
 
+```
+##  [6] │ bil&lt;berry&gt;
+##  [7] │ black&lt;berry&gt;
+## [10] │ blue&lt;berry&gt;
+## [11] │ boysen&lt;berry&gt;
+## [19] │ cloud&lt;berry&gt;
+## [21] │ cran&lt;berry&gt;
+## [29] │ elder&lt;berry&gt;
+## [32] │ goji &lt;berry&gt;
+## [33] │ goose&lt;berry&gt;
+## [38] │ huckle&lt;berry&gt;
+## [50] │ mul&lt;berry&gt;
+## [70] │ rasp&lt;berry&gt;
+## [73] │ salal &lt;berry&gt;
+## [76] │ straw&lt;berry&gt;
+```
+
 *Note that the first argument in `str_view` is for the `string` and the second argument is the `pattern`. 
 
 ---
@@ -202,8 +219,24 @@ str_view(fruit, "apple|nut|berry")
 ```
 
 ```
-## [1] │ &lt;apple&gt;
-## [4] │ pine&lt;apple&gt;
+##  [1] │ &lt;apple&gt;
+##  [6] │ bil&lt;berry&gt;
+##  [7] │ black&lt;berry&gt;
+## [10] │ blue&lt;berry&gt;
+## [11] │ boysen&lt;berry&gt;
+## [19] │ cloud&lt;berry&gt;
+## [20] │ coco&lt;nut&gt;
+## [21] │ cran&lt;berry&gt;
+## [29] │ elder&lt;berry&gt;
+## [32] │ goji &lt;berry&gt;
+## [33] │ goose&lt;berry&gt;
+## [38] │ huckle&lt;berry&gt;
+## [50] │ mul&lt;berry&gt;
+## [52] │ &lt;nut&gt;
+## [62] │ pine&lt;apple&gt;
+## [70] │ rasp&lt;berry&gt;
+## [73] │ salal &lt;berry&gt;
+## [76] │ straw&lt;berry&gt;
 ```
 
 
@@ -378,7 +411,33 @@ str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
 ```
 
 ```
-## [1] "epple"     "benana"    "peer"      "pineepple"
+##  [1] "epple"             "epricot"           "evocado"          
+##  [4] "benana"            "bell pepper"       "bilberry"         
+##  [7] "bleckberry"        "bleckcurrant"      "blood orenge"     
+## [10] "blueberry"         "boysenberry"       "breedfruit"       
+## [13] "cenary melon"      "centaloupe"        "cherimoye"        
+## [16] "cherry"            "chili pepper"      "clementine"       
+## [19] "cloudberry"        "coconut"           "crenberry"        
+## [22] "cucumber"          "current"           "demson"           
+## [25] "dete"              "dregonfruit"       "durien"           
+## [28] "eggplent"          "elderberry"        "feijoe"           
+## [31] "fig"               "goji berry"        "gooseberry"       
+## [34] "grepe"             "grepefruit"        "gueva"            
+## [37] "honeydew"          "huckleberry"       "jeckfruit"        
+## [40] "jembul"            "jujube"            "kiwi fruit"       
+## [43] "kumquet"           "lemon"             "lime"             
+## [46] "loquet"            "lychee"            "mendarine"        
+## [49] "mengo"             "mulberry"          "necterine"        
+## [52] "nut"               "olive"             "orenge"           
+## [55] "pemelo"            "pepaya"            "pessionfruit"     
+## [58] "peech"             "peer"              "persimmon"        
+## [61] "physelis"          "pineepple"         "plum"             
+## [64] "pomegrenate"       "pomelo"            "purple mengosteen"
+## [67] "quince"            "reisin"            "rembutan"         
+## [70] "respberry"         "redcurrent"        "rock melon"       
+## [73] "selal berry"       "setsuma"           "ster fruit"       
+## [76] "strewberry"        "temarillo"         "tengerine"        
+## [79] "ugli fruit"        "wetermelon"
 ```
 
 ```r
@@ -386,7 +445,33 @@ str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
 ```
 
 ```
-## [1] "epple"     "benene"    "peer"      "pineepple"
+##  [1] "epple"             "epricot"           "evocedo"          
+##  [4] "benene"            "bell pepper"       "bilberry"         
+##  [7] "bleckberry"        "bleckcurrent"      "blood orenge"     
+## [10] "blueberry"         "boysenberry"       "breedfruit"       
+## [13] "cenery melon"      "centeloupe"        "cherimoye"        
+## [16] "cherry"            "chili pepper"      "clementine"       
+## [19] "cloudberry"        "coconut"           "crenberry"        
+## [22] "cucumber"          "current"           "demson"           
+## [25] "dete"              "dregonfruit"       "durien"           
+## [28] "eggplent"          "elderberry"        "feijoe"           
+## [31] "fig"               "goji berry"        "gooseberry"       
+## [34] "grepe"             "grepefruit"        "gueve"            
+## [37] "honeydew"          "huckleberry"       "jeckfruit"        
+## [40] "jembul"            "jujube"            "kiwi fruit"       
+## [43] "kumquet"           "lemon"             "lime"             
+## [46] "loquet"            "lychee"            "menderine"        
+## [49] "mengo"             "mulberry"          "necterine"        
+## [52] "nut"               "olive"             "orenge"           
+## [55] "pemelo"            "pepeye"            "pessionfruit"     
+## [58] "peech"             "peer"              "persimmon"        
+## [61] "physelis"          "pineepple"         "plum"             
+## [64] "pomegrenete"       "pomelo"            "purple mengosteen"
+## [67] "quince"            "reisin"            "rembuten"         
+## [70] "respberry"         "redcurrent"        "rock melon"       
+## [73] "selel berry"       "setsume"           "ster fruit"       
+## [76] "strewberry"        "temerillo"         "tengerine"        
+## [79] "ugli fruit"        "wetermelon"
 ```
 
 **Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
@@ -513,8 +598,8 @@ str_view(fruit, "apple")
 ```
 
 ```
-## [1] │ &lt;apple&gt;
-## [4] │ pine&lt;apple&gt;
+##  [1] │ &lt;apple&gt;
+## [62] │ pine&lt;apple&gt;
 ```
 
 ---

@@ -62,8 +62,6 @@ knitr::include_graphics("img/stringr-autocomplete.png")
 - Getting Started with stringr
 - Basic String Operators
 - Special Characters
-- Regular Expressions
-- Pattern Matching Functions
 
 ---
 
@@ -96,7 +94,7 @@ strings <- c(" 219 733 8965", "329-293-8753 ", "banana", "595 794 7569",
 - Many of them have equivalent base R functions that are much slower and bulkier
 
 ---
-## **str_to_upper(string)**
+## str_to_upper(string)
     - converts strings to uppercase
       - ex. Convert all movie_titles to uppercase and store them as movie_titles
 
@@ -106,7 +104,7 @@ movie_titles
 ```
 
 ---
-## **str_to_lower(string)**
+## str_to_lower(string)
     - converts strings to lowercase
       - ex. Convert all movie_titles back to lowercase and save as movie_titles
       
@@ -116,7 +114,7 @@ movie_titles
 ```
 
 ---
-## **str_to_title(string)**
+## str_to_title(string)
     - converts strings to title case
       - ex. Convert all movie_titles to titlecase and store them as movie_titles
 
@@ -158,17 +156,17 @@ str_sub("Dr Jekyll", start = 1, end = 2)
 ```
 
 ---
-## `str_trim(string, side = c("both", "left", "right"))`
+## `str_trim(string)`
     - Removes leading and trailing whitespaces
-    - Side argument defaults to "both"
+    - `side = c("both", "left", "right")` Side argument defaults to "both"
     - example: trim the whitespace from both sides of every string in strings
  
 ```{r small = T}
-str_trim(strings)
+str_trim(strings, side = "both")
 ```
 
 ---
-## `str_pad(string, width, side = c("left", "both", "right"), pad = " ")`
+## `str_pad()`
     - Pads strings with whitespace to make them a certain length
     - Width argument lets users specify the width of the padding
     - Side argument defaults to "left"
@@ -176,7 +174,7 @@ str_trim(strings)
       becomes 30 characters long.
 
 ```{r small = T}
-str_pad(movie_titles, side = "right", 30)
+str_pad(movie_titles, side = "right", width = 30)
 ```
 
 ---
