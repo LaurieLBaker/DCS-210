@@ -109,6 +109,12 @@ str_view(words, "[^aeiou]y[^aeiou]")
 ```
 
 ---
+## Your Turn
+
+Work on Exercises 1 and 2.
+
+
+---
 ## Alternation
 
 **alternation**, `|` can be used to pick between one or more alternative patterns.
@@ -125,6 +131,12 @@ str_view(fruit, "apple|nut|berry")
 ```{r}
 str_view(baby1880$name, pattern = "aa|ee|ii|oo|uu")
 ```
+
+---
+## Your Turn
+
+Work on Exercises 3 and 4.
+
 
 ---
 ## Key stringr functions
@@ -206,12 +218,10 @@ str_replace(fruit, pattern = "a", replacement = "e") # only the first instance
 str_replace_all(fruit, pattern = "a", replacement = "e") # every instance
 ```
 
-**Your turn:** In movie_titles, replace all instances of "Good" with "Bad".
+---
+## Your Turn
 
-```{r eval = FALSE}
-str____________(movie_titles, pattern = "")
-```
-
+Work on exercises 5 and 6
     
 ---
 ## Extracting Patterns
@@ -251,6 +261,15 @@ str_extract(phone_numbers, pattern = "^207-[0-9]{3}-[0-9]{4}")
 ---
 ## Escaping
 
+- Regular expressions use the backslash for escaping metacharacters.
+- To match a ., we need the regexp `\.`. 
+- Because we use strings to represent the regular expression, and `\` is also used as an escape symbol in strings, to create the regular expression `\.` we need the string `"\\."`
+
+```{r Escaping}
+str_view(c("abc", "a.c", "bef"), "a\\.c")
+```
+
+
 ---
 ## Anchors
 
@@ -269,6 +288,11 @@ str_view(baby1880$name, "g$")
 str_view(fruit, "\\bapple\\b")
 str_view(fruit, "apple")
 ```
+
+---
+## Your Turn
+
+Try Exercise 7
 
 ---
 ## Character classes
