@@ -100,7 +100,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 7: Homework 04, money in politics](course-materials/hw-instructions/hw-06/hw-06-money-in-politics.html) 
 - [Week 7: Lab 05, La Quinta is Spanish for Next to Denny's](course-materials/lab-instructions/lab-04a/lab-00-viz-sp-data.html) 
 - [Week 7: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
-- [Week 7: Missing Data](course-materials/slides/u5-d09-viz-miss-data/u5-d09-viz-miss-data.html)
+- [Week 7: Missing Data](course-materials/slides/u5-d09-viz-miss-data/u5-d09-viz-miss.html)
 
 
 ## Week 8: Modelling data
