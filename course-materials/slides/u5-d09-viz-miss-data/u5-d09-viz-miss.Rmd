@@ -31,9 +31,7 @@ class: middle
 ---
 ## Origins of Missing Data
 
-Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
-
-- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+- What are the origins of missing data?
 
 ---
 ## Packages for visualizing missing data
@@ -131,7 +129,7 @@ gg_miss_fct(x = typical_data, fct = Race) +
 
 
 ---
-# Number missing across cases
+# Missingness across cases
 
 ```{r plot missing cases}
 gg_miss_case(typical_data)
@@ -139,10 +137,9 @@ gg_miss_case(typical_data)
 
 
 ---
-# Visualizing missing data by cases
+# Missingness across cases
 
 ```{r understanding missing case frequency}
-# from the UpSetR package
 
 typical_data %>%
   as_shadow_upset() %>%
@@ -150,14 +147,14 @@ typical_data %>%
 ```
 
 ---
-# Daily Air Quality Data in NYC, May-September 1973
+# Daily Air Quality Data in NYC, May-Sept 1973
 
 ```{r visualizing data types of airquality}
 vis_dat(airquality)
 ```
 
 ---
-# Visualizinging relationships in missing values
+# Relationships in missing values
 
 Returning to the `ggplot` warnings
 
@@ -169,7 +166,7 @@ ggplot(airquality,
 
 
 ---
-# Visualizing relationships in missing values with `geom_miss_point`
+# Relationships in missing values
 
 ```{r plot of missing points}
 airquality %>%
@@ -179,7 +176,7 @@ airquality %>%
 ```
 
 ---
-# Visualizing relationships in missing value with facets
+# Relationships in missing values
 
 ```{r plot missing relationships with facets}
 airquality %>%
@@ -203,13 +200,17 @@ airquality %>%
 ---
 # Consequences of Missing Data
 
----
-# Your Turn: Exploring the original missing person
+- So you have data that is missing? What now?
 
-```{r, fig.alt = "Outline of Sasquatch"}
+---
+# Your Turn
+
+
+```{r, fig.alt = "Outline of Sasquatch", fig.height=4, echo=FALSE}
 knitr::include_graphics("img/Sasquatch.svg")
 ```
 
+Your Turn:
 
 <a href="https://commons.wikimedia.org/wiki/File:Sasquatch.svg">Happybluemo</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 

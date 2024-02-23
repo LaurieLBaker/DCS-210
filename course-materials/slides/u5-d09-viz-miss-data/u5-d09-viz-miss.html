@@ -41,9 +41,7 @@ class: middle
 ---
 ## Origins of Missing Data
 
-Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
-
-- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+- What are the origins of missing data?
 
 ---
 ## Packages for visualizing missing data
@@ -68,15 +66,15 @@ glimpse(typical_data)
 ```
 ## Rows: 5,000
 ## Columns: 9
-## $ ID           [3m[38;5;246m&lt;chr&gt;[39m[23m "0001", "0002", "0003", "0004", "0005", "0…
-## $ Race         [3m[38;5;246m&lt;fct&gt;[39m[23m Black, Black, Black, Hispanic, NA, White, …
-## $ Age          [3m[38;5;246m&lt;dbl&gt;[39m[23m NA, 25, 31, 27, 21, 22, 23, 21, NA, 27, 22…
-## $ Sex          [3m[38;5;246m&lt;fct&gt;[39m[23m Male, Male, Female, Female, Female, Female…
-## $ `Height(cm)` [3m[38;5;246m&lt;dbl&gt;[39m[23m 175.9, 171.7, 173.5, 172.4, 158.5, 169.5, …
-## $ IQ           [3m[38;5;246m&lt;dbl&gt;[39m[23m 110, 84, 115, 84, 116, 83, 101, 97, 92, 99…
-## $ Smokes       [3m[38;5;246m&lt;lgl&gt;[39m[23m FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
-## $ Income       [3m[38;5;246m&lt;dbl&gt;[39m[23m 91, 877, 3190, 4239, 3995, 557, 273, 1133,…
-## $ Died         [3m[38;5;246m&lt;lgl&gt;[39m[23m FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
+## $ ID           &lt;chr&gt; "0001", "0002", "0003", "0004", "0005", "0…
+## $ Race         &lt;fct&gt; Black, Black, Black, Hispanic, NA, White, …
+## $ Age          &lt;dbl&gt; NA, 25, 31, 27, 21, 22, 23, 21, NA, 27, 22…
+## $ Sex          &lt;fct&gt; Male, Male, Female, Female, Female, Female…
+## $ `Height(cm)` &lt;dbl&gt; 175.9, 171.7, 173.5, 172.4, 158.5, 169.5, …
+## $ IQ           &lt;dbl&gt; 110, 84, 115, 84, 116, 83, 101, 97, 92, 99…
+## $ Smokes       &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
+## $ Income       &lt;dbl&gt; 91, 877, 3190, 4239, 3995, 557, 273, 1133,…
+## $ Died         &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
 ```
 * Which of the variable's data types have likely been incorrectly identified?
 
@@ -234,7 +232,7 @@ gg_miss_fct(x = typical_data, fct = Race) +
 
 
 ---
-# Number missing across cases
+# Missingness across cases
 
 
 ```r
@@ -245,12 +243,10 @@ gg_miss_case(typical_data)
 
 
 ---
-# Visualizing missing data by cases
+# Missingness across cases
 
 
 ```r
-# from the UpSetR package
-
 typical_data %&gt;%
   as_shadow_upset() %&gt;%
   upset()
@@ -259,7 +255,7 @@ typical_data %&gt;%
 &lt;img src="u5-d09-viz-miss_files/figure-html/understanding missing case frequency-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Daily Air Quality Data in NYC, May-September 1973
+# Daily Air Quality Data in NYC, May-Sept 1973
 
 
 ```r
@@ -269,7 +265,7 @@ vis_dat(airquality)
 &lt;img src="u5-d09-viz-miss_files/figure-html/visualizing data types of airquality-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Visualizinging relationships in missing values
+# Relationships in missing values
 
 Returning to the `ggplot` warnings
 
@@ -289,7 +285,7 @@ ggplot(airquality,
 
 
 ---
-# Visualizing relationships in missing values with `geom_miss_point`
+# Relationships in missing values
 
 
 ```r
@@ -301,7 +297,7 @@ airquality %&gt;%
 &lt;img src="u5-d09-viz-miss_files/figure-html/plot of missing points-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Visualizing relationships in missing value with facets
+# Relationships in missing values
 
 
 ```r
@@ -335,16 +331,15 @@ airquality %&gt;%
 ---
 # Consequences of Missing Data
 
+- So you have data that is missing? What now?
+
 ---
-# Your Turn: Exploring the original missing person
+# Your Turn
 
-
-```r
-knitr::include_graphics("img/Sasquatch.svg")
-```
 
 &lt;img src="img/Sasquatch.svg" alt="Outline of Sasquatch" width="60%" style="display: block; margin: auto;" /&gt;
 
+Your Turn:
 
 &lt;a href="https://commons.wikimedia.org/wiki/File:Sasquatch.svg"&gt;Happybluemo&lt;/a&gt;, &lt;a href="https://creativecommons.org/licenses/by-sa/4.0"&gt;CC BY-SA 4.0&lt;/a&gt;, via Wikimedia Commons
 
