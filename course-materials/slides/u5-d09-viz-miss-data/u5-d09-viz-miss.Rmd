@@ -1,0 +1,217 @@
+---
+title: "Visualizing Missing Data"
+subtitle: "<br><br> College of the Atlantic"
+author: "Laurie Baker"
+output:
+  xaringan::moon_reader:
+    css: ["../xaringan-themer.css", "../slides.css"]
+    lib_dir: libs
+    anchor_sections: FALSE
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(visdat)
+library(naniar)
+library(UpSetR)
+```
+
+class: middle
+
+# Visualizing Missing Data
+
+---
+## Origins of Missing Data
+
+Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
+
+- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+
+---
+## Packages for visualizing missing data
+
+
+```{r load-packages}
+library(visdat)
+library(naniar)
+library(UpSetR)
+```
+
+---
+## Inspecting the data types
+
+Let's explore a data set of imaginary people who have been randomly generated.
+```{r glimpse data}
+glimpse(typical_data)
+```
+* Which of the variable's data types have likely been incorrectly identified?
+
+.footnote[For more info about the randomly generated data run `?typical_data`]
+
+---
+## Summarizing Missing data
+
+```{r summary data}
+summary(typical_data)
+```
+* `summary` can give us some ideas of missing data
+
+---
+## Visualizing Data Types 
+
+```{r vis data types}
+vis_dat(typical_data)
+```
+
+---
+## Visualizing Missing Data
+
+```{r vis missing data}
+vis_miss(typical_data)
+```
+
+---
+## Calculating how much is missing
+
+```{r missing calculations}
+# From nanianr package:
+
+n_miss(typical_data) # number missing
+
+n_complete(typical_data) # number complete
+
+pct_miss(typical_data) # percent missing
+```
+
+---
+# Calculating how much is missing by column
+
+```{r missing variable summary}
+miss_var_summary(typical_data)
+```
+
+---
+# Visualizing missing data by variable
+
+```{r plot missing data by variable}
+gg_miss_var(typical_data)
+```
+
+---
+# Visualizing percent missing data by variable
+
+```{r plot percent missing}
+gg_miss_var(typical_data, show_pct = TRUE) +
+  ylim(0, 100)
+```
+
+---
+# Visualizing missing data by another variable
+
+```{r plot missing by facet}
+gg_miss_var(typical_data,
+            facet = Race)
+```
+
+---
+# Missingness across factors
+
+```{r plot missing percent heatmap}
+gg_miss_fct(x = typical_data, fct = Race) +
+  labs(y = "Variable")
+```
+
+
+---
+# Number missing across cases
+
+```{r plot missing cases}
+gg_miss_case(typical_data)
+```
+
+
+---
+# Visualizing missing data by cases
+
+```{r understanding missing case frequency}
+# from the UpSetR package
+
+typical_data %>%
+  as_shadow_upset() %>%
+  upset()
+```
+
+---
+# Daily Air Quality Data in NYC, May-September 1973
+
+```{r visualizing data types of airquality}
+vis_dat(airquality)
+```
+
+---
+# Visualizinging relationships in missing values
+
+Returning to the `ggplot` warnings
+
+```{r scatterplot of Solar radiation and Ozone}
+ggplot(airquality, 
+       aes(x = Solar.R, y = Ozone)) + 
+  geom_point()
+```
+
+
+---
+# Visualizing relationships in missing values with `geom_miss_point`
+
+```{r plot of missing points}
+airquality %>%
+  ggplot(aes(x = Ozone, y = Solar.R)) +
+  geom_miss_point()
+
+```
+
+---
+# Visualizing relationships in missing value with facets
+
+```{r plot missing relationships with facets}
+airquality %>%
+  ggplot(aes(x = Ozone, y = Solar.R)) +
+  geom_miss_point() +
+  facet_wrap(~Month)
+
+```
+
+---
+# Visualizing relationships in missing variables
+
+```{r visualizing relationships in missing variables}
+airquality %>%
+    bind_shadow() %>%
+    ggplot(aes(x = Solar.R, fill = Ozone_NA)) +
+  geom_histogram(binwidth = 20)
+```
+
+
+---
+# Consequences of Missing Data
+
+---
+# Your Turn: Exploring the original missing person
+
+```{r, fig.alt = "Outline of Sasquatch"}
+knitr::include_graphics("img/Sasquatch.svg")
+```
+
+
+<a href="https://commons.wikimedia.org/wiki/File:Sasquatch.svg">Happybluemo</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+
+---
+# Thank you

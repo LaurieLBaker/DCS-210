@@ -1,0 +1,38 @@
+---
+title: "Looking for Bigfoot"
+author: "Your Name Here"
+output: github_document
+---
+
+```{r load-packages, message = FALSE}
+library(visdat)
+library(naniar)
+library(UpSetR)
+```
+
+We will use the data on bigfoot sitings from tidytuesday
+
+```{r}
+bigfoot <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-13/bigfoot.csv')
+
+```
+
+```{r}
+glimpse(bigfoot)
+```
+
+Let's focus on a few variables for now
+
+```{r}
+bigfoot <- bigfoot %>%
+  select(county, state, season, latitude, longitude, date, moon_phase, precip_intensity, visibility)
+
+```
+
+## Visualize the data types we have
+
+```{r data-type viz}
+
+```
+
+## V

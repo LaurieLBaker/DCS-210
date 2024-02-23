@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Visualizing Missing Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Laurie Baker" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Visualizing Missing Data
+]
+.subtitle[
+## <br><br> College of the Atlantic
+]
+.author[
+### Laurie Baker
+]
+
+---
+
+
+
+
+
+
+
+class: middle
+
+# Visualizing Missing Data
+
+---
+## Origins of Missing Data
+
+Pattern matching functions use patterns, otherwise known as "regular expressions" or "regex", to identify specific characteristics in strings.
+
+- Reference material: [R4DS Regular Expressions](https://r4ds.hadley.nz/regexps)
+
+---
+## Packages for visualizing missing data
+
+
+
+```r
+library(visdat)
+library(naniar)
+library(UpSetR)
+```
+
+---
+## Inspecting the data types
+
+Let's explore a data set of imaginary people who have been randomly generated.
+
+```r
+glimpse(typical_data)
+```
+
+```
+## Rows: 5,000
+## Columns: 9
+## $ ID           [3m[38;5;246m&lt;chr&gt;[39m[23m "0001", "0002", "0003", "0004", "0005", "0…
+## $ Race         [3m[38;5;246m&lt;fct&gt;[39m[23m Black, Black, Black, Hispanic, NA, White, …
+## $ Age          [3m[38;5;246m&lt;dbl&gt;[39m[23m NA, 25, 31, 27, 21, 22, 23, 21, NA, 27, 22…
+## $ Sex          [3m[38;5;246m&lt;fct&gt;[39m[23m Male, Male, Female, Female, Female, Female…
+## $ `Height(cm)` [3m[38;5;246m&lt;dbl&gt;[39m[23m 175.9, 171.7, 173.5, 172.4, 158.5, 169.5, …
+## $ IQ           [3m[38;5;246m&lt;dbl&gt;[39m[23m 110, 84, 115, 84, 116, 83, 101, 97, 92, 99…
+## $ Smokes       [3m[38;5;246m&lt;lgl&gt;[39m[23m FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
+## $ Income       [3m[38;5;246m&lt;dbl&gt;[39m[23m 91, 877, 3190, 4239, 3995, 557, 273, 1133,…
+## $ Died         [3m[38;5;246m&lt;lgl&gt;[39m[23m FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, F…
+```
+* Which of the variable's data types have likely been incorrectly identified?
+
+.footnote[For more info about the randomly generated data run `?typical_data`]
+
+---
+## Summarizing Missing data
+
+
+```r
+summary(typical_data)
+```
+
+```
+##       ID                   Race           Age       
+##  Length:5000        White    :2938   Min.   :20.00  
+##  Class :character   Hispanic : 745   1st Qu.:23.00  
+##  Mode  :character   Black    : 525   Median :27.00  
+##                     Asian    : 181   Mean   :27.47  
+##                     Bi-Racial:  74   3rd Qu.:31.25  
+##                     (Other)  :  37   Max.   :35.00  
+##                     NA's     : 500   NA's   :500    
+##      Sex         Height(cm)          IQ          Smokes       
+##  Male  :2499   Min.   :140.3   Min.   : 60.0   Mode :logical  
+##  Female:2501   1st Qu.:168.8   1st Qu.: 93.0   FALSE:4085     
+##                Median :175.2   Median :100.0   TRUE :915      
+##                Mean   :175.2   Mean   :100.1                  
+##                3rd Qu.:181.8   3rd Qu.:107.0                  
+##                Max.   :208.9   Max.   :137.0                  
+##                                NA's   :500                    
+##      Income        Died        
+##  Min.   :   1   Mode :logical  
+##  1st Qu.:1126   FALSE:2474     
+##  Median :2250   TRUE :2526     
+##  Mean   :2250                  
+##  3rd Qu.:3374                  
+##  Max.   :4499                  
+##  NA's   :500
+```
+* `summary` can give us some ideas of missing data
+
+---
+## Visualizing Data Types 
+
+
+```r
+vis_dat(typical_data)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/vis data types-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+## Visualizing Missing Data
+
+
+```r
+vis_miss(typical_data)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/vis missing data-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+## Calculating how much is missing
+
+
+```r
+# From nanianr package:
+
+n_miss(typical_data) # number missing
+```
+
+```
+## [1] 2000
+```
+
+```r
+n_complete(typical_data) # number complete
+```
+
+```
+## [1] 43000
+```
+
+```r
+pct_miss(typical_data) # percent missing
+```
+
+```
+## [1] 4.444444
+```
+
+---
+# Calculating how much is missing by column
+
+
+```r
+miss_var_summary(typical_data)
+```
+
+```
+## # A tibble: 9 × 3
+##   variable n_miss pct_miss
+##   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt;
+## 1 Race        500       10
+## 2 Age         500       10
+## 3 IQ          500       10
+## 4 Income      500       10
+## 5 ID            0        0
+## 6 Sex           0        0
+## # ℹ 3 more rows
+```
+
+---
+# Visualizing missing data by variable
+
+
+```r
+gg_miss_var(typical_data)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot missing data by variable-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Visualizing percent missing data by variable
+
+
+```r
+gg_miss_var(typical_data, show_pct = TRUE) +
+  ylim(0, 100)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot percent missing-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Visualizing missing data by another variable
+
+
+```r
+gg_miss_var(typical_data,
+            facet = Race)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot missing by facet-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Missingness across factors
+
+
+```r
+gg_miss_fct(x = typical_data, fct = Race) +
+  labs(y = "Variable")
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot missing percent heatmap-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Number missing across cases
+
+
+```r
+gg_miss_case(typical_data)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot missing cases-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Visualizing missing data by cases
+
+
+```r
+# from the UpSetR package
+
+typical_data %&gt;%
+  as_shadow_upset() %&gt;%
+  upset()
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/understanding missing case frequency-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Daily Air Quality Data in NYC, May-September 1973
+
+
+```r
+vis_dat(airquality)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/visualizing data types of airquality-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Visualizinging relationships in missing values
+
+Returning to the `ggplot` warnings
+
+
+```r
+ggplot(airquality, 
+       aes(x = Solar.R, y = Ozone)) + 
+  geom_point()
+```
+
+```
+## Warning: Removed 42 rows containing missing values
+## (`geom_point()`).
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/scatterplot of Solar radiation and Ozone-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Visualizing relationships in missing values with `geom_miss_point`
+
+
+```r
+airquality %&gt;%
+  ggplot(aes(x = Ozone, y = Solar.R)) +
+  geom_miss_point()
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot of missing points-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Visualizing relationships in missing value with facets
+
+
+```r
+airquality %&gt;%
+  ggplot(aes(x = Ozone, y = Solar.R)) +
+  geom_miss_point() +
+  facet_wrap(~Month)
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/plot missing relationships with facets-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# Visualizing relationships in missing variables
+
+
+```r
+airquality %&gt;%
+    bind_shadow() %&gt;%
+    ggplot(aes(x = Solar.R, fill = Ozone_NA)) +
+  geom_histogram(binwidth = 20)
+```
+
+```
+## Warning: Removed 7 rows containing non-finite values
+## (`stat_bin()`).
+```
+
+&lt;img src="u5-d09-viz-miss_files/figure-html/visualizing relationships in missing variables-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Consequences of Missing Data
+
+---
+# Your Turn: Exploring the original missing person
+
+
+```r
+knitr::include_graphics("img/Sasquatch.svg")
+```
+
+&lt;img src="img/Sasquatch.svg" alt="Outline of Sasquatch" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+&lt;a href="https://commons.wikimedia.org/wiki/File:Sasquatch.svg"&gt;Happybluemo&lt;/a&gt;, &lt;a href="https://creativecommons.org/licenses/by-sa/4.0"&gt;CC BY-SA 4.0&lt;/a&gt;, via Wikimedia Commons
+
+---
+# Thank you
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
