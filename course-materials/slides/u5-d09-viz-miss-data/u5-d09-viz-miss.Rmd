@@ -154,9 +154,7 @@ vis_dat(airquality)
 ```
 
 ---
-# Relationships in missing values
-
-Returning to the `ggplot` warnings
+# Returning to the `ggplot` warnings
 
 ```{r scatterplot of Solar radiation and Ozone}
 ggplot(airquality, 
