@@ -235,24 +235,7 @@ p1 +
 ]
 
 ---
-# Scales
-
-.left-column[
-### Scales
-
-```r
-+ scale_*_*()
-```
-]
-
-.right-column[
-- I want to use a different color palette<br>`scale_fill_discrete()`<br>`scale_color_continuous()`
-]
-
----
-# Scales
-
-- I want to rescale y-axis as log<br>`scale_y_log10()`
+# Rescale y-axis as log `scale_y_log10()`
 
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
@@ -265,9 +248,7 @@ p1 +
 
 
 ---
-# Scales
-
-- I want to change my continuous x-axis<br>`scale_x_continuous()`
+# Change x-axis `scale_x_continuous()`
 
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
