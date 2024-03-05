@@ -1,0 +1,353 @@
+---
+title: "Taking your plot to the next level - themes, axes, and annotation"
+subtitle: "<br><br> College of the Atlantic"
+author: "Laurie Baker"
+output:
+  xaringan::moon_reader:
+    css: ["../xaringan-themer.css", "../slides.css"]
+    lib_dir: libs
+    anchor_sections: FALSE
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggthemes)
+library(gapminder)
+```
+
+---
+## Recap
+
+# How do we express visuals in words?
+
+
+- **Data** to be visualized
+
+
+--
+
+- **`Aes`thetic mappings** from data to visual component
+
+
+--
+
+- **`Geom`etric objects** that appear on the plot
+
+
+--
+
+- **`Stat`istics** transform data on the way to visualization
+
+
+--
+
+- **`Coord`inates** organize location of geometric objects
+
+
+--
+
+- **`Scale`s** define the range of values for aesthetics
+
+
+--
+
+- **`Facet`s** group into subplots
+
+--
+- **`Theme`s** the visual elements of the plot not linked to the data
+
+---
+# Today's Focus
+
+- **Geom**etric objects: `geom_vline` and `geom_hline`
+- **Coord**inates: organize location of geometric objects
+- **Scale**s: define the range of values for aesthetics
+- **Theme**s: the visual elements of the plot not linked to the data
+- Annotations: text, highlight, etc. 
+---
+## Packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(ggthemes)
+library(gapminder)
+```
+
+---
+# head(gapminder)
+
+```{r head-gapminder, echo=FALSE}
+head(gapminder)
+```
+
+---
+# glimpse(gapminder)
+
+```{r summary-gapminder, echo=FALSE, comment=""}
+glimpse(gapminder)
+```
+
+---
+# Life Expectancy
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+(p1 <- gapminder |>
+  filter(continent == "Asia") |>
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)",
+       title = "Life Expectancy in Asia"))
+```
+]
+---
+# themes - black and white
+
+```{r}
+p1 + theme_bw()
+```
+
+---
+# themes - dark
+
+```{r}
+p1 + theme_dark()
+```
+
+---
+# themes - minimal
+
+```{r}
+p1 + theme_minimal()
+```
+
+---
+# themes - build your own
+
+.right-column[
+Huge number of parameters, grouped by plot area:
+
+- Global options: `line`, `rect`, `text`, `title`
+- `axis`: x-, y- or other axis title, ticks, lines
+- `legend`: Plot legends
+- `panel`: Actual plot area
+- `plot`: Whole image
+- `strip`: Facet labels
+]
+---
+
+.right-column[
+Theme options are supported by helper functions:
+
+- `element_blank()` removes the element
+- `element_line()`
+- `element_rect()`
+- `element_text()`
+]
+
+---
+
+.right-column[
+
+```{r, eval = TRUE, out.width="90%", fig.width=6}
+p1 + theme_bw() + theme(text = element_text(color = "hotpink", size = 20))
+```
+
+]
+
+---
+# ggthemes - Economist
+
+```{r}
+p1 + theme_economist()
+```
+
+---
+# Life Expectancy - highlight
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+(p1 <- p1 +
+  geom_line(data = gapminder |> filter(country == "Cambodia"), color = "orange", lwd = 2, aes(x = year, y = lifeExp, group = country)) +
+   theme_bw())
+```
+]
+- [Cambodian Genocide](https://sfi.usc.edu/collections/cambodian-genocide)
+
+---
+## Add annotations with `geom_vline`
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+(p1 <- p1 +
+  geom_vline(xintercept = 1975, linetype = "dotted", color = "red") +
+  geom_vline(xintercept = 1979, linetype = "dotted", color = "red"))
+```
+]
+
+---
+## Add annotations with `annotate`
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+p1 +
+  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red")
+```
+---
+# Scales
+
+.left-column[
+
+```r
++ scale_*_*()
+```
+]
+
+.right-column[ 
+`scale` + `_` + `<aes>` + `_` + `<type>` + `()`
+
+`<aes>` = parameter to adjust; `<type>` = Parameter Type
+]
+
+---
+
+.left-column[
+### Scales
+
+```r
++ scale_*_*()
+```
+]
+
+.right-column[
+- I want to use a different color palette<br>`scale_fill_discrete()`<br>`scale_color_continuous()`
+]
+
+---
+.left-column[
+### Scales
+
+```r
++ scale_*_*()
+```
+]
+
+.right-column[
+- I want to rescale y-axis as log<br>`scale_y_log10()`
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+p1 +
+  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
+  scale_y_log10()
+```
+
+]
+]
+
+---
+.left-column[
+### Scales
+
+```r
++ scale_*_*()
+```
+]
+
+.right-column[
+- I want to change my continuous x-axis<br>`scale_x_continuous()`
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+p1 +
+  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
+  scale_x_continuous(breaks = seq(from = 1952, to = 2007, by = 5))
+```
+
+]
+]
+
+---
+# Annotation - geom_text
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+p1 +
+  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
+  geom_text(aes(x = 1985, y = 25), label = "Khmer Rouge")
+  
+```
+
+---
+# Annotation - geom_text
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+(p2 <- gapminder |>
+  filter(country == "Portugal") |>
+ggplot(aes(x = year,
+      y = lifeExp)) +
+  geom_point() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)")) +
+  geom_text(aes(label = year))
+  
+```
+
+]
+]
+
+---
+# Annotation - geom_text
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+(p2 <- gapminder |>
+  filter(country == "Portugal") |>
+ggplot(aes(x = year,
+      y = lifeExp)) +
+  geom_point() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)",
+       title = "Life Expectancy in Portugal over time") +
+  geom_text(aes(label = year), nudge_x = 3.75, nudge_y = -0.3))
+  
+```
+
+]
+]
+
+---
+# Annotation - gghighlight
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+gapminder |>
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  facet_wrap(~continent) +
+  gghighlight(mean(lifeExp) > 74.5,
+              unhighlighted_params = list(linewidth = 0.5, color = alpha(0.4))) 
+```
+]
+
+---
+# Thank you

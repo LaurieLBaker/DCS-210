@@ -8,6 +8,8 @@ output: github_document
 library(visdat)
 library(naniar)
 library(UpSetR)
+library(leaflet)
+library(lubridate)
 ```
 
 We will use the data on bigfoot sitings from tidytuesday
@@ -25,14 +27,52 @@ Let's focus on a few variables for now
 
 ```{r}
 bigfoot <- bigfoot %>%
-  select(county, state, season, latitude, longitude, date, moon_phase, precip_intensity, visibility)
+  select(county, state, observed, season, latitude, longitude, date, moon_phase, precip_intensity, visibility) %>%
+  mutate(year = year(date))
 
 ```
 
-## Visualize the data types we have
+## Create a plot to visualize the data types we have
 
 ```{r data-type viz}
 
 ```
 
-## V
+## Create a plot that explores the amount of data that is missing
+
+```{r percent missing}
+
+```
+
+Which variable is missing the highest percentage of data?
+
+## Create a plot that explores the relationship in missing data between moon_phase and precipitation intensity
+
+```{r}
+
+```
+
+## Create a plot that explores the relationship in missing data between moon_phase and precipitation intensity faceted by season
+
+```{r}
+
+```
+
+## Which variables tend to be missing together? Check ?
+
+```{r missing variables}
+
+```
+
+## Bonus: Create a leaflet map of Bigfoot sitings between 1940-1990
+
+```{r leaflet, eval = FALSE}
+bigfoot %>%
+  filter(________) %>%
+leaflet() %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
+  addCircleMarkers(lng = _____, 
+                   lat = _____, 
+                   label = ~observed)
+
+```
