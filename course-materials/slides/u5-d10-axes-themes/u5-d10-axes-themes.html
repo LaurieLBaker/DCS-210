@@ -35,9 +35,7 @@ class: center, middle, inverse, title-slide
 
 
 ---
-## Recap
-
-# How do we express visuals in words?
+# Recap: How do we express visuals in words?
 
 
 - **Data** to be visualized
@@ -320,7 +318,7 @@ p1 +
 &lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
-
+]
 ---
 # Scales
 
@@ -355,15 +353,6 @@ p1 +
 ---
 # Scales
 
-.left-column[
-### Scales
-
-```r
-+ scale_*_*()
-```
-]
-
-.right-column[
 - I want to rescale y-axis as log&lt;br&gt;`scale_y_log10()`
 
 .panelset[
@@ -393,20 +382,11 @@ p1 +
 &lt;/div&gt;
 
 ]
-]
+
 
 ---
 # Scales
 
-.left-column[
-### Scales
-
-```r
-+ scale_*_*()
-```
-]
-
-.right-column[
 - I want to change my continuous x-axis&lt;br&gt;`scale_x_continuous()`
 
 .panelset[
@@ -431,7 +411,7 @@ p1 +
 &lt;/div&gt;
 
 ]
-]
+
 
 ---
 # Annotation - geom_text
@@ -442,8 +422,15 @@ p1 +
 
 ```r
 p1 +
-  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
-  geom_text(aes(x = 1985, y = 25), label = "Khmer Rouge")
+  annotate("rect", 
+  xmin = 1975, 
+  xmax = 1979, 
+  ymin = 0, 
+  ymax = 100, 
+  alpha = 0.2, 
+  fill = "red") +
+  geom_text(aes(x = 1985, y = 25), 
+  label = "Khmer Rouge")
 ```
 
 
@@ -456,7 +443,7 @@ p1 +
 &lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
-
+]
 ---
 # Annotation - geom_text
 
@@ -487,7 +474,7 @@ ggplot(aes(x = year,
 &lt;/div&gt;
 
 ]
-]
+
 
 ---
 # Annotation - geom_text
@@ -520,7 +507,7 @@ ggplot(aes(x = year,
 &lt;/div&gt;
 
 ]
-]
+
 
 ---
 # Annotation - gghighlight

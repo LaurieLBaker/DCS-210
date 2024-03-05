@@ -24,9 +24,7 @@ library(gapminder)
 ```
 
 ---
-## Recap
-
-# How do we express visuals in words?
+# Recap: How do we express visuals in words?
 
 
 - **Data** to be visualized
@@ -219,7 +217,7 @@ p1 +
   alpha = 0.2, 
   fill = "red")
 ```
-
+]
 ---
 # Scales
 
@@ -254,15 +252,6 @@ p1 +
 ---
 # Scales
 
-.left-column[
-### Scales
-
-```r
-+ scale_*_*()
-```
-]
-
-.right-column[
 - I want to rescale y-axis as log<br>`scale_y_log10()`
 
 .panelset[
@@ -273,20 +262,11 @@ p1 +
 ```
 
 ]
-]
+
 
 ---
 # Scales
 
-.left-column[
-### Scales
-
-```r
-+ scale_*_*()
-```
-]
-
-.right-column[
 - I want to change my continuous x-axis<br>`scale_x_continuous()`
 
 .panelset[
@@ -297,7 +277,7 @@ p1 +
 ```
 
 ]
-]
+
 
 ---
 # Annotation - geom_text
@@ -305,11 +285,18 @@ p1 +
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
 p1 +
-  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
-  geom_text(aes(x = 1985, y = 25), label = "Khmer Rouge")
+  annotate("rect", 
+  xmin = 1975, 
+  xmax = 1979, 
+  ymin = 0, 
+  ymax = 100, 
+  alpha = 0.2, 
+  fill = "red") +
+  geom_text(aes(x = 1985, y = 25), 
+  label = "Khmer Rouge")
   
 ```
-
+]
 ---
 # Annotation - geom_text
 
@@ -328,7 +315,7 @@ ggplot(aes(x = year,
 ```
 
 ]
-]
+
 
 ---
 # Annotation - geom_text
@@ -349,7 +336,7 @@ ggplot(aes(x = year,
 ```
 
 ]
-]
+
 
 ---
 # Annotation - gghighlight
