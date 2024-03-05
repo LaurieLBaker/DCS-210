@@ -131,6 +131,7 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 - [Week 9: Lab 07, work on projects](course-materials/lab-instructions/lab-13/lab-13-work-on-projects.html) 
 - [Week 9: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 - [Week 9: Lab GSS](course-materials/hw-instructions/hw-08/hw-08-exploring-gss.html)
+- [Week 9: Axes and Annotation](course-materials/slides/u5-d10-axes-themes/u5-d10-axes-themes.html)
 
 
 ## Week 10: Model validation and uncertainty quantification
