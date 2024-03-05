@@ -190,7 +190,7 @@ p1 + theme_economist()
 - [Cambodian Genocide](https://sfi.usc.edu/collections/cambodian-genocide)
 
 ---
-## Add annotations with `geom_vline`
+# Add annotations with `geom_vline`
 
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
@@ -201,13 +201,20 @@ p1 + theme_economist()
 ]
 
 ---
-## Add annotations with `annotate`
+# Add annotations with `annotate`
 
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
 p1 +
-  annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red")
+  annotate("rect", 
+  xmin = 1975, 
+  xmax = 1979, 
+  ymin = 0, 
+  ymax = 100, 
+  alpha = 0.2, 
+  fill = "red")
 ```
+
 ---
 # Scales
 
@@ -225,6 +232,7 @@ p1 +
 ]
 
 ---
+# Scales
 
 .left-column[
 ### Scales
@@ -239,6 +247,8 @@ p1 +
 ]
 
 ---
+# Scales
+
 .left-column[
 ### Scales
 
@@ -261,6 +271,8 @@ p1 +
 ]
 
 ---
+# Scales
+
 .left-column[
 ### Scales
 
@@ -348,11 +360,27 @@ ggplot(aes(x = year,
   geom_line() +
   labs(x = "Year",
        y = "Life Expectancy (years)") +
+  gghighlight(mean(lifeExp) > 75) 
+```
+]
+---
+# Annotation - gghighlight
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+gapminder |>
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
   facet_wrap(~continent) +
-  gghighlight(mean(lifeExp) > 74.5,
-              unhighlighted_params = list(linewidth = 0.5, color = alpha(0.4))) 
+  gghighlight(mean(lifeExp) > 74.5) 
 ```
 ]
 
 ---
-# Thank you
+# Your Turn
