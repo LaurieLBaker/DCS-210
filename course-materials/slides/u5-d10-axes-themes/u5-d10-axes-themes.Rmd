@@ -388,7 +388,7 @@ ggplot(aes(x = year,
   geom_line() +
   labs(x = "Year",
        y = "Life Expectancy (years)") +
-  gghighlight(mean(lifeExp) > 74.5 & year > 1970) 
+  gghighlight(min(lifeExp) > 55 & max(lifeExp) < 70)
 ```
 ]
 

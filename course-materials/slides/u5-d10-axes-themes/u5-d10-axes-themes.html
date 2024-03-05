@@ -587,7 +587,7 @@ ggplot(aes(x = year,
   geom_line() +
   labs(x = "Year",
        y = "Life Expectancy (years)") +
-  gghighlight(mean(lifeExp) &gt; 74.5 &amp; year &gt; 1970) 
+  gghighlight(min(lifeExp) &gt; 55 &amp; max(lifeExp) &lt; 70)
 ```
 
 
@@ -596,11 +596,6 @@ ggplot(aes(x = year,
 
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
-
-```
-## Warning: Tried to calculate with group_by(), but the calculation failed.
-## Falling back to ungrouped filter operation...
-```
 
 &lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-20-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
