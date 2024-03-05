@@ -183,7 +183,12 @@ p1 + theme_economist()
 .panelset[
 ```{r panelset = c(output = "Plot", source = "Code")}
 (p1 <- p1 +
-  geom_line(data = gapminder |> filter(country == "Cambodia"), color = "orange", lwd = 2, aes(x = year, y = lifeExp, group = country)) +
+  geom_line(data = gapminder |> filter(country == "Cambodia"),
+  color = "orange", 
+  lwd = 2, 
+  aes(x = year, 
+  y = lifeExp, 
+  group = country)) +
    theme_bw())
 ```
 ]
@@ -383,4 +388,24 @@ ggplot(aes(x = year,
 ]
 
 ---
+# Annotation - gghighlight
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+gapminder |>
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  gghighlight(mean(lifeExp) > 74.5 & year > 1970) 
+```
+]
+
+---
 # Your Turn
+
+- Create your own plot highlighting a county of interest and a labelled historical event. 

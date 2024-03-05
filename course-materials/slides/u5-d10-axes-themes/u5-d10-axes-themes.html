@@ -245,7 +245,12 @@ p1 + theme_economist()
 
 ```r
 (p1 &lt;- p1 +
-  geom_line(data = gapminder |&gt; filter(country == "Cambodia"), color = "orange", lwd = 2, aes(x = year, y = lifeExp, group = country)) +
+  geom_line(data = gapminder |&gt; filter(country == "Cambodia"),
+  color = "orange", 
+  lwd = 2, 
+  aes(x = year, 
+  y = lifeExp, 
+  group = country)) +
    theme_bw())
 ```
 
@@ -580,7 +585,45 @@ ggplot(aes(x = year,
 ]
 
 ---
+# Annotation - gghighlight
+
+.panelset[
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Code&lt;/div&gt;
+
+```r
+gapminder |&gt;
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  gghighlight(mean(lifeExp) &gt; 74.5 &amp; year &gt; 1970) 
+```
+
+
+
+&lt;/div&gt;
+
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
+
+```
+## Warning: Tried to calculate with group_by(), but the calculation failed.
+## Falling back to ungrouped filter operation...
+```
+
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-20-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+]
+
+---
 # Your Turn
+
+- Create your own plot highlighting a county of interest and a labelled historical event. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
