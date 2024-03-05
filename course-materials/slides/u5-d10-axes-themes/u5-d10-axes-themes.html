@@ -78,11 +78,10 @@ class: center, middle, inverse, title-slide
 ---
 # Today's Focus
 
-- **Geom**etric objects: `geom_vline` and `geom_hline`
-- **Coord**inates: organize location of geometric objects
-- **Scale**s: define the range of values for aesthetics
 - **Theme**s: the visual elements of the plot not linked to the data
-- Annotations: text, highlight, etc. 
+- **Geom**etric objects: `geom_vline` and `geom_hline`
+- **Scale**s: define the range of values for aesthetics
+- **Annotations:** text, highlight, etc. 
 ---
 ## Packages
 
@@ -198,6 +197,7 @@ Huge number of parameters, grouped by plot area:
 - `strip`: Facet labels
 ]
 ---
+# themes - build your own
 
 .right-column[
 Theme options are supported by helper functions:
@@ -206,6 +206,13 @@ Theme options are supported by helper functions:
 - `element_line()`
 - `element_rect()`
 - `element_text()`
+
+
+```r
+my_theme &lt;- theme_bw() + theme(text = element_text(color = "hotpink", size = 20), axis.ticks.x = element_blank())
+```
+```
+
 ]
 
 ---
@@ -214,11 +221,10 @@ Theme options are supported by helper functions:
 
 
 ```r
-p1 + theme_bw() + theme(text = element_text(color = "hotpink", size = 20))
+p1 + my_theme
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-7-1.png" width="90%" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -229,7 +235,7 @@ p1 + theme_bw() + theme(text = element_text(color = "hotpink", size = 20))
 p1 + theme_economist()
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Life Expectancy - highlight
@@ -250,7 +256,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
@@ -276,7 +282,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
@@ -300,7 +306,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ---
@@ -367,7 +373,7 @@ p1 +
 ## y-axis
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -403,7 +409,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -430,7 +436,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -459,7 +465,7 @@ ggplot(aes(x = year,
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -492,7 +498,7 @@ ggplot(aes(x = year,
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -527,7 +533,7 @@ ggplot(aes(x = year,
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]

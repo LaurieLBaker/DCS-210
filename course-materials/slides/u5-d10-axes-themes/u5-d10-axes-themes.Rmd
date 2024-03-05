@@ -67,11 +67,10 @@ library(gapminder)
 ---
 # Today's Focus
 
-- **Geom**etric objects: `geom_vline` and `geom_hline`
-- **Coord**inates: organize location of geometric objects
-- **Scale**s: define the range of values for aesthetics
 - **Theme**s: the visual elements of the plot not linked to the data
-- Annotations: text, highlight, etc. 
+- **Geom**etric objects: `geom_vline` and `geom_hline`
+- **Scale**s: define the range of values for aesthetics
+- **Annotations:** text, highlight, etc. 
 ---
 ## Packages
 
@@ -146,6 +145,7 @@ Huge number of parameters, grouped by plot area:
 - `strip`: Facet labels
 ]
 ---
+# themes - build your own
 
 .right-column[
 Theme options are supported by helper functions:
@@ -154,6 +154,12 @@ Theme options are supported by helper functions:
 - `element_line()`
 - `element_rect()`
 - `element_text()`
+
+```{r}
+my_theme <- theme_bw() + theme(text = element_text(color = "hotpink", size = 20), axis.ticks.x = element_blank())
+```
+```
+
 ]
 
 ---
@@ -161,9 +167,8 @@ Theme options are supported by helper functions:
 .right-column[
 
 ```{r, eval = TRUE, out.width="90%", fig.width=6}
-p1 + theme_bw() + theme(text = element_text(color = "hotpink", size = 20))
+p1 + my_theme
 ```
-
 ]
 
 ---
