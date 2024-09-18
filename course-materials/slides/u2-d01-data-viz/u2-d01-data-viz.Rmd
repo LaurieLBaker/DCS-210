@@ -1,5 +1,5 @@
 ---
-title: "Data and visualisation"
+title: "Data and visualisation updated"
 subtitle: "<br><br> College of the Atlantic"
 author: "[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)"
 output:
