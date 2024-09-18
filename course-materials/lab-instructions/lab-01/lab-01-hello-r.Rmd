@@ -269,8 +269,8 @@ Let's take a look at what these datasets are.
 To do so we can make a *frequency table* of the dataset variable:
 
 ```{r}
-datasaurus_dozen %>%
-  count(dataset) %>%
+datasaurus_dozen |>
+  count(dataset) |>
   print(13)
 ```
 
@@ -293,13 +293,13 @@ Start with the `datasaurus_dozen` and pipe it into the `filter` function to filt
 Store the resulting filtered data frame as a new data frame called `dino_data`.
 
 ```{r}
-dino_data <- datasaurus_dozen %>%
+dino_data <- datasaurus_dozen |>
   filter(dataset == "dino")
 ```
 
 There is a lot going on here, so let's slow down and unpack it a bit.
 
-First, the pipe operator: `%>%`, takes what comes before it and sends it as the first argument to what comes after it.
+First, the pipe operator: `|>`, takes what comes before it and sends it as the first argument to what comes after it.
 So here, we're saying `filter` the `datasaurus_dozen` data frame for observations where `dataset == "dino"`.
 
 Second, the assignment operator: `<-`, assigns the name `dino_data` to the filtered data frame.
@@ -334,7 +334,7 @@ Start with `dino_data` and calculate a summary statistic that we will call `r` a
 ```
 
 ```{r}
-dino_data %>%
+dino_data |>
   summarize(r = cor(x, y))
 ```
 
@@ -364,9 +364,9 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
 And we can use the `group_by` function to generate all the summary correlation coefficients.
 
 ```{r all-r, eval=FALSE}
-datasaurus_dozen %>%
-  group_by(dataset) %>%
-  summarize(r = cor(x, y)) %>%
+datasaurus_dozen |>
+  group_by(dataset) |>
+  summarize(r = cor(x, y)) |>
   print(13)
 ```
 
