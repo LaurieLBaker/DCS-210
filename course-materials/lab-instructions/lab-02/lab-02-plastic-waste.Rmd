@@ -90,7 +90,7 @@ One country stands out as an unusual observation at the top of the distribution.
 One way of identifying this country is to filter the data for countries where plastic waste per capita is greater than 3.5 kg/person.
 
 ```{r plastic_waste_per_cap-max, eval=TRUE}
-plastic_waste %>%
+plastic_waste |>
   filter(plastic_waste_per_cap > 3.5)
 ```
 
@@ -195,9 +195,9 @@ If you haven't had time to finish the exercises above, please ask for help befor
 1.  :pencil: Recreate the following plot, and interpret what you see in context of the data.
 
 ```{r echo=FALSE, message=FALSE, eval=TRUE, warning=FALSE}
-plastic_waste %>% 
-  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
-  filter(plastic_waste_per_cap < 3) %>%
+plastic_waste |> 
+  mutate(coastal_pop_prop = coastal_pop / total_pop) |>
+  filter(plastic_waste_per_cap < 3) |>
   ggplot(aes(x = coastal_pop_prop, y = plastic_waste_per_cap, color = continent)) + 
     geom_point() +
     geom_smooth(color = "black") +
