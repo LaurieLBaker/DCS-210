@@ -1,5 +1,5 @@
 ---
-title: "Lab 02 - Global plastic waste"
+title: "Lab 02 - Global plastic waste backup"
 output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
