@@ -263,23 +263,23 @@ Let’s think about some questions we might want to answer with these data:</p>
 <p>In order to answer this question all we need to do is sort the data.
 We use the <code>arrange</code> function to do this, and sort it by the <code>unemployment_rate</code> variable.
 By default <code>arrange</code> sorts in ascending order, which is what we want here – we’re interested in the major with the <em>lowest</em> unemployment rate.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">arrange</span>(unemployment_rate)</span></code></pre></div>
 <p>This gives us what we wanted, but not in an ideal form.
 First, the name of the major barely fits on the page.
 Second, some of the variables are not that useful (e.g. <code>major_code</code>, <code>major_category</code>) and some we might want front and center are not easily viewed (e.g. <code>unemployment_rate</code>).</p>
 <p>We can use the <code>select</code> function to choose which variables to display, and in which order:</p>
 <p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note how easily we expanded our code with adding another step to our
-pipeline, with the pipe operator: <code>|&gt;</code>.</span></span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">arrange</span>(unemployment_rate) <span class="sc">|&gt;</span></span>
+pipeline, with the pipe operator: <code>%&gt;%</code>.</span></span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">arrange</span>(unemployment_rate) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="fu">select</span>(rank, major, unemployment_rate)</span></code></pre></div>
 <p>Ok, this is looking better, but do we really need to display all those decimal places in the unemployment variable?
 Not really!</p>
 <p>We can use the <code>percent()</code> function to clean up the display a bit.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="fu">arrange</span>(unemployment_rate) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="fu">select</span>(rank, major, unemployment_rate) <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="fu">arrange</span>(unemployment_rate) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="fu">select</span>(rank, major, unemployment_rate) <span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unemployment_rate =</span> <span class="fu">percent</span>(unemployment_rate))</span></code></pre></div>
 </div>
 <div id="which-major-has-the-highest-percentage-of-women" class="section level2">
@@ -288,8 +288,8 @@ Not really!</p>
 For example, if earlier we were interested in the major with the highest unemployment rate, we would use the following:</p>
 <p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">The <code>desc</code> function specifies that we want
 <code>unemployment_rate</code> in descending order.</span></span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(unemployment_rate)) <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(unemployment_rate)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="fu">select</span>(rank, major, unemployment_rate)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Using what you’ve learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by adding <code>top_n(3)</code> at the end of the pipeline.</li>
@@ -325,7 +325,7 @@ You might ask yourself: “What would be a meaningful difference in median incom
 <li>✏️ Try binwidths of $1000 and $5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the <code>geom_histogram</code> function. So to specify a binwidth of $1000, you would use <code>geom_histogram(binwidth = 1000)</code>.</li>
 </ol>
 <p>We can also calculate summary statistics for this distribution using the <code>summarise</code> function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(median), <span class="at">max =</span> <span class="fu">max</span>(median),</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(median), <span class="at">med =</span> <span class="fu">median</span>(median),</span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(median), </span>
@@ -341,14 +341,14 @@ Use the <code>binwidth</code> you chose in the earlier exercise.</p></li>
 <ol start="6" style="list-style-type: decimal">
 <li>✏️ Which major category has the highest typical (you’ll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">group_by</span>(major_category) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">___ =</span> <span class="fu">___</span>(median)) <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">group_by</span>(major_category) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">___ =</span> <span class="fu">___</span>(median)) <span class="sc">%&gt;%</span></span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="fu">arrange</span>(___)</span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Which major category is the least popular in this sample? To answer this question we use a new function called <code>count</code>, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the lowest observations is on top.</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="fu">count</span>(major_category)</span></code></pre></div>
 <p>🧶 ✅ ⬆️ Knit, <em>commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.</em></p>
 </div>
@@ -362,7 +362,7 @@ Let’s see if this is true.</p>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>                     <span class="st">&quot;Engineering&quot;</span>,</span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>                     <span class="st">&quot;Physical Sciences&quot;</span>)</span></code></pre></div>
 <p>Then, we can use this to create a new variable in our data frame indicating whether a major is STEM or not.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>college_recent_grads <span class="ot">&lt;-</span> college_recent_grads <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>college_recent_grads <span class="ot">&lt;-</span> college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">major_type =</span> <span class="fu">ifelse</span>(major_category <span class="sc">%in%</span> stem_categories, <span class="st">&quot;stem&quot;</span>, <span class="st">&quot;not stem&quot;</span>))</span></code></pre></div>
 <p>Let’s unpack this: with <code>mutate</code> we create a new variable called <code>major_type</code>, which is defined as <code>&quot;stem&quot;</code> if the <code>major_category</code> is in the vector called <code>stem_categories</code> we created earlier, and as <code>&quot;not stem&quot;</code> otherwise.</p>
 <p><code>%in%</code> is a <strong>logical operator</strong>.
@@ -418,7 +418,7 @@ Other logical operators that are commonly used are</p>
 </tbody>
 </table>
 <p>We can use the logical operators to also <code>filter</code> our data for STEM majors whose median earnings is less than median for all majors’ median earnings, which we found to be $36,000 earlier.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>college_recent_grads <span class="sc">|&gt;</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    major_type <span class="sc">==</span> <span class="st">&quot;stem&quot;</span>,</span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    median <span class="sc">&lt;</span> <span class="dv">36000</span></span>
