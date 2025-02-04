@@ -173,7 +173,7 @@ class: middle
 # bookings in City Hotels
 hotels |>
   filter(hotel == "City Hotel") #<<
-````
+```
 ]
 
 ---
