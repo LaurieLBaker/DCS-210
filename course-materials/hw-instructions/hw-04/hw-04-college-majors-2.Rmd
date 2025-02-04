@@ -90,7 +90,7 @@ We use the `arrange` function to do this, and sort it by the `unemployment_rate`
 By default `arrange` sorts in ascending order, which is what we want here -- we're interested in the major with the *lowest* unemployment rate.
 
 ```{r lowest-unemp}
-college_recent_grads |>
+college_recent_grads %>%
   arrange(unemployment_rate)
 ```
 
@@ -102,12 +102,12 @@ We can use the `select` function to choose which variables to display, and in wh
 
 ```{marginfigure}
 Note how easily we expanded our code with adding another step to our pipeline,
-with the pipe operator: `|>`.
+with the pipe operator: `%>%`.
 ```
 
 ```{r lowest-unemp-select}
-college_recent_grads |>
-  arrange(unemployment_rate) |>
+college_recent_grads %>%
+  arrange(unemployment_rate) %>%
   select(rank, major, unemployment_rate)
 ```
 
@@ -117,9 +117,9 @@ Not really!
 We can use the `percent()` function to clean up the display a bit.
 
 ```{r}
-college_recent_grads |>
-  arrange(unemployment_rate) |>
-  select(rank, major, unemployment_rate) |>
+college_recent_grads %>%
+  arrange(unemployment_rate) %>%
+  select(rank, major, unemployment_rate) %>%
   mutate(unemployment_rate = percent(unemployment_rate))
 ```
 
@@ -133,8 +133,8 @@ The `desc` function specifies that we want `unemployment_rate` in descending ord
 ```
 
 ```{r}
-college_recent_grads |>
-  arrange(desc(unemployment_rate)) |>
+college_recent_grads %>%
+  arrange(desc(unemployment_rate)) %>%
   select(rank, major, unemployment_rate)
 ```
 
@@ -182,7 +182,7 @@ You might ask yourself: "What would be a meaningful difference in median incomes
 We can also calculate summary statistics for this distribution using the `summarise` function:
 
 ```{r}
-college_recent_grads |>
+college_recent_grads %>%
   summarise(min = min(median), max = max(median),
             mean = mean(median), med = median(median),
             sd = sd(median), 
@@ -201,16 +201,16 @@ Now that we've seen the shapes of the distributions of median incomes for each m
 6.  ✏️ Which major category has the highest typical (you'll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.
 
 ```{r eval=FALSE}
-college_recent_grads |>
-  group_by(major_category) |>
-  summarise(___ = ___(median)) |>
+college_recent_grads %>%
+  group_by(major_category) %>%
+  summarise(___ = ___(median)) %>%
   arrange(___)
 ```
 
 7.  Which major category is the least popular in this sample? To answer this question we use a new function called `count`, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the lowest observations is on top.
 
 ```{r}
-college_recent_grads |>
+college_recent_grads %>%
   count(major_category)
 ```
 
@@ -233,7 +233,7 @@ stem_categories <- c("Biology & Life Science",
 Then, we can use this to create a new variable in our data frame indicating whether a major is STEM or not.
 
 ```{r}
-college_recent_grads <- college_recent_grads |>
+college_recent_grads <- college_recent_grads %>%
   mutate(major_type = ifelse(major_category %in% stem_categories, "stem", "not stem"))
 ```
 
@@ -258,7 +258,7 @@ Other logical operators that are commonly used are
 We can use the logical operators to also `filter` our data for STEM majors whose median earnings is less than median for all majors' median earnings, which we found to be \$36,000 earlier.
 
 ```{r}
-college_recent_grads |>
+college_recent_grads %>%
   filter(
     major_type == "stem",
     median < 36000

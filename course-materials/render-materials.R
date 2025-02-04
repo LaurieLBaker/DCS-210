@@ -6,6 +6,7 @@ library(rmarkdown)
 library(xaringan)
 library(Tmisc)
 # devtools::install_github("rstudio-education/dsbox")
+library(dsbox)
 
 
 # non-xaringan -----------------------------------------------------------------
