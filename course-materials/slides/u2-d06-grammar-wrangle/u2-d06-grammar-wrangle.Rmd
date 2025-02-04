@@ -1,6 +1,6 @@
 ---
 title: "Grammar of data wrangling"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:
@@ -208,7 +208,7 @@ What if we wanted to select these columns, and then arrange the data in descendi
 .pull-left[
 Select:
 ```{r}
-hotels %>%
+hotels |>
   select(hotel, lead_time)
 ```
 ]
@@ -217,8 +217,8 @@ hotels %>%
 .pull-right[
 Select, then arrange:
 ```{r}
-hotels %>%
-  select(hotel, lead_time) %>%
+hotels |>
+  select(hotel, lead_time) |>
   arrange(desc(lead_time))
 ```
 ]
@@ -243,8 +243,8 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 ```{r}
-hotels %>% #<<
-  select(hotel, lead_time) %>%
+hotels |> #<<
+  select(hotel, lead_time) |>
   arrange(desc(lead_time))
 ```
 ]
@@ -263,8 +263,8 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 ```{r}
-hotels %>%
-  select(hotel, lead_time) %>% #<<
+hotels |>
+  select(hotel, lead_time) |> #<<
   arrange(desc(lead_time))
 ```
 ]
@@ -284,8 +284,8 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 ```{r}
-hotels %>%
-  select(hotel, lead_time) %>% 
+hotels |>
+  select(hotel, lead_time) |> 
   arrange(desc(lead_time)) #<<
 ```
 ]
@@ -295,26 +295,7 @@ hotels %>%
 
 ## Aside
 
-The pipe operator is implemented in the package **magrittr**, though we don't need to load this package explicitly since **tidyverse** does this for us.
-
---
-
-.question[
-Any guesses as to why the package is called magrittr?
-]
-
---
-
-.pull-left[
-```{r magritte, echo=FALSE, out.width="90%", caption = "Magritte's pipe"}
-knitr::include_graphics("img/magritte.jpg")
-```
-]
-.pull-right[
-```{r magrittr, echo=FALSE, out.width="100%", caption = "magrittr's pipe"}
-knitr::include_graphics("img/magrittr.jpg")
-```
-]
+The pipe operator used to be implemented in the package **magrittr** and used the symbol `%>%` but this has been changed recently to `|>` to remove this dependency.
 
 ---
 
@@ -333,9 +314,9 @@ park(drive(start_car(find("keys")), to = "work"))
 - Writing it out using pipes give it a more natural (and easier to read) 
 structure:
 ```{r eval=FALSE}
-find("keys") %>%
-  start_car() %>%
-  drive(to = "work") %>%
+find("keys") |>
+  start_car() |>
+  drive(to = "work") |>
   park()
 ```
 
@@ -343,7 +324,7 @@ find("keys") %>%
 
 ## A note on piping and layering
 
-- `%>%` used mainly in **dplyr** pipelines, *we pipe the output of the previous line of code as the first input of the next line of code*
+- `|>` used mainly in **dplyr** pipelines, *we pipe the output of the previous line of code as the first input of the next line of code*
 
 --
 - `+` used in **ggplot2** plots is used for "layering", *we create the plot in layers, separated by `+`*
@@ -363,12 +344,12 @@ hotels +
 `r emo::ji("white_check_mark")`
 
 ```{r eval=FALSE}
-hotels %>%
+hotels |>
   select(hotel, lead_time)
 ```
 
 ```{r echo=FALSE, output.lines=6}
-hotels %>%
+hotels |>
   select(hotel, lead_time)
 ```
 ]
@@ -381,7 +362,7 @@ hotels %>%
 `r emo::ji("x")`
 
 ```{r error=TRUE}
-ggplot(hotels, aes(x = hotel, fill = deposit_type)) %>%
+ggplot(hotels, aes(x = hotel, fill = deposit_type)) |>
   geom_bar()
 ```
 
@@ -397,7 +378,7 @@ ggplot(hotels, aes(x = hotel, fill = deposit_type)) +
 
 ## Code styling
 
-Many of the styling principles are consistent across `%>%` and `+`:
+Many of the styling principles are consistent across `|>` and `+`:
 
 - always a space before
 - always a line break after (for pipelines with more than 2 lines)

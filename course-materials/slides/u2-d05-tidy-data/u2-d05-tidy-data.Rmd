@@ -1,6 +1,6 @@
 ---
 title: "Tidy data"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:

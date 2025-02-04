@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -16,9 +16,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Tidy data
-## <br><br> College of the Atlantic
+]
+.subtitle[
+## <br><br> Bates College
+]
+.author[
 ### 
+]
 
 ---
 
@@ -103,94 +109,16 @@ Source: [US Census Fact Finder, General Economic Characteristics, ACS 2017](http
 .pull-left[
 
 ```
-##                     name height   mass
-## 1         Luke Skywalker    172   77.0
-## 2                  C-3PO    167   75.0
-## 3                  R2-D2     96   32.0
-## 4            Darth Vader    202  136.0
-## 5            Leia Organa    150   49.0
-## 6              Owen Lars    178  120.0
-## 7     Beru Whitesun lars    165   75.0
-## 8                  R5-D4     97   32.0
-## 9      Biggs Darklighter    183   84.0
-## 10        Obi-Wan Kenobi    182   77.0
-## 11      Anakin Skywalker    188   84.0
-## 12        Wilhuff Tarkin    180     NA
-## 13             Chewbacca    228  112.0
-## 14              Han Solo    180   80.0
-## 15                Greedo    173   74.0
-## 16 Jabba Desilijic Tiure    175 1358.0
-## 17        Wedge Antilles    170   77.0
-## 18      Jek Tono Porkins    180  110.0
-## 19                  Yoda     66   17.0
-## 20             Palpatine    170   75.0
-## 21             Boba Fett    183   78.2
-## 22                 IG-88    200  140.0
-## 23                 Bossk    190  113.0
-## 24      Lando Calrissian    177   79.0
-## 25                 Lobot    175   79.0
-## 26                Ackbar    180   83.0
-## 27            Mon Mothma    150     NA
-## 28          Arvel Crynyd     NA     NA
-## 29 Wicket Systri Warrick     88   20.0
-## 30             Nien Nunb    160   68.0
-## 31          Qui-Gon Jinn    193   89.0
-## 32           Nute Gunray    191   90.0
-## 33         Finis Valorum    170     NA
-## 34         Jar Jar Binks    196   66.0
-## 35          Roos Tarpals    224   82.0
-## 36            Rugor Nass    206     NA
-## 37              Ric Olié    183     NA
-## 38                 Watto    137     NA
-## 39               Sebulba    112   40.0
-## 40         Quarsh Panaka    183     NA
-## 41        Shmi Skywalker    163     NA
-## 42            Darth Maul    175   80.0
-## 43           Bib Fortuna    180     NA
-## 44           Ayla Secura    178   55.0
-## 45              Dud Bolt     94   45.0
-## 46               Gasgano    122     NA
-## 47        Ben Quadinaros    163   65.0
-## 48            Mace Windu    188   84.0
-## 49          Ki-Adi-Mundi    198   82.0
-## 50             Kit Fisto    196   87.0
-## 51             Eeth Koth    171     NA
-## 52            Adi Gallia    184   50.0
-## 53           Saesee Tiin    188     NA
-## 54           Yarael Poof    264     NA
-## 55              Plo Koon    188   80.0
-## 56            Mas Amedda    196     NA
-## 57          Gregar Typho    185   85.0
-## 58                 Cordé    157     NA
-## 59           Cliegg Lars    183     NA
-## 60     Poggle the Lesser    183   80.0
-## 61       Luminara Unduli    170   56.2
-## 62         Barriss Offee    166   50.0
-## 63                 Dormé    165     NA
-## 64                 Dooku    193   80.0
-## 65   Bail Prestor Organa    191     NA
-## 66            Jango Fett    183   79.0
-## 67            Zam Wesell    168   55.0
-## 68       Dexter Jettster    198  102.0
-## 69               Lama Su    229   88.0
-## 70               Taun We    213     NA
-## 71            Jocasta Nu    167     NA
-## 72         Ratts Tyerell     79   15.0
-## 73                R4-P17     96     NA
-## 74            Wat Tambor    193   48.0
-## 75              San Hill    191     NA
-## 76              Shaak Ti    178   57.0
-## 77              Grievous    216  159.0
-## 78               Tarfful    234  136.0
-## 79       Raymus Antilles    188   79.0
-## 80             Sly Moore    178   48.0
-## 81            Tion Medon    206   80.0
-## 82                  Finn     NA     NA
-## 83                   Rey     NA     NA
-## 84           Poe Dameron     NA     NA
-## 85                   BB8     NA     NA
-## 86        Captain Phasma     NA     NA
-## 87         Padmé Amidala    165   45.0
+## # A tibble: 87 × 3
+##   name           height  mass
+##   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;
+## 1 Luke Skywalker    172    77
+## 2 C-3PO             167    75
+## 3 R2-D2              96    32
+## 4 Darth Vader       202   136
+## 5 Leia Organa       150    49
+## 6 Owen Lars         178   120
+## # ℹ 81 more rows
 ```
 ]
 .pull-right[
@@ -199,12 +127,12 @@ Source: [US Census Fact Finder, General Economic Characteristics, ACS 2017](http
 
 
 ```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##   gender    avg_ht
 ##   &lt;chr&gt;      &lt;dbl&gt;
-## 1 feminine    165.
+## 1 feminine    167.
 ## 2 masculine   177.
-## 3 &lt;NA&gt;        181.
+## 3 &lt;NA&gt;        175
 ```
 ]
 
@@ -214,14 +142,14 @@ Source: [US Census Fact Finder, General Economic Characteristics, ACS 2017](http
 
 .pull-left[
 
-```r
+``` r
 starwars %&gt;%
   select(name, height, mass)
 ```
 ]
 .pull-right[
 
-```r
+``` r
 starwars %&gt;%
   group_by(gender) %&gt;%
   summarize(
@@ -287,6 +215,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

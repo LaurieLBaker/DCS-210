@@ -21,6 +21,7 @@ output:
 library(tidyverse)
 library(ggthemes)
 library(gapminder)
+library(gghighlight)
 ```
 
 ---
@@ -76,6 +77,7 @@ library(gapminder)
 library(tidyverse)
 library(ggthemes)
 library(gapminder)
+library(gghighlight)
 ```
 
 ---

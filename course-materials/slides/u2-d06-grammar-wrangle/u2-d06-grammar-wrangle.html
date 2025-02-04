@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="../xaringan-themer.css" type="text/css" />
@@ -16,9 +16,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Grammar of data wrangling
-## <br><br> College of the Atlantic
+]
+.subtitle[
+## <br><br> Bates College
+]
+.author[
 ### 
+]
 
 ---
 
@@ -73,7 +79,7 @@ class: middle
 - Goal for original data collection: Development of prediction models to classify a hotel booking's likelihood to be cancelled ([Antonia et al., 2019](https://www.sciencedirect.com/science/article/pii/S2352340918315191#bib5))
 
 
-```r
+``` r
 hotels &lt;- read_csv("data/hotels.csv")
 ```
 
@@ -86,7 +92,7 @@ Source: [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master
 ## First look: Variables
 
 
-```r
+``` r
 names(hotels)
 ```
 
@@ -117,29 +123,29 @@ names(hotels)
 ## Second look: Overview
 
 
-```r
+``` r
 glimpse(hotels)
 ```
 
 ```
 ## Rows: 119,390
 ## Columns: 32
-## $ hotel                          &lt;chr&gt; "Resort Hotel", "Resort ~
-## $ is_canceled                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, ~
-## $ lead_time                      &lt;dbl&gt; 342, 737, 7, 13, 14, 14,~
-## $ arrival_date_year              &lt;dbl&gt; 2015, 2015, 2015, 2015, ~
-## $ arrival_date_month             &lt;chr&gt; "July", "July", "July", ~
-## $ arrival_date_week_number       &lt;dbl&gt; 27, 27, 27, 27, 27, 27, ~
-## $ arrival_date_day_of_month      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, ~
-## $ stays_in_weekend_nights        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, ~
-## $ stays_in_week_nights           &lt;dbl&gt; 0, 0, 1, 1, 2, 2, 2, 2, ~
-## $ adults                         &lt;dbl&gt; 2, 2, 1, 1, 2, 2, 2, 2, ~
-## $ children                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, ~
-## $ babies                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, ~
-## $ meal                           &lt;chr&gt; "BB", "BB", "BB", "BB", ~
-## $ country                        &lt;chr&gt; "PRT", "PRT", "GBR", "GB~
-## $ market_segment                 &lt;chr&gt; "Direct", "Direct", "Dir~
-## $ distribution_channel           &lt;chr&gt; "Direct", "Direct", "Dir~
+## $ hotel                          &lt;chr&gt; "Resort Hotel", "Resort …
+## $ is_canceled                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ lead_time                      &lt;dbl&gt; 342, 737, 7, 13, 14, 14,…
+## $ arrival_date_year              &lt;dbl&gt; 2015, 2015, 2015, 2015, …
+## $ arrival_date_month             &lt;chr&gt; "July", "July", "July", …
+## $ arrival_date_week_number       &lt;dbl&gt; 27, 27, 27, 27, 27, 27, …
+## $ arrival_date_day_of_month      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, …
+## $ stays_in_weekend_nights        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ stays_in_week_nights           &lt;dbl&gt; 0, 0, 1, 1, 2, 2, 2, 2, …
+## $ adults                         &lt;dbl&gt; 2, 2, 1, 1, 2, 2, 2, 2, …
+## $ children                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ babies                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ meal                           &lt;chr&gt; "BB", "BB", "BB", "BB", …
+## $ country                        &lt;chr&gt; "PRT", "PRT", "GBR", "GB…
+## $ market_segment                 &lt;chr&gt; "Direct", "Direct", "Dir…
+## $ distribution_channel           &lt;chr&gt; "Direct", "Direct", "Dir…
 ...
 ```
 
@@ -150,12 +156,12 @@ glimpse(hotels)
 View only `lead_time` (number of days between booking and arrival date):
 
 
-```r
+``` r
 select(hotels, lead_time)
 ```
 
 ```
-## # A tibble: 119,390 x 1
+## # A tibble: 119,390 × 1
 ##   lead_time
 ##       &lt;dbl&gt;
 ## 1       342
@@ -164,7 +170,7 @@ select(hotels, lead_time)
 ## 4        13
 ## 5        14
 ## 6        14
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 
 ---
@@ -173,7 +179,7 @@ select(hotels, lead_time)
 
 .pull-left[
 
-```r
+``` r
 *select(
   hotels, 
   lead_time
@@ -190,7 +196,7 @@ select(hotels, lead_time)
 
 .pull-left[
 
-```r
+``` r
 select( 
 * hotels,
   lead_time
@@ -208,7 +214,7 @@ select(
 
 .pull-left[
 
-```r
+``` r
 select( 
   hotels, 
 * lead_time
@@ -227,7 +233,7 @@ select(
 
 .pull-left[
 
-```r
+``` r
 select( 
   hotels, 
   lead_time
@@ -235,7 +241,7 @@ select(
 ```
 
 ```
-## # A tibble: 119,390 x 1
+## # A tibble: 119,390 × 1
 ##   lead_time
 ##       &lt;dbl&gt;
 ## 1       342
@@ -244,7 +250,7 @@ select(
 ## 4        13
 ## 5        14
 ## 6        14
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 .pull-right[
@@ -261,12 +267,12 @@ dplyr functions always expect a data frame and always yield a data frame.
 ]
 
 
-```r
+``` r
 select(hotels, lead_time)
 ```
 
 ```
-## # A tibble: 119,390 x 1
+## # A tibble: 119,390 × 1
 ##   lead_time
 ##       &lt;dbl&gt;
 ## 1       342
@@ -275,7 +281,7 @@ select(hotels, lead_time)
 ## 4        13
 ## 5        14
 ## 6        14
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 
 ---
@@ -289,12 +295,12 @@ View only the `hotel` type and `lead_time`:
 
 .pull-left[
 
-```r
+``` r
 select(hotels, hotel, lead_time)
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       342
@@ -303,7 +309,7 @@ select(hotels, hotel, lead_time)
 ## 4 Resort Hotel        13
 ## 5 Resort Hotel        14
 ## 6 Resort Hotel        14
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 --
@@ -320,13 +326,13 @@ What if we wanted to select these columns, and then arrange the data in descendi
 .pull-left[
 Select:
 
-```r
-hotels %&gt;%
+``` r
+hotels |&gt;
   select(hotel, lead_time)
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       342
@@ -335,7 +341,7 @@ hotels %&gt;%
 ## 4 Resort Hotel        13
 ## 5 Resort Hotel        14
 ## 6 Resort Hotel        14
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 
@@ -343,14 +349,14 @@ hotels %&gt;%
 .pull-right[
 Select, then arrange:
 
-```r
-hotels %&gt;%
-  select(hotel, lead_time) %&gt;%
+``` r
+hotels |&gt;
+  select(hotel, lead_time) |&gt;
   arrange(desc(lead_time))
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       737
@@ -359,7 +365,7 @@ hotels %&gt;%
 ## 4 City Hotel         629
 ## 5 City Hotel         629
 ## 6 City Hotel         629
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 
@@ -383,14 +389,14 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 
-```r
-*hotels %&gt;%
-  select(hotel, lead_time) %&gt;%
+``` r
+*hotels |&gt;
+  select(hotel, lead_time) |&gt;
   arrange(desc(lead_time))
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       737
@@ -399,7 +405,7 @@ In programming, a pipe is a technique for passing information from one process t
 ## 4 City Hotel         629
 ## 5 City Hotel         629
 ## 6 City Hotel         629
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 ]
@@ -417,14 +423,14 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 
-```r
-hotels %&gt;%
-* select(hotel, lead_time) %&gt;%
+``` r
+hotels |&gt;
+* select(hotel, lead_time) |&gt;
   arrange(desc(lead_time))
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       737
@@ -433,7 +439,7 @@ hotels %&gt;%
 ## 4 City Hotel         629
 ## 5 City Hotel         629
 ## 6 City Hotel         629
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 ]
@@ -452,14 +458,14 @@ In programming, a pipe is a technique for passing information from one process t
 .pull-right[
 .small[
 
-```r
-hotels %&gt;%
-  select(hotel, lead_time) %&gt;% 
+``` r
+hotels |&gt;
+  select(hotel, lead_time) |&gt; 
 * arrange(desc(lead_time))
 ```
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       737
@@ -468,7 +474,7 @@ hotels %&gt;%
 ## 4 City Hotel         629
 ## 5 City Hotel         629
 ## 6 City Hotel         629
-## # ... with 119,384 more rows
+## # ℹ 119,384 more rows
 ```
 ]
 ]
@@ -477,22 +483,7 @@ hotels %&gt;%
 
 ## Aside
 
-The pipe operator is implemented in the package **magrittr**, though we don't need to load this package explicitly since **tidyverse** does this for us.
-
---
-
-.question[
-Any guesses as to why the package is called magrittr?
-]
-
---
-
-.pull-left[
-&lt;img src="img/magritte.jpg" width="90%" style="display: block; margin: auto;" /&gt;
-]
-.pull-right[
-&lt;img src="img/magrittr.jpg" width="100%" style="display: block; margin: auto;" /&gt;
-]
+The pipe operator used to be implemented in the package **magrittr** and used the symbol `%&gt;%` but this has been changed recently to `|&gt;` to remove this dependency.
 
 ---
 
@@ -504,7 +495,7 @@ unlock car, start car, drive to work, park.
 --
 - Expressed as a set of nested functions in R pseudocode this would look like:
 
-```r
+``` r
 park(drive(start_car(find("keys")), to = "work"))
 ```
 
@@ -512,10 +503,10 @@ park(drive(start_car(find("keys")), to = "work"))
 - Writing it out using pipes give it a more natural (and easier to read) 
 structure:
 
-```r
-find("keys") %&gt;%
-  start_car() %&gt;%
-  drive(to = "work") %&gt;%
+``` r
+find("keys") |&gt;
+  start_car() |&gt;
+  drive(to = "work") |&gt;
   park()
 ```
 
@@ -523,7 +514,7 @@ find("keys") %&gt;%
 
 ## A note on piping and layering
 
-- `%&gt;%` used mainly in **dplyr** pipelines, *we pipe the output of the previous line of code as the first input of the next line of code*
+- `|&gt;` used mainly in **dplyr** pipelines, *we pipe the output of the previous line of code as the first input of the next line of code*
 
 --
 - `+` used in **ggplot2** plots is used for "layering", *we create the plot in layers, separated by `+`*
@@ -536,26 +527,26 @@ find("keys") %&gt;%
 ❌
 
 
-```r
+``` r
 hotels +
   select(hotel, lead_time)
 ```
 
 ```
-## Error in select(hotel, lead_time): object 'hotel' not found
+## Error: object 'hotel' not found
 ```
 
 ✅
 
 
-```r
-hotels %&gt;%
+``` r
+hotels |&gt;
   select(hotel, lead_time)
 ```
 
 
 ```
-## # A tibble: 119,390 x 2
+## # A tibble: 119,390 × 2
 ##   hotel        lead_time
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 Resort Hotel       342
@@ -573,21 +564,21 @@ hotels %&gt;%
 ❌
 
 
-```r
-ggplot(hotels, aes(x = hotel, fill = deposit_type)) %&gt;%
+``` r
+ggplot(hotels, aes(x = hotel, fill = deposit_type)) |&gt;
   geom_bar()
 ```
 
 ```
-## Error in `validate_mapping()`:
-## ! `mapping` must be created by `aes()`
-## Did you use %&gt;% instead of +?
+## Error in `geom_bar()`:
+## ! `mapping` must be created by `aes()`.
+## ℹ Did you use `%&gt;%` or `|&gt;` instead of `+`?
 ```
 
 ✅
 
 
-```r
+``` r
 ggplot(hotels, aes(x = hotel, fill = deposit_type)) +
   geom_bar()
 ```
@@ -599,7 +590,7 @@ ggplot(hotels, aes(x = hotel, fill = deposit_type)) +
 
 ## Code styling
 
-Many of the styling principles are consistent across `%&gt;%` and `+`:
+Many of the styling principles are consistent across `|&gt;` and `+`:
 
 - always a space before
 - always a line break after (for pipelines with more than 2 lines)
@@ -607,14 +598,14 @@ Many of the styling principles are consistent across `%&gt;%` and `+`:
 ❌
 
 
-```r
+``` r
 ggplot(hotels,aes(x=hotel,y=deposit_type))+geom_bar()
 ```
 
 ✅
 
 
-```r
+``` r
 ggplot(hotels, aes(x = hotel, y = deposit_type)) + 
   geom_bar()
 ```
@@ -673,6 +664,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
