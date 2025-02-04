@@ -10,7 +10,7 @@ library(Tmisc)
 
 # non-xaringan -----------------------------------------------------------------
 
-rmds <- dir_info(recurse = 3, glob = "course-materials/lab-instructions/lab-07/*.Rmd") %>% 
+rmds <- dir_info(recurse = 3, glob = "course-materials/lab-instructions/lab-01/lab-01-hello-r-2.Rmd") %>% 
   filter(!str_detect(path, "slides")) %>%
   pull(path)
 walk(rmds, render)
