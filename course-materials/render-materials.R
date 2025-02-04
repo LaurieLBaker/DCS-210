@@ -5,7 +5,7 @@ library(tidyverse)
 library(rmarkdown)
 library(xaringan)
 library(Tmisc)
-# devtools::install_github("rstudio-education/dsbox")
+#devtools::install_github("rstudio-education/dsbox")
 library(dsbox)
 
 
@@ -24,7 +24,7 @@ xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d05-tidy-d
   pull(path)
 walk(xaringans, render)
 
-xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d06-grammar-wrangle/*.Rmd") %>% 
+xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d07-signle_df/*.Rmd") %>% 
   filter(str_detect(path, "slides")) %>%
   filter(!str_detect(path, "setup")) %>%
   pull(path)

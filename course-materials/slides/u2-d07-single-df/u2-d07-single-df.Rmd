@@ -1,6 +1,6 @@
 ---
 title: "Working with a single data frame"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:
@@ -50,7 +50,7 @@ class: middle
 ## `select` to keep variables
 
 ```{r}
-hotels %>%
+hotels |>
   select(hotel, lead_time) #<<
 ```
 
@@ -60,7 +60,7 @@ hotels %>%
 
 .small[
 ```{r output.lines=18}
-hotels %>%
+hotels |>
   select(-agent) #<<
 ```
 ]
@@ -70,7 +70,7 @@ hotels %>%
 ## `select` a range of variables
 
 ```{r}
-hotels %>%
+hotels |>
   select(hotel:arrival_date_month) #<<
 ```
 
@@ -79,7 +79,7 @@ hotels %>%
 ## `select` variables with certain characteristics
 
 ```{r}
-hotels %>%
+hotels |>
   select(starts_with("arrival")) #<<
 ```
 
@@ -88,7 +88,7 @@ hotels %>%
 ## `select` variables with certain characteristics
 
 ```{r}
-hotels %>%
+hotels |>
   select(ends_with("type")) #<<
 ```
 
@@ -115,15 +115,15 @@ See help for any of these functions for more info, e.g. `?everything`.
 
 .pull-left[
 ```{r}
-hotels %>%
-  select(adults, children, babies) %>%
+hotels |>
+  select(adults, children, babies) |>
   arrange(babies) #<<
 ```
 ]
 .pull-right[
 ```{r}
-hotels %>%
-  select(adults, children, babies) %>%
+hotels |>
+  select(adults, children, babies) |>
   arrange(desc(babies)) #<<
 ```
 ]
@@ -135,7 +135,7 @@ hotels %>%
 .midi[
 ```{r output.lines=17}
 # first five
-hotels %>%
+hotels |>
   slice(1:5) #<<
 ```
 ]
@@ -151,9 +151,9 @@ certain lines of code while debugging.
 
 .small[
 ```{r output.lines=10}
-hotels %>%
+hotels |>
   # slice the first five rows  # this line is a comment
-  #select(hotel) %>%           # this one doesn't run
+  #select(hotel) |>           # this one doesn't run
   slice(1:5)                   # this line runs
 ```
 ]
@@ -171,7 +171,7 @@ class: middle
 .midi[
 ```{r output.lines=17}
 # bookings in City Hotels
-hotels %>%
+hotels |>
   filter(hotel == "City Hotel") #<<
 ````
 ]
@@ -181,11 +181,11 @@ hotels %>%
 ## `filter` for many conditions at once
 
 ```{r}
-hotels %>%
+hotels |>
   filter( 
     adults == 0,     #<<
     children >= 1    #<<
-    ) %>% 
+    ) |> 
   select(adults, babies, children)
 ```
 
@@ -195,11 +195,11 @@ hotels %>%
 
 ```{r}
 # bookings with no adults and some children or babies in the room
-hotels %>%
+hotels |>
   filter( 
     adults == 0,     
     children >= 1 | babies >= 1     # | means or  #<<
-    ) %>%
+    ) |>
   select(adults, babies, children)
 ```
 
@@ -250,15 +250,15 @@ options(dplyr.print_max = 20)
 .small[
 .pull-left[
 ```{r}
-hotels %>% 
-  distinct(market_segment) %>% #<<
+hotels |> 
+  distinct(market_segment) |> #<<
   arrange(market_segment)
 ```
 ]
 .pull-right[
 ```{r output.lines=13}
-hotels %>% 
-  distinct(hotel, market_segment) %>% #<<
+hotels |> 
+  distinct(hotel, market_segment) |> #<<
   arrange(hotel, market_segment)
 ```
 ]
@@ -271,7 +271,7 @@ hotels %>%
 .pull-left[
 ```{r}
 # alphabetical order by default
-hotels %>%
+hotels |>
   count(market_segment) #<<
 ```
 ]
@@ -279,7 +279,7 @@ hotels %>%
 .pull-right[
 ```{r}
 # descending frequency order
-hotels %>%
+hotels |>
   count(market_segment, sort = TRUE) #<<
 ```
 ]
@@ -291,8 +291,8 @@ hotels %>%
 .pull-left[
 ```{r}
 # ascending frequency order
-hotels %>%
-  count(market_segment) %>%
+hotels |>
+  count(market_segment) |>
   arrange(n) #<<
 ```
 ]
@@ -300,8 +300,8 @@ hotels %>%
 ```{r}
 # descending frequency order
 # just like adding sort = TRUE
-hotels %>%
-  count(market_segment) %>%
+hotels |>
+  count(market_segment) |>
   arrange(desc(n)) #<<
 ```
 ]
@@ -311,7 +311,7 @@ hotels %>%
 ## `count` for multiple variables
 
 ```{r}
-hotels %>%
+hotels |>
   count(hotel, market_segment) #<<
 ```
 
@@ -323,14 +323,14 @@ hotels %>%
 .pull-left[
 ```{r}
 # hotel type first
-hotels %>%
+hotels |>
   count(hotel, market_segment) #<<
 ```
 ]
 .pull-right[
 ```{r}
 # market segment first
-hotels %>%
+hotels |>
   count(market_segment, hotel) #<<
 ```
 ]
@@ -356,9 +356,9 @@ class: middle
 ## `mutate` to add a new variable
 
 ```{r}
-hotels %>%
-  mutate(little_ones = children + babies) %>% #<<
-  select(children, babies, little_ones) %>%
+hotels |>
+  mutate(little_ones = children + babies) |> #<<
+  select(children, babies, little_ones) |>
   arrange(desc(little_ones))
 ```
 
@@ -370,24 +370,24 @@ hotels %>%
 .pull-left[
 ```{r}
 # Resort Hotel
-hotels %>%
-  mutate(little_ones = children + babies) %>%
+hotels |>
+  mutate(little_ones = children + babies) |>
   filter(
     little_ones >= 1,
     hotel == "Resort Hotel"
-    ) %>%
+    ) |>
   select(hotel, little_ones)
 ```
 ]
 .pull-right[
 ```{r}
 # City Hotel
-hotels %>%
-  mutate(little_ones = children + babies) %>%
+hotels |>
+  mutate(little_ones = children + babies) |>
   filter(
     little_ones >= 1,
     hotel == "City Hotel"
-    )  %>%
+    )  |>
   select(hotel, little_ones)
 ```
 ]
@@ -401,9 +401,9 @@ What is happening in the following chunk?
 
 .midi[
 ```{r}
-hotels %>%
-  mutate(little_ones = children + babies) %>%
-  count(hotel, little_ones) %>%
+hotels |>
+  mutate(little_ones = children + babies) |>
+  count(hotel, little_ones) |>
   mutate(prop = n / sum(n))
 ```
 ]
@@ -420,7 +420,7 @@ class: middle
 
 ```{r}
 # mean average daily rate for all bookings
-hotels %>%
+hotels |>
   summarise(mean_adr = mean(adr)) #<<
 ```
 
@@ -444,7 +444,7 @@ column, but that's not recommended!
 `r emo::ji("x")`
 
 ```{r}
-hotels %>%
+hotels |>
   summarise(mean(adr))
 ```
 ]
@@ -452,7 +452,7 @@ hotels %>%
 `r emo::ji("white_check_mark")`
 
 ```{r}
-hotels %>%
+hotels |>
   summarise(mean_adr = mean(adr))
 ```
 ]
@@ -463,8 +463,8 @@ hotels %>%
 
 ```{r}
 # mean average daily rate for all booking at city and resort hotels
-hotels %>%
-  group_by(hotel) %>% #<<
+hotels |>
+  group_by(hotel) |> #<<
   summarise(mean_adr = mean(adr))
 ```
 
@@ -476,14 +476,14 @@ The following two give the same result, so `count` is simply short for `group_by
 
 .pull-left[
 ```{r}
-hotels %>%
-  group_by(hotel) %>%
+hotels |>
+  group_by(hotel) |>
   summarise(n = n())
 ```
 ]
 .pull-right[
 ```{r}
-hotels %>%
+hotels |>
   count(hotel)
 ```
 ]
@@ -495,7 +495,7 @@ hotels %>%
 `summarise` can be used for multiple summary statistics as well
 
 ```{r}
-hotels %>%
+hotels |>
   summarise(
     min_adr = min(adr),
     mean_adr = mean(adr),
