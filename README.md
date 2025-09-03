@@ -84,7 +84,8 @@ This course comes from the [datasciencebox.org](https://datasciencebox.org/) pro
 
 ### Labs and Homework
 - [Week 6: Homework 04, College Majors](course-materials/hw-instructions/hw-04/hw-00-college-majors.html) 
-- [Week 6: Lab 05, UoE art](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html) 
+- [Week 6: Lab 05, UoE art](course-materials/lab-instructions/lab-08/lab-08-uoe-art.html)
+- [Week 6: Lab 06, Sad Plot](course-materials/lab-instructions/lab-06/lab-06-sad-plots.html) 
 - [Week 6: Application exercise](course-materials/application-exercises/ae-07-brexit-story-dataviz/brexit.Rmd)
 - [Week 6: Homework 05, lego sales](course-materials/hw-instructions/hw-05/hw-05-legos.html) 
 
