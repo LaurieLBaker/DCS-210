@@ -327,11 +327,11 @@ The ✏️ symbol is a reminder to write a written response discussing the quest
 3.  ✏️ What are the three most common pet names in Seattle? To do this you will need to count the frequencies of each pet name and display the results in descending order of frequency so that you can easily see the top three most popular names. The following code does exactly that. Don't just rely on the output, but write our your answer of what the three most common pet names are.
 
 ```{marginfigure}
-The two lines of code can be read as "Start with the seattlepets data frame, and then count the animal_names, and display the results sorted in descending order. The "and then" in the previous sentence maps to %>%, the pipe operator, which takes what comes before it and plugs it in as the first argument of the function that comes after it.
+The two lines of code can be read as "Start with the seattlepets data frame, and then count the animal_names, and display the results sorted in descending order. The "and then" in the previous sentence maps to |>, the pipe operator, which takes what comes before it and plugs it in as the first argument of the function that comes after it.
 ```
 
 ```{r}
-seattlepets %>%
+seattlepets |>
   count(animal_name, sort = TRUE)
 ```
 
@@ -345,8 +345,8 @@ Looks like many of those NAs were cats. Poor unnamed kitties…
 ```
 
 ```{r species-names, eval=TRUE}
-seattlepets %>% 
-  group_by(species) %>%
+seattlepets |> 
+  group_by(species) |>
   count(animal_name, sort = TRUE)
 ```
 
@@ -360,7 +360,7 @@ We can confirm this by counting the various species in the data.
 ```
 
 ```{r species, eval=TRUE}
-seattlepets %>%
+seattlepets |>
   count(species, sort = TRUE)
 ```
 
@@ -371,9 +371,9 @@ The second argument is the number of rows to select, which is `n = 5` for the to
 It may be a bit confusing that both of these are `n`, but this is because we already have a variable called `n` in the data frame.
 
 ```{r species-names-top5, eval=TRUE}
-seattlepets %>% 
-  group_by(species) %>%
-  count(animal_name, sort = TRUE) %>% 
+seattlepets |> 
+  group_by(species) |>
+  count(animal_name, sort = TRUE) |> 
   slice_max(n, n = 5)
 ```
 
@@ -387,28 +387,28 @@ The diagonal line on the plot is the $x = y$ line; if a name appeared on this li
 
 ```{r eval = TRUE, echo = FALSE, fig.fullwidth = TRUE}
 # data prep
-name_props <- seattlepets %>% 
+name_props <- seattlepets |> 
   filter(
     !is.na(animal_name),
     species %in% c("Dog", "Cat")
-    ) %>%
-  group_by(species) %>% 
-  count(animal_name, sort = TRUE) %>%
+    ) |>
+  group_by(species) |> 
+  count(animal_name, sort = TRUE) |>
   mutate(prop = n / sum(n))
     
-cat_name_props <- name_props %>%
-  filter(species == "Cat") %>%
-  rename(cat_prop = prop) %>%
+cat_name_props <- name_props |>
+  filter(species == "Cat") |>
+  rename(cat_prop = prop) |>
   slice(1:30)
 
-dog_name_props <- name_props %>%
-  filter(species == "Dog") %>%
-  rename(dog_prop = prop) %>%
+dog_name_props <- name_props |>
+  filter(species == "Dog") |>
+  rename(dog_prop = prop) |>
   slice(1:30)
     
 comb_name_props <- inner_join(cat_name_props, dog_name_props, 
-                              by = "animal_name") %>%
-  ungroup() %>%
+                              by = "animal_name") |>
+  ungroup() |>
   select(animal_name, cat_prop, dog_prop)
     
 # create viz

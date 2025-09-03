@@ -1,6 +1,6 @@
 ---
 title: "Meet the toolkit:<br>programming"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:
@@ -54,16 +54,15 @@ A - Yes.
 ## Course Schedule
 
 - .pink[**Tuesday**]: Topic Intro
-- .pink[**Wednesday**]: Topic Intro
-- .pink[**Friday**]: Lab
-- .pink[**Help Sessions**]: CHE 103 TBD
+- .pink[**Thursday**]: Topic Intro Lab
+- .pink[**Help Sessions**]: Hathorn 106 and PLC
 
 ---
 # One link to rule them all...
 
 ... where you can find everything except your course grades!
 
-[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)
+[https://bates-dataviz.netlify.app/](https://bates-dataviz.netlify.app/)
 
 Bookmark the link!
 
@@ -183,7 +182,7 @@ That last step is communicating your results and finding.
 .pull-left[
 ### .gray[Course operation]
 .gray[
-- [coa-dataviz.netlify.app](https://coa-dataviz.netlify.app/)
+- [bates-dataviz.netlify.app](https://bates-dataviz.netlify.app/)
 - [Google classroom](https://classroom.google.com/)
 ]
 ]

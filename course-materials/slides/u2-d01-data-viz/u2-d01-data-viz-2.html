@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data and visualisation updated</title>
+    <title>Data and visualisation backup</title>
     <meta charset="utf-8" />
-    <meta name="author" content="https://bates-dataviz.netlify.app/" />
+    <meta name="author" content="https://coa-dataviz.netlify.app/" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
@@ -17,13 +17,13 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Data and visualisation updated
+# Data and visualisation backup
 ]
 .subtitle[
-## <br><br> Bates College
+## <br><br> College of the Atlantic
 ]
 .author[
-### <a href="https://bates-dataviz.netlify.app/">https://bates-dataviz.netlify.app/</a>
+### <a href="https://coa-dataviz.netlify.app/">https://coa-dataviz.netlify.app/</a>
 ]
 
 ---
@@ -178,7 +178,7 @@ What other variables would help us understand data points that don't follow the 
 Who is the not so tall but really chubby character?
 ]
 
-&lt;img src="u2-d01-data-viz_files/figure-html/unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d01-data-viz-2_files/figure-html/unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -245,7 +245,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 ## scale range (`geom_point()`).
 ```
 
-&lt;img src="u2-d01-data-viz_files/figure-html/mass-height-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d01-data-viz-2_files/figure-html/mass-height-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -375,8 +375,8 @@ class: middle
 
 
 ``` r
-quartet |&gt;
-  group_by(set) |&gt;
+quartet %&gt;%
+  group_by(set) %&gt;%
   summarise(
     mean_x = mean(x), 
     mean_y = mean(y),
@@ -400,7 +400,7 @@ quartet |&gt;
 
 ## Visualizing Anscombe's quartet
 
-&lt;img src="u2-d01-data-viz_files/figure-html/quartet-plot-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u2-d01-data-viz-2_files/figure-html/quartet-plot-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 ## Acknowledgements

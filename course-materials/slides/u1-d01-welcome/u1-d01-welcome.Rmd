@@ -1,6 +1,6 @@
 ---
 title: "Welcome!"
-subtitle: "<br><br> ES 1085: Data Science 1: Visualization"
+subtitle: "<br><br> MATH/DCS 117 Intro to Data Science"
 author: "Dr. Laurie Baker"
 output:
   xaringan::moon_reader:
@@ -220,7 +220,7 @@ A: We can discuss that over `r emo::ji("coffee")`.
 
 ... where you can find everything except your course grades!
 
-[https://coa-dataviz.netlify.app/](https://coa-dataviz.netlify.app/)
+[https://bates-dataviz.netlify.app/](https://bates-dataviz.netlify.app/)
 
 Bookmark the link!
 
@@ -228,108 +228,6 @@ Bookmark the link!
 This link is going to have everything but your course grades. It will link you to the relevant places including lyceum.
 
 The course material will be released on a weekly basis, this is so that you can take a look at the week ahead. There are links to videos, readings and others. I try to keep these links up to date but I may occasionally miss something and I'd love to hear from you if you have trouble.
-
----
-
-class: middle
-
-# Software
-
----
-
-```{r echo=FALSE, out.width="75%", fig.align="left"}
-knitr::include_graphics("img/excel.png")
-```
-
-???
-
-Before I did my undergraduate this is what data analysis mostly meant to me. Now this form of data in rows and columns may be familiar to some of you if you have worked with excel and spreadsheets. Now many of us if we are collecting data like to put it into something like this. 
-
-So data that comes in a tabular format like this might be familiar to you. 
-
----
-
-```{r echo=FALSE, out.width="50%", fig.align="left"}
-knitr::include_graphics("img/r.png")
-```
-
-???
-When I did my undergraduate thesis and started learning R this is what R looked like. I remember thinking of the interface as a black box and I wasn't really sure where the data was contained.  
-
----
-
-```{r echo=FALSE, out.width="73%", fig.align="left"}
-knitr::include_graphics("img/rstudio.png")
-```
-
-???
-
-In this course we are going to be using something a little bit different. We are going to be using Posit to interact with the computing language. If you remember the images from the previous two slides you can see that Posit combines those two components so that you can view the data and also execute code in the console. Posit is the Integrated Development Environment (IDE) that we are going to use in this course.
-
----
-
-class: middle
-
-# Data science life cycle
-
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.001.png")
-```
-
-???
-Let's also talk about the Data Science Life Cycle. This is the diagram from the book R for Data Science that we'll be referring to throughout the course. Note that this isn't the only diagram out there representing the data science life cycle but it is the one that we are using to structure this course. 
-
-So how does the data science life cycle begin?
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.002.png")
-```
-
-???
-Usually you have some data maybe in a spreadsheet or a database and you need to import into R.
-
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.003.png")
-```
-
-???
-
-Then we need to spend some time organising that data to make it easier to use and analyse. This often includes doublechecking the data for mistakes and tidying it and it may also include transforming it to get it to the table that you want, that makes it easier to use or analyse. 
-
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.004.png")
-```
-
-???
-
-Once the data is in a format that is easy to work with, you want to visualize your data to start to gain some insights from it. 
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.005.png")
-```
-
-???
-Then, perhaps you will go onto modelling your data.
-
----
-
-```{r echo=FALSE, out.width="90%", fig.align="left"}
-knitr::include_graphics("img/data-science-cycle/data-science-cycle.006.png")
-```
-
-???
-And the reality is it never ends there. You will gain more insight into the data and you may need to go back and check and adjust your assumptions. 
-
-That last step is communicating your results and finding. 
-
 
 ---
 ## Acknowledgements
