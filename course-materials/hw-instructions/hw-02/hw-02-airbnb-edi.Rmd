@@ -145,7 +145,7 @@ Let's de-construct this code:
 ```
 
 ```{marginfigure}
-**New term**: Whenever you have more than one pipe `%>%` it is called a pipeline 😎.
+**New term**: Whenever you have more than one pipe `|>` it is called a pipeline 😎.
 ```
 
 4a.
@@ -163,7 +163,7 @@ Then, in another pipeline filter the data for these five neighbourhoods and make
 ```
 
 4c.
-In a third pipeline calculate the minimum, mean, median, standard deviation, IQR, and maximum listing price in each of these neighbourhoods.
+✏ In a third pipeline calculate the minimum, mean, median, standard deviation, IQR, and maximum listing price in each of these neighbourhoods.
 
 ✏️ Use the visualisation and the summary statistics to describe the distribution of listing prices in the neighbourhoods.
 
