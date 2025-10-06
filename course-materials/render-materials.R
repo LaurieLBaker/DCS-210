@@ -16,9 +16,15 @@ rmds <- dir_info(recurse = 3, glob = "course-materials/lab-instructions/lab-01/l
   pull(path)
 walk(rmds, render)
 
+
+rmds <- dir_info(recurse = 3, glob = "course-materials/hw-instructions/hw-02/hw-02-airbnb-edi.Rmd") %>% 
+  filter(!str_detect(path, "slides")) %>%
+  pull(path)
+walk(rmds, render)
+
 # xaringan ---------------------------------------------------------------------
 
-xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d04-viz-cat/*.Rmd") %>% 
+xaringans <- dir_info(recurse = 3, glob = "course-materials/slides/u2-d11-data-classes/*.Rmd") %>% 
   filter(str_detect(path, "slides")) %>%
   filter(!str_detect(path, "setup")) %>%
   pull(path)

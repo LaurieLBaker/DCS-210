@@ -1,6 +1,6 @@
 ---
 title: "Data classes"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -148,7 +148,7 @@ l
 ```{r}
 df
 
-df %>%
+df |>
   pull(y)
 ```
 
@@ -185,8 +185,8 @@ ggplot(cat_lovers, mapping = aes(x = handedness)) +
 ## Use forcats to manipulate factors
 
 ```{r out.width="55%"}
-cat_lovers %>%
-  mutate(handedness = fct_infreq(handedness)) %>% #<<
+cat_lovers |>
+  mutate(handedness = fct_infreq(handedness)) |> #<<
   ggplot(mapping = aes(x = handedness)) +
   geom_bar()
 ```
@@ -224,10 +224,10 @@ knitr::include_graphics("img/forcats-part-of-tidyverse.png")
 
 ```{r echo=FALSE, out.width="90%", fig.asp=0.4}
 hotels <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv")
-hotels %>%
-  mutate(arrival_date_month = fct_relevel(arrival_date_month, month.name)) %>%
-  group_by(hotel, arrival_date_month) %>%   # group by hotel type and arrival month
-  summarise(mean_adr = mean(adr)) %>%       # calculate mean_adr for each group
+hotels |>
+  mutate(arrival_date_month = fct_relevel(arrival_date_month, month.name)) |>
+  group_by(hotel, arrival_date_month) |>   # group by hotel type and arrival month
+  summarise(mean_adr = mean(adr)) |>       # calculate mean_adr for each group
   ggplot(aes(
     x = arrival_date_month,
     y = mean_adr,                           # y-axis is the mean_adr calculated above
@@ -280,7 +280,7 @@ Calculate and visualise the number of bookings on any given arrival date.
 ]
 
 ```{r}
-hotels %>%
+hotels |>
   select(starts_with("arrival_"))
 ```
 
@@ -292,10 +292,10 @@ hotels %>%
 ```{r output.lines=7}
 library(glue)
 
-hotels %>%
+hotels |>
   mutate(
     arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}") #<<
-    ) %>% 
+    ) |> 
   relocate(arrival_date)
 ```
 ]
@@ -306,8 +306,8 @@ hotels %>%
 
 .midi[
 ```{r}
-hotels %>%
-  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) %>%
+hotels |>
+  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) |>
   count(arrival_date)
 ```
 ]
@@ -318,9 +318,9 @@ hotels %>%
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4}
-hotels %>%
-  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) %>%
-  count(arrival_date) %>%
+hotels |>
+  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) |>
+  count(arrival_date) |>
   ggplot(aes(x = arrival_date, y = n, group = 1)) +
   geom_line()
 ```
@@ -336,10 +336,10 @@ Why does the plot start with August when we know our data start in July? And why
 
 .midi[
 ```{r out.width="80%", echo=FALSE, fig.asp = 0.4}
-hotels %>%
-  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) %>%
-  count(arrival_date) %>%
-  slice(1:7) %>%
+hotels |>
+  mutate(arrival_date = glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) |>
+  count(arrival_date) |>
+  slice(1:7) |>
   ggplot(aes(x = arrival_date, y = n, group = 1)) +
   geom_line()
 ```
@@ -353,10 +353,10 @@ hotels %>%
 ```{r output.lines=7}
 library(lubridate)
 
-hotels %>%
+hotels |>
   mutate(
     arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}")) #<<
-    ) %>% 
+    ) |> 
   relocate(arrival_date)
 ```
 ]
@@ -367,8 +367,8 @@ hotels %>%
 
 .midi[
 ```{r}
-hotels %>%
-  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) %>% 
+hotels |>
+  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) |> 
   count(arrival_date)
 ```
 ]
@@ -379,9 +379,9 @@ hotels %>%
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4}
-hotels %>%
-  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) %>% 
-  count(arrival_date) %>%
+hotels |>
+  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) |> 
+  count(arrival_date) |>
   ggplot(aes(x = arrival_date, y = n, group = 1)) +
   geom_line()
 ```
@@ -393,9 +393,9 @@ hotels %>%
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4, message = FALSE}
-hotels %>%
-  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) %>% 
-  count(arrival_date) %>%
+hotels |>
+  mutate(arrival_date = ymd(glue("{arrival_date_year} {arrival_date_month} {arrival_date_day_of_month}"))) |> 
+  count(arrival_date) |>
   ggplot(aes(x = arrival_date, y = n, group = 1)) +
   geom_smooth() #<<
 ```

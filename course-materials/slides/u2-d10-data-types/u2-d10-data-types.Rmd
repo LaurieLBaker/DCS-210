@@ -1,6 +1,6 @@
 ---
 title: "Data types"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 output:
   xaringan::moon_reader:
     css: ["../xaringan-themer.css", "../slides.css"]
@@ -44,7 +44,7 @@ cat_lovers
 ## Oh why won't you work?!
 
 ```{r}
-cat_lovers %>%
+cat_lovers |>
   summarise(mean_cats = mean(number_of_cats))
 ```
 
@@ -63,7 +63,7 @@ knitr::include_graphics("img/mean-help.png")
 ## Oh why won't you still work??!!
 
 ```{r}
-cat_lovers %>%
+cat_lovers |>
   summarise(mean_cats = mean(number_of_cats, na.rm = TRUE))
 ```
 
@@ -86,7 +86,7 @@ glimpse(cat_lovers)
 .small[
 ```{r echo=FALSE}
 options(htmltools.preserve.raw = FALSE)
-cat_lovers %>%
+cat_lovers |>
   datatable()
 ```
 ]
@@ -97,12 +97,12 @@ cat_lovers %>%
 
 .midi[
 ```{r}
-cat_lovers %>%
+cat_lovers |>
   mutate(number_of_cats = case_when(
     name == "Ginger Clark" ~ 2,
     name == "Doug Bass"    ~ 3,
     TRUE                   ~ as.numeric(number_of_cats)
-    )) %>%
+    )) |>
   summarise(mean_cats = mean(number_of_cats))
 ```
 ]
@@ -112,7 +112,7 @@ cat_lovers %>%
 ## Always you need to respect data types
 
 ```{r}
-cat_lovers %>%
+cat_lovers |>
   mutate(
     number_of_cats = case_when(
       name == "Ginger Clark" ~ "2",
@@ -120,7 +120,7 @@ cat_lovers %>%
       TRUE                   ~ number_of_cats
       ),
     number_of_cats = as.numeric(number_of_cats)
-    ) %>%
+    ) |>
   summarise(mean_cats = mean(number_of_cats))
 ```
 
@@ -129,7 +129,7 @@ cat_lovers %>%
 ## Now that we know what we're doing...
 
 ```{r}
-cat_lovers <- cat_lovers %>% #<<
+cat_lovers <- cat_lovers |> #<<
   mutate(
     number_of_cats = case_when(
       name == "Ginger Clark" ~ "2",
@@ -313,7 +313,7 @@ Let's give formal names to what we've seen so far:
 .your-turn[
 ### .hand[Your turn!]
 
-- RStudio Cloud > `AE 05 - Hotels + Data types` > open `type-coercion.Rmd` and knit.
+- Posit Cloud > `AE 05 - Hotels + Data types` > open `type-coercion.Rmd` and knit.
 - What is the type of the given vectors? First, guess. Then, try it out in R. 
 If your guess was correct, great! If not, discuss why they have that type.
 ]

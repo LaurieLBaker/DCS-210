@@ -163,13 +163,13 @@ Then, in another pipeline filter the data for these five neighbourhoods and make
 ```
 
 4c.
-✏ In a third pipeline calculate the minimum, mean, median, standard deviation, IQR, and maximum listing price in each of these neighbourhoods.
+✏️ In a third pipeline calculate the minimum, mean, median, standard deviation, IQR, and maximum listing price in each of these neighbourhoods.
 
-✏️ Use the visualisation and the summary statistics to describe the distribution of listing prices in the neighbourhoods.
+Use the visualisation and the summary statistics to describe the distribution of listing prices in the neighbourhoods.
 
 (Your final answer for 4 will include three pipelines, one of which ends in a visualisation, and a narrative.)
 
-5.  ✏️ Create a visualization that will help you compare the distribution of review scores (`review_scores_rating`) across neighbourhoods. You get to decide what type of visualisation to create and there is more than one correct answer! In your answer, include a brief interpretation of how Airbnb guests rate properties in general and how the neighbourhoods compare to each other in terms of their ratings.
+5.  ✏ Create a visualization that will help you compare the distribution of review scores (`review_scores_rating`) across neighbourhoods. You get to decide what type of visualisation to create and there is more than one correct answer! In your answer, include a brief interpretation of how Airbnb guests rate properties in general and how the neighbourhoods compare to each other in terms of their ratings.
 
 ```{marginfigure}
 **Tip:** Looking for ideas? Check out [R Graph Gallery](https://r-graph-gallery.com/index.html) for some types of graphs could you use to plot a distribution? What ones have we learned so far in class?
