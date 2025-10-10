@@ -90,11 +90,11 @@ accidents <- read_csv("accidents.csv")
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
-3.  Recreate the following plot, and describe in context of the data. In your answer, don't forget to label your R chunk as well (where it says `label-me-1`). Your label should be short, informative, shouldn't include spaces, and **shouldn't** repeat a previous label.
+3.  Recreate the following plot, and describe the patterns you see in traffic accidents in the context of the data. In your answer, don't forget to label your R chunk as well (where it says `label-me-1`). Your label should be short, informative, shouldn't include spaces, and **shouldn't** repeat a previous label.
 
 ```{r eval = TRUE, echo = FALSE, fig.fullwidth = TRUE}
-accidents %>%
-  mutate(day_of_week_type = if_else(day_of_week %in% c("Saturday", "Sunday"), "Weekend", "Weekday")) %>%
+accidents |>
+  mutate(day_of_week_type = if_else(day_of_week %in% c("Saturday", "Sunday"), "Weekend", "Weekday")) |>
   ggplot(aes(x = time, fill = severity)) +
   geom_density(alpha = 0.5) +
   facet_wrap(~day_of_week_type, ncol = 1) +
