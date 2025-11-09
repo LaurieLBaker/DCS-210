@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 # Taking your plot to the next level - themes, axes, and annotation
 ]
 .subtitle[
-## <br><br> College of the Atlantic
+## <br><br> Bates College
 ]
 .author[
 ### Laurie Baker
@@ -84,10 +84,11 @@ class: center, middle, inverse, title-slide
 ## Packages
 
 
-```r
+``` r
 library(tidyverse)
 library(ggthemes)
 library(gapminder)
+library(gghighlight)
 ```
 
 ---
@@ -128,7 +129,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9…
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 (p1 &lt;- gapminder |&gt;
   filter(continent == "Asia") |&gt;
 ggplot(aes(x = year,
@@ -155,31 +156,55 @@ ggplot(aes(x = year,
 # themes - black and white
 
 
-```r
+``` r
 p1 + theme_bw()
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/theme_bw-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 # themes - dark
 
 
-```r
+``` r
 p1 + theme_dark()
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-5-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/theme_dark-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 # themes - minimal
 
 
-```r
+``` r
 p1 + theme_minimal()
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-6-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/theme_minimal-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# ggthemes - Your turn
+
+Type `+ theme_` + TAB key and see what other types of plots you can make.
+
+
+``` r
+p1 + theme_
+```
+
+See the reference documentation for [ggtheme](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+---
+# ggthemes - Economist
+
+
+``` r
+p1 + theme_economist()
+```
+
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 # themes - build your own
@@ -193,7 +218,19 @@ Huge number of parameters, grouped by plot area:
 - `panel`: Actual plot area
 - `plot`: Whole image
 - `strip`: Facet labels
+
 ]
+
+---
+# themes - build your own
+
+.right-column[
+![](img/theme_elements.png)
+
+]
+
+[Theme Elements Demonstration by Henry Wang](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
 ---
 # themes - build your own
 
@@ -206,7 +243,7 @@ Theme options are supported by helper functions:
 - `element_text()`
 
 
-```r
+``` r
 my_theme &lt;- theme_bw() + theme(text = element_text(color = "hotpink", size = 20), axis.ticks.x = element_blank())
 ```
 ```
@@ -218,22 +255,20 @@ my_theme &lt;- theme_bw() + theme(text = element_text(color = "hotpink", size = 
 .right-column[
 
 
-```r
+``` r
 p1 + my_theme
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-6-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
-# ggthemes - Economist
+Your Turn! Use the starter code provided to build your own
 
+.right-column[
+![](img/theme_elements.png)
+]
 
-```r
-p1 + theme_economist()
-```
-
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Life Expectancy - highlight
@@ -241,7 +276,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 (p1 &lt;- p1 +
   geom_line(data = gapminder |&gt; filter(country == "Cambodia"),
   color = "orange", 
@@ -259,11 +294,13 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
 - [Cambodian Genocide](https://sfi.usc.edu/collections/cambodian-genocide)
+- [Ugly History: The Khmer Rouge murders - Timothy Williams](https://youtu.be/8_TYFfkc_1U?si=8pb_-M8P0KOOZNKw)
+- Over 1/4 of the population died as a result of political executions or due to starvation, over work, and disease.
 
 ---
 # Add annotations with `geom_vline`
@@ -272,7 +309,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 (p1 &lt;- p1 +
   geom_vline(xintercept = 1975, linetype = "dotted", color = "red") +
   geom_vline(xintercept = 1979, linetype = "dotted", color = "red"))
@@ -285,7 +322,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
@@ -297,7 +334,7 @@ p1 + theme_economist()
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 p1 +
   annotate("rect", 
   xmin = 1975, 
@@ -315,7 +352,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
@@ -342,7 +379,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 p1 +
   annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
   scale_y_log10()
@@ -356,11 +393,11 @@ p1 +
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
 ```
-## Warning: Transformation introduced infinite values in continuous
-## y-axis
+## Warning in scale_y_log10(): log-10 transformation introduced
+## infinite values.
 ```
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -374,7 +411,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 p1 +
   annotate("rect", xmin = 1975, xmax = 1979, ymin = 0, ymax = 100, alpha = 0.2, fill = "red") +
   scale_x_continuous(breaks = seq(from = 1952, to = 2007, by = 5))
@@ -387,7 +424,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
@@ -401,7 +438,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 p1 +
   annotate("rect", 
   xmin = 1975, 
@@ -421,7 +458,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 ]
@@ -432,7 +469,7 @@ p1 +
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
 (p2 &lt;- gapminder |&gt;
   filter(country == "Portugal") |&gt;
 ggplot(aes(x = year,
@@ -450,21 +487,119 @@ ggplot(aes(x = year,
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Plot&lt;/div&gt;
 
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 &lt;/div&gt;
 
 ]
 
-
 ---
-# Annotation - geom_text
+# Annotation - gghighlight
 
 .panelset[
 &lt;div class="panel"&gt;
 &lt;div class="panel-name"&gt;Code&lt;/div&gt;
 
-```r
+``` r
+gapminder |&gt;
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  gghighlight(mean(lifeExp) &gt; 75) 
+```
+
+
+
+&lt;/div&gt;
+
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
+
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+]
+---
+# Annotation - gghighlight
+
+.panelset[
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Code&lt;/div&gt;
+
+``` r
+gapminder |&gt;
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  facet_wrap(~continent) +
+  gghighlight(mean(lifeExp) &gt; 74.5) 
+```
+
+
+
+&lt;/div&gt;
+
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
+
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+]
+
+---
+# Annotation - gghighlight
+
+.panelset[
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Code&lt;/div&gt;
+
+``` r
+gapminder |&gt;
+ggplot(aes(x = year,
+      y = lifeExp, 
+      group = country, 
+      color = continent)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)") +
+  gghighlight(min(lifeExp) &lt; 40 &amp; max(lifeExp) &gt; 70)
+```
+
+
+
+&lt;/div&gt;
+
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
+
+&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+]
+
+---
+# Your Turn
+
+- Create your own plot highlighting a county of interest and a labelled historical event. Feel free to choose any of the gapminder variables.
+
+
+---
+# Additional Slides: Annotation - geom_text
+
+.panelset[
+&lt;div class="panel"&gt;
+&lt;div class="panel-name"&gt;Code&lt;/div&gt;
+
+``` r
 (p2 &lt;- gapminder |&gt;
   filter(country == "Portugal") |&gt;
 ggplot(aes(x = year,
@@ -490,111 +625,14 @@ ggplot(aes(x = year,
 ]
 
 
----
-# Annotation - gghighlight
-
-.panelset[
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Code&lt;/div&gt;
-
-```r
-gapminder |&gt;
-ggplot(aes(x = year,
-      y = lifeExp, 
-      group = country, 
-      color = continent)) +
-  geom_line() +
-  labs(x = "Year",
-       y = "Life Expectancy (years)") +
-  gghighlight(mean(lifeExp) &gt; 75) 
-```
-
-
-
-&lt;/div&gt;
-
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
-
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-&lt;/div&gt;
-]
----
-# Annotation - gghighlight
-
-.panelset[
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Code&lt;/div&gt;
-
-```r
-gapminder |&gt;
-ggplot(aes(x = year,
-      y = lifeExp, 
-      group = country, 
-      color = continent)) +
-  geom_line() +
-  labs(x = "Year",
-       y = "Life Expectancy (years)") +
-  facet_wrap(~continent) +
-  gghighlight(mean(lifeExp) &gt; 74.5) 
-```
-
-
-
-&lt;/div&gt;
-
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
-
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-&lt;/div&gt;
-]
-
----
-# Annotation - gghighlight
-
-.panelset[
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Code&lt;/div&gt;
-
-```r
-gapminder |&gt;
-ggplot(aes(x = year,
-      y = lifeExp, 
-      group = country, 
-      color = continent)) +
-  geom_line() +
-  labs(x = "Year",
-       y = "Life Expectancy (years)") +
-  gghighlight(min(lifeExp) &lt; 40 &amp; max(lifeExp) &gt; 70)
-```
-
-
-
-&lt;/div&gt;
-
-&lt;div class="panel"&gt;
-&lt;div class="panel-name"&gt;Plot&lt;/div&gt;
-
-&lt;img src="u5-d10-axes-themes_files/figure-html/unnamed-chunk-20-1.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-&lt;/div&gt;
-]
-
----
-# Your Turn
-
-- Create your own plot highlighting a county of interest and a labelled historical event. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightLines": true,
-"highlightStyle": "solarized-light",
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightLines": true,
+  "highlightStyle": "solarized-light",
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

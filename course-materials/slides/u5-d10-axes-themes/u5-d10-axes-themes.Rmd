@@ -1,6 +1,6 @@
 ---
 title: "Taking your plot to the next level - themes, axes, and annotation"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: "Laurie Baker"
 output:
   xaringan::moon_reader:
@@ -113,23 +113,43 @@ ggplot(aes(x = year,
 ---
 # themes - black and white
 
-```{r}
+```{r theme_bw}
 p1 + theme_bw()
 ```
 
 ---
 # themes - dark
 
-```{r}
+```{r theme_dark}
 p1 + theme_dark()
 ```
 
 ---
 # themes - minimal
 
-```{r}
+```{r theme_minimal}
 p1 + theme_minimal()
 ```
+
+
+---
+# ggthemes - Your turn
+
+Type `+ theme_` + TAB key and see what other types of plots you can make.
+
+```{r trial-theme, eval = FALSE}
+p1 + theme_
+```
+
+See the reference documentation for [ggtheme](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+---
+# ggthemes - Economist
+
+```{r}
+p1 + theme_economist()
+```
+
 
 ---
 # themes - build your own
@@ -143,7 +163,19 @@ Huge number of parameters, grouped by plot area:
 - `panel`: Actual plot area
 - `plot`: Whole image
 - `strip`: Facet labels
+
 ]
+
+---
+# themes - build your own
+
+.right-column[
+![](img/theme_elements.png)
+
+]
+
+[Theme Elements Demonstration by Henry Wang](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
 ---
 # themes - build your own
 
@@ -172,11 +204,12 @@ p1 + my_theme
 ]
 
 ---
-# ggthemes - Economist
+Your Turn! Use the starter code provided to build your own
 
-```{r}
-p1 + theme_economist()
-```
+.right-column[
+![](img/theme_elements.png)
+]
+
 
 ---
 # Life Expectancy - highlight
@@ -193,6 +226,8 @@ p1 + theme_economist()
 ```
 ]
 - [Cambodian Genocide](https://sfi.usc.edu/collections/cambodian-genocide)
+- [Ugly History: The Khmer Rouge murders - Timothy Williams](https://youtu.be/8_TYFfkc_1U?si=8pb_-M8P0KOOZNKw)
+- Over 1/4 of the population died as a result of political executions or due to starvation, over work, and disease.
 
 ---
 # Add annotations with `geom_vline`
@@ -281,47 +316,6 @@ p1 +
 ```
 ]
 ---
-# Annotation - geom_text
-
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code")}
-
-(p2 <- gapminder |>
-  filter(country == "Portugal") |>
-ggplot(aes(x = year,
-      y = lifeExp)) +
-  geom_point() +
-  labs(x = "Year",
-       y = "Life Expectancy (years)")) +
-  geom_text(aes(label = year))
-  
-```
-
-]
-
-
----
-# Annotation - geom_text
-
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code")}
-
-(p2 <- gapminder |>
-  filter(country == "Portugal") |>
-ggplot(aes(x = year,
-      y = lifeExp)) +
-  geom_point() +
-  labs(x = "Year",
-       y = "Life Expectancy (years)",
-       title = "Life Expectancy in Portugal over time") +
-  geom_text(aes(label = year), nudge_x = 3.75, nudge_y = -0.3))
-  
-```
-
-]
-
-
----
 # Annotation - gghighlight
 
 .panelset[
@@ -378,4 +372,46 @@ ggplot(aes(x = year,
 ---
 # Your Turn
 
-- Create your own plot highlighting a county of interest and a labelled historical event. 
+- Create your own plot highlighting a county of interest and a labelled historical event. Feel free to choose any of the gapminder variables.
+
+
+---
+# Additional Slides: Annotation - geom_text
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+(p2 <- gapminder |>
+  filter(country == "Portugal") |>
+ggplot(aes(x = year,
+      y = lifeExp)) +
+  geom_point() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)",
+       title = "Life Expectancy in Portugal over time") +
+  geom_text(aes(label = year), nudge_x = 3.75, nudge_y = -0.3))
+  
+```
+
+]
+
+---
+# Additional Slides - Annotation - geom_text
+
+.panelset[
+```{r panelset = c(output = "Plot", source = "Code")}
+
+(p2 <- gapminder |>
+  filter(country == "Portugal") |>
+ggplot(aes(x = year,
+      y = lifeExp)) +
+  geom_point() +
+  labs(x = "Year",
+       y = "Life Expectancy (years)")) +
+  geom_text(aes(label = year))
+  
+```
+
+]
+
+
