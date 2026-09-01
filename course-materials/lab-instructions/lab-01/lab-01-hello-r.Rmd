@@ -14,215 +14,40 @@ R is the name of the programming language itself and Posit is a convenient inter
 
 The main goal of this lab is to introduce you to R and Posit, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
 
-```{marginfigure}
-git is a version control system (like "Track Changes" features from Microsoft Word on steroids) and GitHub is the home for your Git-based projects on the internet (like DropBox but much, much better).
-```
-
-An additional goal is to introduce you to Git and GitHub, which is the collaboration and version control system that we will be using throughout the course.
-
 As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer.
 Before we get to that stage, however, you need to build some basic fluency in R.
 Today we begin with the fundamental building blocks of R and Posit: the interface, reading in data, and basic commands.
 
-And to make versioning simpler, this is a solo lab.
-Additionally, we want to make sure everyone gets a significant amount of time at the steering wheel.
-In future labs you'll learn about collaborating on GitHub and produce a single lab report for your team.
-
-# Connecting GitHub and Posit Cloud
-
-You should have already received an invitation to join the GitHub organization for this course.
-You need to accept the invitation before moving on to the next step.
-
-To connect your Posit and GitHub accounts by following the steps below:
-
--   Click on your name on the top right corner to open the right menu.
--   Then, click on Authentication.
-
-```{r github-auth-1, echo = FALSE}
-knitr::include_graphics("img/github-auth-1.png")
-```
-
--   In the Authentication window, check the box for *Enabled*.
-
-```{r github-auth-2, echo = FALSE}
-knitr::include_graphics("img/github-auth-2.png")
-```
-
--   In the next window, click on the green box that says "Authorize rstudio".
-
-```{r github-auth-3, echo = FALSE}
-knitr::include_graphics("img/github-auth-3.png")
-```
-
--   Back in the Authentication window, check the box for *Private repo access also enabled*, and once again, on the green box that says "Authorize rstudio" in the next window. At this point you should also make sure that the course organization shows up for you under *Organization access*. If it does not, this means you have not yet accepted the GitHub invitation to join the course, and you should go back and do that.
-
-```{r github-auth-4, echo = FALSE}
-knitr::include_graphics("img/github-auth-4.png")
-```
-
--   Once you're done, both of these boxes should be checked.
-
-```{r github-auth-5, echo = FALSE}
-knitr::include_graphics("img/github-auth-5.png")
-```
-
--   To confirm that you've successfully linked up your GitHub and Posit Cloud accounts, [GitHub settings \> Applications](https://github.com/settings/applications). You should see Posit listed as an authorized app under *Authorized OAuth Apps*. If you don't this is a good time to ask a question.
-
-```{r github-auth-6, echo = FALSE}
-knitr::include_graphics("img/github-auth-6.png")
-```
+This is a solo lab so that everyone gets a significant amount of time at the steering wheel.
 
 # Getting started
 
-Each of your assignments will begin with the following steps.
-You saw these once in class yesterday, they're outlined in detail here again.
-Going forward each lab will start with a "Getting started" section but details will be a bit more sparse than this.
-You can always refer back to this lab for a detailed list of the steps involved for getting started with an assignment.
+Each of your assignments will begin in the course workspace in Posit Cloud.
 
--   Click on the assignment link that you should have received in your email to create your GitHub repository (which we'll refer to as "repo" going forward) for the assignment. This repo contains a template you can build on to complete your assignment.
+-   Open Posit Cloud and go to the workspace for this course.
+-   Open the project assigned for this lab.
+-   Locate the Quarto (`.qmd`) file for the lab. This is where you will add your written responses and R code.
+-   As you work, save your changes regularly.
+-   Render your document periodically to make sure that your code runs and that the rendered lab report looks as expected.
 
-```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/clone-repo-link.png")
-```
-
--   On GitHub, click on the green **Code** button. The button used to be called "Clone or download", select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
-
-```{r new-project-from-gh, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/new-project-from-gh.png")
-```
-
--   Go to Posit Cloud and into the course workspace. Create a **New Project from Git Repo**. You will need to click on the down arrow next to the **New Project** button to see this option.
-
-```{r paste-gh-repo-url, fig.margin = TRUE, echo = FALSE, fig.width=5}
-knitr::include_graphics("img/paste-gh-repo-url.png")
-```
-
--   Copy and paste the URL of your assignment repo into the dialog box:
-
--   Hit OK, and you're good to go!
-
-## Introducing yourself to git: setting up your personal access token.
-
-Once you've opened up Posit Cloud, we will want to introduce Posit to git and set up our personal access token, these replaced passwords in 2021.
-If you have already done this in the homework, skip ahead to step 6.
-Our personal access token will connect our project to our github account.
-This is perhaps the most tedious part of the process as you often have to (re)introduce yourself to git when you make a new project.
-
-In the console (lower left panel in Posit), run the following code:
-
-```{r, eval = FALSE}
-install.packages("usethis") # Install the package
-library(usethis) # Load the package
-git_sitrep()
-
-```
-
-Note that before git is connected it will show that there is no personal access token `<unset>`.
-
-```{r check-git-sitrep, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/check-git-sitrep-1.png")
-```
-
-### Step 1: Open page to make personal access token
-
-To add a token we can run the following code in the console:
-
-```{r, eval = FALSE}
-
-create_github_token()
-
-```
-
-### Step 2: Add description and update expiry date
-
-Add a description (e.g. course name) and update the expiry date to never expire.
-This will mean that it does not need to be updated during the course.
-
-```{r add-new-pat-2, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-2.png")
-```
-
-### Step 4: Generate the token
-
-Aside from the description and expiry date, you can leave the other default settings.
-
-```{r add-new-pat-3, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-3-generate-token.png")
-```
-
-### Step 5: Copy and save generated token
-
-Copy and save your generated token by clicking on the clipboard symbol.
-Keep your token somewhere you can find it later, like in a text file in your course folder.
-Note that for more sensitive projects you might consider using a password manager.
-
-```{r add-new-pat-4-token, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-4-token-generated.png")
-```
-
-### Step 6: Set github credentials
-
-Now we're ready to set our github credentials.
-
-```{r set-git-creds, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/set-git-creds-add-pat-1.png")
-```
-
-### Step 7: Recheck git credentials.
-
-Now, you'll notice that it says that the personal access token has been discovered.
-
-```{r recheck-git-sitrep, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/recheck-git-sitrep-1.png")
-```
-
-Note that for future projects you can skip directly to Step 6.
-You do not need to generate a personal access token each time.
+Going forward, each lab will start with a shorter "Getting started" section.
+You can always refer back to this lab if you need a reminder of the basic workflow.
 
 ## Warm up
 
 Before we introduce the data, let's warm up with some simple exercises.
 
 ```{marginfigure}
-The top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+The top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
 ```
 
 ### YAML
 
-Open the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document.
+Open the Quarto (`.qmd`) file in your project, change the author name to your name, and render the document.
 
 ```{r yaml-raw-to-rendered, fig.fullwidth=TRUE, echo = FALSE}
 knitr::include_graphics("img/yaml-raw-to-rendered.png")
 ```
-
-### Committing changes
-
-Then go to the Git pane in your Posit.
-
-If you have made changes to your Rmd file, you should see it listed here.
-Click on it to select it in this list and then click on **Diff**.
-This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes.
-If you're happy with these changes, write "Update author name" in the **Commit message** box and hit **Commit**.
-
-```{r update-author-name-commit, fig.fullwidth=TRUE, echo = FALSE}
-knitr::include_graphics("img/update-author-name-commit.png")
-```
-
-You don't have to commit after every change, this would get quite cumbersome.
-You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration.
-In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use.
-As the semester progresses we will let you make these decisions.
-
-### Pushing changes
-
-Now that you have made an update and committed this change, it's time to push these changes to the web!
-Or more specifically, to your repo on GitHub.
-Why?
-So that others can see your changes.
-And by others, we mean the course teaching team (your repos in this course are private to you and us, only).
-
-In order to push your changes to GitHub, click on **Push**.
-This will prompt a dialogue box where you first need to enter your user name, and then your password.
 
 ## Packages
 
@@ -241,7 +66,7 @@ library(tidyverse)
 library(datasauRus)
 ```
 
-Note that the packages are also loaded with the same commands in your R Markdown document.
+Note that the packages are also loaded with the same commands in your Quarto document.
 
 ## Data
 
@@ -282,12 +107,10 @@ The original Datasaurus (`dino`) was created by Alberto Cairo in [this great blo
 The other Dozen were generated using simulated annealing and the process is described in the paper *Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics* through Simulated Annealing by Justin Matejka and George Fitzmaurice.
 In the paper, the authors simulate a variety of datasets that have the same summary statistics as the Datasaurus but have very different distributions.
 
-🧶 ✅ ⬆️ *Knit, commit, and push your changes to GitHub with the commit message "Add answer for Ex 1". Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
-
 2.  Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset.
 
 Below is the code you will need to complete this exercise.
-Basically, the answer is already given, but you need to include relevant bits in your Rmd document and successfully knit it and view the results.
+Basically, the answer is already given, but you need to include relevant bits in your `.qmd` document and successfully render it and view the results.
 
 Start with the `datasaurus_dozen` and pipe it into the `filter` function to filter for observations where `dataset == "dino"`.
 Store the resulting filtered data frame as a new data frame called `dino_data`.
@@ -338,15 +161,17 @@ dino_data |>
   summarize(r = cor(x, y))
 ```
 
-🧶 ✅ ⬆️ *Knit, commit, and push your changes to GitHub with the commit message "Add answer for Ex 2". Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+3.  ✏️ Plot `y` vs. `x` for the `star` dataset.
+    You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset.
+    Then, calculate the correlation coefficient between `x` and `y` for this dataset.
+    How does this value compare to the `r` of `dino`?
+    Write a sentence based on your comparison.
 
-3.  ✏️ Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`? Write a sentence based on your comparison.
-
-🧶 ✅ ⬆️ *This is another good place to pause, knit, commit changes with the commit message "Add answer for Ex 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
-
-4.  ✏️ Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`? Write a sentence based on your comparison.
-
-🧶 ✅ ⬆️ *You should pause again, commit changes with the commit message "Add answer for Ex 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+4.  ✏️ Plot `y` vs. `x` for the `circle` dataset.
+    You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset.
+    Then, calculate the correlation coefficient between `x` and `y` for this dataset.
+    How does this value compare to the `r` of `dino`?
+    Write a sentence based on your comparison.
 
 ```{marginfigure}
 Facet by the dataset variable, placing the plots in a 3 column grid, and don't add a legend.
@@ -369,7 +194,3 @@ datasaurus_dozen |>
   summarize(r = cor(x, y)) |>
   print(13)
 ```
-
-<br>
-
-🧶 ✅ ⬆️ *Yay, you're done! Commit all remaining changes, use the commit message "Finish Lab 1!* 💪*", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. Use the self check list in the Readme to review.*
