@@ -1,5 +1,5 @@
 ---
-title: "HW 05 - Legos"
+title: "HW 04 - Legos"
 output: 
   tufte::tufte_html:
     css: ../hw.css
@@ -26,52 +26,67 @@ This week we'll do some data gymnastics to refresh and review what we learned ov
 
 # Getting started
 
-Click on your assignment link and go to the Github repo.
-Clone the repo in RStudio and open the R Markdown document.
-Knit the document to make sure it compiles without errors.
+Open the project for this assignment in the course Posit Cloud workspace.
+
+Open the Quarto document for the assignment and **render** it before making any changes.
+Make sure the document renders without errors.
+
+This first render is a useful check that the project, packages, data, and files are all working correctly.
 
 ## Warm up
 
-Before we introduce the data, let's warm up with some simple exercises.
-Update the YAML of your R Markdown file with your information, knit, commit, and push your changes.
-Make sure to commit with a meaningful commit message.
-Then, go to your repo on GitHub and confirm that your changes are visible in your Rmd **and** md files.
-If anything is missing, commit and push again.
+Before we introduce the data, let's warm up with a simple exercise.
+
+-   Update the YAML, changing the author name to your name.
+-   Render the document.
+-   Open the rendered document and confirm that your name appears correctly.
+
+🧶 ✅ *Throughout this assignment, remember to render your document regularly. After rendering, check the output to make sure your code, output, figures, and written responses appear as you expect.*
 
 ## Packages
 
 ```{r load-packages, message = FALSE}
-#install.packages("tidyverse")
 library(tidyverse)
-# install.packages("devtools")
-# library(devtools)
-# devtools::install_github("rstudio-education/dsbox")
 library(dsbox)
 ```
 
-Note, if the above code does not run, you will want to uncomment (remove the \#) and install the required packages.
-You will then want to recommend (add the \#) so that the package does not get installed everytime you knit.
+If one of these packages is not installed, run the appropriate `install.packages()` command in your **Console**.
+
+For example:
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+```
+
+You only need to install a package once.
+Do not put `install.packages()` commands in the code you render for your assignment.
 
 ## Data
 
 The data can be found in the **dsbox** package, and it's called `lego_sales`.
-Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
+
+Since the dataset is distributed with the package, we don't need to load it separately; it becomes available when we load the package.
+
 You can find out more about the dataset by inspecting its documentation, which you can access by running `?lego_sales` in the Console or using the Help menu in RStudio to search for `lego_sales`.
+
 You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/lego_sales.html).
 
 # Exercises
 
 Answer the following questions using pipelines.
-For each question, state your answer in a sentence, e.g. "In this sample, the first three common names of purchasers are ...".
-Note that the answers to all questions are within the context of this particular sample of sales, i.e. you shouldn't make inferences about the population of all Lego sales based on this sample.
 
-1.  What are the three most common first names of purchasers?
+For each question, state your answer in a sentence, e.g. "In this sample, the three most common first names of purchasers are ...".
 
-2.  What are the three most common themes of Lego sets purchased?
+Note that the answers to all questions are within the context of this particular sample of sales.
+You shouldn't make inferences about the population of all Lego sales based on this sample.
 
-3.  Among the most common theme of Lego sets purchased, what is the most common subtheme?
+1.  ✏️ What are the three most common first names of purchasers?
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+2.  ✏️ What are the three most common themes of Lego sets purchased?
+
+3.  ✏️ Among the most common theme of Lego sets purchased, what is the most common subtheme?
+
+🧶 ✅ *Complete Exercises 1–3 and write your answers in sentences. Then render the document. Check that your code runs, the output appears correctly, and your written responses answer each question in the context of this sample.*
 
 ```{marginfigure}
 **Hint:** Use the `case_when()` function.
@@ -83,24 +98,25 @@ Note that the answers to all questions are within the context of this particular
 **Hint:** You will need to consider quantity of purchases.
 ```
 
-5.  Which age group has purchased the highest number of Lego sets.
+5.  ✏️ Which age group has purchased the highest number of Lego sets?
 
 ```{marginfigure}
-**Hint:** You will need to consider quantity of purchases as well as price of lego sets.
+**Hint:** You will need to consider quantity of purchases as well as price of Lego sets.
 ```
 
-6.  Which age group has spent the most money on Legos?
+6.  ✏️ Which age group has spent the most money on Legos?
 
 ```{marginfigure}
 **Hint:** The [`str_sub()`](https://stringr.tidyverse.org/reference/str_sub.html) function will be helpful here!
 ```
 
-7.  Which Lego theme has made the most money for Lego?
+7.  ✏️ Which Lego theme has made the most money for Lego?
 
-8.  Which area code has spent the most money on Legos?
-    In the US the area code is the first 3 digits of a phone number.
+8.  ✏️ Which area code has spent the most money on Legos?\
+    In the US, the area code is the first 3 digits of a phone number.
 
-9.  Come up with a question you want to answer using these data, and write it down.
-    Then, create a data visualization that answers the question, and explain how your visualization answers the question.
+🧶 ✅ *Complete Exercises 4–8 and render the document. Check that your new `age_group` variable is created correctly, each pipeline runs, and your written responses for Exercises 5–8 agree with the output produced by your code.*
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work. Check also the self checklist in your Github Readme to check to see if you missed a solution or interpretation that was expected on your lab/hw.*
+9.  ✏️ Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question and explain how your visualization answers the question.
+
+🧶 ✅ *Complete your question, visualization, and written interpretation for Exercise 9. Then render your document one final time. Read through the rendered document from beginning to end. Make sure all of your code runs, all output and figures appear correctly, and every exercise marked with ✏️ includes a written response before you submit your work.*

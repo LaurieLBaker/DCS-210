@@ -1,5 +1,5 @@
 ---
-title: "Lab 03 - Nobel laureates backup"
+title: "Lab 03 - Nobel laureates"
 output: 
   tufte::tufte_html:
     css: ../lab.css
@@ -20,140 +20,60 @@ In this lab we will work with the data from this article to recreate some of the
 
 # Learning goals
 
--   Collaborating on GitHub and resolving merge conflicts
+-   Working collaboratively through pair programming
 -   Replicating published results
 -   Data wrangling and visualisation
 
 # Lab prep
 
-You have two tasks you should complete before the lab:
+Before the lab, read the Buzzfeed article titled [*These Nobel Prize Winners Show Why Immigration Is So Important For American Science*](https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science).
 
--   **Task 1:** Read the Buzzfeed article titled [*These Nobel Prize Winners Show Why Immigration Is So Important For American Science*](https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science)*.* We will replicate this analysis in the workshop so it's crucial that you're familiar with it ahead of time.
--   **Task 2:** Read about merge conflicts below. The merge conflict exercise we'll start with during the lab will assume that you have this background information.
+We will replicate parts of this analysis during the lab, so it's important that you're familiar with the article ahead of time.
 
-## Merges and merge conflicts
+## Working collaboratively
 
-This is the second week you're working in teams, so we're going to make things a little more interesting and let all of you make changes and push those changes to your team repository.
-Sometimes things will go swimmingly, and sometimes you'll run into merge conflicts.
-So our first task today is to walk you through a merge conflict!
+For this lab, you will work together using **pair programming**.
+Pair programming means that you work together on the same code rather than dividing the exercises up and completing them separately.
 
--   Pushing to a repo replaces the code on GitHub with the code you have on your computer.
--   If a collaborator has made a change to your repo on GitHub that you haven't incorporated into your local work, GitHub will stop you from pushing to the repo because this could overwrite your collaborator's work!
--   So you need to explicitly "merge" your collaborator's work before you can push.
--   If your and your collaborator's changes are in different files or in different parts of the same file, git merges the work for you automatically when you \*pull\*.
--   If you both changed the same part of a file, git will produce a \*\*merge conflict\*\* because it doesn't know how which change you want to keep and which change you want to overwrite.
+One person will be the **driver** and one person will be the **navigator**:
 
-Git will put conflict markers in your code that look like:
+-   **Driver:** controls the computer and writes the code.
+-   **Navigator:** follows the code, asks questions, catches errors, and helps think through the next steps.
 
-```         
-<<<<<<< HEAD 
+If you are working in a group of three, the third person can act as an additional navigator and should stay actively involved in discussing the code and interpreting the results.
 
-See also: [dplyr documentation](https://dplyr.tidyverse.org/)   
+### Pair programming tips
 
-======= 
-
-See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)  
-
->>>>>>> some1alpha2numeric3string4
-```
-
-The `===`s separate *your* changes (top) from *their* changes (bottom).
-
-Note that on top you see the word `HEAD`, which indicates that these are your changes.
-
-And at the bottom you see `some1alpha2numeric3string4` (well, it probably looks more like `28e7b2ceb39972085a0860892062810fb812a08f`).
-
-This is the **hash** (a unique identifier) of the commit your collaborator made with the conflicting change.
-
-Your job is to *reconcile* the changes: edit the file so that it incorporates the best of both versions and delete the `<<<`, `===`, and `>>>` lines.
-Then you can stage and commit the result.
-
-# Merge conflict activity
-
-## Setup
-
--   Clone the repo and open the .Rmd file.
--   Assign the numbers 1, 2, 3, and 4 to each of the team members. If your team has fewer than 4 people, some people will need to have multiple numbers. If your team has more than 4 people, some people will need to share some numbers.
-
-## Let's cause a merge conflict!
-
-Our goal is to see two different types of merges: first we'll see a type of merge that git can't figure out on its own how to do on its own (a **merge conflict**) and requires human intervention, then another type of where that git can figure out how to do without human intervention.
-
-Doing this will require some tight choreography, so pay attention!
-
-Take turns in completing the exercise, only one member at a time.
-**Others should just watch, not doing anything on their own projects (this includes not even pulling changes!)** until they are instructed to.
-If you feel like you won't be able to resist the urge to touch your computer when it's not your turn, we recommend putting your hands in your pockets or sitting on them!
-
-**Before starting**: everyone should have the repo cloned and know which role number(s) they are.
-
-**Role 1:**
-
--   Change the team name to your actual team name.
--   Knit, commit, push.
-
-🛑 Make sure the previous role has finished before moving on to the next step.
-
-**Role 2:**
-
--   Change the team name to some other word.
--   Knit, commit, push. You should get an error.
--   Pull. Take a look at the document with the merge conflict.
--   Clear the merge conflict by editing the document to choose the correct/preferred change.
--   Knit.
--   **Click the Stage checkbox** for all files in your Git tab. Make sure they all have check marks, not filled-in boxes.
--   Commit and push.
-
-🛑 Make sure the previous role has finished before moving on to the next step.
-
-**Role 3:**
-
--   Change the a label of the first code chunk
--   Knit, commit, push. You should get an error.
--   Pull. No merge conflicts should occur, but you should see a message about merging.
--   Now push.
-
-🛑 Make sure the previous role has finished before moving on to the next step.
-
-**Role 4:**
-
--   Change the label of the first code chunk to something other than previous role did.
--   Knit, commit, push. You should get an error.
--   Pull. Take a look at the document with the merge conflict. Clear the merge conflict by choosing the correct/preferred change. Commit, and push.
-
-🛑 Make sure the previous role has finished before moving on to the next step.
-
-**Everyone:** Pull, and observe the changes in your document.
-
-## Tips for collaborating via GitHub
-
--   Always pull first before you start working.
--   Resolve a merge conflict (commit and push) *before* continuing your work. Never do new work while resolving a merge conflict.
--   Knit, commit, and push often to minimize merge conflicts and/or to make merge conflicts easier to resolve.
--   If you find yourself in a situation that is difficult to resolve, ask questions ASAP. Don't let it linger and get bigger.
+-   **Switch roles regularly.** Aim to switch drivers every exercise or every 10–15 minutes.
+-   **Talk through what you're doing.** The driver should say what they are trying, and the navigator should ask questions and suggest next steps.
+-   **Don't take over the keyboard.** If you're the navigator, explain your idea and let the driver implement it.
+-   **Work on the same problem together.** Avoid splitting up the exercises and working independently.
+-   **Make sure everyone understands the code.** Before moving on, check that everyone on the team can follow what the code is doing.
+-   **Ask for help early.** If your team gets stuck, don't spend too long trying random solutions before asking a question.
 
 # Getting started
 
-Go to the course GitHub organization and locate your lab repo, which should be named `lab-03-nobel-laureates-YOUR_GITHUB_USERNAME`.
-Grab the URL of the repo, and clone it in RStudio.
-First, open the R Markdown document `lab-03.Rmd` and Knit it.
-Make sure it compiles without errors.
-The output will be in the file markdown `.md` file with the same name.
+Open the project for this lab in the course Posit Cloud workspace.
+
+Open the Quarto document `lab-03.qmd` and **render** it before making any changes.
+Make sure the document renders without errors.
+
+This first render is a useful check that the project, packages, data, and files are all working correctly.
 
 ## Warm up
 
-Before we introduce the data, let's warm up with some simple exercises.
+Before we introduce the data:
 
--   Update the YAML, changing the author name to your name, and **knit** the document.
--   Commit your changes with a meaningful commit message.
--   Push your changes to GitHub.
--   Go to your repo on GitHub and confirm that your changes are visible in your Rmd **and** md files. If anything is missing, commit and push again.
+-   Update the YAML, changing the author information to include the names of everyone on your team.
+-   Render the document.
+-   Open the rendered document and confirm that the names appear correctly.
+-   Decide who will begin as the **driver** and who will begin as the **navigator**.
+
+🧶 ✅ *Throughout this lab, remember to render your document regularly. After rendering, check the output to make sure your code, figures, and written responses appear as you expect.*
 
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling.
-This package is already installed for you.
-You can load them by running the following in your Console:
 
 ```{r load-packages, message = FALSE}
 library(tidyverse)
@@ -161,8 +81,9 @@ library(tidyverse)
 
 ## Data
 
-The dataset for this assignment can be found as a CSv (comma separated values) file in the `data` folder of your repository.
-You can read it in using the following.
+The dataset for this assignment can be found as a CSV (comma-separated values) file in the `data` folder of your project.
+
+You can read it in using:
 
 ```{r load-data, message = FALSE}
 nobel <- read_csv("data/nobel.csv")
@@ -191,8 +112,9 @@ The variable descriptions are as follows:
 -   `share`: Number of other winners award is shared with
 -   `motivation`: Motivation for recognition
 
-In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
-In these cases the variables below reflect a different name than their counterparts without the suffix \`\_original\`.
+In a few cases the name of the city/country changed after the laureate was given the award (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
+
+In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.
 
 -   `born_country_original`: Original country where laureate was born
 -   `born_city_original`: Original city where laureate was born
@@ -203,10 +125,12 @@ In these cases the variables below reflect a different name than their counterpa
 
 # Exercises
 
-Take turns answering the exercises.
-Make sure each team member gets to commit to the repo by the time you submit your work.
-And make sure that the person taking the lead for an exercise is sharing their screen.
-You don't have to switch at each exercise, you can find your a cadence that works for your team and stick to it.
+Work through the exercises collaboratively.
+
+Take turns as the driver and navigator so that each team member has an opportunity to write code.
+You do not need to switch at every exercise, but try to switch regularly enough that everyone participates in both roles.
+
+The goal is for everyone on the team to understand the code and results, rather than for each person to be responsible for a separate part of the lab.
 
 ## Get to know your data
 
@@ -231,23 +155,25 @@ nobel_living <- nobel |>
 
 Confirm that once you have filtered for these characteristics you are left with a data frame with `r nrow(nobel_living)` observations, once again using inline code.
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Complete Exercises 1 and 2 and render the document. Check that your written response and inline code appear correctly and that the filtering code produces the expected data frame. This is also a good time to switch driver and navigator roles.*
 
 ## Most living Nobel laureates were based in the US when they won their prizes
 
-... says the Buzzfeed article.
+...
+says the Buzzfeed article.
 Let's see if that's true.
 
 First, we'll create a new variable to identify whether the laureate was in the US when they won their prize.
 We'll use the `mutate()` function for this.
+
 The following pipeline mutates the `nobel_living` data frame by adding a new variable called `country_us`.
 We use an if statement to create this variable.
-The first argument in the `if_else()` function we're using to write this if statement is the condition we're testing for.
+The first argument in the `if_else()` function is the condition we're testing for.
 If `country` is equal to `"USA"`, we set `country_us` to `"USA"`.
-If not, we set the `country_us` to `"Other"`.
+If not, we set `country_us` to `"Other"`.
 
 ```{marginfigure}
-Note that we can achieve the same result using the `fct_other()` function we've seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use the `if_else()` here to show you one example of an if statement in R.
+Note that we can achieve the same result using the `fct_other()` function we've seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use `if_else()` here to show you one example of an if statement in R.
 ```
 
 ```{r}
@@ -265,16 +191,16 @@ nobel_living_science <- nobel_living |>
 ```
 
 For the next exercise work with the `nobel_living_science` data frame you created above.
-This means you'll need to define this data frame in your R Markdown document, even though the next exercise doesn't explicitly ask you to do so.
+This means you'll need to define this data frame in your Quarto document, even though the next exercise doesn't explicitly ask you to do so.
 
-3.  ✏️ Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
+3.  ✏️ Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the Nobel Prize.
     Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
     -   Your visualization should be faceted by category.
     -   For each facet you should have two bars, one for winners in the US and one for Other.
     -   Flip the coordinates so the bars are horizontal, not vertical.
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
+🧶 ✅ *Complete Exercise 3 and render the document. Check that your visualization appears correctly and that your written interpretation addresses the Buzzfeed claim. Switch driver and navigator roles if you haven't done so recently.*
 
 ## But of those US-based Nobel laureates, many were born in other countries
 
@@ -282,18 +208,18 @@ This means you'll need to define this data frame in your R Markdown document, ev
 **Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
 ```
 
-4.  ✏️ Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
-    How many of the winners are born in the US?
+4.  ✏️ Create a new variable called `born_country_us` that has the value `"USA"` if the laureate was born in the US, and `"Other"` otherwise.
+    How many of the winners were born in the US?
 
 5.  ✏️ Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
     Based on your visualization, do the data appear to support Buzzfeed's claim?
-    Explain your reasoning in 1-2 sentences.
+    Explain your reasoning in 1–2 sentences.
 
     -   Your final visualization should contain a facet for each category.
     -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born in the US or not.
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Complete Exercises 4 and 5 and render the document. Check that the new variable is created correctly, the updated visualization appears as expected, and both exercises include the requested written responses.*
 
 ## Here's where those immigrant Nobelists were born
 
@@ -301,12 +227,11 @@ This means you'll need to define this data frame in your R Markdown document, ev
 Note that your bar plot won't exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.
 ```
 
-6.  ✏️ In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
+6.  ✏️ In a single pipeline, filter for laureates who won their prize in the US but were born outside of the US, then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
+🧶 ✅ *Complete Exercise 6 and render your document one final time. Read through the rendered document from beginning to end. Make sure all code runs, all figures and output appear correctly, and every exercise marked with ✏️ includes a written response. Designate one person to submit the lab for the team. The other person should submit the name of their team.*
 
-Now go back through your write up to make sure you've answered all questions and all of your R chunks are properly labelled.
-Once you decide as a team that you're done with this lab, all members of the team should pull the changes and knit the R Markdown document to confirm that they can reproduce the report.
+Before finishing, check as a team that everyone understands the major steps in the analysis and that each person had an opportunity to work as both driver and navigator.
 
 # Interested in how Buzzfeed made their visualizations?
 

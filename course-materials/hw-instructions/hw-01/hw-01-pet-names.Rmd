@@ -19,97 +19,58 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(openintro)
 library(ggrepel)
+library(ggimage)
 ```
 
 ```{r photo, fig.margin = TRUE, echo = FALSE, fig.width = 3, fig.cap = "Photo by Jovana Askrabic on Unsplash", eval = TRUE}
 knitr::include_graphics("img/jovana-askrabic-XYIQXLH_v0o-unsplash.jpg")
 ```
 
-The goal of this assignment is to introduce you to R, Posit, Git, and GitHub, which you'll be using throughout the course both to learn the data science concepts discussed in the course and to analyze real data and come to informed conclusions.
+The goal of this assignment is to introduce you to R, Posit Cloud, and Quarto, which you'll be using throughout the course to learn data science concepts, analyze real data, and communicate your results.
 
 # Getting started
 
 ## Prerequisites {data-link="Prerequisites"}
 
-This assignment assumes that you have reviewed the lectures titled "Meet the toolkit: Programming" and "Meet the toolkit: version control and collaboration".
-If you haven't yet done so, please pause and complete the following before continuing.
+This assignment assumes that you have reviewed the lecture titled "Meet the toolkit: Programming".
+If you haven't yet done so, please pause and complete it before continuing.
 
 ## Terminology
 
 We've already thrown around a few new terms, so let's define them before we proceed.
 
--   **R:** Name of the programming language we will be using throughout the course.
+-   **R:** The programming language we will be using throughout the course.
 
--   **Posit:** An integrated development environment for R.
-    In other words, a convenient interface for writing and running R code.
+-   **Posit Cloud:** An online environment for working with R.
+    It gives you a convenient interface for writing and running code, viewing output, and working with your course files.
 
--   **Git:** A version control system.
+-   **Quarto:** A document format that lets you combine written text, R code, and the output from your code in a single document.
 
--   **GitHub:** A web platform for hosting version controlled files and facilitating collaboration among users.
-
--   **Repository:** A Git repository contains all of your project's files and stores each file's revision history.
-    It's common to refer to a repository as a repo.
-
-    -   In this course, each assignment you work on will be contained in a Git repo.
-    -   For individual assignments, only you will have access to the repo. For team assignments, all team members will have access to a single repo where they work collaboratively.
-    -   All repos associated with this course are housed in the course GitHub organization. The organization is set up such that students can only see repos they have access to, but the course staff can see all of them.
+-   **Render/Knit:** The process of running the code in your Quarto document and creating the finished output document.
 
 ## Starting slow
 
 As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!
-Before we get to that stage, however, you need to build some basic fluency in R.
-First, we will explore the fundamental building blocks of all of these tools.
+Before we get to that stage, however, you need to build some basic fluency in R and Posit Cloud.
 
-Before you can get started with the analysis, you need to make sure you:
-
--   have a GitHub account
-
--   are a member of the course GitHub organization
-
--   are a member of the course Posit Cloud space
-
-If you failed to confirm any of these, it means you have not yet completed the prerequisites for this assignment.
-Please go back to [Prerequisites] and complete them before continuing the assignment.
+Before you get started, make sure that you are a member of the course Posit Cloud workspace.
 
 # Workflow
 
-For each assignment in this course you will start with an assignment link which will take you to a GitHub repo that contains the starter documents you will build upon when working on your assignment.
+For assignments in this course, you will work in a project in our Posit Cloud workspace.
+The basic workflow will be:
 
-The first step is always to bring these files into Posit so that you can edit them, run them, view your results, and interpret them.
-This action is called **cloning**.
+**Open assignment → Work in Posit Cloud → Run code → Render → Check → Submit**
 
-Then you will work in Posit on the data analysis, making **commits** along the way (snapshots of your changes) and finally **push** all your work back to GitHub.
+As you work, run your code frequently so that you can see what it does and catch errors early.
+Render your Quarto document periodically to make sure that your code, output, figures, and written responses appear correctly in the finished document.
 
-The next few steps will walk you through the process of getting information of the repo to be cloned, cloning your repo in a new Posit Cloud project, and getting started with the analysis.
+## Go to Posit Cloud
 
-### Step 1. Get URL of repo to be cloned
+Go to [posit.cloud](https://posit.cloud/ "Posit Cloud") and navigate to the **course workspace** via the left sidebar.
+It's important that you work in the course workspace so that you have access to the course projects and the R packages that have been set up for you.
 
-```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, fig.alt = "Github repo code pane: navigate to code, select https, click clipboard to clone", eval = TRUE}
-knitr::include_graphics("img/clone-repo-link.png")
-```
-
-On GitHub, click on the green **Code** button, select **HTTPS** (this might already be selected by default, and if it is, you'll see the text *Use Git or checkout with SVN using the web URL* jas in the image on the right).
-Click on the clipboard icon 📋 to copy the repo URL.
-
-### Step 2. Go to Posit Cloud
-
-Go to [posit.cloud](https://posit.cloud/ "Posit Cloud") and then **navigate to the course workspace** via the left sidebar.
-It's very important that you do this for two reasons:
-
--   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly.
--   It's only when you're in the course workspace that your usage of Posit Cloud won't count towards the free usage limits.
-
-Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in Posit Cloud.
-
-### Step 3. Clone the repo
-
-In Posit, click on the **down arrow** next to New Project and then choose **New Project from Git Repository**.
-
-In the pop-up window, **paste the URL** you copied from GitHub, make sure the box for **Add packages from the base project** is checked (it should be, by default) and then click **OK**.
-
-```{r new-project-from-git, echo = FALSE, eval = TRUE, fig.align = "left"}
-knitr::include_graphics("img/new-project-from-git.png")
-```
+Open the project for this assignment.
 
 # Hello Posit!
 
@@ -122,154 +83,29 @@ knitr::include_graphics("img/rstudio-anatomy.png")
 -   On the bottom left is the Console, this is where you can write code that will be evaluated. Try typing `2 + 2` here and hit enter, what do you get?
 -   On the bottom right is the Files pane, as well as other panes that will come handy as we start our analysis.
 -   If you click on a file, it will open in the editor, on the top left pane.
--   Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing `x <- 2` in the Console and hit enter, what do you get in the **Environment** pane? Importantly, this pane is also where the **Git** interface lives. We will be using that regularly throughout this assignment.
-
-## Introducing yourself to git: setting up your personal access token.
-
-Once you've opened up Posit Cloud, we will want to introduce set up our personal access token, these replaced passwords in 2021.
-If you have already done this in the lab, skip ahead to step 6.
-Our personal access token will connect our project to our github account.
-This is perhaps the most tedious part of the process as you have to (re)introduce yourself to git *every time you make a new project*.
-
-In the console (lower left panel in Posit), run the following code:
-
-```{r, eval = FALSE}
-
-library(usethis) # Load the package
-git_sitrep()
-
-```
-
-Note that before git is connected it will show that there is no personal access token `<unset>`.
-
-```{r check-git-sitrep, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/check-git-sitrep-1.png")
-```
-
-### Step 1: Open page to make personal access token
-
-To add a token we can run the following code in the console:
-
-```{r, eval = FALSE}
-
-create_github_token()
-
-```
-
-### Step 2: Add description and update expiry date
-
-Add a description (e.g. course name) and update the expiry date to never expire.
-This will mean that it does not need to be updated during the course.
-
-```{r add-new-pat-2, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-2.png")
-```
-
-### Step 4: Generate the token
-
-Aside from the description and expiry date, you can leave the other default settings.
-
-```{r add-new-pat-3, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-3-generate-token.png")
-```
-
-### Step 5: Copy and save generated token
-
-Copy and save your generated token by clicking on the clipboard symbol.
-Keep your token somewhere you can find it later, like in a text file in your course folder.
-Note that for more sensitive projects you might consider using a password manager.
-
-```{r add-new-pat-4-token, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/add-new-pat-4-token-generated.png")
-```
-
-### Step 6: Set github credentials
-
-Now we're ready to set our github credentials.
-
-```{r set-git-creds, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/set-git-creds-add-pat-1.png")
-```
-
-### Step 7: Recheck git credentials.
-
-Now, you'll notice that it says that the personal access token has been discovered.
-
-```{r recheck-git-sitrep, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/recheck-git-sitrep-1.png")
-```
-
-Note that for future projects you can skip directly to Step 6.
-You do not need to generate a personal access token each time.
+-   Finally, the top right pane shows your Environment. If you define a variable it will show up there. Try typing `x <- 2` in the Console and hit enter. What do you see in the **Environment** pane?
 
 # Warm up
 
 Before we introduce the data, let's warm up with some simple exercises.
 
 ```{marginfigure}
-The top portion of your R Markdown file (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+The top portion of your Quarto file (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
 ```
 
 ## Step 1. Update the YAML
 
-Open the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document.
+Open the Quarto (Rmd or qmd) file in your project, change the author name to your name, and knit the document.
 
 ```{r yaml-raw-to-rendered, echo = FALSE, eval = TRUE, fig.align = "center"}
 knitr::include_graphics("img/yaml-raw-to-rendered.png")
 ```
 
-## Step 2: Commit
+## Step 2. Check your rendered document
 
-Then go to the **Git pane** in your Posit.
+After you knit the document, open the rendered output and check that your name appears correctly and that the document renders without errors.
 
-You should see that your Rmd (R Markdown) file and its output, your md file (Markdown), file are listed there as recently changed files.
-
-Next, click on **Diff**.
-This will pop open a new window that shows you the **diff**erence between the last committed state of the document and its current state that includes your changes.
-If you're happy with these changes, click on the checkboxes of all files in the list, and type *"Update author name"* in the **Commit message** box and hit **Commit**.
-
-```{r update-author-name-commit, echo = FALSE, eval = TRUE, fig.align = "left"}
-knitr::include_graphics("img/update-author-name-commit.png")
-```
-
-You don't have to commit after every change, this would get quite cumbersome.
-You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration.
-Your commits will be the trail of breadcrumbs you leave in your analysis that allow you to retrace your steps.
-Version control is about tracking **who** made **what** change and **why**.
-Your github account capture the **who**, your commit message should capture **what** was done and when it is not obvious from the commit message, also the **why**.
-If someone were to rerun the code committed, the message should describe what that code will do.
-
-Your messages should follow the guidance from the blog post, [seven rules of a great GIT commit message](https://chris.beams.io/posts/git-commit/), to construct your message.
-In this course we will be mainly using rules 3-5, but you might be interested in reading about the others.
-
--   Rule 3: Capitalize the subject line: **C**omplete Exercise 6
--   Rule 4: Do not end the subject line with a period
--   Rule 5: Use the imperative mood[^hw-01-pet-names-1] in the subject line: **Complete** Exercise 6
-
-In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use.
-As the semester progresses we will let you make these decisions.
-
-**Thought Exercise**: Why follow rules?
-Why can't I write whatever I want?[^hw-01-pet-names-2]
-
-## Step 3. Push
-
-Now that you have made an update and committed this change, it's time to push these changes to the web!
-Or more specifically, to your repo on GitHub.
-Why?
-So that others can see your changes.
-And by others, we mean the course teaching team (your repos in this course are private to you and us, only).
-In order to push your changes to GitHub, click on **Push**.
-
-```{r ready-to-push, fig.margin = TRUE, echo = FALSE, eval = TRUE}
-knitr::include_graphics("img/ready-to-push.png")
-```
-
-This will prompt a dialogue box where you first need to enter your user name, and then your personal access token (PAT).
-This might feel cumbersome.
-I recommended keeping your PAT somewhere handy on your computer like on a sticky note on your desktop so it is easy to access.
-
-**Thought exercise:** Which of the above steps (updating the YAML, committing, and pushing) needs to talk to GitHub?[^hw-01-pet-names-3]
+Throughout the assignment, use this same habit: **make a change, run your code, render the document, and check the result.**
 
 # Packages
 
@@ -280,14 +116,14 @@ In this assignment we will use the following packages:
 -   **openintro**: a package that contains the datasets from OpenIntro resources
 
 We use the `library()` function to load packages.
-In your R Markdown document you should see an R chunk labelled `load-packages` which has the necessary code for loading both packages.
+In your Quarto document you should see an R chunk labelled `load-packages` which has the necessary code for loading both packages.
 You should also load these packages in your Console, which you can do by sending the code to your Console by clicking on the **Run Current Chunk** icon (green arrow pointing right icon).
 
 ```{r load-packages-chunk, echo = FALSE, eval = TRUE, fig.align = "left"}
 knitr::include_graphics("img/load-packages-chunk.png")
 ```
 
-Note that these packages are also get loaded in your R Markdown environment when you **Knit** your R Markdown document.
+Note that these packages are also get loaded in your Quarto environment when you **Render** your Quarto document.
 
 # Data
 
@@ -297,7 +133,7 @@ The data used in this exercise can be found in the **openintro** package, and it
 Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
 
 You can view the dataset as a spreadsheet using the `View()` function.
-Note that you should not put this function in your R Markdown document, but instead type it directly in the Console, as it pops open a new window (and the concept of popping open a window in a static document doesn't really make sense...).
+Note that you should not put this function in your Quarto document, but instead type it directly in the Console, as it pops open a new window (and the concept of popping open a window in a static document doesn't really make sense...).
 When you run this in the console, you'll see the following **data viewer** window pop up.
 
 ```{r view-data}
@@ -318,11 +154,11 @@ The ✏️ symbol is a reminder to write a written response discussing the quest
 
 1.  ✏️ According to the data dictionary, how many pets are included in this dataset?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Complete Exercise 1", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Write your answer under Exercise 1 and render the document.*
 
 2.  ✏️ Again, according to the data dictionary, how many variables do we have for each pet?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Complete Exercise 2", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Write your answer under Exercise 2 and render the document.*
 
 3.  ✏️ What are the three most common pet names in Seattle? To do this you will need to count the frequencies of each pet name and display the results in descending order of frequency so that you can easily see the top three most popular names. The following code does exactly that. Don't just rely on the output, but write our your answer of what the three most common pet names are.
 
@@ -335,7 +171,7 @@ seattlepets |>
   count(animal_name, sort = TRUE)
 ```
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 3. In this exercise you will not only provide a written answer but also include some code and output. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Complete Exercise 3", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Complete the code in the code chunk provided, run the code to examine the output, and write your answer under Exercise 3. Then render the document and check that your code, output, and written response appear correctly.*
 
 Let's also look to see what the most common pet names are for various species.
 For this we need to first `group_by()` the `species`, and then do the same counting we did before.
@@ -379,7 +215,7 @@ seattlepets |>
 
 1.  ✏️ Based on the previous output we can easily identify the most common cat and dog names in Seattle, but the output is sorted by `n` (the frequencies) as opposed to being organized by the `species`. Build on the pipeline to arrange the results so that they're arranged by `species` first, and then `n`. This means you will need to add one more step to the pipeline, and you have two options: `arrange(species, n)` or `arrange(n, species)`. You should try both and discuss which one organizes the output by species and then ranks the names in order of frequency for each species.
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 4. In this exercise you're asked to complete the code provided for you. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Complete Exercise 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Complete the code in the code chunk provided, run the code to examine the output, and write your answer under Exercise 4. Then render the document and check that your code, output, and written response appear correctly.*
 
 The following visualization plots the proportion of dogs with a given name versus the proportion of cats with the same name.
 The 20 most common cat and dog names are displayed.
@@ -413,34 +249,32 @@ comb_name_props <- inner_join(cat_name_props, dog_name_props,
     
 # create viz
 ggplot(comb_name_props, aes(x = cat_prop, y = dog_prop)) +
-  geom_abline(intercept = 0, 
-              color = COL["lgray","full"], 
-              alpha = 0.8, 
-              size = 1.5) +
-  geom_text_repel(aes(label = animal_name), 
-                  segment.color = COL["gray","full"], 
-                  seed = 291252, max.iter = 10000) +
-  geom_point(color = COL["blue","full"], alpha = 0.8) +
+  geom_abline(
+    intercept = 0,
+    color = COL["lgray","full"],
+    alpha = 0.8,
+    size = 1.5
+  ) +
+  geom_text_repel(
+    aes(label = animal_name),
+    segment.color = COL["gray","full"],
+    seed = 291252,
+    max.iter = 10000
+  ) +
+  geom_point(
+    color = COL["blue","full"],
+    alpha = 0.8
+  ) +
   theme_minimal() +
-  labs(x = "Proportion of cats", y = "Proportion of dogs") +
+  labs(
+    x = "Proportion of cats",
+    y = "Proportion of dogs"
+  ) +
   xlim(0.002, 0.01) +
-  ylim(0.002, 0.01) +
-  ggimage::geom_emoji(
-      image = "1f436", aes(x = 0.003, y = 0.009), size = 0.1
-      ) +
-  ggimage::geom_emoji(
-      image = "1f431", aes(x = 0.009, y = 0.003), size = 0.1
-      )
+  ylim(0.002, 0.01)
 ```
 
-1.  ✏️ What names are more common for cats than dogs? The ones above the line or the ones below the line? Discuss.
-2.  ✏️ Is the relationship between the two variables (proportion of cats with a given name and proportion of dogs with a given name) positive or negative? What does this mean in context of the data? Discuss.
+1.  ✏️ What names are more common for cats than dogs? The ones above the line or the ones below the line? Explain your reasoning.
+2.  ✏️ Is the relationship between the two variables (proportion of cats with a given name and proportion of dogs with a given name) positive or negative? What does this mean in context of the data? Explain your reasoning.
 
-🧶 ✅ ⬆️ *Now is a good time to commit and push your changes to GitHub with an appropriate commit message (Verb first and present tense, e.g. Add X or Complete X). Commit and push all changed files so that your Git pane is cleared up afterwards. Make sure that your last push to the repo comes before the deadline. You should confirm that what you committed and pushed are indeed in your repo that we will see by visiting your repo on GitHub.*
-
-[^hw-01-pet-names-1]: Spoken or written as if giving a command or instruction, e.g. "Clean your room!"
-
-[^hw-01-pet-names-2]: There's nothing stopping you from writing what you want in a commit message.
-    Following shared rules and standards provide consistency and promote clarity and shared understanding allowing your future self and collaborators to understand what was done and why.
-
-[^hw-01-pet-names-3]: Only pushing requires talking to GitHub, this is why you're asked for your password at that point.
+🧶 ✅ *Render your document one final time. Review the rendered document to make sure all of your answers, code, output, and figures appear correctly before submitting your work.*

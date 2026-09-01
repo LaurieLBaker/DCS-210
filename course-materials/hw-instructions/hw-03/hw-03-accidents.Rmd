@@ -28,73 +28,80 @@ It covers all recorded accidents in Edinburgh in 2018 and some of the variables 
 
 # Getting started
 
-Click on the assignment link.
-On Github locate your homework repo, which should be named `hw-03-accidents-YOUR_GITHUB_USERNAME` or something similar.
-Grab the URL of the repo, and clone it in RStudio.
-First, open the R Markdown document `hw-03.Rmd` and Knit it.
-Make sure it compiles without errors.
-The output will be in the file markdown `.md` file with the same name.
+Open the project for this assignment in Posit.
+
+Open the R Markdown document `hw-03.Rmd` and **render** it before making any changes.
+Make sure it renders without errors.
+
+This first render is a useful check that the project, packages, data, and files are all working correctly.
 
 ## Warm up
 
-Before we introduce the data, let's warm up with some simple exercises.
+Before we introduce the data, let's warm up with a simple exercise.
 
--   Update the YAML, changing the author name to your name, and **knit** the document.
--   Commit your changes with a meaningful commit message.
--   Push your changes to GitHub.
--   Go to your repo on GitHub and confirm that your changes are visible in your Rmd **and** md files. If anything is missing, commit and push again.
+-   Update the YAML, changing the author name to your name.
+-   Render the document.
+-   Open the rendered document and confirm that your name appears correctly.
+
+🧶 ✅ *Throughout this assignment, remember to render your document regularly. After rendering, check the output to make sure your code, figures, and written responses appear as you expect.*
 
 ## Packages
 
-We'll use the **tidyverse** package for much of the data wrangling and visualization and the data lives in the **dsbox** package.
+We'll use the **tidyverse** package for much of the data wrangling and visualization.
 
-You can load them by running the following in your Console:
+You can load them by running the following:
 
 ```{r load-packages, message = FALSE}
-#install.packages("tidyverse")
 library(tidyverse)
-# install.packages("devtools")
-#library(devtools)
-#devtools::install_github("rstudio-education/dsbox")
-library(dsbox)
 ```
 
-Note, if the above code does not run, you will want to uncomment (remove the \#) and install the required packages.
-You will then want to recommend (add the \#) so that the package does not get installed everytime you knit.
+If a package is not installed, run the appropriate `install.packages()` command in your **Console**.
+
+For example:
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+```
+
+You only need to install a package once.
+Do not put `install.packages()` commands in the code you render for your assignment.
 
 ## Data
 
-The data can be found in the **dsbox** package, and it's called `accidents`.
-Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
-You can find out more about the dataset by inspecting its documentation, which you can access by running `?accidents` in the Console or using the Help menu in RStudio to search for `accidents`.
-You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/accidents.html).
-
-Occasionally RStudio Cloud and Github have trouble connecting.
-So the dataset is also in the folder and can be loaded using this code instead.
+Our data is included with the assignment and can be loaded directly using:
 
 ```{r load-data, eval = FALSE}
-
 accidents <- read_csv("accidents.csv")
-
 ```
+
+You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/accidents.html).
 
 # Exercises
 
 1.  ✏️ How many observations (rows) does the dataset have? Instead of hard coding the number in your answer, use inline code.
 
 ```{marginfigure}
-**Hint:** The Markdown Quick Reference sheet has an example of inline R code that might be helpful. You can access it from the Help menu in RStudio. It is also referenced in this section of the [RMarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html).
+**Hint:** The Markdown Quick Reference sheet has an example of inline R code that might be helpful. You can access it from the Help menu in RStudio. It is also referenced in this section of the [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html).
 ```
 
 2.  ✏️ Run `View(accidents)` in your Console to view the data in the data viewer. What does each row in the dataset represent?
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Write your answers under Exercises 1 and 2, then render the document. Check that your written responses appear correctly and that the inline R code in Exercise 1 displays a number rather than code.*
 
-3.  Recreate the following plot, and describe the patterns you see in traffic accidents in the context of the data. In your answer, don't forget to label your R chunk as well (where it says `label-me-1`). Your label should be short, informative, shouldn't include spaces, and **shouldn't** repeat a previous label.
+3.  ✏️ Recreate the following plot, and describe the patterns you see in traffic accidents in the context of the data.
+
+In your answer, don't forget to label your R chunk as well (where it says `label-me-1`).
+Your label should be short, informative, shouldn't include spaces, and **shouldn't** repeat a previous label.
 
 ```{r eval = TRUE, echo = FALSE, fig.fullwidth = TRUE}
 accidents |>
-  mutate(day_of_week_type = if_else(day_of_week %in% c("Saturday", "Sunday"), "Weekend", "Weekday")) |>
+  mutate(
+    day_of_week_type = if_else(
+      day_of_week %in% c("Saturday", "Sunday"),
+      "Weekend",
+      "Weekday"
+    )
+  ) |>
   ggplot(aes(x = time, fill = severity)) +
   geom_density(alpha = 0.5) +
   facet_wrap(~day_of_week_type, ncol = 1) +
@@ -109,8 +116,13 @@ accidents |>
   )
 ```
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+🧶 ✅ *Complete the code for Exercise 3 and write your interpretation underneath it. Render the document and check that the figure appears correctly, your chunk has a unique label, and your written response describes the patterns you see in context.*
 
-4.  ✏️ Create another data visualisation based on these data and interpret it. You can choose any variables and any type of visualisation you like, but it must have at least three variables, e.g. a scatterplot of x vs. y isn't enough, but if points are coloured by z, that's fine. In your answer, don't forget to label your R chunk as well (where it says `label-me-2`).
+4.  ✏️ Create another data visualization based on these data and interpret it.
 
-🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work. Check also the self checklist in your Github Readme to check to see if you missed a solution or interpretation that was expected on your lab/hw.*
+You can choose any variables and any type of visualization you like, but it must include at least three variables.
+For example, a scatterplot of `x` versus `y` isn't enough, but if the points are colored by a third variable, that would meet the requirement.
+
+In your answer, don't forget to label your R chunk as well (where it says `label-me-2`).
+
+🧶 ✅ *Complete your visualization and written interpretation for Exercise 4. Then render your document one final time. Read through the rendered document from beginning to end and make sure all code runs, both figures appear correctly. Check you script file to make sure your chunk labels are unique, and every exercise marked with ✏️ includes a written response before you submit your work in the Learning Management System.*
