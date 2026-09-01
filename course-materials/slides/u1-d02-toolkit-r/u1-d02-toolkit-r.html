@@ -35,55 +35,6 @@ class: center, middle, inverse, title-slide
 
 
 
-## Data science
-
-.pull-left-wide[
-- Data science is an exciting discipline that allows you to turn data into understanding, insight, and knowledge. 
-
-- We're going to learn to do this in a `tidy` way -- more on that later!
-
-- This is a course on programming for analysis and visualization, with an emphasis on statistical thinking.
-]
-
----
-
-## Course FAQ
-
-.pull-left-wide[
-**Q - What data science/programming background does this course assume?**  
-A - None.
-
-**Q - Is this an intro stat course?**  
-A - While statistics `\(\ne\)` data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is *not* your typical high school statistics course and there is a greater emphasis on data visualization.
-
-**Q - Will we be doing computing?**   
-A - Yes.
-]
-
----
-
-## Course Schedule
-
-- .pink[**Tuesday**]: Topic Intro
-- .pink[**Thursday**]: Topic Intro Lab
-- .pink[**Help Sessions**]: Hathorn 106 and PLC
-
----
-# One link to rule them all...
-
-... where you can find everything except your course grades!
-
-[https://bates-dataviz.netlify.app/](https://bates-dataviz.netlify.app/)
-
-Bookmark the link!
-
-???
-This link is going to have everything but your course grades. It will link you to the relevant places including lyceum.
-
-The course material will be released on a weekly basis, this is so that you can take a look at the week ahead. There are links to videos, readings and others. I try to keep these links up to date but I may occasionally miss something and I'd love to hear from you if you have trouble.
-
----
-
 class: middle
 
 # Software
@@ -185,10 +136,10 @@ That last step is communicating your results and finding.
   - .pink[R]
   - .pink[Posit]
   - .pink[tidyverse]
-  - .pink[R Markdown]
-- .gray[Version control and collaboration:]
-  - .gray[Git]
-  - .gray[GitHub]
+  - .pink[Quarto]
+&lt;!-- - .gray[Version control and collaboration:] --&gt;
+&lt;!--   - .gray[Git] --&gt;
+&lt;!--   - .gray[GitHub] --&gt;
 ]
 
 ---
@@ -211,7 +162,7 @@ By the end of the course, you will be able to...
 - gain insight from data, reproducibly **and collaboratively**, using modern programming tools and techniques
 
 --
-- gain insight from data, reproducibly **(with literate programming and version control)** and collaboratively, using modern programming tools and techniques
+- gain insight from data, reproducibly **(with literate programming)** and collaboratively, using modern programming tools and techniques
 
 ---
 
@@ -245,8 +196,8 @@ Long-term goals:
 ## Toolkit for reproducibility
 
 - Scriptability `\(\rightarrow\)` .pink[R]
-- Literate programming (code, narrative, output in one place) `\(\rightarrow\)` .pink[R Markdown]
-- Version control `\(\rightarrow\)` .pink[Git / GitHub]
+- Literate programming (code, narrative, output in one place) `\(\rightarrow\)` .pink[R Markdown/Quarto and Quarto]
+&lt;!-- - Version control `\(\rightarrow\)` .pink[Git / GitHub] --&gt;
 
 ---
 
@@ -356,15 +307,15 @@ dataframe$var_name
 
 ---
 
-## rmarkdown
+## rmarkdown and quarto
 
 .pull-left[
 .center[.large[
 [rmarkdown.rstudio.com](https://rmarkdown.rstudio.com/)
 ]]
 
-- **rmarkdown** and the various packages that support it enable R users to write their code and prose in reproducible computational documents
-- We will generally refer to R Markdown documents (with `.Rmd` extension), e.g. *"Do this in your R Markdown document"* and rarely discuss loading the rmarkdown package
+- **rmarkdown** and **quarto** and the various packages that support it enable R users to write their code and prose in reproducible computational documents
+- We will generally refer to R Markdown/Quarto documents (with `.Rmd` extension) and Quarto documents (with `.qmd` extension)
 ]
 
 .pull-right[
@@ -375,20 +326,20 @@ dataframe$var_name
 
 class: middle
 
-# R Markdown
+# R Markdown/Quarto
 
 ---
 
 
-## R Markdown
+## R Markdown/Quarto
 
-- Fully reproducible reports -- each time you knit the analysis is ran from the beginning
+- Fully reproducible reports -- each time you render the analysis is ran from the beginning
 - Simple markdown syntax for text
 - Code goes in chunks, defined by three backticks, narrative goes outside of chunks
 
 ---
 
-## Tour: R Markdown
+## Tour: R Markdown/Quarto and Quarto
 
 &lt;img src="img/tour-rmarkdown.png" width="90%" style="display: block; margin: auto;" /&gt;
 
@@ -397,11 +348,11 @@ class: middle
 ## Environments
 
 .tip[
-The environment of your R Markdown document is separate from the Console!
+The environment of your R Markdown/Quarto/Quarto document is separate from the Console!
 ]
 
 Remember this, and expect it to bite you a few times as you're learning to work 
-with R Markdown!
+with R Markdown/Quarto/Quarto!
 
 ---
 
@@ -426,7 +377,7 @@ All looks good, eh?
 --
 
 .pull-right[
-Then, add the following in an R chunk in your R Markdown document
+Then, add the following in an R chunk in your R Markdown/Quarto document
 
 .small[
 
@@ -442,11 +393,11 @@ What happens? Why the error?
 
 ---
 
-## R Markdown help
+## R Markdown/Quarto help
 
 .pull-left[
 .center[
-.midi[R Markdown Cheat Sheet  
+.midi[R Markdown/Quarto Cheat Sheet  
 `Help -&gt; Cheatsheets`]
 ]
 &lt;img src="img/rmd-cheatsheet.png" width="80%" style="display: block; margin: auto;" /&gt;
@@ -461,10 +412,10 @@ What happens? Why the error?
 
 ---
 
-## How will we use R Markdown?
+## How will we use R Markdown/Quarto/Quarto?
 
-- Every assignment / report / project / etc. is an R Markdown document
-- You'll always have a template R Markdown document to start with
+- Every assignment / report / project / etc. is an R Markdown/Quarto document
+- You'll always have a template R Markdown/Quarto document to start with
 - The amount of scaffolding in the template will decrease over the semester
 
 ---
@@ -480,10 +431,10 @@ Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.co
 ---
 
 .your-turn[
-.light-blue[.hand[Your turn:]] `AE 02 - Bechdel + R Markdown`
+.light-blue[.hand[Your turn:]] `AE 02 - Bechdel + R Markdown/Quarto`
 - [The Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
-- Go to [PositCloud](https://posit.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
-- Open and knit the R Markdown document `bechdel.Rmd`, review the document, and fill in the blanks.
+- Go to [PositCloud](https://posit.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown/Quarto`. 
+- Open and knit the R Markdown/Quarto document `bechdel.Rmd`, review the document, and fill in the blanks.
 ]
 
 ---

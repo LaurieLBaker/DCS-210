@@ -107,7 +107,7 @@ About Me
 
 # Influence of target species on fishing effort
 
-```{r echo=FALSE, out.width="80%", fig.align="center", fig.cap = "Woman on boat holding a fish and a crab"}
+```{r echo=FALSE, out.width="70%", fig.align="center", fig.cap = "Me as an undergraduate holding a pink cusk-eel and a centolla"}
 knitr::include_graphics("img/congrio_centolla.jpg")
 ```
 
@@ -115,14 +115,14 @@ knitr::include_graphics("img/congrio_centolla.jpg")
 
 # Grey Seal Movement off Nova Scotia
 
-```{r echo=FALSE, out.width="65%", fig.align="center", fig.cap = "Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back"}
+```{r echo=FALSE, out.width="55%", fig.align="center", fig.cap = "Grey seal (Halichoerus grypus) with GPS tag on back of neck and acoustic tag on back"}
 knitr::include_graphics("img/grey_seal.jpg")
 ```
 
 ---
 # Grey Seal Movement off Nova Scotia
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d367544.6964222735!2d-60.215552395501966!3d43.97088868870316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b4689632ca41c27%3A0xfcd36f09136414e!2sSable%20Island!5e0!3m2!1sen!2sus!4v1630508253565!5m2!1sen!2sus" width="1000" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d367544.6964222735!2d-60.215552395501966!3d43.97088868870316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b4689632ca41c27%3A0xfcd36f09136414e!2sSable%20Island!5e0!3m2!1sen!2sus!4v1630508253565!5m2!1sen!2sus" width="1000" height="460" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
 
@@ -130,7 +130,7 @@ knitr::include_graphics("img/grey_seal.jpg")
 
 # Spread and control of fox rabies in Europe
 
-```{r echo=FALSE, out.width="60%", fig.align="center", fig.cap = "Map showing rabies retreat from Western Europe"}
+```{r echo=FALSE, out.width="55%", fig.align="center", fig.cap = "Map showing rabies retreat from Western Europe"}
 knitr::include_graphics("img/rabies_retreat.png")
 ```
 
@@ -142,22 +142,23 @@ knitr::include_graphics("img/rabies_retreat.png")
 ---
 # Coding Mitten Patterns
 
-<iframe src="https://laurielbaker.github.io/coded-mittens/selbu_mitten_generator.html" width="1016" height="516" frameBorder="0"></iframe>
+<iframe src="https://laurie-the-student-baker.shinyapps.io/Coded-Mittens/_w_d0c6afa82e0f46ff9956a2e0aa2416a6/#tab-2553-2" width="1016" height="516" frameBorder="0"></iframe>
 
 ---
 
 # Introductions
 
-
-```{r echo=FALSE, out.width="50%", fig.cap = "Image Credit: R monster mascots by @Allison Horst", fig.align="left"}
-knitr::include_graphics("img/avatar.jpg")
+.pull-left[
+```{r echo=FALSE, out.width="65%", fig.cap = "Jamie starting solids!", fig.align="left"}
+knitr::include_graphics("img/jamie-solids.jpg")
 ```
 
-
+]
+.pull-right[
 * Name (and pronouns if you want to share)
 * Option 1: Something you recently taught yourself how to do
 * Option 2: What item you'd be most excited to find in the free box?
-
+]
 ---
 
 # Activity
