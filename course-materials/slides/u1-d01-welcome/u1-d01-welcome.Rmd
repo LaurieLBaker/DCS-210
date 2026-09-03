@@ -134,17 +134,17 @@ knitr::include_graphics("img/grey_seal.jpg")
 knitr::include_graphics("img/rabies_retreat.png")
 ```
 
----
-# Creating open source learning resources
+<!-- --- -->
+<!-- # Creating open source learning resources -->
 
-<iframe src="https://andysouth.shinyapps.io/intro-to-spatial-r/" width="1016" height="516" frameBorder="0"></iframe>
+<!-- <iframe src="https://andysouth.shinyapps.io/intro-to-spatial-r/" width="1016" height="516" frameBorder="0"></iframe> -->
 
----
-# Coding Mitten Patterns
+<!-- --- -->
+<!-- # Coding Mitten Patterns -->
 
-<iframe src="https://laurie-the-student-baker.shinyapps.io/Coded-Mittens/_w_d0c6afa82e0f46ff9956a2e0aa2416a6/#tab-2553-2" width="1016" height="516" frameBorder="0"></iframe>
+<!-- <iframe src="https://laurie-the-student-baker.shinyapps.io/Coded-Mittens/_w_d0c6afa82e0f46ff9956a2e0aa2416a6/#tab-2553-2" width="1016" height="516" frameBorder="0"></iframe> -->
 
----
+<!-- --- -->
 
 # Introductions
 
@@ -161,20 +161,20 @@ knitr::include_graphics("img/jamie-solids.jpg")
 ]
 ---
 
-# Activity
+<!-- # Activity -->
 
-## Part 1: Get to know one another
+<!-- ## Part 1: Get to know one another -->
 
-* Walk around the room and find three people
-* Re-introduce yourselves to your group
-* Find something you all have in common
-* Continue on until you have formed three groups.
+<!-- * Walk around the room and find three people -->
+<!-- * Re-introduce yourselves to your group -->
+<!-- * Find something you all have in common -->
+<!-- * Continue on until you have formed three groups. -->
 
-## Part 2: What is this course going to look like?
+<!-- ## Part 2: What is this course going to look like? -->
 
-## Part 3: Open Questions
+<!-- ## Part 3: Open Questions -->
 
----
+<!-- --- -->
 
 ## Data science
 
