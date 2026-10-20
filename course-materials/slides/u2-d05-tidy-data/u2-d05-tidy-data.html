@@ -143,15 +143,15 @@ Source: [US Census Fact Finder, General Economic Characteristics, ACS 2017](http
 .pull-left[
 
 ``` r
-starwars %&gt;%
+starwars |&gt;
   select(name, height, mass)
 ```
 ]
 .pull-right[
 
 ``` r
-starwars %&gt;%
-  group_by(gender) %&gt;%
+starwars |&gt;
+  group_by(gender) |&gt;
   summarize(
     avg_ht = mean(height, na.rm = TRUE)
     )
@@ -171,10 +171,10 @@ starwars %&gt;%
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightLines": true,
-"highlightStyle": "solarized-light",
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightLines": true,
+  "highlightStyle": "solarized-light",
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

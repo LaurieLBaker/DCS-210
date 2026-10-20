@@ -1,6 +1,6 @@
 ---
 title: "Working with multiple data frames"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:
@@ -47,7 +47,7 @@ Information on 10 women in science who changed the world
 
 .small[
 ```{r echo=FALSE}
-professions %>% select(name) %>% kable()
+professions |> select(name) |> kable()
 ```
 ]
 
@@ -87,8 +87,8 @@ works
 ## Desired output
 
 ```{r echo=FALSE}
-professions %>%
-  left_join(dates) %>%
+professions |>
+  left_join(dates) |>
   left_join(works)
 ```
 
@@ -183,7 +183,7 @@ left_join(x, y)
 ## `left_join()`
 
 ```{r}
-professions %>%
+professions |>
   left_join(dates) #<<
 ```
 
@@ -208,7 +208,7 @@ right_join(x, y)
 
 
 ```{r}
-professions %>%
+professions |>
   right_join(dates) #<<
 ```
 
@@ -232,7 +232,7 @@ full_join(x, y)
 ## `full_join()`
 
 ```{r}
-dates %>%
+dates |>
   full_join(works) #<<
 ```
 
@@ -256,7 +256,7 @@ inner_join(x, y)
 ## `inner_join()`
 
 ```{r}
-dates %>%
+dates |>
   inner_join(works) #<<
 ```
 
@@ -280,7 +280,7 @@ semi_join(x, y)
 ## `semi_join()`
 
 ```{r}
-dates %>%
+dates |>
   semi_join(works) #<<
 ```
 
@@ -304,7 +304,7 @@ anti_join(x, y)
 ## `anti_join()`
 
 ```{r}
-dates %>%
+dates |>
   anti_join(works) #<<
 ```
 
@@ -313,8 +313,8 @@ dates %>%
 ## Putting it altogether
 
 ```{r}
-professions %>%
-  left_join(dates) %>%
+professions |>
+  left_join(dates) |>
   left_join(works)
 ```
 
@@ -359,21 +359,21 @@ survey
 
 .panel[.panel-name[In class]
 ```{r}
-enrolment %>% 
+enrolment |> 
   left_join(survey, by = "id") #<<
 ```
 ]
 
 .panel[.panel-name[Survey missing]
 ```{r}
-enrolment %>% 
+enrolment |> 
   anti_join(survey, by = "id") #<<
 ```
 ]
 
 .panel[.panel-name[Dropped]
 ```{r}
-survey %>% 
+survey |> 
   anti_join(enrolment, by = "id") #<<
 ```
 ]
@@ -422,14 +422,14 @@ prices
 .panel[.panel-name[Total revenue]
 .pull-left[
 ```{r}
-purchases %>% 
+purchases |> 
   left_join(prices) #<<
 ```
 ]
 .pull-right[
 ```{r}
-purchases %>% 
-  left_join(prices) %>%
+purchases |> 
+  left_join(prices) |>
   summarise(total_revenue = sum(price)) #<<
 ```
 ]
@@ -439,15 +439,15 @@ purchases %>%
 
 .pull-left[
 ```{r}
-purchases %>% 
+purchases |> 
   left_join(prices)
 ```
 ]
 .pull-right[
 ```{r}
-purchases %>% 
-  left_join(prices) %>%
-  group_by(customer_id) %>% #<<
+purchases |> 
+  left_join(prices) |>
+  group_by(customer_id) |> #<<
   summarise(total_revenue = sum(price))
 ```
 ]
