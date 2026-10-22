@@ -11,7 +11,7 @@ library(dsbox)
 
 # non-xaringan -----------------------------------------------------------------
 
-rmds <- dir_info(recurse = 3, glob = "course-materials/hw-instructions/hw-01/hw-01-pet-names.Rmd") %>% 
+rmds <- dir_info(recurse = 3, glob = "course-materials/hw-instructions/hw-05/hw-05-legos.Rmd") %>% 
   filter(!str_detect(path, "slides")) %>%
   pull(path)
 walk(rmds, render)

@@ -47,7 +47,6 @@ Before we introduce the data, let's warm up with a simple exercise.
 
 ```{r load-packages, message = FALSE}
 library(tidyverse)
-library(dsbox)
 ```
 
 If one of these packages is not installed, run the appropriate `install.packages()` command in your **Console**.
@@ -63,13 +62,9 @@ Do not put `install.packages()` commands in the code you render for your assignm
 
 ## Data
 
-The data can be found in the **dsbox** package, and it's called `lego_sales`.
+The data is in the data folder and is called `lego_sales`.
 
-Since the dataset is distributed with the package, we don't need to load it separately; it becomes available when we load the package.
-
-You can find out more about the dataset by inspecting its documentation, which you can access by running `?lego_sales` in the Console or using the Help menu in RStudio to search for `lego_sales`.
-
-You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/lego_sales.html).
+You can also find information about the data on the [tidyverse github](https://tidyverse.github.io/dsbox/reference/lego_sales.html).
 
 # Exercises
 
