@@ -1,6 +1,6 @@
 ---
 title: "Tidying data"
-subtitle: "<br><br> College of the Atlantic"
+subtitle: "<br><br> Bates College"
 author: ""
 output:
   xaringan::moon_reader:
@@ -56,7 +56,7 @@ customers
 .pull-right[
 ### .pink[We want...]
 ```{r echo=FALSE}
-customers %>%
+customers |>
   pivot_longer(cols = item_1:item_3, names_to = "item_no", values_to = "item")
 ```
 ]
@@ -120,7 +120,7 @@ customers
 ### .pink[longer]
 more rows
 ```{r echo=FALSE}
-customers %>%
+customers |>
   pivot_longer(cols = item_1:item_3, names_to = "item_no", values_to = "item")
 ```
 ]
@@ -208,7 +208,7 @@ pivot_longer(
 ## Customers $\rightarrow$ purchases
 
 ```{r}
-purchases <- customers %>%
+purchases <- customers |>
   pivot_longer( #<<
     cols = item_1:item_3,  # variables item_1 to item_3 #<<
     names_to = "item_no",  # column names -> new column called item_no #<<
@@ -233,7 +233,7 @@ prices
 ]
 .pull-right[
 ```{r}
-purchases %>%
+purchases |>
   left_join(prices) #<<
 ```
 ]
@@ -249,7 +249,7 @@ purchases %>%
 ]
 .pull-right-wide[
 ```{r}
-purchases %>%
+purchases |>
   pivot_wider( #<<
     names_from = item_no, #<<
     values_from = item #<<
@@ -291,12 +291,12 @@ trump
 
 .pull-left-wide[
 ```{r echo=FALSE, out.width="100%"}
-trump %>%
+trump |>
   pivot_longer(
     cols = c(approval, disapproval),
     names_to = "rating_type",
     values_to = "rating_value"
-  ) %>%
+  ) |>
   ggplot(aes(x = date, y = rating_value, 
              color = rating_type, group = rating_type)) +
   geom_line() +
@@ -329,7 +329,7 @@ trump %>%
 ## Pivot
 
 ```{r output.lines=11}
-trump_longer <- trump %>%
+trump_longer <- trump |>
   pivot_longer(
     cols = c(approval, disapproval),
     names_to = "rating_type",
