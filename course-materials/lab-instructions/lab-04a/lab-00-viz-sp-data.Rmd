@@ -122,7 +122,7 @@ We know exactly which states are in the US, and we have this information in the 
 ```
 
 ```{r}
-dennys %>%
+dennys |>
   filter(!(state %in% states$abbreviation))
 ```
 
@@ -133,7 +133,7 @@ We don't need to tell R how many times to repeat the character string "United St
 ```
 
 ```{r}
-dennys %>%
+dennys |>
   mutate(country = "United States")
 ```
 
@@ -147,7 +147,7 @@ dennys %>%
     Here is some starter code to get you going:
 
 ```{r eval = FALSE}
-laquinta %>%
+laquinta |>
   mutate(country = case_when(
     state %in% state.abb     ~ "United States",
     state %in% c("ON", "BC") ~ "Canada",
@@ -163,7 +163,7 @@ All Denny's locations are in the United States, so we don't need to worry about 
 However we do need to filter the La Quinta dataset for locations in United States.
 
 ```{r}
-laquinta <- laquinta %>%
+laquinta <- laquinta |>
   filter(country == "United States")
 ```
 
@@ -178,8 +178,8 @@ However note that the variables in the `states` data frame that has the two-lett
 So when we're joining the two data frames we specify that the `state` variable from the Denny's data should be matched `by` the `abbreviation` variable from the `states` data:
 
 ```{r}
-dennys %>%
-  count(state) %>%
+dennys |>
+  count(state) |>
   inner_join(states, by = c("state" = "abbreviation"))
 ```
 
@@ -193,9 +193,9 @@ However before we do so, we need to add an identifier variable.
 We'll call this `establishment` and set the value to `"Denny's"` and `"La Quinta"` for the `dn` and `lq` data frames, respectively.
 
 ```{r}
-dennys <- dennys %>%
+dennys <- dennys |>
   mutate(establishment = "Denny's")
-laquinta <- laquinta %>%
+laquinta <- laquinta |>
   mutate(establishment = "La Quinta")
 ```
 

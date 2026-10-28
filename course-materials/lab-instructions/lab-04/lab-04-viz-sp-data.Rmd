@@ -74,23 +74,19 @@ Before we introduce the data:
 
 ## Packages
 
-We'll use the **tidyverse** package for much of the data wrangling and visualisation and the **dsbox** package for the Denny's and La Quinta datasets.
+We'll use the **tidyverse** package for much of the data wrangling and visualisation.
 
 These packages are already installed for you.
 
 ```{r}
 #| message: false
 library(tidyverse)
-library(dsbox)
 ```
 
 ## Data
 
 The datasets we'll use are called `dennys` and `laquinta` from the **dsbox** package.
 These data were scraped from [Denny's](https://locations.dennys.com/) and [La Quinta](https://www.lq.com/en/findandbook/hotel-listings.html), respectively.
-
-Since the datasets are distributed with the package, they become available when we load **dsbox**.
-You can find out more about the datasets by running `?dennys` and `?laquinta` in the Console or by using the Help pane in RStudio.
 
 For this lab, we'll save shorter versions of the dataset names to use in our code:
 
@@ -123,8 +119,8 @@ Along with the name of the state, we have the two-letter abbreviation and the ge
 
 We would like to limit our analysis to Denny's and La Quinta locations in the United States.
 
-3.  ✏️ Take a look at the websites that the data come from, linked above.
-    Are there any La Quinta locations outside of the US?
+3.  ✏️Spend only a few minutes on this question.
+    Do a quick google search .Are there any La Quinta locations outside of the US?
     If so, which countries?
     What about Denny's?
 
